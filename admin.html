@@ -266,6 +266,7 @@
     .ck-btn.active { background: var(--text); color: #09090b; border-color: transparent; }
     .ck-btn:disabled { opacity: .5; }
     .gw-grid { display: flex; flex-direction: column; gap: 10px; padding: 4px 0 8px; }
+    .gw-grid--projeto2 { max-width: 520px; }
     .gw-option {
       display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px;
       padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px;
@@ -699,8 +700,22 @@
               <h2>Gateway ativo</h2>
               <span id="gw-active-badge">—</span>
             </div>
-            <div class="gw-grid gw-grid--projeto2" id="gw-options"></div>
+            <div class="gw-grid gw-grid--projeto2" id="gw-options">
+              <div class="gw-option" data-gw="ironpay" id="gw-card-ironpay">
+                <strong>Iron Pay</strong>
+                <span class="gw-tag ok">API no Render</span>
+                <span class="gw-tag live" id="gw-live-ironpay" hidden>ATIVO AGORA</span>
+                <button class="ck-btn" type="button" data-gw-use="ironpay">Usar este gateway</button>
+              </div>
+              <div class="gw-option" data-gw="purincash" id="gw-card-purincash">
+                <strong>PurinCash</strong>
+                <span class="gw-tag ok">API no Render</span>
+                <span class="gw-tag live" id="gw-live-purincash" hidden>ATIVO AGORA</span>
+                <button class="ck-btn" type="button" data-gw-use="purincash">Usar este gateway</button>
+              </div>
+            </div>
             <p class="pixel-status" id="gw-status"></p>
+            <p class="pixel-status" id="gw-api-hint" style="font-size:11px;color:var(--muted);margin-top:6px"></p>
           </div>
           <p class="page-desc" style="margin-top:16px;font-size:13px;color:var(--muted)">
             Render: <code>IRONPAY_API_TOKEN</code>, <code>IRONPAY_PRODUCT_HASH</code>, <code>IRONPAY_OFFER_HASH</code>, <code>PURINCASH_API_KEY</code>.
@@ -982,7 +997,7 @@
     </div>
   </div>
 
-  <script src="/js/ttk-api-config.js?v=20260806ofertasdemulher"></script>
+  <script src="/js/ttk-api-config.js?v=20260806gw2"></script>
   <script>
     (function () {
       var TOKEN_KEY = "admin_token";
@@ -990,10 +1005,7 @@
       /* No Vercel o admin.html é estático — API/webhook ficam no achadofertas. */
       var API_BASE = (function () {
         try {
-          var fromCfg = String((window.TTK_RENDER_API || "")).replace(/\/$/, "");
-          if (fromCfg) return fromCfg;
           var h = String(location.hostname || "").toLowerCase();
-          if (h.endsWith(".onrender.com")) return "";
           if (
             h.indexOf("ofertasdemulher") !== -1 ||
             h.indexOf("projeto-dois") !== -1 ||
@@ -1001,6 +1013,9 @@
           ) {
             return "https://ttkshop-projeto2.onrender.com";
           }
+          var fromCfg = String((window.TTK_RENDER_API || "")).replace(/\/$/, "");
+          if (fromCfg) return fromCfg;
+          if (h.endsWith(".onrender.com")) return "";
         } catch (e) {}
         return "";
       })();
@@ -1467,45 +1482,41 @@
       }
 
       function renderPaymentGatewayOptions() {
-        var list = document.getElementById("gw-options");
         var badge = document.getElementById("gw-active-badge");
-        if (!list || !gwState) return;
+        var hint = document.getElementById("gw-api-hint");
+        if (!gwState) return;
         var active = gwState.active || "";
-        var allowed = { ironpay: true, purincash: true };
         var src = gwState.source || "";
+        var apiLbl = API_BASE || window.location.origin;
+        if (hint) {
+          hint.textContent =
+            "API deste painel: " +
+            apiLbl +
+            (apiLbl.indexOf("projeto2") !== -1 ? " (projeto 2)" : " — ATENÇÃO: não é projeto 2!");
+        }
         var srcLbl =
           src === "admin"
             ? "painel"
             : src === "env"
               ? "env Render"
               : "automático";
+        var labels = { ironpay: "Iron Pay", purincash: "PurinCash" };
         if (badge) {
-          badge.textContent =
-            (gwState.options || [])
-              .filter(function (o) { return o.id === active; })
-              .map(function (o) { return o.label; })[0] || active || "—";
-          badge.textContent += " · " + srcLbl;
+          badge.textContent = (labels[active] || active || "—") + " · " + srcLbl;
         }
-        list.innerHTML = (gwState.options || [])
-          .filter(function (o) { return allowed[o.id]; })
-          .map(function (o) {
-            var isActive = o.id === active;
-            var cfgTag = o.configured
-              ? '<span class="gw-tag ok">API no Render</span>'
-              : '<span class="gw-tag warn">sem chave no Render</span>';
-            var liveTag = isActive ? '<span class="gw-tag live">ATIVO AGORA</span>' : "";
-            return (
-              '<div class="gw-option' + (isActive ? " active" : "") + '" data-gw="' + o.id + '">' +
-              "<strong>" + escapeHtml(o.label) + "</strong>" +
-              cfgTag +
-              liveTag +
-              '<button class="ck-btn' + (isActive ? " active" : "") + '" type="button" data-gw-use="' + o.id + '"' +
-              (isActive ? " disabled" : "") + ">" +
-              (isActive ? "Em uso" : "Usar este gateway") +
-              "</button></div>"
-            );
-          })
-          .join("");
+        ["ironpay", "purincash"].forEach(function (id) {
+          var card = document.getElementById("gw-card-" + id);
+          var live = document.getElementById("gw-live-" + id);
+          var btn = card && card.querySelector("[data-gw-use]");
+          var isActive = id === active;
+          if (card) card.classList.toggle("active", isActive);
+          if (live) live.hidden = !isActive;
+          if (btn) {
+            btn.disabled = isActive;
+            btn.textContent = isActive ? "Em uso" : "Usar este gateway";
+            btn.classList.toggle("active", isActive);
+          }
+        });
       }
 
       function loadPaymentGatewayAdmin() {
