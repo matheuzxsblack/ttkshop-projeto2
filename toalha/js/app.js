@@ -83,11 +83,11 @@
   /* No Vercel a loja é estática; API/webhook vivem no Render (mesmo backend das panelas). */
   var API_BASE = (function () {
     try {
+      var fromCfg = String(window.TTK_RENDER_API || "").replace(/\/$/, "");
+      if (fromCfg) return fromCfg;
       var h = String(location.hostname || "").toLowerCase();
-      var renderApi = "https://ttkshop-panelas-9e6w.onrender.com";
-      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return renderApi;
-      if (h === "ofertasonlineshop.vercel.app" || h === "grandesofertas.vercel.app" || /\.vercel\.app$/.test(h)) {
-        return renderApi;
+      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") {
+        return "https://ttkshop-panelas-9e6w.onrender.com";
       }
     } catch (e) {}
     return "";

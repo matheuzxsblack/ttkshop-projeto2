@@ -982,7 +982,7 @@
     </div>
   </div>
 
-  <script src="/js/ttk-api-config.js?v=20260806projeto2"></script>
+  <script src="/js/ttk-api-config.js?v=20260806ofertasdemulher"></script>
   <script>
     (function () {
       var TOKEN_KEY = "admin_token";
@@ -990,16 +990,16 @@
       /* No Vercel o admin.html é estático — API/webhook ficam no achadofertas. */
       var API_BASE = (function () {
         try {
-          var h = String(location.hostname || "").toLowerCase();
-          if (h === "localhost" || h === "127.0.0.1") return "";
-          if (h.endsWith(".onrender.com")) return "";
           var fromCfg = String((window.TTK_RENDER_API || "")).replace(/\/$/, "");
           if (fromCfg) return fromCfg;
-          if (/\.vercel\.app$/.test(h)) {
-            if (h.indexOf("projeto-dois") !== -1 || h.indexOf("projeto2") !== -1) {
-              return "https://ttkshop-projeto2.onrender.com";
-            }
-            return "https://ttkshop-panelas-9e6w.onrender.com";
+          var h = String(location.hostname || "").toLowerCase();
+          if (h.endsWith(".onrender.com")) return "";
+          if (
+            h.indexOf("ofertasdemulher") !== -1 ||
+            h.indexOf("projeto-dois") !== -1 ||
+            h.indexOf("projeto2") !== -1
+          ) {
+            return "https://ttkshop-projeto2.onrender.com";
           }
         } catch (e) {}
         return "";
