@@ -12,10 +12,17 @@
     "updatedAt": "2026-08-06T17:10:00.000Z"
   },
   "toalha": {
-    "pixels": [],
+    "pixels": [
+      {
+        "id": "D9QG2SJC77U7MOU0SF40",
+        "label": "Principal",
+        "accessToken": "60643e919ca0ef9d4c5c9cdad58fb56ca0ca7a9e",
+        "enabled": true
+      }
+    ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-06T17:10:00.000Z"
+    "updatedAt": "2026-08-06T21:52:06.725Z"
   },
   "bobojaco": {
     "pixels": [],
