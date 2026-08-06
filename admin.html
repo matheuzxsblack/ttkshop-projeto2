@@ -693,17 +693,17 @@
 
         <!-- GATEWAY PIX -->
         <section class="page" id="page-gateway">
-          <p class="page-desc">Escolha qual gateway gera o Pix nas lojas. Vale na hora — não precisa redeploy nem mudar env no Render.</p>
+          <p class="page-desc">Projeto 2 — gateways <strong>Iron Pay</strong> e <strong>PurinCash</strong> apenas. Troca na hora, sem redeploy.</p>
           <div class="panel">
             <div class="panel-h">
               <h2>Gateway ativo</h2>
               <span id="gw-active-badge">—</span>
             </div>
-            <div class="gw-grid" id="gw-options"></div>
+            <div class="gw-grid gw-grid--projeto2" id="gw-options"></div>
             <p class="pixel-status" id="gw-status"></p>
           </div>
           <p class="page-desc" style="margin-top:16px;font-size:13px;color:var(--muted)">
-            Vendas antigas continuam no gateway original (poll/webhook). Chaves ficam nas env vars do Render (<code>SHARPIFY_CLIENT_ID</code>, <code>SHARPIFY_CLIENT_SECRET</code>, <code>PURINCASH_API_KEY</code>, etc.).
+            Render: <code>IRONPAY_API_TOKEN</code>, <code>IRONPAY_PRODUCT_HASH</code>, <code>IRONPAY_OFFER_HASH</code>, <code>PURINCASH_API_KEY</code>.
           </p>
         </section>
 
@@ -1471,6 +1471,7 @@
         var badge = document.getElementById("gw-active-badge");
         if (!list || !gwState) return;
         var active = gwState.active || "";
+        var allowed = { ironpay: true, purincash: true };
         var src = gwState.source || "";
         var srcLbl =
           src === "admin"
@@ -1486,6 +1487,7 @@
           badge.textContent += " · " + srcLbl;
         }
         list.innerHTML = (gwState.options || [])
+          .filter(function (o) { return allowed[o.id]; })
           .map(function (o) {
             var isActive = o.id === active;
             var cfgTag = o.configured

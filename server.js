@@ -55,14 +55,10 @@ const SHARPIFY_CLIENT_SECRET = String(process.env.SHARPIFY_CLIENT_SECRET || "").
 const SHARPIFY_HOST = "api.sharpify.com.br";
 const SHARPIFY_GATEWAY_METHOD = String(process.env.SHARPIFY_GATEWAY_METHOD || "PIX").trim();
 
-const PAYMENT_GATEWAY_IDS = ["sharpify", "purincash", "blackcat", "ironpay", "buckpay", "pixzy"];
+const PAYMENT_GATEWAY_IDS = ["ironpay", "purincash"];
 const PAYMENT_GATEWAY_META = {
-  sharpify: { label: "Sharpify" },
-  purincash: { label: "PurinCash" },
-  blackcat: { label: "BlackCat" },
   ironpay: { label: "Iron Pay" },
-  buckpay: { label: "BuckPay" },
-  pixzy: { label: "Pixzy" },
+  purincash: { label: "PurinCash" },
 };
 const PAYMENT_GATEWAY_CONFIG_FILE = path.join(DATA_DIR, "payment-gateway-config.json");
 const PAYMENT_GATEWAY_CONFIG_BOOTSTRAP = path.join(ROOT, "payment-gateway-config.json");
@@ -142,12 +138,9 @@ function paymentGatewayName() {
   var envG = normalizePaymentGatewayId(process.env.PAYMENT_GATEWAY || "");
   if (envG) return envG;
 
-  if (SHARPIFY_CLIENT_ID && SHARPIFY_CLIENT_SECRET) return "sharpify";
-  if (PURINCASH_API_KEY) return "purincash";
-  if (BLACKCAT_API_KEY) return "blackcat";
   if (IRONPAY_API_TOKEN) return "ironpay";
-  if (BUCKPAY_API_KEY) return "buckpay";
-  return "pixzy";
+  if (PURINCASH_API_KEY) return "purincash";
+  return "ironpay";
 }
 
 function paymentGatewayOptionsForAdmin() {
@@ -6581,7 +6574,7 @@ var server = http.createServer(async function (req, res) {
       var pickGw = normalizePaymentGatewayId(bodyGwAd.gateway);
       if (!pickGw) {
         return sendJson(res, 400, {
-          error: "Gateway inválido. Use: sharpify, purincash, blackcat, ironpay, buckpay ou pixzy.",
+          error: "Gateway inválido. Use: ironpay ou purincash.",
         });
       }
       var cfgGwSave = loadPaymentGatewayConfig();
