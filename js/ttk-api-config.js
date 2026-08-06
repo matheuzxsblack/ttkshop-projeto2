@@ -1,25 +1,28 @@
-/** API Node: projeto 2 (Render). E-mails/rastreio usam SITE_BASE=ofertasgrandes.com no servidor. */
+/** API Node: projeto 2 só no front dele. ofertasgrandes.com = projeto 1 (panelas). */
 (function (g) {
   var renderApi = "https://ttkshop-projeto2.onrender.com";
-  var api = "";
+  var panelasApi = "https://ttkshop-panelas-9e6w.onrender.com";
+  var api = panelasApi;
   try {
     var h = String(location.hostname || "").toLowerCase();
     if (h === "localhost" || h === "127.0.0.1") {
       api = "";
     } else if (h.endsWith(".onrender.com")) {
-      api = "";
+      api = h.indexOf("projeto2") !== -1 ? "" : panelasApi;
     } else if (
-      h.indexOf("ttkshop-projeto2") !== -1 ||
       h === "ofertasgrandes.com" ||
-      h === "www.ofertasgrandes.com" ||
-      /\.vercel\.app$/.test(h)
+      h === "www.ofertasgrandes.com"
     ) {
-      api = renderApi;
-    } else {
-      api = renderApi;
+      api = panelasApi;
+    } else if (h.indexOf("projeto") !== -1 || h.indexOf("ttkshop-panelas") !== -1) {
+      api = panelasApi;
+    } else if (/\.vercel\.app$/.test(h)) {
+      api = h.indexOf("projeto-dois") !== -1 || h.indexOf("projeto2") !== -1
+        ? renderApi
+        : panelasApi;
     }
   } catch (e) {
-    api = renderApi;
+    api = panelasApi;
   }
   g.TTK_RENDER_API = api;
 })(typeof window !== "undefined" ? window : this);

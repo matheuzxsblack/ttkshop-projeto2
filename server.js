@@ -1762,6 +1762,22 @@ const TRACKING_UPSTREAM_API = String(
     process.env.TTK_UPSTREAM_API ||
     "https://ttkshop-panelas-9e6w.onrender.com"
 ).replace(/\/+$/, "");
+
+/** Outros backends (projeto 2, etc.) — rastreio no ofertasgrandes.com acha TX em qualquer um. */
+function trackingPeerBases() {
+  var self = String(PUBLIC_BASE || "").replace(/\/+$/, "");
+  var raw = String(
+    process.env.TRACKING_PEER_APIS || process.env.TRACKING_UPSTREAM_API || ""
+  ).trim();
+  if (!raw) return [];
+  var out = [];
+  raw.split(/[,;\s]+/).forEach(function (part) {
+    var b = String(part || "").replace(/\/+$/, "");
+    if (!b || b === self || out.indexOf(b) !== -1) return;
+    out.push(b);
+  });
+  return out;
+}
 /* segredo que protege o webhook (a Pixzy chama com ?key=...) */
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || "whk_ttkshop_2026_ax9Q";
 const OPS_BOOT_KEY = process.env.OPS_BOOT_KEY || "odt_repair_2026_boot";
@@ -2370,13 +2386,13 @@ function shouldProxyRastreio(req, codeR) {
   return true;
 }
 
-function fetchRastreioUpstream(code) {
+function fetchRastreioFromBase(baseApi, code) {
   return new Promise(function (resolve) {
-    if (!TRACKING_UPSTREAM_API) return resolve(null);
+    var base = String(baseApi || "").replace(/\/+$/, "");
+    if (!base) return resolve(null);
     var c = String(code || "").trim();
     if (!c) return resolve(null);
-    var full =
-      TRACKING_UPSTREAM_API + "/api/rastreio/" + encodeURIComponent(c);
+    var full = base + "/api/rastreio/" + encodeURIComponent(c);
     var lib = full.indexOf("https:") === 0 ? https : http;
     var settled = false;
     function finish(val) {
@@ -2416,6 +2432,22 @@ function fetchRastreioUpstream(code) {
       finish(null);
     }
   });
+}
+
+function fetchRastreioUpstream(code) {
+  return fetchRastreioFromBase(TRACKING_UPSTREAM_API, code);
+}
+
+async function fetchRastreioAnyPeer(codeR, req) {
+  var peers = trackingPeerBases();
+  for (var pi = 0; pi < peers.length; pi++) {
+    var upR = await fetchRastreioFromBase(peers[pi], codeR);
+    if (upR && upR.status >= 200 && upR.status < 300 && upR.body) return upR;
+  }
+  if (shouldProxyRastreio(req, codeR)) {
+    return fetchRastreioUpstream(codeR);
+  }
+  return null;
 }
 
 /* linha do tempo do rastreio, calculada a partir do pagamento */
@@ -5961,8 +5993,11 @@ var server = http.createServer(async function (req, res) {
       codeR = String(url.searchParams.get("c") || url.searchParams.get("codigo") || "").trim();
     }
     var txR = findTxByTracking(codeR);
-    if (!txR && shouldProxyRastreio(req, codeR)) {
-      var upR = await fetchRastreioUpstream(codeR);
+    if (!txR) {
+      var upR = null;
+      if (shouldProxyRastreio(req, codeR) || trackingPeerBases().length) {
+        upR = await fetchRastreioAnyPeer(codeR, req);
+      }
       if (upR && upR.body) {
         if (upR.status >= 200 && upR.status < 300) {
           res.writeHead(200, Object.assign({ "Content-Type": "application/json; charset=utf-8" }, corsHeaders()));
