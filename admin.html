@@ -982,7 +982,7 @@
     </div>
   </div>
 
-  <script src="/js/ttk-api-config.js?v=20260731render1"></script>
+  <script src="/js/ttk-api-config.js?v=20260806projeto2"></script>
   <script>
     (function () {
       var TOKEN_KEY = "admin_token";
@@ -995,7 +995,12 @@
           if (h.endsWith(".onrender.com")) return "";
           var fromCfg = String((window.TTK_RENDER_API || "")).replace(/\/$/, "");
           if (fromCfg) return fromCfg;
-          if (/\.vercel\.app$/.test(h)) return "https://ttkshop-panelas-9e6w.onrender.com";
+          if (/\.vercel\.app$/.test(h)) {
+            if (h.indexOf("projeto-dois") !== -1 || h.indexOf("projeto2") !== -1) {
+              return "https://ttkshop-projeto2.onrender.com";
+            }
+            return "https://ttkshop-panelas-9e6w.onrender.com";
+          }
         } catch (e) {}
         return "";
       })();

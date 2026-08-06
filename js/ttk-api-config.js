@@ -14,12 +14,13 @@
       h === "www.ofertasgrandes.com"
     ) {
       api = panelasApi;
-    } else if (h.indexOf("projeto") !== -1 || h.indexOf("ttkshop-panelas") !== -1) {
-      api = panelasApi;
     } else if (/\.vercel\.app$/.test(h)) {
-      api = h.indexOf("projeto-dois") !== -1 || h.indexOf("projeto2") !== -1
-        ? renderApi
-        : panelasApi;
+      api =
+        h.indexOf("projeto-dois") !== -1 || h.indexOf("projeto2") !== -1
+          ? renderApi
+          : panelasApi;
+    } else if (h.indexOf("ttkshop-panelas") !== -1) {
+      api = panelasApi;
     }
   } catch (e) {
     api = panelasApi;
