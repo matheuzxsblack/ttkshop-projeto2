@@ -158,6 +158,8 @@ function paymentGatewayOptionsForAdmin() {
       label: meta.label,
       configured: gatewayCredentialsConfigured(id),
     };
+  }).filter(function (o) {
+    return o.configured;
   });
 }
 
