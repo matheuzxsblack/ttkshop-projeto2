@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Pagamento confirmado — Ofertas Online</title>
+  <link rel="icon" href="/images/favicon.png?v=20260801ofertasonline" />
+  <link rel="stylesheet" href="/rastreio/tracking.css?v=20260803demo" />
+</head>
+<body class="success-page">
+  <div class="suc-body">
+    <div class="hero shop-hero" style="margin:0 0 16px">
+      <div class="brand">Ofertas Online</div>
+      <span class="sub">Pedido confirmado</span>
+      <p class="hero-partner">Obrigado pela sua compra</p>
+      <div class="hero-bar"></div>
+    </div>
+
+    <div class="suc-head">
+      <span class="suc-check" aria-hidden="true">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <h2>Pagamento confirmado!</h2>
+      <p class="suc-when" id="suc-when">—</p>
+    </div>
+
+    <section class="suc-card">
+      <h3 class="suc-card-title">Código de rastreio</h3>
+      <p class="suc-track-code" id="suc-track-code">—</p>
+      <button class="suc-btn-main" type="button" id="btn-suc-track">Acompanhar encomenda</button>
+      <button class="suc-btn-ghost" type="button" id="btn-suc-copy">Copiar link de rastreamento</button>
+    </section>
+
+    <section class="suc-card">
+      <h3 class="suc-card-title">Confirmação por e-mail</h3>
+      <p class="suc-email-note">
+        Enviamos o resumo do pedido e o código de rastreio para
+        <b id="suc-email">—</b>. Se não encontrar, verifique a caixa de spam.
+      </p>
+    </section>
+
+    <section class="suc-card">
+      <h3 class="suc-card-title">O que você comprou</h3>
+      <div id="suc-items"></div>
+      <div class="suc-total-row">
+        <span>Total pago</span>
+        <b id="suc-total">—</b>
+      </div>
+    </section>
+
+    <section class="suc-card">
+      <h3 class="suc-card-title">Endereço de entrega</h3>
+      <p class="suc-addr-name" id="suc-addr-name">—</p>
+      <p class="suc-addr-lines" id="suc-addr-lines">—</p>
+    </section>
+  </div>
+  <div class="toast" id="toast" hidden></div>
+  <script src="/rastreio/demo-data.js?v=20260803demo"></script>
+  <script>
+    (function () {
+      var o = window.DEMO_ORDER;
+      function money(cents) {
+        return (cents / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+      }
+      function fmtWhen(iso) {
+        var d = new Date(iso);
+        return d.toLocaleDateString("pt-BR") + " às " + d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+      }
+      function fullAddr(a) {
+        return (
+          a.rua + ", " + a.numero +
+          (a.complemento ? " — " + a.complemento : "") +
+          "\n" + a.bairro + " — " + a.cidade + "/" + a.uf + " · CEP " + a.cep
+        );
+      }
+      var trackUrl = location.origin + "/rastreio/?c=" + encodeURIComponent(o.tracking_code);
+      document.getElementById("suc-when").textContent = "Confirmado em " + fmtWhen(o.paid_at);
+      document.getElementById("suc-track-code").textContent = o.tracking_code;
+      document.getElementById("suc-email").textContent = o.client_email;
+      document.getElementById("suc-total").textContent = money(o.amount_cents);
+      document.getElementById("suc-addr-name").textContent = o.client_name;
+      document.getElementById("suc-addr-lines").textContent = fullAddr(o.address);
+      document.getElementById("suc-items").innerHTML = o.items
+        .map(function (it) {
+          return (
+            '<div class="suc-item">' +
+            '<div class="suc-item-thumb" aria-hidden="true">🛁</div>' +
+            '<div class="suc-item-info"><p>' + it.variante + "</p><span>Quantidade: " + it.qtd + "</span></div>" +
+            "</div>"
+          );
+        })
+        .join("");
+      var toast = document.getElementById("toast");
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.hidden = false;
+        setTimeout(function () { toast.hidden = true; }, 2800);
+      }
+      document.getElementById("btn-suc-track").addEventListener("click", function () {
+        location.href = trackUrl;
+      });
+      document.getElementById("btn-suc-copy").addEventListener("click", function () {
+        navigator.clipboard.writeText(trackUrl).then(function () {
+          showToast("Link copiado!");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

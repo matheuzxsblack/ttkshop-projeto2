@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Ofertas Online</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png?v=20260801ofertasonline" />
+  <link rel="apple-touch-icon" href="/images/favicon.png?v=20260801ofertasonline" />
+  <link rel="stylesheet" href="/css/styles.css?v=20260731loja2" />
+  <link rel="stylesheet" href="/css/store-hub.css?v=20260731loja4" />
+</head>
+<body>
+  <div class="app loja-app" id="app">
+    <header class="topbar loja-topbar">
+      <button class="icon-btn" type="button" id="loja-back" aria-label="Voltar">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="search-bar loja-search">
+        <svg class="search-ico" width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20.5 20.5l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="search-text" id="loja-search-text">Buscar na loja</span>
+      </div>
+      <button class="icon-btn" type="button" aria-label="Compartilhar">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 5l6 5-6 5v-3.5C7 11.5 4.5 14.5 3.5 18c-.3-5 1.5-9.5 9.5-10V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="icon-btn" type="button" aria-label="Mais">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5.5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="18.5" r="1.6"/></svg>
+      </button>
+    </header>
+
+    <main class="main loja-main-scroll" id="loja-scroll">
+
+      <section class="loja-profile">
+        <img class="store-logo loja-avatar" id="loja-logo" src="/images/logo-loja.png" alt="" />
+        <div class="loja-profile-text">
+          <h1 class="loja-name" id="loja-name">Ofertas Online</h1>
+          <p class="loja-sub muted" id="loja-sold">—</p>
+          <p class="loja-sub muted" id="loja-followers">—</p>
+        </div>
+        <button class="loja-follow" type="button" id="loja-follow">Seguir</button>
+      </section>
+
+      <div class="loja-metrics" id="loja-metrics"></div>
+
+      <div class="loja-promo-strip">
+        <span class="loja-promo-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FE2C55"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+          Ofertas relâmpago
+        </span>
+        <span class="loja-promo-pill soft">Frete grátis</span>
+        <span class="loja-promo-pill soft">Pix · 5% OFF</span>
+      </div>
+
+      <nav class="loja-tabs" role="tablist">
+        <button class="loja-tab active" type="button" data-tab="produtos" role="tab">Produtos</button>
+        <button class="loja-tab" type="button" data-tab="promo" role="tab">Promoções</button>
+        <button class="loja-tab" type="button" data-tab="sobre" role="tab">Sobre</button>
+      </nav>
+
+      <div class="loja-panel active" id="panel-produtos" role="tabpanel">
+        <div class="loja-sort-row">
+          <span>Mais vendidos</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161823" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="loja-feed" id="loja-feed"></div>
+      </div>
+
+      <div class="loja-panel" id="panel-promo" role="tabpanel" hidden>
+        <p class="loja-panel-hint">Promoções ativas na loja</p>
+        <div class="loja-feed" id="loja-feed-promo"></div>
+      </div>
+
+      <div class="loja-panel" id="panel-sobre" role="tabpanel" hidden>
+        <div class="loja-about">
+          <h2>Sobre a loja</h2>
+          <p id="loja-about-text"></p>
+          <ul class="loja-about-list">
+            <li><b>Atendimento:</b> responde em até 24 horas</li>
+            <li><b>Envio:</b> despacho em 1–2 dias úteis</li>
+            <li><b>Pagamento:</b> Pix com confirmação rápida</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bottom-spacer loja-bottom-spacer"></div>
+    </main>
+  </div>
+
+  <script src="/js/stores-catalog.js?v=20260731loja2"></script>
+  <script src="/js/loja-page.js?v=20260731loja4"></script>
+</body>
+</html>

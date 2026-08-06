@@ -1,0 +1,70 @@
+# Blueprint Render — ttkshop-projeto2 (API + admin; Iron Pay)
+services:
+  - type: web
+    name: ttkshop-projeto2
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: echo ok
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: RENDER
+        value: "true"
+      - key: GITHUB_TX_SYNC
+        value: "1"
+      - key: GITHUB_FUNNEL_SYNC
+        value: "0"
+      - key: GITHUB_REPO
+        value: matheuzxsblack/ttkshop-projeto2
+      - key: GITHUB_BRANCH
+        value: main
+      - key: SITE_BASE
+        value: https://ofertasgrandes.com
+      - key: TRACKING_SITE_BASE
+        value: https://ofertasgrandes.com
+      - key: STOREFRONT_BASE
+        value: https://ofertasgrandes.com
+      - key: PAYMENT_GATEWAY
+        value: ironpay
+      - key: IRONPAY_PRODUCT_HASH
+        value: f0fcpf7c43
+      - key: IRONPAY_OFFER_HASH
+        value: fvsvs
+      - key: ADMIN_USER
+        value: admin
+      - key: IRONPAY_API_TOKEN
+        sync: false
+      - key: PIXZY_TOKEN
+        sync: false
+      - key: BUCKPAY_API_KEY
+        sync: false
+      - key: BUCKPAY_USER_AGENT
+        sync: false
+      - key: BLACKCAT_API_KEY
+        sync: false
+      - key: PURINCASH_API_KEY
+        sync: false
+      - key: PURINCASH_WEBHOOK_SECRET
+        sync: false
+      - key: SHARPIFY_CLIENT_ID
+        sync: false
+      - key: SHARPIFY_CLIENT_SECRET
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: ADMIN_PASS
+        sync: false
+      - key: ADMIN_SESSION_SECRET
+        sync: false
+      - key: WEBHOOK_SECRET
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: PUBLIC_BASE
+        sync: false

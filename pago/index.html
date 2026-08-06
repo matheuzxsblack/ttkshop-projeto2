@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Pagamento confirmado — teste pixel</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --card: #14141c;
+      --text: #f2f2f5;
+      --muted: #8b8c98;
+      --green: #2fd573;
+      --cyan: #25f4ee;
+      --pink: #fe2c55;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100dvh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .check {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: rgba(47, 213, 115, 0.15);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 800;
+    }
+    h1 { font-size: 22px; margin-bottom: 6px; }
+    .sub { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+    .pill {
+      display: inline-block;
+      background: rgba(37, 244, 238, 0.12);
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .log {
+      text-align: left;
+      background: #0d0d12;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 12px;
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12px;
+      color: #c2c5d0;
+      white-space: pre-wrap;
+      min-height: 120px;
+      max-height: 280px;
+      overflow: auto;
+    }
+    .hint { margin-top: 14px; font-size: 12px; color: var(--muted); line-height: 1.45; }
+    a { color: var(--pink); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="check">✓</div>
+    <h1>Pagamento confirmado</h1>
+    <p class="sub">Disparando <b>CompletePayment / PlaceAnOrder</b> nos pixels…</p>
+    <div class="pill" id="pill">carregando…</div>
+    <div class="log" id="log">Iniciando…</div>
+    <p class="hint">
+      Use <code>?store=jaqueta</code> (ou panelas).<br />
+      Force IDs: <code>?pixels=ID1,ID2</code><br />
+      Test Events: copie o código do Ads e use <code>&amp;test_code=TESTXXXX</code><br />
+      Sem adblock. Confira no pixel certo no Events Manager.<br />
+      <a href="/admin">Voltar ao admin</a>
+    </p>
+  </div>
+
+  <script src="/js/ttk-api-config.js?v=20260731render1"></script>
+  <script>
+    (function () {
+      /* No Vercel a página é estática; API fica no Render (igual admin/loja). */
+      var API_BASE = (function () {
+        try {
+          var h = String(location.hostname || "").toLowerCase();
+          if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return "";
+          if (h === "ofertasonlineshop.vercel.app" || h === "grandesofertas.vercel.app" || /\.vercel\.app$/.test(h)) {
+            return "https://ttkshop-panelas-9e6w.onrender.com";
+          }
+        } catch (e) {}
+        return "";
+      })();
+      function apiUrl(path) {
+        return API_BASE + path;
+      }
+
+      var params = new URLSearchParams(location.search);
+      var store = (params.get("store") || "jaqueta").trim();
+      var forced = (params.get("pixels") || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+      var testCode = (params.get("test_code") || "").trim();
+      var logEl = document.getElementById("log");
+      var pill = document.getElementById("pill");
+      var lines = [];
+
+      function log(msg) {
+        lines.push(msg);
+        logEl.textContent = lines.join("\n");
+      }
+
+      function bootTtq(pixelIds) {
+        return new Promise(function (resolve) {
+          window.TiktokAnalyticsObject = "ttq";
+          var ttq = (window.ttq = window.ttq || []);
+          if (!ttq.methods) {
+            ttq.methods = [
+              "page", "track", "identify", "instances", "debug", "on", "off", "once",
+              "ready", "alias", "group", "enableCookie", "disableCookie",
+              "holdConsent", "revokeConsent", "grantConsent",
+            ];
+            ttq.setAndDefer = function (t, e) {
+              t[e] = function () {
+                t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+              };
+            };
+            for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+            ttq.instance = function (t) {
+              for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) {
+                ttq.setAndDefer(e, ttq.methods[n]);
+              }
+              return e;
+            };
+            ttq.load = function (e, n) {
+              var r = "https://analytics.tiktok.com/i18n/pixel/events.js";
+              ttq._i = ttq._i || {};
+              ttq._i[e] = [];
+              ttq._i[e]._u = r;
+              ttq._t = ttq._t || {};
+              ttq._t[e] = +new Date();
+              ttq._o = ttq._o || {};
+              ttq._o[e] = n || {};
+              var existing = document.getElementById("tiktok-pixel-sdk");
+              if (!existing) {
+                var o = document.createElement("script");
+                o.id = "tiktok-pixel-sdk";
+                o.type = "text/javascript";
+                o.async = true;
+                o.src = r + "?sdkid=" + e + "&lib=ttq";
+                var a = document.getElementsByTagName("script")[0];
+                a.parentNode.insertBefore(o, a);
+              }
+            };
+          }
+
+          (pixelIds || []).forEach(function (id) {
+            try {
+              ttq.load(id);
+              log("✓ ttq.load(" + id + ")");
+            } catch (e) {
+              log("✗ load " + id + ": " + (e.message || e));
+            }
+          });
+
+          var script = document.getElementById("tiktok-pixel-sdk");
+          var done = false;
+          function finish() {
+            if (done) return;
+            done = true;
+            setTimeout(resolve, 500);
+          }
+          if (script) {
+            if (script.getAttribute("data-loaded") === "1") {
+              finish();
+            } else {
+              script.addEventListener("load", function () {
+                script.setAttribute("data-loaded", "1");
+                finish();
+              });
+              script.addEventListener("error", function () {
+                log("✗ falha ao baixar events.js (adblock?)");
+                finish();
+              });
+              setTimeout(finish, 3000);
+            }
+          } else {
+            log("✗ script tiktok não inserido");
+            finish();
+          }
+        });
+      }
+
+      function firePurchase(pixelIds) {
+        return bootTtq(pixelIds).then(function () {
+          try {
+            window.ttq.page();
+            log("✓ ttq.page()");
+          } catch (e2) {
+            log("✗ page: " + (e2.message || e2));
+          }
+
+          var payload = {
+            contents: [
+              {
+                content_id: store + "-paid",
+                content_type: "product",
+                content_name: "Pedido confirmado — " + store,
+              },
+            ],
+            content_type: "product",
+            currency: "BRL",
+            value: 97.7,
+          };
+
+          ["CompletePayment", "PlaceAnOrder", "AddPaymentInfo", "InitiateCheckout"].forEach(function (name) {
+            try {
+              window.ttq.track(name, payload);
+              log("✓ ttq.track(" + name + ")");
+            } catch (err) {
+              log("✗ " + name + ": " + (err.message || err));
+            }
+          });
+
+          if (testCode) {
+            log("test_code na URL: " + testCode);
+            log("No Ads: Events → Test Events → cole o MESMO código e deixe a aba aberta.");
+          } else {
+            log("Dica: abra com &test_code=SEU_CODIGO do Test Events para ver na hora.");
+          }
+
+          log("");
+          log("Pronto. Olhe no pixel: " + pixelIds.join(" | "));
+          pill.textContent = pixelIds.length + " pixel(s) · eventos disparados";
+        });
+      }
+
+      function start(ids, label) {
+        if (!ids.length) {
+          pill.textContent = "sem pixel";
+          log("Nenhum pixel encontrado para " + store + ".");
+          log("Salve no admin ou use ?pixels=SEU_PIXEL_ID");
+          return;
+        }
+        pill.textContent = (label || store) + " · " + ids.length + " pixel(s)";
+        log("Loja: " + store);
+        log("Pixels: " + ids.join(", "));
+        log("---");
+        firePurchase(ids);
+      }
+
+      if (forced.length) {
+        start(forced, "manual");
+        return;
+      }
+
+      fetch(apiUrl("/api/pixel/public?store=" + encodeURIComponent(store)))
+        .then(function (r) {
+          var ct = String(r.headers.get("content-type") || "");
+          if (ct.indexOf("application/json") === -1) {
+            return r.text().then(function (t) {
+              throw new Error(
+                "API não retornou JSON (HTTP " + r.status + "). " +
+                "Host: " + location.host + (API_BASE ? " → " + API_BASE : "") +
+                ". " + String(t || "").slice(0, 80)
+              );
+            });
+          }
+          return r.json().then(function (j) {
+            return { ok: r.ok, j: j };
+          });
+        })
+        .then(function (res) {
+          if (!res.ok) {
+            log("Erro API: " + (res.j.error || "falha"));
+            pill.textContent = "erro";
+            return;
+          }
+          var ids = (res.j.pixels || []).map(function (p) { return p.id; });
+          start(ids, res.j.label);
+        })
+        .catch(function (err) {
+          pill.textContent = "erro rede";
+          log("Falha ao buscar pixels: " + (err.message || err));
+          log("Tente ?pixels=SEU_PIXEL_ID");
+        });
+    })();
+  </script>
+</body>
+</html>

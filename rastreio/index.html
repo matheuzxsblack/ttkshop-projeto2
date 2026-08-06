@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Express Entregas Brasil — Rastreamento</title>
+  <link rel="icon" href="/images/favicon.png?v=20260801ofertasonline" />
+  <link rel="stylesheet" href="/rastreio/tracking.css?v=20260804rastreio2" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero" id="hero-carrier">
+      <div class="carrier-icon" aria-hidden="true">📦</div>
+      <div class="brand">Express Entregas Brasil</div>
+      <span class="sub">Rastreamento de encomendas</span>
+      <p class="hero-partner">Pedido <strong>Ofertas Online</strong></p>
+      <div class="hero-bar"></div>
+    </div>
+
+    <div class="center-box" id="loading">
+      <div class="spin"></div>
+      <p style="color:var(--gray);font-size:13.5px">Consultando status da encomenda…</p>
+    </div>
+
+    <div class="card center-box" id="ask-code" hidden>
+      <p class="err-title" id="ask-title">Consultar encomenda</p>
+      <p class="err-text" id="ask-text">Informe o código de rastreamento enviado no e-mail de confirmação da compra.</p>
+      <input class="code-input" type="text" id="code-input" placeholder="EX: SO7K2M9QX4BR" autocomplete="off" />
+      <button class="go-btn" type="button" id="btn-go">Rastrear encomenda</button>
+    </div>
+
+    <div id="result" hidden>
+      <div class="card">
+        <h2>Código de rastreamento</h2>
+        <div class="code-row">
+          <span class="code-val" id="r-code">—</span>
+          <button class="copy-btn" type="button" id="btn-copy-code">Copiar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Destinatário</h2>
+        <p class="addr-name" id="r-name">—</p>
+        <p class="addr-lines" id="r-addr">—</p>
+      </div>
+
+      <div class="card">
+        <h2>Histórico de movimentação</h2>
+        <div class="timeline" id="r-timeline"></div>
+      </div>
+
+      <div class="card" id="items-card" hidden>
+        <h2>Conteúdo da encomenda</h2>
+        <div id="r-items"></div>
+      </div>
+
+      <p class="foot-note">Prazo estimado: 15 a 30 dias úteis após postagem. Loja: Ofertas Online · pedidos@ofertasgrandes.com</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="/rastreio/brand.js?v=20260804rastreio2"></script>
+  <script src="/rastreio/demo-data.js?v=20260804rastreio2"></script>
+  <script>
+    (function () {
+      window.__RASTREIO_PREFETCH__ = null;
+      window.__RASTREIO_PREFETCH_DONE__ = false;
+      function normCode(c) {
+        return String(c || "")
+          .replace(/\s/g, "")
+          .trim()
+          .toUpperCase();
+      }
+      var code = "";
+      try {
+        code = normCode(new URLSearchParams(location.search).get("c"));
+      } catch (e0) {}
+      if (!code) return;
+      var RENDER = "https://ttkshop-panelas-9e6w.onrender.com";
+      var urls = [
+        location.origin + "/api/rastreio/" + encodeURIComponent(code),
+        RENDER + "/api/rastreio/" + encodeURIComponent(code),
+      ];
+      var idx = 0;
+      function attemptNext() {
+        if (idx >= urls.length) {
+          window.__RASTREIO_PREFETCH_DONE__ = true;
+          return;
+        }
+        var url = urls[idx++];
+        var finished = false;
+        function finish(ok, json) {
+          if (finished) return;
+          finished = true;
+          if (ok && json && json.tracking_code) {
+            window.__RASTREIO_PREFETCH__ = json;
+            window.__RASTREIO_PREFETCH_DONE__ = true;
+            return;
+          }
+          attemptNext();
+        }
+        var timer = setTimeout(function () {
+          finish(false, null);
+        }, 9000);
+        if (typeof fetch === "function") {
+          fetch(url, {
+            method: "GET",
+            headers: { Accept: "application/json" },
+            cache: "no-store",
+            credentials: "omit",
+            mode: url.indexOf(location.origin) === 0 ? "same-origin" : "cors",
+          })
+            .then(function (resp) {
+              return resp.text().then(function (txt) {
+                clearTimeout(timer);
+                var json = null;
+                try {
+                  json = txt ? JSON.parse(txt) : null;
+                } catch (eJ) {
+                  return finish(false, null);
+                }
+                finish(resp.ok, json);
+              });
+            })
+            .catch(function () {
+              clearTimeout(timer);
+              finish(false, null);
+            });
+          return;
+        }
+        try {
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", url, true);
+          xhr.setRequestHeader("Accept", "application/json");
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState !== 4) return;
+            clearTimeout(timer);
+            var json = null;
+            try {
+              json = xhr.responseText ? JSON.parse(xhr.responseText) : null;
+            } catch (eX) {
+              return finish(false, null);
+            }
+            finish(xhr.status >= 200 && xhr.status < 300, json);
+          };
+          xhr.onerror = xhr.onabort = function () {
+            clearTimeout(timer);
+            finish(false, null);
+          };
+          xhr.send();
+        } catch (eX2) {
+          clearTimeout(timer);
+          finish(false, null);
+        }
+      }
+      attemptNext();
+    })();
+  </script>
+  <script src="/rastreio/rastreio.js?v=20260805rastreio5"></script>
+  <script>
+    (function () {
+      var b = window.TRACKING_BRAND;
+      if (!b) return;
+      var h = document.getElementById("hero-carrier");
+      if (!h) return;
+      h.querySelector(".brand").textContent = b.carrier;
+      h.querySelector(".sub").textContent = b.carrierTagline;
+      h.querySelector(".hero-partner").innerHTML = "Pedido <strong>" + b.store + "</strong>";
+      document.title = b.carrier + " — Rastreamento";
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Aquecer pixel — Purchase</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --card: #14141c;
+      --text: #f2f2f5;
+      --muted: #8b8c98;
+      --green: #2fd573;
+      --cyan: #25f4ee;
+      --pink: #fe2c55;
+      --orange: #ff8a3d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100dvh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .badge {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: rgba(254, 44, 85, 0.15);
+      color: var(--pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 800;
+    }
+    h1 { font-size: 22px; margin-bottom: 6px; }
+    .sub { color: var(--muted); font-size: 14px; margin-bottom: 18px; line-height: 1.4; }
+    .pill {
+      display: inline-block;
+      background: rgba(255, 138, 61, 0.14);
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .controls label { font-size: 12px; color: var(--muted); }
+    .controls input {
+      width: 72px;
+      background: #0d0d12;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 14px;
+      text-align: center;
+    }
+    .btn {
+      border: 0;
+      background: var(--pink);
+      color: #fff;
+      font-weight: 800;
+      padding: 11px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .btn:disabled { opacity: .55; cursor: wait; }
+    .log {
+      text-align: left;
+      background: #0d0d12;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 12px;
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12px;
+      color: #c2c5d0;
+      white-space: pre-wrap;
+      min-height: 140px;
+      max-height: 320px;
+      overflow: auto;
+    }
+    .hint { margin-top: 14px; font-size: 12px; color: var(--muted); line-height: 1.45; }
+    a { color: var(--cyan); }
+    code { color: #ddd; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">🔥</div>
+    <h1>Aquecer Purchase</h1>
+    <p class="sub">Dispara vários eventos <b>CompletePayment / Purchase</b> no pixel para aquecer a conta.</p>
+    <div class="pill" id="pill">pronto</div>
+    <div class="controls">
+      <label for="n">Quantidade</label>
+      <input type="number" id="n" min="1" max="100" value="20" />
+      <button class="btn" type="button" id="btn-go">Disparar Purchase</button>
+    </div>
+    <div class="log" id="log">Aguardando…</div>
+    <p class="hint">
+      Link direto: <code>/aquecer/?store=jaqueta&amp;n=20</code> (também panelas, toalha)<br />
+      Test Events: <code>&amp;test_code=TESTXXXX</code><br />
+      Force IDs: <code>&amp;pixels=ID1,ID2</code><br />
+      Sem adblock. <a href="/admin">Voltar ao admin</a>
+    </p>
+  </div>
+
+  <script src="/js/ttk-api-config.js?v=20260731render1"></script>
+  <script>
+    (function () {
+      /* No Vercel a página é estática; API fica no Render (igual admin/loja). */
+      var API_BASE = (function () {
+        try {
+          var h = String(location.hostname || "").toLowerCase();
+          if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return "";
+          if (h === "ofertasonlineshop.vercel.app" || h === "grandesofertas.vercel.app" || /\.vercel\.app$/.test(h)) {
+            return "https://ttkshop-panelas-9e6w.onrender.com";
+          }
+        } catch (e) {}
+        return "";
+      })();
+      function apiUrl(path) {
+        return API_BASE + path;
+      }
+
+      var params = new URLSearchParams(location.search);
+      var store = (params.get("store") || "panelas").trim();
+      var forced = (params.get("pixels") || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+      var testCode = (params.get("test_code") || "").trim();
+      var nParam = parseInt(params.get("n") || "20", 10);
+      if (!isFinite(nParam) || nParam < 1) nParam = 20;
+      if (nParam > 100) nParam = 100;
+
+      var logEl = document.getElementById("log");
+      var pill = document.getElementById("pill");
+      var nInput = document.getElementById("n");
+      var btn = document.getElementById("btn-go");
+      var lines = [];
+      var pixelIds = [];
+
+      nInput.value = String(nParam);
+
+      function log(msg) {
+        lines.push(msg);
+        logEl.textContent = lines.join("\n");
+        logEl.scrollTop = logEl.scrollHeight;
+      }
+
+      function sleep(ms) {
+        return new Promise(function (r) { setTimeout(r, ms); });
+      }
+
+      function bootTtq(ids) {
+        return new Promise(function (resolve) {
+          window.TiktokAnalyticsObject = "ttq";
+          var ttq = (window.ttq = window.ttq || []);
+          if (!ttq.methods) {
+            ttq.methods = [
+              "page", "track", "identify", "instances", "debug", "on", "off", "once",
+              "ready", "alias", "group", "enableCookie", "disableCookie",
+              "holdConsent", "revokeConsent", "grantConsent",
+            ];
+            ttq.setAndDefer = function (t, e) {
+              t[e] = function () {
+                t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+              };
+            };
+            for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+            ttq.instance = function (t) {
+              for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) {
+                ttq.setAndDefer(e, ttq.methods[n]);
+              }
+              return e;
+            };
+            ttq.load = function (e, n) {
+              var r = "https://analytics.tiktok.com/i18n/pixel/events.js";
+              ttq._i = ttq._i || {};
+              ttq._i[e] = [];
+              ttq._i[e]._u = r;
+              ttq._t = ttq._t || {};
+              ttq._t[e] = +new Date();
+              ttq._o = ttq._o || {};
+              ttq._o[e] = n || {};
+              if (!document.getElementById("tiktok-pixel-sdk")) {
+                var o = document.createElement("script");
+                o.id = "tiktok-pixel-sdk";
+                o.type = "text/javascript";
+                o.async = true;
+                o.src = r + "?sdkid=" + e + "&lib=ttq";
+                var a = document.getElementsByTagName("script")[0];
+                a.parentNode.insertBefore(o, a);
+              }
+            };
+          }
+
+          (ids || []).forEach(function (id) {
+            try { ttq.load(id); } catch (e) {}
+          });
+
+          var script = document.getElementById("tiktok-pixel-sdk");
+          var done = false;
+          function finish() {
+            if (done) return;
+            done = true;
+            setTimeout(resolve, 400);
+          }
+          if (script) {
+            script.addEventListener("load", finish);
+            script.addEventListener("error", function () {
+              log("✗ falha ao baixar events.js (adblock?)");
+              finish();
+            });
+            setTimeout(finish, 3000);
+          } else {
+            finish();
+          }
+        });
+      }
+
+      function randValue() {
+        /* valores variados perto do ticket da loja */
+        var base = [89.9, 97.7, 119.7, 129.6, 149.55, 159.48, 179.4];
+        var v = base[Math.floor(Math.random() * base.length)];
+        var jitter = (Math.floor(Math.random() * 40) - 20) / 100;
+        return Math.max(19.9, Math.round((v + jitter) * 100) / 100);
+      }
+
+      function fireOnce(i, total) {
+        var value = randValue();
+        var contentId = store + "-warm-" + Date.now() + "-" + i;
+        var payload = {
+          contents: [
+            {
+              content_id: contentId,
+              content_type: "product",
+              content_name: "Pedido aquecimento #" + i + " — " + store,
+              quantity: 1,
+              price: value,
+            },
+          ],
+          content_type: "product",
+          currency: "BRL",
+          value: value,
+        };
+        try {
+          var n = (Date.now() + i) % 900000000;
+          var ddds = ["11", "21", "31", "41", "51", "61", "71", "81", "85"];
+          var ddd = ddds[n % ddds.length];
+          window.ttq.identify({
+            email: "cliente" + n + "@gmail.com",
+            phone_number: "+55" + ddd + "9" + String(10000000 + (n % 89999999)).padStart(8, "0"),
+          });
+        } catch (eId) {}
+        /* CompletePayment = Purchase no TikTok e-commerce */
+        ["CompletePayment", "Purchase"].forEach(function (name) {
+          try {
+            window.ttq.track(name, payload);
+            log("✓ #" + i + "/" + total + " ttq.track(" + name + ") R$ " + value.toFixed(2));
+          } catch (err) {
+            log("✗ #" + i + " " + name + ": " + (err.message || err));
+          }
+        });
+      }
+
+      async function runWarm(count) {
+        if (!pixelIds.length) {
+          pill.textContent = "sem pixel";
+          log("Nenhum pixel. Salve no admin ou use ?pixels=ID");
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = "Aquecendo…";
+        lines = [];
+        log("Loja: " + store);
+        log("Pixels: " + pixelIds.join(", "));
+        log("Disparando " + count + "x Purchase/CompletePayment…");
+        log("---");
+        pill.textContent = "0 / " + count;
+
+        await bootTtq(pixelIds);
+        try { window.ttq.page(); log("✓ ttq.page()"); } catch (e) {}
+
+        for (var i = 1; i <= count; i++) {
+          fireOnce(i, count);
+          pill.textContent = i + " / " + count;
+          /* intervalo curto para não parecer um único burst */
+          await sleep(180 + Math.floor(Math.random() * 220));
+        }
+
+        if (testCode) {
+          log("");
+          log("test_code: " + testCode);
+          log("Deixe o Test Events aberto no Ads com o mesmo código.");
+        }
+        log("");
+        log("Pronto. " + count + " Purchase enviados.");
+        pill.textContent = count + " Purchase · ok";
+        btn.disabled = false;
+        btn.textContent = "Disparar Purchase";
+      }
+
+      function start(ids) {
+        pixelIds = ids || [];
+        if (!pixelIds.length) {
+          pill.textContent = "sem pixel";
+          log("Nenhum pixel encontrado.");
+          return;
+        }
+        pill.textContent = pixelIds.length + " pixel(s) · pronto";
+        log("Pixels: " + pixelIds.join(", "));
+        log("Clique em Disparar ou use n= na URL.");
+        /* auto-start se veio ?auto=1 ou n na URL com auto */
+        if (params.get("auto") === "1") {
+          runWarm(parseInt(nInput.value, 10) || 20);
+        }
+      }
+
+      btn.addEventListener("click", function () {
+        var n = parseInt(nInput.value, 10) || 20;
+        if (n < 1) n = 1;
+        if (n > 100) n = 100;
+        nInput.value = String(n);
+        runWarm(n);
+      });
+
+      if (forced.length) {
+        start(forced);
+        return;
+      }
+
+      fetch(apiUrl("/api/pixel/public?store=" + encodeURIComponent(store)))
+        .then(function (r) {
+          var ct = String(r.headers.get("content-type") || "");
+          if (ct.indexOf("application/json") === -1) {
+            return r.text().then(function (t) {
+              throw new Error(
+                "API não retornou JSON (HTTP " + r.status + "). " +
+                "Host: " + location.host + (API_BASE ? " → " + API_BASE : "") +
+                ". " + String(t || "").slice(0, 80)
+              );
+            });
+          }
+          return r.json().then(function (j) { return { ok: r.ok, j: j }; });
+        })
+        .then(function (res) {
+          if (!res.ok) {
+            log("Erro API: " + (res.j.error || "falha"));
+            pill.textContent = "erro";
+            return;
+          }
+          start((res.j.pixels || []).map(function (p) { return p.id; }));
+        })
+        .catch(function (err) {
+          pill.textContent = "erro rede";
+          log("Falha: " + (err.message || err));
+        });
+    })();
+  </script>
+</body>
+</html>
