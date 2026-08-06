@@ -1,4 +1,5 @@
 server.js
+render.yaml
 .env
 .env.local
 .git
