@@ -1878,5 +1878,64 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-07T19:06:45.704Z"
+  },
+  {
+    "id": "psa_6298022bf575279048dab3cf201da97f",
+    "tracking_code": "SON9X726GH99BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Fátima Correia",
+    "client_email": "fatinhan010@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "010",
+    "doc_pix_fallback": true,
+    "client_phone": "27997365911",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBicv9DrdwVZDZNRO3kIMDkXp1f8z16DybIOkJLHA3q4RTBwfpCNNVIW7mOcML3xszIegI28mFo1cQXsXF3VE_7-Y4cHiUc00WBr0pl1UmQjg6oKAK4d2e5oioKy78mokRT-qvZW4WmZ1p2cz6a7FQ2hVy1NMDkUM7ZnVXee7YLooHzCf-cQCq55z7no9jai",
+    "ttp": "01KZETF56FJA6MADK2PDX8EWBJ_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tn8u3vkt11wmsjbsf7p",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "29153-653",
+      "uf": "ES",
+      "cidade": "Cariacica",
+      "bairro": "Presidente Médici",
+      "rua": "Rua São João",
+      "numero": "135",
+      "complemento": "Rua torre"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjbvcrp_5e669c8de7",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/00539799-f6d4-4be3-ba16-4e3a98b188df5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304E9D6",
+    "created_at": "2026-08-07T19:18:32.024Z",
+    "paid_at": null
   }
 ]
