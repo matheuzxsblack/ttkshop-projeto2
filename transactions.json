@@ -1390,7 +1390,7 @@
     "id": "psa_9798570413032ab329a1d263fa79d1b9",
     "tracking_code": "SOUBM9AXZFFFBR",
     "amount": 3077,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Eurico Momberg",
     "client_email": "mombergeurico@gmail.com",
     "client_doc": "13893362800",
@@ -1405,7 +1405,7 @@
     "ttclid": "E_C_P_CuEBHRubOAKJivqn85WRquoyQGUPcsoz0IbacS38l5gaoK0wo_A_N0kw2GDP-uZh4KKaiXvDJJDXdX-XQIkcKkJ5X5nRYgfyuI5g2FsH4VSNPZTXVVNKUxcqaFGCmbzKk9cvS7QF0mp5GLQE91UiOg5IPLW1nfMwrqn-YDS-ww2bdp8yHAUPngzUL-JUM5aKwg",
     "ttp": "01KZEN4E4SDT0ER6QKYE7K9YF1_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "t4fq6bmlx7qqmsj8gih2",
     "funnel_store": "toalha",
     "address": {
@@ -1431,6 +1431,10 @@
     "external_id": "ttk_msj8nz8l_4166ddbc86",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/bae8c900-5c78-4a10-9c33-e0eb37345d335204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A6B4",
     "created_at": "2026-08-07T17:48:49.125Z",
-    "paid_at": null
+    "paid_at": "2026-08-07T17:52:45.058Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-07T17:53:33.426Z"
   }
 ]
