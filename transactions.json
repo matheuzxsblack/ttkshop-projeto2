@@ -606,5 +606,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/15da2241-52af-40c5-8483-714525514f3c5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047305",
     "created_at": "2026-08-07T14:25:28.304Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_f89766d60120c4095bec33b57ae212b4",
+    "tracking_code": "SOCX8E7AB56FBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rosivania juliao",
+    "client_email": "rosevaniajuliaojo@hotmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5585991041",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIB273mdn7_s_oCDoTRhpKf007H4DiHUAPmTdH-TyvNUU5LBrHDLVo1ZKVCe8_LbH5kBrumcXabSzyaB_GIciO728AUK4mh2TocMZQDebBTtoohRcs-S4Pg0dOwfQdTok506BKFXtTuDeu3kavXbt7np0qiDM9H17DX1mZMaxwXUJZNYm_wFRgVqIyTvD1xks",
+    "ttp": "01KZEB9R5F89HQMBXGETY40WSE_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "thf0bfozgm1lmsj2bi5n",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "62795-000",
+      "uf": "CE",
+      "cidade": "Barreira",
+      "bairro": "Centro",
+      "rua": "Rua professora Francisca Amélia",
+      "numero": "54",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msj2dh0i_f053278949",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/35f7bb96-e1b0-4d3a-90f7-343edf5242005204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304BE05",
+    "created_at": "2026-08-07T14:52:41.523Z",
+    "paid_at": null
   }
 ]
