@@ -2147,7 +2147,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -2160,9 +2160,9 @@
     "id": "psa_8c1bd6844e0659b81bb8d7137cfeb186",
     "tracking_code": "SOJVC4AEDX6KBR",
     "amount": 5861,
-    "status": "pending",
+    "status": "paid",
     "client_name": "cristiane parreira de souza chimer",
-    "client_email": "cliente@email.com",
+    "client_email": "cristianeparreira.chimer@gmail.com",
     "client_doc": "16473249044",
     "client_doc_entered": "",
     "doc_pix_fallback": true,
@@ -2175,7 +2175,7 @@
     "ttclid": "E_C_P_CuEBm19H83J9e7ngNj7BI-hG68qTy7ownPrIdKMS5MrqNo-4EB7yHHaFEXvWTLk4-wnT0tjjmohgvtP5rcPWUYUX_kDp929AOWIPVXo806IYaprPeJm-YeVI3CMRJ2P7OCkjdmY3tcxlMUEBO5GEl8C-t3eNZKJJGGl_gBTu9sFY1tfkra9bc-LjruQvtgBatj",
     "ttp": "01KZF1VC3QBNNJXC6JKP3GRSEN_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "tth2ee55xzjfmsjgebsl",
     "funnel_store": "toalha",
     "address": {
@@ -2205,6 +2205,57 @@
     "external_id": "ttk_msjgp7ca_8d6ef4d7ff",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/dc3d1881-4c76-4a22-b3d0-c7156484fbed5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D6D7",
     "created_at": "2026-08-07T21:33:43.231Z",
+    "paid_at": "2026-08-07T21:36:38.482Z",
+    "net_amount": 5861,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-07T21:36:47.631Z",
+    "email_sent": true
+  },
+  {
+    "id": "psa_21ce72839dddeb9edace9ea325e483db",
+    "tracking_code": "SOZMSVT8H3N9BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Lucimar Bernardo",
+    "client_email": "bernardolucimar98@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "83981333893",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBIym5YOOk6DxfNghNziPLjjrjvLqYDd2QDihn5Z9Hp_b_h4DpSk9-eXisE2VYIIdpd4OhV65nHvDEarGHvmbv2sDNOSoCwJulFSSpMsHV6E7yo7cN5tPvNUio-Cf6okJE3vgFBv1cSEXGn00KLsQHHIfuJtUKuLCYs6OAA8fQdp_gqy-aipVXBcuq02CIVN",
+    "ttp": "01KZF2HNVM8GPC9DHH0895R5Q9_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tko4vj9c35zjmsjgtzki",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "58489-000",
+      "uf": "PB",
+      "cidade": "Aroeiras",
+      "bairro": "Conjunto do campo",
+      "rua": "Rua São João",
+      "numero": "09",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjgvebw_27f65eacf5",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6aa7e7a4-cd92-451e-acf0-53298a65eb9d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304AA0F",
+    "created_at": "2026-08-07T21:38:32.226Z",
     "paid_at": null
   }
 ]
