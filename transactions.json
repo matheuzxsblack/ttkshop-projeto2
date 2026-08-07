@@ -2753,5 +2753,65 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-07T23:14:48.528Z"
+  },
+  {
+    "id": "psa_7d1db50afe7e77642fb1267ebaecc375",
+    "tracking_code": "SODVHYBQTGPPBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "María Elma dos santos",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "45999117825",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABBXdGzeJc_jtKf3V_z3-3YR6NbLbUeqbqyrsVUpiT6-SFe6TcP7DpxIbUFoGLQo_iGJlvl-A6cFHL5AhLVEd-T3glZjm-cLD3t9AsTT2IO0h64MA2nOqWJ-CXhf0BNVGvxiafhvsvKXThhhucLpxEtsvTlGRj55QqbVrkp-5UTq_cIJI2axasDE0JTTRZv7",
+    "ttp": "01KZF95X4ESKAD02PR87HYPES4_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t4gyvhjuryr4msjkz0z6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "85722-332",
+      "uf": "PR",
+      "cidade": "Medianeira",
+      "bairro": "Parque Independência",
+      "rua": "Avenida Brasil",
+      "numero": "4537",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjl4oxg_75cf920d1b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5adf7944-0ef3-4cd1-81cd-95a855d02a265204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304BD15",
+    "created_at": "2026-08-07T23:37:44.362Z",
+    "paid_at": "2026-08-07T23:38:30.917Z",
+    "net_amount": 3077
   }
 ]
