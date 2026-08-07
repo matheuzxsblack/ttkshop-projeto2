@@ -1823,5 +1823,60 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/02b59207-8a49-44f4-bfc2-3c31aead72445204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A059",
     "created_at": "2026-08-07T18:54:58.526Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_706efb1c1c3c82aba646938220bf2d38",
+    "tracking_code": "SOYPTHUDS9GZBR",
+    "amount": 5861,
+    "status": "paid",
+    "client_name": "Alessandra Maria da Silva",
+    "client_email": "alesandra5asec2015@gmail.com",
+    "client_doc": "26245291879",
+    "client_doc_entered": "26245291879",
+    "doc_pix_fallback": false,
+    "client_phone": "5512996304",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBG1sg3nAtSw7kZDVDe6BwJPTIMA0dYQ-XLa3HdhRmE_8X4uRvPOgMAZg-sKJeDtBLlnigJFgxpZu5EgKMhNoQeFT9X04WLE5JPt06jcuCJUgppt0Xtyavf4ixPdMCwBF3MS4-xWDzkICXA7fhbKl2KT_h1kHSBNUzK6XWRyiD43o7aW-cuA4TLJYpItcZCp",
+    "ttp": "01KZESKSBYKZ6G223EXPE6PNAG_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tmc5x5pzf5smsjbc8r6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "12243-750",
+      "uf": "SP",
+      "cidade": "São José dos Campos",
+      "bairro": "Vila Adyana",
+      "rua": "Rua Engenheiro Prudente Meireles de Morais",
+      "numero": "858",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjbekcg_4a962305fe",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/72fd2af7-b936-4bc4-8311-363473cdc0815204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63041E21",
+    "created_at": "2026-08-07T19:05:28.724Z",
+    "paid_at": "2026-08-07T19:06:29.317Z",
+    "net_amount": 5861,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-07T19:06:45.704Z"
   }
 ]
