@@ -1776,5 +1776,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/4dd8f95f-d877-4b2a-909d-227d028d644b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304952A",
     "created_at": "2026-08-07T18:52:23.316Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_bec75c6bc0ea6cf371bb4702c3a58cdc",
+    "tracking_code": "SOLYS2UJ6A4RBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Pedro Realidade",
+    "client_email": "pedrorela@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11945721818",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuYBfVbpRtQANhqe5lu6-cIzRR8zefxXdUt-LDlgnIzJM7HU_1uSPyfTDV0nvsU2NgcSIRjTzasgKZ-ke6dWGu7AcEtH8TdLEO85S-jx70P-vHYdoF_NuY_tu6Qlgig2yf1Ta7ZFX6NFwBstoSuT-jgUwdmg8QtK27q6rzLIgam1anyRRXsCVm3skEGUEp4zwW",
+    "ttp": "01KZES5TMXD9HCK1QT4DCG9TFA_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tpac9syaxm8msjazebs",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "11845-454",
+      "uf": "SP",
+      "cidade": "joge avenida",
+      "bairro": "Jeferson Batista de Freitas",
+      "rua": "Rua Padre José Luiz",
+      "numero": "626",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjb11yj_1ece9f8448",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/02b59207-8a49-44f4-bfc2-3c31aead72445204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A059",
+    "created_at": "2026-08-07T18:54:58.526Z",
+    "paid_at": null
   }
 ]
