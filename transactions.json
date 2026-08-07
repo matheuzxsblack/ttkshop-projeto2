@@ -2867,7 +2867,7 @@
     "id": "psa_fc27f21c4fe5bdc1854adcebe082ed6c",
     "tracking_code": "SONY7UN25395BR",
     "amount": 3846,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Wladimir Antônio Ferreira",
     "client_email": "ferreirawladimirantonio@gmail.com",
     "client_doc": "07566461893",
@@ -2882,7 +2882,7 @@
     "ttclid": "E_C_P_CuABLxbJ5vryXJjWUIvQ2Tocj3AFpEZ_O64-HFeY9s7K4KrqrzkM_bQ11h29D5OPqpLwqXokvSl2XLtLxqThlrRbTmO5oz7SDL0jkRL32Rd5kUmgR9zxq1_SWkFymq6jW4gxVsgDNtoNaqRgb9SUttrsog5VyKgH2stu9fDJJs7Yom7xY59PSe7TBq-niZhGDv",
     "ttp": "01KZFA1YCBQN2E5KVYPB96TFPM_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "t2c7le610fdmmsjliqdx",
     "funnel_store": "toalha",
     "address": {
@@ -2924,6 +2924,8 @@
     "external_id": "ttk_msjlp5yj_0fb0488036",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/865fff92-9671-484a-8595-c6febd51bff85204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049EFD",
     "created_at": "2026-08-07T23:53:39.927Z",
-    "paid_at": null
+    "paid_at": "2026-08-07T23:55:41.381Z",
+    "net_amount": 3846,
+    "email_sent": true
   }
 ]
