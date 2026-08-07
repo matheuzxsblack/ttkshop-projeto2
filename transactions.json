@@ -543,5 +543,68 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/54e6d4d7-3ed1-4dc8-82f9-876cb9bd210e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63045433",
     "created_at": "2026-08-07T14:09:30.842Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_3ab6f896dead0cb895b6156821938643",
+    "tracking_code": "SOF8Q98EASF5BR",
+    "amount": 5385,
+    "status": "pending",
+    "client_name": "Carmen Lucia dos santos silva",
+    "client_email": "carmenluciaaa87@gmail.com",
+    "client_doc": "04266988354",
+    "client_doc_entered": "04266988354",
+    "doc_pix_fallback": false,
+    "client_phone": "86988479954",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtkBjKTdcEwe4l_4c5M4aEuYdCPhFWdRd9xgAqe3xWNS2t9BBZEAq9wSewFtM--MIwW2UHKxW0fqzDyjqCDP-HKRStP6T4cxBXC-EH_sjPzB94Se8NHIEFJYSUvaTNxtLWtM-7kzoik9nAkHZ-B5iZzXD1Bdhy-2MUmfRgrdels05y_I3VIh_w1B0TwaVvc-4O",
+    "ttp": "01KZE9PAM4Z1DP3BF5NSQ6QYRW_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t2l61alyg5f8msj1c4kx",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "64000-250",
+      "uf": "PI",
+      "cidade": "Teresina",
+      "bairro": "Centro",
+      "rua": "Rua Gabriel Ferreira",
+      "numero": "853",
+      "complemento": "Mercadinho moraes"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 3
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msj1egpn_6f0595ddc0",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/15da2241-52af-40c5-8483-714525514f3c5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047305",
+    "created_at": "2026-08-07T14:25:28.304Z",
+    "paid_at": null
   }
 ]
