@@ -818,5 +818,174 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/04d87977-b5ce-470a-b4de-6f106c407f435204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630460F2",
     "created_at": "2026-08-07T16:05:53.746Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_34f68d06dd5424705d8630a5752e6ff5",
+    "tracking_code": "SORMJR9FJYAQBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Fátima",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "13998021229",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIBWz12wEUnw68RqQCPHPmawtUv3v9OmCyQ2VcBH7Td-JtFp5ROTvPb-c9UVOwyjpprlqBg7shTEzo4MQagalDDym7AACQyrJoZpdDsS49Nl-Tw2woGgWUD07fd-yH8rJEv5qT-HJDTA5rkEVMJrmt3tk3e0GT3XQW87GeP67E5JcaOyhNM8m2fGwn7rOvT1v",
+    "ttp": "01KZEFX7WB0K0KCA31RQETYQMW_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tnycgay6opcmsj572z6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "11770-556",
+      "uf": "SP",
+      "cidade": "Peruíbe",
+      "bairro": "Jardim Ribamar",
+      "rua": "Rua Pinheiro Machado",
+      "numero": "791",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msj59bt5_d26cfe510c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/fa7a06e1-e8ac-494c-bd4b-6a19ada7c5825204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048874",
+    "created_at": "2026-08-07T16:13:27.249Z",
+    "paid_at": "2026-08-07T16:14:52.008Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-07T16:16:02.924Z"
+  },
+  {
+    "id": "psa_d6b6d3555bdcfc5f7514e09edd81e18b",
+    "tracking_code": "SOP23Y48WDRQBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Raimunda cesariana santos de Souza",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "21969156367",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBpezDbSa9gB69YAtSg40I61xphGU7Oyv-b6X3wJPVoKavtYZ64SmZE68waaZ2P0DMza_ukvDS70k4BGIP0iSBULKflveeT1j4THGhaIA14-ayXLhUIvc7F40_YfhZ7iZSOATOJT-JK2Dj5xB4m_zeBkOy949lrRpzF79Yf5rLCzbuz72W06A7_2psBAitOq",
+    "ttp": "01KZEFW1NXEDT6XDFSKKQXH8QB_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t6vmoqrdi1bhmsj568ng",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "25250-310",
+      "uf": "RJ",
+      "cidade": "Duque de Caxias",
+      "bairro": "Vila Santa Alice",
+      "rua": "Estrada da Igreja Velha",
+      "numero": "03",
+      "complemento": "Condomínio"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msj59krc_fb3ad1cae6",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/063c104b-ba3a-4c0e-82da-23b4d884629f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A5BA",
+    "created_at": "2026-08-07T16:13:38.222Z",
+    "paid_at": "2026-08-07T16:15:33.437Z",
+    "net_amount": 3077
+  },
+  {
+    "id": "psa_b0cf8ee8c46df530b761705c28881910",
+    "tracking_code": "SO6GR6HLFKFRBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria cerize Alves",
+    "client_email": "cerizemaria4@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "83986182536",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBXqMrv4aU51i4Aww_AAMEW2_oARSY7SL2syq0e_Y6_Y9bb9L4iQo_D1wsFMk5RLD3EyBHX5mRkoNKQLj0CoPFBxVq2gT9Ix3v6KKOKBzldMVezGNl3ZVYkCrE9YNPLAbFM7y1LBH_BCDgPhE7ueTs-O-oMlzaHXFmqd1tkZ9dh28r882EbtjdV56bKN6mzy",
+    "ttp": "01KZEFTXDWEPH6S55STHR1QZ28_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tyinnh54tsbmsj55gbu",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "58040-331",
+      "uf": "PB",
+      "cidade": "João Pessoa",
+      "bairro": "Torre",
+      "rua": "Avenida Barão de Mamanguape",
+      "numero": "954",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msj59vz3_97ae4500ac",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e4109ddc-af76-45e0-b481-dddb4bd786cb5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049841",
+    "created_at": "2026-08-07T16:13:52.791Z",
+    "paid_at": null
   }
 ]
