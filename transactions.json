@@ -175,5 +175,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/31331d9e-6f95-41bc-8bb4-7b4cdc02d6915204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304CA9D",
     "created_at": "2026-08-07T10:13:05.693Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_c7c1dd80166efde1e57a8a94609a5232",
+    "tracking_code": "SO7Y2X8CL9NCBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Josefabolos",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "82999265654",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIB-6kXjGBuabu1KNCLFSWoX8cRF_H7lWCUpKtiWe86aySLs2I_K7nBuq563rSJE6mN6yD-9D6spTacCG6vC9XN8MdvjfiTTkBlVp-iMUFPKhcV4divb3yv5_y372jfo6QqPkqE8x_P0eMtc-x7eM4jRuURaTPSfwuoTszR8JIxGW7EAFEqbGBKCyLo_dojpE",
+    "ttp": "01KZE3PRX0TPFWVYMXGTT6MNAW_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tkqznw2z4ucmsixnd72",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "57230-000",
+      "uf": "AL",
+      "cidade": "Coruripe",
+      "bairro": "Zequinha Azevedo",
+      "rua": "Rua Euclides baeta",
+      "numero": "19",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msixplrn_c2a7b3c086",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/7ba6ad2a-5f3a-4a89-9718-916310aa13045204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040D32",
+    "created_at": "2026-08-07T12:42:09.547Z",
+    "paid_at": null
   }
 ]
