@@ -222,5 +222,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/7ba6ad2a-5f3a-4a89-9718-916310aa13045204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040D32",
     "created_at": "2026-08-07T12:42:09.547Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_b4ae96bdfeb0e39834ee239c62b2f7f7",
+    "tracking_code": "SODXWW5FDMCMBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Mauriza Gonçalves Lima",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "15981366871",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIB-DjQePVvsO37F1wZwEgtm2pUxndbcjwfVNobl5GPzPP-P3tK9vdKWDMF2eZpkwvxrB83iGIinhKVh0fohHbx4IzZu5zMAOoCmY8_5a0X_svEE05FbI8Z7DSNcpQau7NpHZ7pGNrQYoq1xAmBHFIleMLQKOE_C7ypSmUwNrL6RCIQxIXxZgjkQe_iUamr0V",
+    "ttp": "01KZE5VETTCW6AQBMQQZWDWMD0_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tpzekh2oz2lamsiyx3md",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18087-800",
+      "uf": "SP",
+      "cidade": "Sorocaba",
+      "bairro": "Jardim Residencial Nikkey",
+      "rua": "Rua Neuza Metidieri David",
+      "numero": "135",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msiz2mnq_416c62035c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5f221345-cbcc-42fa-a224-d8fdc19f1d175204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049C7D",
+    "created_at": "2026-08-07T13:20:17.878Z",
+    "paid_at": null
   }
 ]
