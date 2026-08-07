@@ -2049,5 +2049,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0fb7196e-ba37-4a8c-9439-5f959f7115a95204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304158A",
     "created_at": "2026-08-07T20:24:38.224Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_bc543c2030fef13ba66bd9df216a9223",
+    "tracking_code": "SOFXKSLWQL38BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Mara Souza Oliveira",
+    "client_email": "maraperolaemiguel56@gmail.com",
+    "client_doc": "06316976593",
+    "client_doc_entered": "06316976593",
+    "doc_pix_fallback": false,
+    "client_phone": "5511941278",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABnAvZ9GCNUZfnaxp9ouClhowu7Tg8iRwkqR6U_xmHfXwYWQIgM8jSMCWv5UdbhCJhjFVGww72tDgqzNo2NfmthzM3YgZ7cKpDjiUGMaFqS3mSQPNy0K3Vf1n0fy6Phb4D--9-PcvPtv0EUu5B2sQe9d8LbmtYsj9guRM2xlzpKGGYPRwhYU4--csl--UMMQ",
+    "ttp": "01KZF1F4M8BC190HPWHYYVG2Y7_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tca06uxqdujmsjg5po0",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "07940-110",
+      "uf": "SP",
+      "cidade": "Francisco Morato",
+      "bairro": "Parque Cento e Vinte",
+      "rua": "Rua Ceará",
+      "numero": "220",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjg8xax_b6c1c39751",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3b7b3151-95b5-4eb9-89f1-b7487d39a7165204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304C772",
+    "created_at": "2026-08-07T21:21:04.630Z",
+    "paid_at": null
   }
 ]
