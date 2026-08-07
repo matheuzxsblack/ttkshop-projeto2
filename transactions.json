@@ -2535,5 +2535,111 @@
     "net_amount": 3077,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-07T22:30:17.837Z"
+  },
+  {
+    "id": "psa_df264870b9cf8fd885205617d39a4ed1",
+    "tracking_code": "SOL7LS82UVEQBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Luana Kelly",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5579883613",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB0T4lxjSt3LicYi8rvMnnhX9EAEeuj-SHfDPOZuS8sEtcflAnuyYpdBtk8r0RFoeW2FCNzmL1HA_buJolrG98IMw8JwT8miNhp7BXNypgM6LqoLg8SgT-kzBIOsgPcQN3po2kz7PTwZFqzvcAJUpPBopxpfYY3SHMu7rWKm5UP4e8dIm-rs6KxurWhsVwSr",
+    "ttp": "01KZF65D4RMHGSWTJN1TC2WCMQ_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t6iesw97vhrnmsjj39np",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "49015-406",
+      "uf": "SE",
+      "cidade": "Nossa senhora do socorro",
+      "bairro": "Sobrado",
+      "rua": "Rua B1 vida nova sobrado",
+      "numero": "02",
+      "complemento": "Quadra 24 bloco 162"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjjt3qh_0a561035c6",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/01587fd1-ec14-4355-a046-d2b1400c6a845204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B228",
+    "created_at": "2026-08-07T23:00:44.143Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_05d5dcf63fce1f6679d96bc30727894f",
+    "tracking_code": "SOLASXSS5T5EBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Jaqueline begalli",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "35997446789",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBzqKfXYOnhN4YkYmjLBcu9lL9gwdmxPFOrH_9X2uW1cKrn9LQCua49Q7QZAHyOaK31WETKS5dc8ok34guT_r-Yotfuc6fqpneEYxCGAmtKFPauYYHywSD8tzBXAP44rQgsmfCS-C9rFkXnBzH2xx6znLYQsvnPl84W91eEFWprZcnS9vfU1oTxwd4Afs_ZZ",
+    "ttp": "01KZF72PSBK6G9DB7A1M96C072_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "td4g4yo2wyzmsjjnuzu",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "37720-000",
+      "uf": "MG",
+      "cidade": "Botelhos",
+      "bairro": "Centro",
+      "rua": "Guilherme  bouzam",
+      "numero": "457",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjjvj8d_3ff721940c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6ec20f2e-0ab5-48f8-80c9-eea284e44dbd5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D825",
+    "created_at": "2026-08-07T23:02:37.630Z",
+    "paid_at": null
   }
 ]
