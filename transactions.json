@@ -2108,5 +2108,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3b7b3151-95b5-4eb9-89f1-b7487d39a7165204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304C772",
     "created_at": "2026-08-07T21:21:04.630Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_88077311e5ed56e1077bb49ba4775a6f",
+    "tracking_code": "SO84RE4NYRPGBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "nilton fernandes junior",
+    "client_email": "niltonfernandesjunior@gmail.com",
+    "client_doc": "70458553700",
+    "client_doc_entered": "70458553700",
+    "doc_pix_fallback": false,
+    "client_phone": "21993131901",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBgJM87Ms67chZcr2vM_otPz_r17CYPC12Zv9WXvIVzea408x5Te8z9Au-8fNwE0c88-jy3SqrmVG8VmF03mrpKKufH3K92j0VMVJ9Ml_MJDHxD5SKfPhsGZA-JFZiizbf4A7c_BQ8lFkwx2Q06_3TAky8oJdHbdxef5g5RUP_i9c9mQc8BexSER2KNoPPsr",
+    "ttp": "01KZF22DW2RDS1SN1XSNPWPGSF_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "ts08kknplek9msjgj9uo",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "23070-220",
+      "uf": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "Campo Grande",
+      "rua": "Estrada do Campinho",
+      "numero": "1054",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjglw77_0ae848658c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/af85e891-3703-43b7-8915-811e0099acec5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044469",
+    "created_at": "2026-08-07T21:31:08.826Z",
+    "paid_at": null
   }
 ]
