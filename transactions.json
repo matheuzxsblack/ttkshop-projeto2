@@ -2295,9 +2295,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msjheb6y_20d6b6cb6a",
@@ -2350,6 +2350,128 @@
     "external_id": "ttk_msjhpkzg_f7188d14dd",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/38014f58-db23-4404-b220-0b503bd192885204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304AE4F",
     "created_at": "2026-08-07T22:02:00.727Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_b9d40838c7697352f1de8380d08d5d6e",
+    "tracking_code": "SOUK6ZAKA8KKBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Paulo  Cesar Martes",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5512974062",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB3_RlOZQGzmUpjSzDIqDMaRE2eYelHGTG6Sf2AzmmpV7CqinrzqNkYS-qJnVsXYq-_Av8-UGbTWFaJ5LMCcqocqWBkOcIWKG9s85-HJFL_6eaHTAOWzABGhYlriFYLxg9Kr_QE0P0jENCYSX8M46py-g8JtXzHS8ISZpIpLFaoRtrlGxoOzrfYxXl9RBZ0J",
+    "ttp": "01KZF4DPNQP704401NP1JNYC5M_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tmslu82oo7ismsji0584",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "11677-385",
+      "uf": "SP",
+      "cidade": "Caraguatatuba",
+      "bairro": "Massaguaçu",
+      "rua": "Rua Geraldo Alves do Nascimento",
+      "numero": "62",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjigmzk_e9f2a1a09a",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/b67328e9-5d64-410e-9775-cbd4589ad8635204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D876",
+    "created_at": "2026-08-07T22:23:02.942Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_8576b83f7a1eeaaf0384ed04709992a2",
+    "tracking_code": "SOKL6KRW8ZACBR",
+    "amount": 5861,
+    "status": "pending",
+    "client_name": "Tabitha Cristina",
+    "client_email": "tabithacristina6@gmail.com",
+    "client_doc": "61570885249",
+    "client_doc_entered": "61570885249",
+    "doc_pix_fallback": false,
+    "client_phone": "92985005453",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBkYyvikdWoNHjgYP8RxMwQAG57jeLtafQOsv98R4Srnlo5FyBpI3kBN9P2iOEWDWnpsRsmNf1Umm7a9RvPqlvP39zwh3TgOzjH-Q4dp8ShrQV2OvF7pxngI0wC7gHRwOTkx1OAa6f1xnGvYzDaK32FdSSav8RkxfDoAuAxD75F_gOpnmB56kohjXAkSbx6P",
+    "ttp": "01KZF51QP9P0SE95WHKP7WXH91_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t4hjxtppyrnumsjie7up",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "69097-511",
+      "uf": "AM",
+      "cidade": "Manaus",
+      "bairro": "Nova Cidade",
+      "rua": "Rua Porto Vila",
+      "numero": "7",
+      "complemento": "Quadra 398"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjii04l_17203b79ba",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/28fddd2c-e92f-4c3e-8107-94ad4f55d16e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304F64A",
+    "created_at": "2026-08-07T22:24:06.324Z",
     "paid_at": null
   }
 ]
