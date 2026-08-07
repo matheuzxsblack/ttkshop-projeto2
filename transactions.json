@@ -2646,7 +2646,7 @@
     "id": "psa_7e24054003cb93f8a1925d3da26d8dae",
     "tracking_code": "SOQMG9E5Q254BR",
     "amount": 3077,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Jaqueline begalli",
     "client_email": "jaquelinebegalle215@gmail.com",
     "client_doc": "16473249044",
@@ -2661,7 +2661,7 @@
     "ttclid": "E_C_P_CuEBzqKfXYOnhN4YkYmjLBcu9lL9gwdmxPFOrH_9X2uW1cKrn9LQCua49Q7QZAHyOaK31WETKS5dc8ok34guT_r-Yotfuc6fqpneEYxCGAmtKFPauYYHywSD8tzBXAP44rQgsmfCS-C9rFkXnBzH2xx6znLYQsvnPl84W91eEFWprZcnS9vfU1oTxwd4Afs_ZZ",
     "ttp": "01KZF72PSBK6G9DB7A1M96C072_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "tgqpuny1hustmsjjxbel",
     "funnel_store": "toalha",
     "address": {
@@ -2699,6 +2699,8 @@
     "external_id": "ttk_msjk0adk_9effac5997",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6feaea04-fd5e-4719-929c-c5f5cbeb8bea5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304C9BF",
     "created_at": "2026-08-07T23:06:19.326Z",
-    "paid_at": null
+    "paid_at": "2026-08-07T23:08:39.831Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
