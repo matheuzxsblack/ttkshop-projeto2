@@ -1546,5 +1546,56 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/50424197-fd2d-4ab2-9869-2f17e35f48465204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63042A24",
     "created_at": "2026-08-07T18:01:31.826Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_32eafecf3a7bebeb1211064edff65630",
+    "tracking_code": "SOJ6FZ6AERHPBR",
+    "amount": 5861,
+    "status": "pending",
+    "client_name": "Andreza Nunes da Silva",
+    "client_email": "dezanunes2010@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "2010",
+    "doc_pix_fallback": true,
+    "client_phone": "34998559296",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBflnjJMvtJPkilkW6ZAVDbSV1058RBd3EwDSxlYJZiwD_aMJEFY2uQVDTXJjB2fEMswgp6DDO5pLd96jC5_NF9-dLWX59tAbsgGQe6AYQ7nAwrI3Rlkl6jyaIwAXx_nWRjwqEA49NtFb7XunZ5RRyJOXOzQE58tqSFSGUDW6Qm46ePmLA1ohH07KmciAmgG",
+    "ttp": "01KZEPRPNWRC975X8FHN8S9235_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tc8p9w0jyevqmsj9h834",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38412-625",
+      "uf": "MG",
+      "cidade": "Uberlândia",
+      "bairro": "Nova Uberlândia",
+      "rua": "Rua Josephina de Souza Leite",
+      "numero": "98",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msj9k7wi_6a37df4937",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/f13af9da-5d8c-429e-a716-548d7b6f894e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304FDC1",
+    "created_at": "2026-08-07T18:13:53.634Z",
+    "paid_at": null
   }
 ]
