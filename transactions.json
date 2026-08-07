@@ -653,5 +653,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/35f7bb96-e1b0-4d3a-90f7-343edf5242005204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304BE05",
     "created_at": "2026-08-07T14:52:41.523Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_7cde0264971042d38f640d243e190047",
+    "tracking_code": "SO8HZ3LQL6Y6BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Dalila Oliveira de Jesus",
+    "client_email": "dalilaoliver9195@gmail.com",
+    "client_doc": "66338921287",
+    "client_doc_entered": "66338921287",
+    "doc_pix_fallback": false,
+    "client_phone": "92991316721",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIBBFfyKUMkAyJwFB5w249dGQ3twgs_MZdJaDAxJGkM4354HRMlwBC9p3B-Lz_3LtrHkTVu68U0vliuazVAZrLk7vLIfNBNJyZ8gUmhpjfz70kXya6W_39VQOssC4FUeDNv4Kh0BinCrkGkDedlgezipzDz976-y0m5zdUb6-Peekqde38UI-llMZj63V34Qu",
+    "ttp": "01KZEBPSJADDCSZBHV5T5E19Y2_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "teket0rbrkyamsj2owxe",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "69093-270",
+      "uf": "AM",
+      "cidade": "Manaus",
+      "bairro": "Colônia Santo Antônio",
+      "rua": "Rua Sara Kubistchek",
+      "numero": "15",
+      "complemento": "Em Frente S.O.S panela de pressão"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msj2rkbu_7159720198",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/08e42f3c-5596-4b5c-a5c2-38c008784a495204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044BBE",
+    "created_at": "2026-08-07T15:03:39.091Z",
+    "paid_at": null
   }
 ]
