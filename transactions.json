@@ -1146,5 +1146,52 @@
     "paid_at": "2026-08-07T16:37:24.509Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_a7e6d779c77f0551a36ca2d2e310e92d",
+    "tracking_code": "SON2HNKYCL7BBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Nina conceição",
+    "client_email": "ninacustodia123@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "12984341285",
+    "doc_pix_fallback": true,
+    "client_phone": "77999640423",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIBm_Xp-DeIzeKd5XNd3D350Z-_jPW9owz7FKwb88lNkOa7wDM95W8O1MqdExEljoElOizQ7nnykH7Ns0asj8xyiY_Skjha6XkpE7FjwAFwcDry7XUTQY06RWW8lk3ywO8JIP3e1NC5JLFOxI3G5Jzhv3ib52vip4e3phiaf8yWJFF8fYE6j0ULbi7553_9oz",
+    "ttp": "01KZEHVGD30Z5H206FN1NPHQSB_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tpzm3em2y8bhmsj6etn1",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "46500-000",
+      "uf": "BA",
+      "cidade": "Macaúbas Bahia",
+      "bairro": "Alto do cruzeiro",
+      "rua": "Rua Afrânio de Souza Borges alto do cruzeiro 291",
+      "numero": "291",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msj6i650_e23a8bcd8c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3aa61a2f-bca4-4ada-b501-3f082ca8ae9e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63041FA3",
+    "created_at": "2026-08-07T16:48:19.179Z",
+    "paid_at": null
   }
 ]
