@@ -1986,5 +1986,68 @@
     "paid_at": "2026-08-07T19:37:19.727Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_3233ad14599a4dc8d6ed323711666cd8",
+    "tracking_code": "SOJX2DHP32XDBR",
+    "amount": 5861,
+    "status": "pending",
+    "client_name": "Janice de Lima Gones",
+    "client_email": "janicelima58.jl@gmail.com",
+    "client_doc": "01602852839",
+    "client_doc_entered": "01602852839",
+    "doc_pix_fallback": false,
+    "client_phone": "11972747092",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABKP_8ZGoXqn6Y-ken-CpiX3WpCtG_GeZ85gpVlD-M7wx-QUmx7f2jULQbUIZY8fFtjTR7tr_pX7D3hS_1PRzYKHOwx99Du7EQ1VXKfrUwRDjbTC2XUg_ljQ3l3M157v7EK--XYzZs7aNKy_iQ5kv88nPVOAUkmFrzQ4pSXXd3QAjSRkPP4lldhvZxFWnSen",
+    "ttp": "01KZEY1BKJ613ZVA1YX3W6XF0K_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "to86bygqrrt7msje0mkm",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13203-190",
+      "uf": "SP",
+      "cidade": "Jundiaí",
+      "bairro": "Vila Cristo Redentor",
+      "rua": "Rua Marcos Fagundes Peixoto",
+      "numero": "222",
+      "complemento": "Casa2"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msje8cwi_d752473b6f",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0fb7196e-ba37-4a8c-9439-5f959f7115a95204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304158A",
+    "created_at": "2026-08-07T20:24:38.224Z",
+    "paid_at": null
   }
 ]
