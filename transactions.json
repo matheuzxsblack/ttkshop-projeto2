@@ -1291,5 +1291,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6367cc62-39bb-449d-8589-79968a400daa5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630489F4",
     "created_at": "2026-08-07T16:54:34.233Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_ddae12ddf67f20cbf4bc004e8011c2e3",
+    "tracking_code": "SOEDQAK82NABBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Nina Conceicao",
+    "client_email": "ninacustodia123@gmail.com",
+    "client_doc": "98434128500",
+    "client_doc_entered": "98434128500",
+    "doc_pix_fallback": false,
+    "client_phone": "77999640423",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIBm_Xp-DeIzeKd5XNd3D350Z-_jPW9owz7FKwb88lNkOa7wDM95W8O1MqdExEljoElOizQ7nnykH7Ns0asj8xyiY_Skjha6XkpE7FjwAFwcDry7XUTQY06RWW8lk3ywO8JIP3e1NC5JLFOxI3G5Jzhv3ib52vip4e3phiaf8yWJFF8fYE6j0ULbi7553_9oz",
+    "ttp": "01KZEHVGD30Z5H206FN1NPHQSB_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tpd5gp33yrgbmsj6qdzl",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "46500-000",
+      "uf": "BA",
+      "cidade": "Macaúbas Bahia",
+      "bairro": "Alto do cruzeiro",
+      "rua": "Rua Afrânio de Souza Borges alto do cruzeiro",
+      "numero": "291",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msj6u11x_53e0351fda",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/eb65203f-aae3-4616-9e6c-e8729348702b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304C33F",
+    "created_at": "2026-08-07T16:57:32.762Z",
+    "paid_at": null
   }
 ]
