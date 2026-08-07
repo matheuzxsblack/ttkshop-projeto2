@@ -1937,5 +1937,54 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/00539799-f6d4-4be3-ba16-4e3a98b188df5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304E9D6",
     "created_at": "2026-08-07T19:18:32.024Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_27bb0cc8c2d103de7b24974b64089b31",
+    "tracking_code": "SO8BY68DQ2AABR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Juria zanazi Mazzini",
+    "client_email": "juriazanazi7126@gmail.com",
+    "client_doc": "12229891820",
+    "client_doc_entered": "12229891820",
+    "doc_pix_fallback": false,
+    "client_phone": "16997577413",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABI_2zkPTnf-hzJAqtzC45xVjFPDP5K8roIMoEqExZ82rDWOIQSoQHnVhcVLDYLE3odQ2CsyUewKkmoPOIuSyjaf2enrySQaHXyRD4-eDOHph8aFhg7i8NP72AaJTWmn7nyJYHGGx0NrEY3cKKG_4yNS9ArxRhQQB94LyJsXGV50N54lJrouCUKNzvEFLIN_",
+    "ttp": "01KZEVFNFPYQECHG3CC15YKPDB_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t2ng13pv81ygmsjcf92c",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "15999-007",
+      "uf": "SP",
+      "cidade": "Matão",
+      "bairro": "São Lourenço do Turvo",
+      "rua": "Rua Angelo Pastori",
+      "numero": "501",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjchyfo_195229da5a",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/94eb3a0d-f8d5-42eb-9cd1-5f4a9a6ab3765204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D58B",
+    "created_at": "2026-08-07T19:36:06.606Z",
+    "paid_at": "2026-08-07T19:37:19.727Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
