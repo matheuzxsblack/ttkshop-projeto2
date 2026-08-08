@@ -6150,9 +6150,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskom705_223ccbe31a",
@@ -6264,9 +6264,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskot04x_744337e980",
@@ -6406,7 +6406,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -6414,5 +6414,194 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/a10aed87-40a5-437c-a26f-ef74f9a74fea5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D4EB",
     "created_at": "2026-08-08T18:24:51.006Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_5782cf67834bc728119136405721630d",
+    "tracking_code": "SOPY3TX9R4KTBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria Lúcia Lopes da Rosa",
+    "client_email": "marialucialopes.cba1@gmail.com",
+    "client_doc": "47463422100",
+    "client_doc_entered": "47463422100",
+    "doc_pix_fallback": false,
+    "client_phone": "65999967246",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB_0SnnwYrvdaAqHhqJQgQnF2nHurgql-JwXlL-Dqwf4z_Nu6eeWjy_dY-usZPLla1MBREJJ8ZmPbnrfZUw0xzh_UgPdBanjKAbTT7gpkYoC2nl6z25C73T5o_-pWSSNvDf4DvBu_LnAvHBmmakBc9PBKUbpWDR2iGuuE05rqzIWlM-aeP6HVs-F8qRRS6Gk",
+    "ttp": "01KZHA29A0SYGEFEFZ8QMRC3QF_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tfvduo7el1otmskphbwt",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "78201-120",
+      "uf": "MT",
+      "cidade": "Cáceres",
+      "bairro": "Santo Antônio",
+      "rua": "Rodovia BR-070",
+      "numero": "1680",
+      "complemento": "Fazendinha agropecuária"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskpkvdm_d03a4642c7",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/1757d5d1-c4c0-410b-a414-7163a7fb18435204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304484B",
+    "created_at": "2026-08-08T18:30:03.679Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_ea213a6ee26bd297fd005ddf31b0a801",
+    "tracking_code": "SORNBGZE7BKABR",
+    "amount": 8256,
+    "status": "pending",
+    "client_name": "Maria Lúcia Lopes da Rosa",
+    "client_email": "marialucialopes.cba1@gmail.com",
+    "client_doc": "47463422100",
+    "client_doc_entered": "47463422100",
+    "doc_pix_fallback": false,
+    "client_phone": "65999967246",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB_0SnnwYrvdaAqHhqJQgQnF2nHurgql-JwXlL-Dqwf4z_Nu6eeWjy_dY-usZPLla1MBREJJ8ZmPbnrfZUw0xzh_UgPdBanjKAbTT7gpkYoC2nl6z25C73T5o_-pWSSNvDf4DvBu_LnAvHBmmakBc9PBKUbpWDR2iGuuE05rqzIWlM-aeP6HVs-F8qRRS6Gk",
+    "ttp": "01KZHA29A0SYGEFEFZ8QMRC3QF_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tfvduo7el1otmskphbwt",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "78201-120",
+      "uf": "MT",
+      "cidade": "Cáceres",
+      "bairro": "Santo Antônio",
+      "rua": "Rodovia BR-070",
+      "numero": "1680",
+      "complemento": "Fazendinha agropecuária"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskpmdd3_3f6928163b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6fbe3b27-6600-498b-8fd3-81aac7892b185204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304E73D",
+    "created_at": "2026-08-08T18:31:13.586Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_577755bf9b07a341099589b80fee74b7",
+    "tracking_code": "SOBES9A4GN8EBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Cláudia Lima",
+    "client_email": "claudialimagoncalves72@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "559899020741",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBTbZ8UJBkgNxWEBQODec6AK1A1F2m3sZ6IVSqPpRRrFzfFjGKNQ3B4KD4-Hbbs0-pS8ES55T9rhwR-dIVwiJVv3EBsIUd1gq5zqP4ORvhYfoIcvG2tU5hdcPZ3F7XhFH1mkO5b7qzkG8i0tpAxjsEGMnwwFn6wnSrjhpTrpG92c2mBhM4Q0bK75uBSO-ywb",
+    "ttp": "01KZHA6HXR8XS6RE61WQDJQTSK_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "toj4cdorg32emskpqqbx",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65050-896",
+      "uf": "MA",
+      "cidade": "São Luís",
+      "bairro": "Planalto Anil III",
+      "rua": "Travessa O, qdra 14",
+      "numero": "04",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskpspk3_37737ab227",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/49746cde-860a-4df3-8401-5f90c316593d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630444F4",
+    "created_at": "2026-08-08T18:36:09.726Z",
+    "paid_at": "2026-08-08T18:36:58.607Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-08T18:37:02.227Z",
+    "email_sent": true
   }
 ]
