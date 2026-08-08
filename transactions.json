@@ -3769,5 +3769,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/736e01a3-99dc-454b-8761-d810bcb579a35204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048903",
     "created_at": "2026-08-08T02:29:36.425Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_aae62dcdc189001eca1bd03201e2a0c3",
+    "tracking_code": "SO98TX5UNPSCBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria Eliondas de Souza Galvão",
+    "client_email": "meliondas67@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5581999181",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtkBGFrxHU_OUzlYJ4nWEfGK5sjCp0kR9XOczN0vaoifaA9WZKFj1WiT0zT3eyKQSW1grLTtlbAiku0JblMVqxFq2FQJqmnU3eudbUPZY-0tYMxg2Y24Cew0o5a7o6rkEYLiBAdBVRwT0gqcz3z8_GNb2rE-5IPq7EzlK_Ag4QC7bChbL2Mk1J6dULQjA8BgzE",
+    "ttp": "01KZFN5H6YZ4H7MTZ6H88CZXS6_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tp6selhlgt6msjsih02",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "55660-000",
+      "uf": "PE",
+      "cidade": "Bezerros",
+      "bairro": "Centro",
+      "rua": "Rua Dr João Vieira",
+      "numero": "311",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjskftf_8ab5c68360",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/a885c78a-b289-4a31-9ac1-63ce442248c45204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040FA4",
+    "created_at": "2026-08-08T03:05:56.728Z",
+    "paid_at": null
   }
 ]
