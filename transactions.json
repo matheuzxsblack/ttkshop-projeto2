@@ -5122,5 +5122,99 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d4ff9699-8c34-4d4c-ba8a-11ea22ceec9e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63043C8D",
     "created_at": "2026-08-08T14:22:55.903Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_5b223201f752f07390edbae8a170c098",
+    "tracking_code": "SOKG28DLEC75BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rubycandido",
+    "client_email": "rubycandido091@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "19991453672",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB-egj0FMXjspy8f0DWjSEI1H9XwP2HhLCw7uVsfgw7LW9djwwTXGDyL05a5IMn0UELM3Y7W2igNmDZz5ebtsKNlxVrVpzznAq1hYaLmEkmejtNXbExA07VWaY8nItaSX4Qk0YfbVzXgf1slRhpx8oOgNLPIYBA_0Mq-XjD-A7T67kEksDWxvPjPKWBQU51H",
+    "ttp": "01KZGWFRGPFTNS91ZJRZJCC6BH_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1u21j8v7pa6mskh006m",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13664-306",
+      "uf": "SP",
+      "cidade": "Porto Ferreira",
+      "bairro": "Jardim Jandyra",
+      "rua": "Rua Baptista Covre",
+      "numero": "790",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskh2qv5_0e3c323802",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/74eea46b-e185-45d5-9070-482f26a0879e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A8E4",
+    "created_at": "2026-08-08T14:32:01.626Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_d229159f4c02ef72120555d7360ea8dc",
+    "tracking_code": "SOPTSPQCAT2XBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Catia Regina da cruz",
+    "client_email": "catia.regina.cruz@hotmail.com",
+    "client_doc": "01877122980",
+    "client_doc_entered": "01877122980",
+    "doc_pix_fallback": false,
+    "client_phone": "41999016629",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBkatk8mfA4VhZhXTENMwG0BVXk44oyWLg2X4IegvXmMpYXmvBWvHCnh6owBQJ1484h1nBJ9EBFDgOTvH1O0rLwSXyCh2Rbgu5hRA67FEw86RJpdBVtOqsKQM7ymFBQ-BUW0SAOCy1Nip8npc9DBx5IC96WkpF_Uqx8BlI9yHsFZrhSO-yFp0r8CuPfdqbHB",
+    "ttp": "01KZGVTE80GA20KA07JRVQDDP3_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tmijfg6lacakmskgz57l",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "89230-540",
+      "uf": "SC",
+      "cidade": "Joinville",
+      "bairro": "Jarivatuba",
+      "rua": "Rua Ciríaco Manoel da Silva",
+      "numero": "241",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskh39j2_87f2d782f9",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6f1aa565-db0c-45b3-bac2-9568c00f07df5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049320",
+    "created_at": "2026-08-08T14:32:25.227Z",
+    "paid_at": null
   }
 ]
