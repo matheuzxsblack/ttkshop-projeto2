@@ -8396,9 +8396,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskxrzes_472f41812c",
@@ -8520,5 +8520,117 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-08T22:37:42.793Z"
+  },
+  {
+    "id": "psa_6cdd256d1312357a1a4161b80ffdd0b1",
+    "tracking_code": "SOF4V3DVSPGWBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Marcia",
+    "client_email": "marcialuiz05@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5519987483132",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBohVknKgOFFF-jGjid81F9Hm65BjIPoD2QLmcbXsSYAuysHw84oiTBluqsE1H2RsUY6sB0JTCrzNCGu-vsXhFrsxkhxnVpJQtUtfmya4rXgvKzMvwlUkTvogRliImIi4BcFgJg9wfPpzf0LuykmhOtZP0HwmC3hdjARUNZJc49_OMAT2fkjTb7xMmhDWriA",
+    "ttp": "01KZHRPDSAK4MWPMXP65BH82Y5_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tks8esx3x7zmskynb19",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13285-606",
+      "uf": "SP",
+      "cidade": "Vinhedo",
+      "bairro": "Capela",
+      "rua": "Rua Robson Borges Ramos",
+      "numero": "77",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 2
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskyrski_f456320785",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/a0b0d17e-ca14-4ead-a0ec-3b072f881d125204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304DCE1",
+    "created_at": "2026-08-08T22:47:23.601Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_074ccb927bd07d8be4951e4b28771162",
+    "tracking_code": "SO49XZXYSW94BR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Aparecida carneiro Soares Silva",
+    "client_email": "aparecidacarneiro.cida@gmail.com",
+    "client_doc": "05045497669",
+    "client_doc_entered": "05045497669",
+    "doc_pix_fallback": false,
+    "client_phone": "31994620527",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_Ct4B_dvq_oKbDKhYtM7Zk60Dp-BG2WVt_b0H9g7lftFJF7AvmNBCwjBWZN0Cky6Q72386Len0slIr3ZuazwcMIMnvhsYJsfwMHQg2LJI_O5_6cN3fRJYtrUw1OVFR3GzS-fNVnjUsMfRa76OFRbQ8nLyZXfDrlOIS2Hxe3r_VXCKbaYBsQCK6UTZBSXN7__liU",
+    "ttp": "01KZHRSKBQTMA35PD6DETSHFT1_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tx6hzsp8ftrimskyoden",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "32180-590",
+      "uf": "MG",
+      "cidade": "Contagem",
+      "bairro": "São Mateus",
+      "rua": "Rua Arpoador",
+      "numero": "07",
+      "complemento": "Cada"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskys4r7_918b2d533c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/f1a21ecc-7d6a-4c32-919f-206773d8c8d45204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304848D",
+    "created_at": "2026-08-08T22:47:39.027Z",
+    "paid_at": "2026-08-08T22:49:19.628Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
