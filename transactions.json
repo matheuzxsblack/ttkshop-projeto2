@@ -3254,9 +3254,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msjnx3sk_8bb13e2772",
@@ -3301,9 +3301,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msjnxzg8_a4e52d6009",
@@ -3361,7 +3361,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -3408,7 +3408,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -3416,5 +3416,129 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/ff17f4a7-f3b6-47e2-b24b-3dabb3f456745204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048923",
     "created_at": "2026-08-08T01:19:40.524Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_b4d6f94c36d4dbc242c388b515398177",
+    "tracking_code": "SOHEG8STH5NBBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Daniela",
+    "client_email": "d25053588@gmail.com",
+    "client_doc": "03799472509",
+    "client_doc_entered": "03799472509",
+    "doc_pix_fallback": false,
+    "client_phone": "5575988887",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBLZTovkvS8GBXNrHUchQVb4v7tujV-OiJl9dewjF-bpyBd5Lshe8jxM70KEQC83UDOMynximAuLXRJbLlR9QO6e1XfhBfbwnFTlisNVUOYcZk8Gidz3nix8lSEnHEf6cosGJJJWVSSskG0WVitaVrlcV-AkKHLoiFJq8siVqQp3SDxGJ7YHTQT9ulS4TuxZ",
+    "ttp": "01KZFFB27YGYFTMMARAKKGAZZ5_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "th6nzmdthbvsmsjotila",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "48601-030",
+      "uf": "BA",
+      "cidade": "Paulo Afonso",
+      "bairro": "Nossa Senhora de Fátima",
+      "rua": "Rua Padre Cícero",
+      "numero": "48",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjovcon_ca7feae057",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/2c5e5391-cfec-4cee-9900-25b1a0b728c95204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B2D6",
+    "created_at": "2026-08-08T01:22:27.336Z",
+    "paid_at": "2026-08-08T01:23:14.238Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-08T01:23:19.426Z"
+  },
+  {
+    "id": "psa_ebb90abbd2aa8c812adcd57d7be2b5c6",
+    "tracking_code": "SOFNCPE6FPP4BR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Aline Mendonça dos Santos",
+    "client_email": "alinesantosapdd@gmail.com",
+    "client_doc": "02103514114",
+    "client_doc_entered": "02103514114",
+    "doc_pix_fallback": false,
+    "client_phone": "62992807088",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABAvYPGqSaSnoT4JInFOjtRhUL2kvIt6LQHUjhx9lmQrGSBbhTcNq25PVimTBHePpTYEVAunvG_um2q3xQ9WRBq95wgT8StDj3ds0SmvZrEjIWyBUy0H3TDnLLGVwMpC7F6suKKvBtsPBY4E9YQ91tpMWAZlxL6ouS2YMwC1W7GAAXFGgI6Y5YhEPbRC0wiV",
+    "ttp": "01KZFFACXVATBNEZNRW01RCNZN_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t3mzlk4ulkyjmsjot0yi",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "74490-287",
+      "uf": "GO",
+      "cidade": "Goiânia",
+      "bairro": "Parque Eldorado Oeste",
+      "rua": "Rua ELO5",
+      "numero": "02",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjovcsh_66c794eb1e",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/08fd82b1-f854-43f1-a185-1b478d960e2d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B28C",
+    "created_at": "2026-08-08T01:22:27.429Z",
+    "paid_at": "2026-08-08T01:25:56.658Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
