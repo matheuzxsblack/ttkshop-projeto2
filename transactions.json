@@ -8670,9 +8670,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskz1xct_520a538fb4",
@@ -8896,6 +8896,112 @@
     "external_id": "ttk_mskzopdl_afb58e0b83",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/911bc14a-1fb8-4390-a9d4-e2cb437d702f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304E568",
     "created_at": "2026-08-08T23:12:59.030Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_8230bdd67227fd4cbcd33c3f13c7a432",
+    "tracking_code": "SOLXRDJMD23ZBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria Lídia carneiro dos Santos",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5571987566817",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABafRXZEdCMNMktY5v9tRyf06Py7VDfhK5km59wwSlAwt2IENyLXojqA7HvBjvjo2qDgbwZC4LPjOHvsKmgMXQ4StFGGWHYgPKz2sMKMWqY-MUyvBWwDyzP9LOealVof9eGY9ouxNKgEI9MQMx-lwIqrwzeLcMe67qJQNUCBYC_qybx-XNSNuUJ5dqxdIX1U",
+    "ttp": "",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tkj4gupjk1emskzyrt9",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "42800-605",
+      "uf": "BA",
+      "cidade": "Camaçari",
+      "bairro": "Jardim Limoeiro",
+      "rua": "Avenida Jorge Amado",
+      "numero": "71987566817",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl02xve_8d0cdbbfb4",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/bcd505c9-3dc9-4a54-afed-6ebf66aa5d395204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304CEFD",
+    "created_at": "2026-08-08T23:24:03.505Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_6882d4e3b3f2579760370d50b24250b6",
+    "tracking_code": "SOT2U4WWB4K5BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Sandra Alves Silva Souza",
+    "client_email": "sandranegona93@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "27998608368",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBbn3lPUfCC86lyBpGKofKX-0ouQ6Lg3KKwI8YeCH1ANIcVslBuuocbtzsfCS6kPm92dfi5Goa5YL8EMLsEgS0N4cR1FPATjwYQoqxaCrfddiuaKIxhErUcWTtp4ifjccjOsc3jybp_uGp7joWnSr-0qHHWHBz6RP3-agv9N-OrBY6CZyCs1Bgy2zKT6Bnsq",
+    "ttp": "01KZHV1Y560MSYENSWFFX2P9RG_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "to425obup2glmsl035z6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "29940-646",
+      "uf": "ES",
+      "cidade": "São Mateus",
+      "bairro": "Alvorada",
+      "rua": "Rua Girassol",
+      "numero": "308",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl05uw3_30d9d25968",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e1e2b4f9-247e-4ca4-a97d-b017186230ef5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630455BC",
+    "created_at": "2026-08-08T23:26:18.926Z",
     "paid_at": null
   }
 ]
