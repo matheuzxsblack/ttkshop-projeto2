@@ -6641,9 +6641,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskq0oa5_0002fef552",
@@ -7040,6 +7040,53 @@
     "external_id": "ttk_mskqwmxl_b64fa2f3b2",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d394dd47-77d7-4517-b8e8-619e1d4acfcc5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630472CE",
     "created_at": "2026-08-08T19:07:12.325Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_535b2ce6f3512360f3e589354c5b95f4",
+    "tracking_code": "SOGGPSLEHEVHBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "alzilani Henrique de Souza Caetano",
+    "client_email": "alzilanehenriquecaitano@gmail.co",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "55119648",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBhzu7kWvav4WkJ-PSZYvaT-1_XlQmqmlnPrXNumv9BmyDi9PyV9U3iukvb3cwaRkM7zm0KZXWD21NpVL76tnpX0KESn1qY0cG_cFFnqimE5DdVyhMKP1wtVFErKMwiAV89rG_MOQDma3fFjePctlOXzS08MaGqZC22mpP6o0OsbgrHnFJyVf-zeh7eHO8P-",
+    "ttp": "01KZHBWVKVBHGC7QYFN0FZSM3V_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tuxpgac5ahvemskqwk0t",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06786-568",
+      "uf": "SP",
+      "cidade": "Taboão da Serra",
+      "bairro": "Jardim Comunitário",
+      "rua": "Rua Paulino de Moraes",
+      "numero": "88",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskr5zs8_bdb8d6ed7d",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/649056fa-1b51-4866-bda4-81edbede802e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040681",
+    "created_at": "2026-08-08T19:14:28.884Z",
     "paid_at": null
   }
 ]
