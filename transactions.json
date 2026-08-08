@@ -8397,7 +8397,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -8405,5 +8405,69 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/59c7311b-cfd1-4897-93da-5d908de71b285204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63045127",
     "created_at": "2026-08-08T22:19:32.826Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_ca014058f2ce23a90c8def1d3035b45c",
+    "tracking_code": "SO9U7JCCRS35BR",
+    "amount": 3846,
+    "status": "paid",
+    "client_name": "Márcia Valéria das Dores Santos",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "22997536151",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBTu6g9oqG_McNgv6E2N4U9nhWmwp513mxPjG-CIJy310si99pkE6yN282YlzsyvbQhAUJ_Dbdp2cc7fz5P2TY33y8VgJWsQMSOE1lOLidGYCuNFJUZaZ0HTjKY-qqOAvk6PhijSq0l3G8quex2h9U8phoEurE-eB5i1QKxrteI2qEyXT6xc4H_qHAOK0h5r",
+    "ttp": "01KZHPXWM9A9FG3QKXNRS9H75A_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tyqk64c7767emskxifaq",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "28027-250",
+      "uf": "RJ",
+      "cidade": "Campos dos Goytacazes",
+      "bairro": "Parque Rosário",
+      "rua": "Rua Pedro Tavares.",
+      "numero": "55",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskxw32v_20775bea11",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/69e8e034-a473-481b-a3d6-1a4e3736e5e25204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63042B77",
+    "created_at": "2026-08-08T22:22:44.156Z",
+    "paid_at": "2026-08-08T22:23:51.272Z",
+    "net_amount": 3846
   }
 ]
