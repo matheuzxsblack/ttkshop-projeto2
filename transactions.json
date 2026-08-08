@@ -6320,5 +6320,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/85f0f53a-d2ef-4b62-a507-908f828105aa5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630492C2",
     "created_at": "2026-08-08T18:10:07.485Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_1afdfbfc0334c7b116069658d849f2d9",
+    "tracking_code": "SOFJKEBJU7JXBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Edvaniaoliveira",
+    "client_email": "cliente@email.com",
+    "client_doc": "01065664311",
+    "client_doc_entered": "01065664311",
+    "doc_pix_fallback": false,
+    "client_phone": "5585985603",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABteEBz39_nbP75_hY5oDoi44PvAB0gEXsYbt238uHDfAtxfDpm05g5KYzt0sJHH-t5v2syazXE-IaF4tYFSYBIru4GX1Nfdr4TRxvcz2QIP1yBAEY6s2Cnx5oTlzl8PTxXzy5hu4hAl51aE8_ykz9Gc-BpZBBfVtsN48N6aPy9_sZckemEEjArktnpDHp7_",
+    "ttp": "01KZH994B5B3AMK9W1T8PPHBVA_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tr8djmn5ts7mskozoox",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "60740-460",
+      "uf": "CE",
+      "cidade": "Fortaleza",
+      "bairro": "Parangaba",
+      "rua": "Rua Pedro Coelho o4",
+      "numero": "04",
+      "complemento": "Próximo  mara chica"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskp6ob1_e5bdfd2c2f",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5cde39e1-8f14-4109-b375-6e01d8f620fb5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630401F7",
+    "created_at": "2026-08-08T18:19:01.778Z",
+    "paid_at": null
   }
 ]
