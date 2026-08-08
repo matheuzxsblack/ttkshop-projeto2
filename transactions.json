@@ -4955,5 +4955,54 @@
     "paid_at": "2026-08-08T13:52:18.250Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_e7ba8a19e94efcce89d9d1c43c8c6a26",
+    "tracking_code": "SORF2CZ3CNSBBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Jozinete Cordeiro Ferreira",
+    "client_email": "jozineteferreira877@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "98984749539",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_Ct4BuRBLbcH1QQYvF7_nrJ1FGUXL2CCGEypNasq0erlgcIFNXcm0LCQVzR2BGIYfc5R0cxcXwIPhQskxCQhcKX8YwcexRxG30VM7vU0gGH0Tb2SozE1W-BW3BxhC7Fbv3Okc8kvKT7wG4qQ2ey_D5-BPLv6yj6JKp_H8sYYPBjdvYjchlS3DfPw4xW7RFBz0Ob",
+    "ttp": "01KZGTV4HCVHVZ485WH574A2TM_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tms02i2va0gmskg32eg",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65270-000",
+      "uf": "MA",
+      "cidade": "Bacuri",
+      "bairro": "Portelinha",
+      "rua": "Emiliano Pimentel",
+      "numero": "S/n",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskg5msy_50c4d062bd",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e9ec920a-fbbe-4f4b-9107-531145d428295204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630411CB",
+    "created_at": "2026-08-08T14:06:16.827Z",
+    "paid_at": "2026-08-08T14:07:26.304Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
