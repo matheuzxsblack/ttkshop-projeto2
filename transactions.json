@@ -7969,5 +7969,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/16452eda-1ae6-4cf1-8c06-17103eaf998b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A254",
     "created_at": "2026-08-08T20:19:19.239Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_b0527fbd0af24a4640cc9747cd42961d",
+    "tracking_code": "SOYTTBL6SN2EBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "claudia da silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "21981087188",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtoBonFpYYdBBEl81HI8LLMKn5apzcFG8HoJU6gpvt3XuY1d2tmMYQZY4yNjcMLHNjd32SC8OUPU8kNSBsw86CIOuFAh4nLcRIisWj610B9FlQ8zN1H-eKcqbDurhxd9-Elyl9716wib39TtSmt7Oh4U_xBRjayEhtRorIWTXRK7wHKekmqL3e_bGFPaD1qXT2",
+    "ttp": "01KZHH1W83FB743E0974RB9EXG_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tah5tl9tphvmsktudsc",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "26292-132",
+      "uf": "RJ",
+      "cidade": "Nova Iguaçu",
+      "bairro": "Campo Alegre",
+      "rua": "Rua Marivas",
+      "numero": "22",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msktvqso_079e5d6d14",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/67611a87-8a5b-4ae0-8f26-e0c0718a57cb5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304FE56",
+    "created_at": "2026-08-08T20:30:29.673Z",
+    "paid_at": null
   }
 ]
