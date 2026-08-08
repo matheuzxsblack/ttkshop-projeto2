@@ -6096,5 +6096,115 @@
     "net_amount": 3077,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-08T17:51:41.231Z"
+  },
+  {
+    "id": "psa_1d99b0248d7c2693c1bc20e0c2c1fee8",
+    "tracking_code": "SO74QNQJC7D8BR",
+    "amount": 3846,
+    "status": "pending",
+    "client_name": "Rosa Aparecida Alves Da Costa",
+    "client_email": "ros.alv.costa@gmail.com",
+    "client_doc": "95733876115",
+    "client_doc_entered": "95733876115",
+    "doc_pix_fallback": false,
+    "client_phone": "5561993218",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtoBYiMdAPFp9d700sZJAp90yGYa3wnmliPWLlQtSanZVYytZ8exhfZz5jpFiUwi87qpmFkpC56x4hLq87UXG3_McPNpC8w5rd3-j7HpcSOibjs5tzdUUaBCiYUgRYo9PfABOS3WZdZDSoa2U2ZyazKZp2_SppLnmBKnWZtNCw_L8ZxYiOlGbkMXP44u4_6H_m",
+    "ttp": "01KZH8F2ABEP9FRFZT64P0VA9D_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tg7h4j528linmskohdjm",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "71261-610",
+      "uf": "DF",
+      "cidade": "Brasília",
+      "bairro": "Setor Leste (Vila Estrutural)",
+      "rua": "Quadra 5 Conjunto 2",
+      "numero": "15",
+      "complemento": "Ao lado da creche pequena estrela"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskom705_223ccbe31a",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/4d075cb0-9a32-4d17-b60b-b1f6169e06935204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048DD0",
+    "created_at": "2026-08-08T18:03:06.213Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_e463410ff41c8466572dcc44ebb4afea",
+    "tracking_code": "SO33YTNCJJC8BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Francisca Lopes Rolim",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "91991752534",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABdSpOWl56dgQMBzgoiydOO25znj0QYv-LLHv7ZfI9vhkNHPOqem3jp8yUDGSoq669exGHO_Kq0Hv3CzxJVD4iUf06HL82XNUTkmML7igw2E6VxY8_sTu7P-q87fbO1Ne3kx1m514pWEFJWAN3ahsdQRSdC8eEUsrf28CTTUHIQbLRFL41a2axoScQJPgqkT",
+    "ttp": "01KZH8GSZEYN73VXFXSPH1DN65_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tzd3uwdzqe6mskoilhi",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "68695-000",
+      "uf": "PA",
+      "cidade": "Tailândia",
+      "bairro": "Palmares",
+      "rua": "Angelim palmares",
+      "numero": "172",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskontsn_b5a116882e",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/8ec01ffb-9bb4-4adf-b903-249bc2db732e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304712D",
+    "created_at": "2026-08-08T18:04:21.905Z",
+    "paid_at": null
   }
 ]
