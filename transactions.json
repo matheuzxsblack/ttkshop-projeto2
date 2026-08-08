@@ -3983,5 +3983,54 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6d47b627-a7a6-486d-923f-8eabb48537b65204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630471AB",
     "created_at": "2026-08-08T04:42:23.726Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_f3f5ae3eb4f9cb02f7867a0a6d61ffee",
+    "tracking_code": "SOF78JSALKNUBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Claudete Rodrigues da Silva",
+    "client_email": "rclaudete994@gmail.com",
+    "client_doc": "28817634808",
+    "client_doc_entered": "28817634808",
+    "doc_pix_fallback": false,
+    "client_phone": "34984115856",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABRb2Hf6Qsp4Tk8Vs1yXE8J7vDTv8plHh-8RRFr6rVmtM6TBM2isZYE_938aqtyDKvfAG-CI8TWkPI1Ttu6hZnVbstX1rvEsPBv9fdvz2KiGwef6y6rZkKwFAyyk3Ce7RglzTbcTB_gTuXeaaqG4RBf0vzXsxa3GMSUnMl6hX_uzt3OiToJE3FFIhsAi66sU",
+    "ttp": "01KZGJ7AEDG8SV23KRAAH3XCBT_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tn9vgqkwl25mskalhui",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38048-322",
+      "uf": "MG",
+      "cidade": "Uberaba",
+      "bairro": "Parque dos Girassóis IV",
+      "rua": "Rua Oneida Maria de Carvalho",
+      "numero": "121",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskaoa3f_b6d39a7b7f",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/2abd1b72-2c57-41c4-bcf7-89d1da926e5f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63046E63",
+    "created_at": "2026-08-08T11:32:49.024Z",
+    "paid_at": "2026-08-08T11:33:56.287Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
