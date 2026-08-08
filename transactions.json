@@ -5827,5 +5827,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d87a8667-e0ea-452c-ac13-02a8240d80775204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630435C0",
     "created_at": "2026-08-08T17:10:30.727Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_4505e9aac7b4a33cc64625e4e3303840",
+    "tracking_code": "SOUQS5USUC83BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Donizete walther",
+    "client_email": "cliente@email.com",
+    "client_doc": "03080934881",
+    "client_doc_entered": "03080934881",
+    "doc_pix_fallback": false,
+    "client_phone": "15988119971",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBdiUBCwIkNCrxJM_6R4ebPs6JhUcJvLa-Eu2udCC2isuWYIZIHXXooVSknKwy3mIKvVW34o5XKBwswk5zjiQfAJIsT5fQ4u7V5h1CdXpcATHpyX8KkLCVILT6-oCGeUG6qLS2rYMD9icl0UGYHbdSxIbGBQe89-kz-tJOwgH4Jzka_9J0kLQPuhR4gcvn2P",
+    "ttp": "01KZH5DJ0JVZ3QHJK0EC3RJQX2_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "te0bgg9n0uwmskmu28g",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18560-029",
+      "uf": "SP",
+      "cidade": "Iperó",
+      "bairro": "Centro",
+      "rua": "Rua dos Moreiras",
+      "numero": "311",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskmz3mz_e32fc77fb5",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0fe08fc7-e6e9-488e-bff0-acd302d483155204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047FEB",
+    "created_at": "2026-08-08T17:17:09.147Z",
+    "paid_at": null
   }
 ]
