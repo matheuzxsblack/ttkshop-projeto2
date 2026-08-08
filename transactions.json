@@ -9003,5 +9003,107 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e1e2b4f9-247e-4ca4-a97d-b017186230ef5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630455BC",
     "created_at": "2026-08-08T23:26:18.926Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_1e5cccc757240fa1bcf7b31855c546e6",
+    "tracking_code": "SOAW2QLJZ2HCBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Simone munhoz manoel",
+    "client_email": "Sm2801230@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11985800591",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_Ct4B4B4W5Ke2W-lYxWWNHUvu9Npn1Q2QR90vxeM7hDfD59NEgTH4eShhMaypllvSW-6IBv1lX_WXHe8uM2dapzhs95z4kAkj1Wyo-fs_S02o5Go3tFpQE5DvCPeBEF0bc1lA-XXrAldYoAXp0n0W8R3BXDsmdcCgsp8DeY2RjMxpQBiPVHkA-SL6UZpi6KGPlV",
+    "ttp": "01KZHVM7HG0GJCE3FCQSDER4ZJ_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "teakc1kmi8tpmsl0g0q6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "08598-140",
+      "uf": "SP",
+      "cidade": "Itaquaquecetuba",
+      "bairro": "Jardim Odetea",
+      "rua": "Rua Violeta",
+      "numero": "605",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl0ipsn_ab2e0861cb",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e088eb83-c0ab-419a-801e-ff052bcd657d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630445FE",
+    "created_at": "2026-08-08T23:36:19.052Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_af94e871b910a84c676858176e450013",
+    "tracking_code": "SOJEWF2JKFRDBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria lidia Santos dos Santos",
+    "client_email": "smarialidia3@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "3",
+    "doc_pix_fallback": true,
+    "client_phone": "71987566817",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABafRXZEdCMNMktY5v9tRyf06Py7VDfhK5km59wwSlAwt2IENyLXojqA7HvBjvjo2qDgbwZC4LPjOHvsKmgMXQ4StFGGWHYgPKz2sMKMWqY-MUyvBWwDyzP9LOealVof9eGY9ouxNKgEI9MQMx-lwIqrwzeLcMe67qJQNUCBYC_qybx-XNSNuUJ5dqxdIX1U",
+    "ttp": "",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t07n1i9ol038pmsl06sle",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "42800-605",
+      "uf": "BA",
+      "cidade": "Camaçari",
+      "bairro": "Jardim Limoeiro",
+      "rua": "Avenida Jorge Amado",
+      "numero": "999",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl0jkvh_0d703d70af",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/92728539-50d5-4687-8269-7fe06efcf5fc5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630440EB",
+    "created_at": "2026-08-08T23:36:59.230Z",
+    "paid_at": null
   }
 ]
