@@ -7519,9 +7519,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msks14x8_d6bc9bac70",
@@ -7799,5 +7799,116 @@
     "paid_at": "2026-08-08T20:03:22.006Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_c4a747d7a9e85e0445bdf3d70f7e1e44",
+    "tracking_code": "SO7YZQ3NYCBZBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Dieli salido de Souza Perez",
+    "client_email": "perezdieli17@gmail.com",
+    "client_doc": "05068663948",
+    "client_doc_entered": "05068663948",
+    "doc_pix_fallback": false,
+    "client_phone": "5541985073",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBITszKzxAYI7G9uXRLxskkIeuJA_2Sd8umI7-wqqCDtyMpgLPTIi3sDs-_Iy8PFZCwDA6QZfi1ouyiI6lnV8I71NfDZhSr7RfQxDtkMJg-Jo7bkHsMhCfJ9Jt3r_vW_QJtIvVccDFxZHrrFglgFW1mjr_fIwoJ4q66ecpw-5rfYBbx5rAOw9w5XmoSROGEN",
+    "ttp": "01KZHFNHN9Y902AJCKGT51E0E4_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tjzjshvk2l4amsksz8nd",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "83706-280",
+      "uf": "PR",
+      "cidade": "Araucária",
+      "bairro": "Capela Velha",
+      "rua": "Rua Coleiro",
+      "numero": "109",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskt4s3a_4c3cd1b4e3",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e9826d6b-a996-404c-b3b3-349cdabdfaba5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63046FB5",
+    "created_at": "2026-08-08T20:09:31.965Z",
+    "paid_at": "2026-08-08T20:11:12.155Z",
+    "net_amount": 3077,
+    "email_sent": true
+  },
+  {
+    "id": "psa_e5fc7bad9a0ba788dfde0655ad76b8e1",
+    "tracking_code": "SOKKVBCK8W7ZBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Lilian Aparecida Lima da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5538999240994",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBuPdh-NwTT8xByAZs9uFoJuC0NXkXWsN-ioJ2Nm7Uv-aIgupVT2Y10hS6-0ooR6V_08oJG9Ts28DyejECP6_FepzCy-qnGpI2S3ERfUuBriVaPYsVVL3-K_4IjobiN8vT0GOy_axttfOKETPlPT-nQjywENFqxss2akwZr-H33nyDzhMNoTX8IKSeKQbRDY",
+    "ttp": "",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tavcoja3oyj9mskt3ter",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38616-499",
+      "uf": "MG",
+      "cidade": "Unaí",
+      "bairro": "Novo Horizonte",
+      "rua": "Rua Eponina Borges Pinheiro",
+      "numero": "486",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskt6xp8_1c5f3f8a7f",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0601649a-6bbf-4327-8b92-1bdd4c10c7b65204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630458BD",
+    "created_at": "2026-08-08T20:11:12.368Z",
+    "paid_at": "2026-08-08T20:12:28.834Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-08T20:13:02.525Z"
   }
 ]
