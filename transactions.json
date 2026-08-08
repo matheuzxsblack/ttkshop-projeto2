@@ -9329,5 +9329,106 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/eae68d95-827e-4444-8ff9-6e5913026db45204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EEC6",
     "created_at": "2026-08-08T23:47:56.625Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_c96fbc23be4b0d27e757a2e4e3b68a69",
+    "tracking_code": "SOZ76JC5VRAUBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Rosimar Medeiros",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "66984325422",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBxYS5EQhixT6WaKZUfu6z9GN3N3oJXaiPh9GctHtDKNVngM-Jk_BsWm0NfPoUu356KNzSD5rgKoW1YnjR1z8-bahDbLMyLMyg48mmp3jkVC09WYzpnolRDIkdnR6M-BIcDtHT_C8W79xgdIVEycjoVxSsnWmPihjuPB8W3u0tAv0GFE1yMaXvSto24ckq9j",
+    "ttp": "01KZHZFFGBA132BRH64BP5C5TS_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tr9geb2o42dmsl304xx",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "78663-000",
+      "uf": "MT",
+      "cidade": "São José do Xingu",
+      "bairro": "Centro",
+      "rua": "Francisco Eloi da Silva",
+      "numero": "92",
+      "complemento": "Em frente a rodoviária"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 2
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl10gtj_8364e9f74a",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/b86867a9-ebc2-4362-b59b-3c8c451b3a265204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63043E9A",
+    "created_at": "2026-08-08T23:50:07.243Z",
+    "paid_at": "2026-08-08T23:51:27.125Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-08T23:51:31.533Z"
+  },
+  {
+    "id": "psa_ae84c75eb57855feb4a4100b35561ec4",
+    "tracking_code": "SO8W3KZD3K2RBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Eleia Ribeiro dos Santos",
+    "client_email": "eleiarsantos@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "18997162674",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_Ct4Bb5M2KwANFyynLHg2W3tTnz8Y3Ebp4JboblQC0OLNaSyteKSFPnAgSyPHHJnJgWcG0XU9NpsOj59aFe4gK2o03Y3yqx2civhLcKwCaEVeVrtxyX1mVZemnts_cc1ViweH1d0qrp2lAicSKrpOqOGOgtcdvmY_CiZ15BzMB-qY_zosODZa1p3GPucAatNyvx",
+    "ttp": "01KZHWEZAF92VEDHQ00NMX9E9D_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tsidc8bhu96gmsl10af0",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "17860-000",
+      "uf": "ES",
+      "cidade": "PACAEMBU",
+      "bairro": "GUARANIUVA",
+      "rua": "Av Vereador Anacleto Rodrigues Monge",
+      "numero": "200",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl144op_7dfce33395",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6f5abfbd-b4fc-47bd-b75d-8e13a0d0c8365204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048FD0",
+    "created_at": "2026-08-08T23:52:58.282Z",
+    "paid_at": null
   }
 ]
