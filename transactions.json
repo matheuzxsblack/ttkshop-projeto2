@@ -5561,7 +5561,7 @@
     "id": "psa_722c54ddfb34313fe5e2b056301e2a47",
     "tracking_code": "SOBHZ9CTCSQZBR",
     "amount": 3077,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Raimunda Teixeira Silva",
     "client_email": "raimunda.a.teixeira.silva@gmail.com",
     "client_doc": "17831776320",
@@ -5576,7 +5576,7 @@
     "ttclid": "E_C_P_CuEB4T0j3F_0qrjnqgl_fvXYlwPn78_EIGiehkH_jngh3oqAmY5Np80v87-NYq101udPn1SMTQHNzI29xgToJn8Q_TXkL8C0QqzV8TsTNNU9aSkpS_ftSqTdNj-YBnvk75xxoFG9h49PM4YQM3Ar1BT6LvRa2dho6MmhvAKiD-WZstkdXyE6K08c5LTkvbMWaY",
     "ttp": "01KZH0YE51E9PCY8S501ACCXZZ_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "twiwvmw0kg8bmskjsdgf",
     "funnel_store": "toalha",
     "address": {
@@ -5614,6 +5614,8 @@
     "external_id": "ttk_mskjybnn_30fa9bee39",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/28dff3d9-5e40-49af-870a-703bf514cde45204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B6B0",
     "created_at": "2026-08-08T15:52:34.249Z",
-    "paid_at": null
+    "paid_at": "2026-08-08T15:54:34.721Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
