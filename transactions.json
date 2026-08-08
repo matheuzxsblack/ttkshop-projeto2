@@ -5054,9 +5054,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskgl20m_72732fa662",
@@ -5265,5 +5265,64 @@
     "paid_at": "2026-08-08T14:43:52.293Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_bec95436c2d45218f0a20a3d64112851",
+    "tracking_code": "SOZZ3HV9LE4UBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Patrícia dos Santos Silva",
+    "client_email": "patyygaranhuns8@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5587996061",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBGGzLxZ3g4_FCwu2nV9xyu2oFK9lte39LTY5z2alUgXbJh29j77UNtBTSGlz40ZogFlXx2QKdpf5agSRFATiYyb0clBRL-jN-ltlM27gJ6AwV5rxPAsNv0p5MhaoeHBH3ps1rF7MyUsxpJ-2hyzUgyJpVC0Fg3G8UU6LI-f830abPGAXaPcaZNrHb-Ziloh",
+    "ttp": "01KZGXGHX12AY58986GM6H0E7S_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "ttelkjedoa6tmskho63o",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "55296-440",
+      "uf": "PE",
+      "cidade": "Garanhuns",
+      "bairro": "Heliópolis",
+      "rua": "Rua dos Operários",
+      "numero": "326",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskhq1wa_f8b812a099",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/8b00c026-fabc-4cf0-896e-16a946c016b05204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304BBA9",
+    "created_at": "2026-08-08T14:50:09.152Z",
+    "paid_at": null
   }
 ]
