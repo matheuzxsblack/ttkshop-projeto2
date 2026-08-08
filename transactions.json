@@ -7256,9 +7256,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskrupwp_b0fac87413",
@@ -7315,9 +7315,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskrwq7g_3e1ac458f4",
@@ -7362,9 +7362,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskrws4y_190d01c874",
@@ -7409,9 +7409,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskrx80l_d77b9ad2c1",
@@ -7755,7 +7755,7 @@
     "id": "psa_db15104d56808608daa195fa14e7cb39",
     "tracking_code": "SOHZ3LTWM4WEBR",
     "amount": 3077,
-    "status": "pending",
+    "status": "paid",
     "client_name": "María Aparecida Fiuza",
     "client_email": "fiuzacida75@gmail.com",
     "client_doc": "79356320578",
@@ -7770,7 +7770,7 @@
     "ttclid": "E_C_P_CtkBRe4-JcESxl_OfHAveTFGtsqkTktMH8E2gM8GnSqqFfN-VEQ3-PjNxVbYdc1N6--xaQcPPyrOdKXrI1_gPmPXkUjQnaIE6pZidm7g2pbhUiwUR2T7_8CtZObIxWHTw6ZA_NaYU4H66epiuOhHFAdEwCXVzt-GrRwSzpNi8DOHL9XxWDQ8EXSbeKD0gpiXZm",
     "ttp": "01KZHEXWDFQK3N7HG9SAYHVBVE_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "te74bzfwmqbqmskslxk7",
     "funnel_store": "toalha",
     "address": {
@@ -7796,6 +7796,8 @@
     "external_id": "ttk_msksu7pw_54559ac2da",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/9fe539ac-3ea1-4f6f-a4af-ebf2d030e3b05204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047BD6",
     "created_at": "2026-08-08T20:01:20.209Z",
-    "paid_at": null
+    "paid_at": "2026-08-08T20:03:22.006Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
