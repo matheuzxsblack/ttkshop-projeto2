@@ -3722,5 +3722,52 @@
     "created_at": "2026-08-08T01:48:38.475Z",
     "paid_at": "2026-08-08T01:49:57.905Z",
     "net_amount": 3077
+  },
+  {
+    "id": "psa_f0d5ccd268b5281800fd6638981e4720",
+    "tracking_code": "SONQ6A6GHZR6BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Elisângela Santana",
+    "client_email": "elienando@hotmail.com",
+    "client_doc": "00048759155",
+    "client_doc_entered": "00048759155",
+    "doc_pix_fallback": false,
+    "client_phone": "67992503924",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBIDEyjH0GgFp4y6fVf1PTiZtwe4TWxPIM3L5ATbewheMx_CDDqMAbeBl23oPmCj6wHes1mEwt_x8ShVyyc0bqDqUo7_5UXjoDA2lxyJG1Xc7u_OWmaR-QmmNrUQ0NSpMMe3mJ5les1jOtRTuSjCLwjqMUpQHRCemSghG3Z37wTO2ZGTxaOuUL_ggykG9Tfh",
+    "ttp": "01KZFK6MYWVKQF7SWE1XVADGAK_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tn7ds6skgjnmsjr8bdj",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "79620-030",
+      "uf": "MS",
+      "cidade": "Três Lagoas",
+      "bairro": "Santos Dumont",
+      "rua": "Rua Joaquim Martins",
+      "numero": "937",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjr9psa_404a993f70",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/736e01a3-99dc-454b-8761-d810bcb579a35204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048903",
+    "created_at": "2026-08-08T02:29:36.425Z",
+    "paid_at": null
   }
 ]
