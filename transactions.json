@@ -3360,9 +3360,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msjorcmt_0e6a826e4f",
@@ -3407,9 +3407,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msjorsay_7ec7864e77",
@@ -3662,5 +3662,65 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-08T01:35:48.975Z"
+  },
+  {
+    "id": "psa_163b9f6ee56733b10541a482978a58c2",
+    "tracking_code": "SOME8UU8P3A5BR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "rogério costa",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "53999471345",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABQ8PUW2ZHpq7_BHExfljS8bZ9kCl6m3R9xfLfMBenT7KzOt_jjV-rkOdpAiIAhIEeqIgGwTuK2NkDMIMoPtzd1dTGklHt68RuBh0d2gdfUhyZD2IUtAl-agpmT_9wJe1GyclUC7oPLVD59xlXn-OXTLQAHJxwX1pHo9J-s7HCQjqNcn0Vu_KIQMfSveVWAS",
+    "ttp": "01KZFGF3SQ8DNGK2KQA12W1QA1_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "taz1ivwl7kbomsjpk7co",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "96408-640",
+      "uf": "RS",
+      "cidade": "Bagé",
+      "bairro": "São Jorge",
+      "rua": "Rua Valdomiro Domingues",
+      "numero": "234",
+      "complemento": "Esquerda Em frente a construsapper"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjpt0yh_3e63476207",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/8ea45a46-3c03-4ec1-82c3-2b3206fdd4a05204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304C1FE",
+    "created_at": "2026-08-08T01:48:38.475Z",
+    "paid_at": "2026-08-08T01:49:57.905Z",
+    "net_amount": 3077
   }
 ]
