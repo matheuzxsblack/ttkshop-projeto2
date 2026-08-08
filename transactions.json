@@ -3145,5 +3145,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/1069f98f-8975-4586-96d3-0d6e132970105204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D282",
     "created_at": "2026-08-08T00:36:35.024Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_a103059906b809cdfdf891e2f3c241ff",
+    "tracking_code": "SO3GEWXBBDTNBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Jussara De Paula Rodrigues",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "55439907844",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBU5-2Yth0m4ORopadOQCbfpfq5mFBA0J1zXMNwysAD-iFxh7H69nSBiv_fg9C8Ux6bN4vr_gRC9F5CjpLn21DJtNE8nz7-VFy-uQtNlR22HTZ4WgrQe3KTAIt94isHrC-7itcwzV7j9YNq56cI8C7CirkV_eTH9IEgNW1xaenflLsGWBr9oKj_YCPKV2G8o",
+    "ttp": "01KZFCHBT8RNQSE35ENQ9K3CBA_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t8obck02y9dqmsjn8ylf",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "84290-000",
+      "uf": "PR",
+      "cidade": "Sapopema",
+      "bairro": "Centro",
+      "rua": "Av. Manoel Ribas,",
+      "numero": "256",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjncy7b_7e1183e8e6",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/02a671cb-bf6b-4cce-bcfb-5e140e6115ce5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304690A",
+    "created_at": "2026-08-08T00:40:09.127Z",
+    "paid_at": null
   }
 ]
