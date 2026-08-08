@@ -3877,5 +3877,64 @@
     "paid_at": "2026-08-08T03:32:44.940Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_ba81c9f1dc1efa6974942b48828de938",
+    "tracking_code": "SOE8QCWMT5ARBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Waldemir de Sousa Leite",
+    "client_email": "waldemir4545@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11996093699",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABPu8XwjcJN1PJFxvAFarexxfrZZqhMlu-BiqR6kKnvMKdfYlYIG4EEZN61XgjrAbJuXCa4IknHljrhyxgXO1_qoNQGQh7O6WjmWjOO3Eu-NYuW6cgYMc4XQwHWdarOk7FBS8LhPtE24BVpkjwdDGLEHQsBOxwNEdgHxWV9KsfyksRdFvLGh70DYt62JHIk6",
+    "ttp": "01KZFT996BAVATRAGMGBD6C74B_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tow6r4krt60pmsjvo03c",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "09321-190",
+      "uf": "SP",
+      "cidade": "Mauá",
+      "bairro": "Jardim Zaira",
+      "rua": "Avenida Eugênio Negri",
+      "numero": "203",
+      "complemento": "Casa 3"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjvt9wn_6dbc3a01f5",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e2b46239-be3a-42f4-a074-d3e4d33882c55204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63042D09",
+    "created_at": "2026-08-08T04:36:47.626Z",
+    "paid_at": null
   }
 ]
