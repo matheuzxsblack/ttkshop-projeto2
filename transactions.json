@@ -5216,5 +5216,54 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6f1aa565-db0c-45b3-bac2-9568c00f07df5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049320",
     "created_at": "2026-08-08T14:32:25.227Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_a72d686e3844c56e2c1ae611b5d91257",
+    "tracking_code": "SOMWAZ4UL2ZMBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Pedro Alves Ferreira",
+    "client_email": "pedroalvezferreira@gmail.com",
+    "client_doc": "18672460820",
+    "client_doc_entered": "18672460820",
+    "doc_pix_fallback": false,
+    "client_phone": "5565992107",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABBZvfa03X7KQ7sWOGLvmP871SnjAc2WcYGavxz7z9LDFXPHCsBEb458wj0tKNS3dfLnxKeV0kXDjdkQ3jMKvunUvh4Nhe-E49WjWP6O_Ck24-NAfIKgTqPbo-pDBfyh3BP1Fr05jSK6QOBt5LCFXbAJ_LHKG1feJJa84YP162zRXQuDnrp_yrEWPHQ0qUHc",
+    "ttp": "01KZGWEBD9ZAQ3FQ7347E0V5TA_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t6ucsncbqsvfmskh23wk",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "78056-211",
+      "uf": "MT",
+      "cidade": "Cuiabá",
+      "bairro": "Serra Dourada",
+      "rua": "Rua das Borboletas",
+      "numero": "04",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskhfiv2_e1258c8041",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/2e4cc338-c3fb-41c9-802e-8da36c6e1b985204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630402BC",
+    "created_at": "2026-08-08T14:41:57.742Z",
+    "paid_at": "2026-08-08T14:43:52.293Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
