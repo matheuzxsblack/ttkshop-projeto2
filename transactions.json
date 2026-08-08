@@ -5933,5 +5933,67 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/960e6026-d59d-40c9-b52d-743e375ad0415204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63042DBE",
     "created_at": "2026-08-08T17:23:44.162Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_22677ee5bcd9e3bb1d3c6489021258a0",
+    "tracking_code": "SOLSAHGSVJS6BR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "María Angela Ventura",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5517988404",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtkBHaq-iPeJ4vR1FiZsa0ghNsC079mHafKiQKM82_c2_xmoNISOw8RfQ9N0xIB3CLSXQ1X4ZUKhGdeQA4t4hZbxYtaaIy1xlZaAg0dZ-lWTbEJFg91RcUAhX6F5w-e76GomPJ0Y-iidF4XF6PSqbhPCbiEcqHK4PWFON3KrILNi2KmTThxAr9w2MhgwzRMONz",
+    "ttp": "01KZH6BQ8S0FGMSDS9Z8NC982S_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t26vv3gyx839mskn5z21",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "15612-456",
+      "uf": "SP",
+      "cidade": "Fernandópolis",
+      "bairro": "Jardim São Francisco",
+      "rua": "Rua Altina Cintra de Mello Luiz",
+      "numero": "73",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msknap1j_50e3054fc3",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/65448da1-1ba8-43f1-9de4-9ad9253f0ff05204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630498BE",
+    "created_at": "2026-08-08T17:26:10.124Z",
+    "paid_at": "2026-08-08T17:27:08.633Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-08T17:27:11.842Z"
   }
 ]
