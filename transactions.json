@@ -3310,5 +3310,111 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/9725abca-fc72-47ab-b2f6-61fca7ec4bc85204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630414FD",
     "created_at": "2026-08-08T00:56:30.161Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_9a52869e5447b75050a5ecccc2f20fe4",
+    "tracking_code": "SO8LSP6DJG7VBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Claudineia motta",
+    "client_email": "claudineiamotta571@gmail.com",
+    "client_doc": "00804455007",
+    "client_doc_entered": "00804455007",
+    "doc_pix_fallback": false,
+    "client_phone": "54999121184",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBLRytPBMIxQwd75LSuq2t_pIsYIImW_oxGGol6OK_pBDDL5RtmUY0JyPSf2zn6lhe3gYfRkmlXapfCLdMdKzvcJdzVxgeAUd1cRBnyn1Q7v0gEW66Q52J5zueWqnE-Kk-R4woXlGkFMRIPLXUqq7-A5VlWHZLl8k_51te0qpQwbF1OJNValLuo3ul1WM5c_",
+    "ttp": "01KZFF1D42JWB08SGK7JXTG9R9_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t6p81u6ggosvmsjonkq6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "95047-053",
+      "uf": "RS",
+      "cidade": "Caxias do Sul",
+      "bairro": "Santa Fé",
+      "rua": "Rua dos Armadores",
+      "numero": "130",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjorcmt_0e6a826e4f",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5fb7dd3a-7883-4d7d-9f51-f8a00a48a5bd5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048D70",
+    "created_at": "2026-08-08T01:19:20.861Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_7c9fd8cf7283e486bc33440b95e92754",
+    "tracking_code": "SOCEY7ZA3NAFBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Vera Lucia",
+    "client_email": "sverasouza@gm.cm",
+    "client_doc": "16473249044",
+    "client_doc_entered": "58387899768",
+    "doc_pix_fallback": true,
+    "client_phone": "24999063724",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBg2eMoPtGwD2botT2Lc-T03yUXMlMNBS5YD29VG022U7WhnXOyqWABDcYoIe4NsGoeH_VCu2bEETZ0KQgL6jVoXMu3t9qxcGVtMjH8G-AJJ3JOh2RF1ed7AQU9RlWLohnblvAZIguQMNydROf149b1xIfjfvUtuGK3KOiyJWvdpQaT8TDDkbr_6yhXV0czq",
+    "ttp": "01KZFF4X81D97DC72R3HQAKJPV_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t943trxtgevmsjop6tm",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "27325-377",
+      "uf": "RJ",
+      "cidade": "Barra Mansa",
+      "bairro": "Getúlio Vargas",
+      "rua": "Rua São Salvador",
+      "numero": "1057",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjorsay_7ec7864e77",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/ff17f4a7-f3b6-47e2-b24b-3dabb3f456745204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048923",
+    "created_at": "2026-08-08T01:19:40.524Z",
+    "paid_at": null
   }
 ]
