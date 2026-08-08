@@ -6603,5 +6603,52 @@
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-08T18:37:02.227Z",
     "email_sent": true
+  },
+  {
+    "id": "psa_2ced9b708019e94c9678e95d0b1db186",
+    "tracking_code": "SOFFEC4MQCMJBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Ana paula dos Santos Araújo",
+    "client_email": "josearaujoanapaula2025123@gmail.com",
+    "client_doc": "33040561812",
+    "client_doc_entered": "33040561812",
+    "doc_pix_fallback": false,
+    "client_phone": "11993096482",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBMr9ThjtrjX5fjXPhlrePW2JFc7KN3A17kDouVQlAz3rdbaLwnz09kC57AJoniPlX8nTRJG4cFyFO466ANEJbOdzlq3uBA0PM-64JvKmX8wljo23XkY5s52GcDYfekON90sp3KvsYBS5x1pRTzlzwWQR2jBbq61gDYVFBh9BzHJ8ku3X_in1tB4Vo7_FvU1",
+    "ttp": "01KZHATAMJ0GP2BKYPGDV5AKZN_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1k3onvswydmmskpy8h4",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "08460-345",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Vila ABC",
+      "rua": "Rua Ângelo Pedroso",
+      "numero": "130",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskq0oa5_0002fef552",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d848e42b-40be-44b7-b1e1-eef8b92b6a5f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A520",
+    "created_at": "2026-08-08T18:42:21.715Z",
+    "paid_at": null
   }
 ]
