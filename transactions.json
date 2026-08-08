@@ -4269,5 +4269,52 @@
     "paid_at": "2026-08-08T12:21:27.046Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_b2436e254336808fa4653ad3aa8f9c5b",
+    "tracking_code": "SONDXSP9PTGZBR",
+    "amount": 5472,
+    "status": "pending",
+    "client_name": "Sirlene Maria Nunes",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5581986778",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBOQDD1MHKxZmOhXaicmFgB0gZ9i3bWyRlUnGEnyPqioaPmRUcYnQqq8QCFltIbIxN0YEq33CQsYVGYnIouFCBpxEIRiyLvPNlajvrhixhofcZ0zTms9KsFDr9iNsElbVRxBC3WpRlpl6zJX_kmyT9v31vLkBQFL7eC82Sz2Ndpnoj0jcXdHQqOGQPilybmg",
+    "ttp": "01KZGNJY6Z2PMACPSZ5S6T1F32_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t4fjyheqo3xgmskcp490",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "53433-520",
+      "uf": "PE",
+      "cidade": "Paulista",
+      "bairro": "Pau Amarelo",
+      "rua": "Rua Áustria",
+      "numero": "290",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 8
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskcv2oa_383a37014f",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/4bac27f2-c6c1-4864-b64d-6420866f38dd5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049B55",
+    "created_at": "2026-08-08T12:34:05.125Z",
+    "paid_at": null
   }
 ]
