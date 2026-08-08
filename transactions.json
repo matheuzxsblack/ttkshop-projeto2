@@ -8841,9 +8841,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskzjpwd_b00a3ac9a8",
@@ -8888,9 +8888,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskzopdl_afb58e0b83",
@@ -9042,7 +9042,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -9097,13 +9097,178 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl0jkvh_0d703d70af",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/92728539-50d5-4687-8269-7fe06efcf5fc5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630440EB",
     "created_at": "2026-08-08T23:36:59.230Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_441fb80b28ba6798ef489f8da2083fa3",
+    "tracking_code": "SOCSKRNPD3QJBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "teste",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "11111111111",
+    "doc_pix_fallback": true,
+    "client_phone": "11111111111",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "",
+    "ttp": "",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tyumtk7c5u78msl0obbl",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13299-272",
+      "uf": "SP",
+      "cidade": "Itupeva",
+      "bairro": "Monte Serrat",
+      "rua": "Estrada Municipal Benedito de Souza",
+      "numero": "32",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl0oj1c_991eb9cf10",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e86d9ca6-a7a3-4c61-a534-53a9f321065e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EDA1",
+    "created_at": "2026-08-08T23:40:51.126Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_75f8d4e85ed1eebfc810b2a9d17f71f7",
+    "tracking_code": "SOKTASWLTMVYBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maylin carrazana",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5541984842773",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBx1lESVO6Jm_t5QpdZ8__COf43GKN7ieaHo4t1rOp6kbvb_nNSTBAcE6ZJeVBIpCf724V_B0A0aJMpDFjm7lWJXvRu48jgrKHYS-QOdaXaDPUVe38njaejwLqLODhgbd46keVca1QIUYbnkb_nj8W0lWcQOGgjEgXbOgU2mx2w4mHwTNT9kDsmJGr6zyxaj",
+    "ttp": "01KZHVXMKN6RJ6WMPTTGK802TW_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tegdxmzx1cznmsl0mm53",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "81820-220",
+      "uf": "PR",
+      "cidade": "Curitiba",
+      "bairro": "Pinheirinho",
+      "rua": "Rua Guarda-Marinha Greenhalgn",
+      "numero": "741",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl0oxjj_4250336a7c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/b0dabab9-3fd3-42ee-8168-6d4b684a2cfb5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048334",
+    "created_at": "2026-08-08T23:41:08.923Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_7a42208bb1f13202df3eec38ce6ded64",
+    "tracking_code": "SOZCYNXJCCF6BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Enir Barbosa da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "99981028299",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBMvOG_NQoEAMPeW_sHqA-_b1MoGatB9TtjImwclkph-hdCSY18m8UTu1hit-6j1SpNzKZ7V1_4eFsE5S69w_yvfggCns7SK0ssmYlx2ua8V185-kO1EsxQ6kDNZ9R2x42qGVGq4wLSCTIWpsCYysPhitUd08Zj74qvNqCLfIGHpWr8lwWDAe2sW6WVJlppW",
+    "ttp": "01KZHVZA2PT1G85VQH6TPQTBC9_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tf3z9cw4ou76msl0nspt",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65606-510",
+      "uf": "MA",
+      "cidade": "Caxias",
+      "bairro": "Volta Redonda",
+      "rua": "Rua Costa Sobrinho",
+      "numero": "1070",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl0rk2b_e4b30bc0be",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3e84e09a-7c8a-403f-af77-ea3da776fad15204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63041753",
+    "created_at": "2026-08-08T23:43:11.530Z",
     "paid_at": null
   }
 ]
