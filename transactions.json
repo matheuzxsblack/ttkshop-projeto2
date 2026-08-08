@@ -8842,13 +8842,60 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskzjpwd_b00a3ac9a8",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/72e9e001-2b5a-4915-87ae-e5f4735e57685204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048CCA",
     "created_at": "2026-08-08T23:09:06.428Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_ac1fd2b18bd2be172c02c837aa04995f",
+    "tracking_code": "SOTDUUV82TJNBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Cláudia dos Santos Macedo de Lima",
+    "client_email": "claudiasantosantomacedo24@gmail.com",
+    "client_doc": "17755729869",
+    "client_doc_entered": "17755729869",
+    "doc_pix_fallback": false,
+    "client_phone": "11995806109",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBcvtnxNOT1G8BgaIyizYkxkt-R1v8_0y0DxmZe4rEnr4qjBSM7Y2QqP5gVa9Ac4_G3oWNdXwp-1ei_uDTQl1QZgxA-OpMtx76hCGIxnq-f2TiBPXNYZZycZokPJwVLtDZrRnKfAvjUivFlBc4mdXN1W2EJeUz7C8Xeb_1y9BkqJx5z9B0c6BT1lwhLC57Q4",
+    "ttp": "01KZHT8JKJPHE9TE6PYF0W7RB5_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tz67ct13vn9omskzm297",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06421-040",
+      "uf": "SP",
+      "cidade": "Barueri",
+      "bairro": "Jardim Maria Cristina",
+      "rua": "Rua Groelândia",
+      "numero": "112",
+      "complemento": "🏡🏠"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskzopdl_afb58e0b83",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/911bc14a-1fb8-4390-a9d4-e2cb437d702f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304E568",
+    "created_at": "2026-08-08T23:12:59.030Z",
     "paid_at": null
   }
 ]
