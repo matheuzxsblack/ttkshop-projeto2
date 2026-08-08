@@ -6464,9 +6464,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskpkvdm_d03a4642c7",
@@ -6543,9 +6543,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskpmdd3_3f6928163b",
@@ -6712,6 +6712,334 @@
     "external_id": "ttk_mskqhvch_4cb2a215bb",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/55d38fe1-ce85-464d-bace-82e2ea08c0715204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304289C",
     "created_at": "2026-08-08T18:55:43.470Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_0c7e6d4e3af09cab7d4e82f57a5f592c",
+    "tracking_code": "SO8KYPL9QJ7HBR",
+    "amount": 5861,
+    "status": "pending",
+    "client_name": "Niuva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11979552888",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBJiGDLQmvwld5_DXmsLmEvYpdpB3n1gqyCnBAtsDZ7j-IawhEYqLfYMZ5n4-3_NStz8qhDrpM9456AqGOe92nFAusMnfwfwcIurpWKR-ktbLVrrvID3JLiy2X0JPdTdy6zNUj4DgthDv9Xz1jhdoY2D7QHPtOpVzw718c31tzK9J3Xbu4cFAe8uL_yVOda_",
+    "ttp": "01KZHBAK6N3WD11YJHT89BKVTY_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t11dokndlqkpmskqk5wv",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "04849-323",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Chácara Gaivotas",
+      "rua": "Rua Santa Clara",
+      "numero": "54",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskqlzby_16a7789135",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0a275285-4af9-4f5f-85ed-419a6eb2ddf35204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044500",
+    "created_at": "2026-08-08T18:58:55.330Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_4101de00eeb74fa0caf54feb9ed33fe5",
+    "tracking_code": "SOPQVBAR6JTRBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Samia Sousa de Oliveira",
+    "client_email": "sousadeoliveirasamia@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "86998516136",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBrbxWqHFrbbafkHtxRVwZRG0IqidvdPF_Tfatpb7wjXkNCwpCp7qt7OM0G0_hKN3To89asZQLcIZnriarxPEX2-on5lUulEWbfYYa7ajFmwXADcpX8cqyqsIUD3Pz8f3MwEWS5UT-FIDR4qmQueDwamA86UgDP2xfvrMGKt1Llf3agP-w6MtRHl9jMZ1_Qv",
+    "ttp": "01KZHBZQPV82V36GZETTXB0HJJ_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgi4ea3hd8jfmskqohht",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "64390-000",
+      "uf": "PI",
+      "cidade": "Demerval Lobão",
+      "bairro": "Centro",
+      "rua": "Rua São José",
+      "numero": "477",
+      "complemento": "Jairo moto bike"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskqr3fu_db9556e724",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/4748da08-11a5-478e-84ab-1dd0323adf175204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B83D",
+    "created_at": "2026-08-08T19:02:54.140Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_bfd3abf3a1523782390c2e3375710576",
+    "tracking_code": "SO8353YVBDLVBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Katia Leticia da Motta",
+    "client_email": "katiamotta48@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "48",
+    "doc_pix_fallback": true,
+    "client_phone": "5512992206",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBcxOeBwaqeJbtfTUX1-zvZo2SJ8MIvhVrl2Ppt1nVodCxex-vyLx0iFqEF8bN2e_NTBIYopzoYH8KJKZOdKa3Mf5CAXR132zHAyW1TW_W3VBkqam2hhwpAQhP__YCESvM6tj0FeUQNyvNQONZUwnET9c6G36wRovPHRV3H7K7V50ap-1jY_RxiMY1tzx7j7",
+    "ttp": "01KZHC2Y400M3MJ57Z6BTBYZ32_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tdynzled7mmpmskqqsk3",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "12081-110",
+      "uf": "SP",
+      "cidade": "Taubaté",
+      "bairro": "Jardim Sandra Maria",
+      "rua": "Rua Irmã Amália Aguirre",
+      "numero": "150",
+      "complemento": "casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskqsecs_01908503cb",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/7178fd15-03b4-4f2d-aa34-3a55c5250b865204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044414",
+    "created_at": "2026-08-08T19:03:55.026Z",
+    "paid_at": "2026-08-08T19:05:18.451Z",
+    "net_amount": 3077,
+    "email_sent": true
+  },
+  {
+    "id": "psa_34d816d12be025bde98689b7b5fea46c",
+    "tracking_code": "SOPRUL9REKNLBR",
+    "amount": 5861,
+    "status": "pending",
+    "client_name": "Ana Lourdes Quaresma",
+    "client_email": "analourdes523@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "73998162031",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB4qiVn4C44t1fED9cKuz9sgHRrfzeJYyNUSFtaDfVOp9IH3one9rEyBbXVC66SLMuYjpgaqPAqu117iYZO7e_4fLuca3ZeXavPhq5JtOWYmfs0jV00kubVmGzwQEg0dnOsSqRnabj_uc8OSuXX3o5fOhL1gh7ktNQw_rt7CtBoCG-ywzQ5Ru5Q1Mi9vcxUz",
+    "ttp": "01KZHBX01C33WW10YEC4CT3WQ4_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tawu6lvucg9mskqmkec",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "45987-372",
+      "uf": "BA",
+      "cidade": "Teixeira de Freitas",
+      "bairro": "Colina Verde",
+      "rua": "Rua Mário de Andrade",
+      "numero": "287",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskqtpqg_7e20b523c8",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/24a27c21-902f-4688-a9e7-6223517b639f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D8BE",
+    "created_at": "2026-08-08T19:04:56.127Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_549bfb4f2b167d3d62d1df76d9082b1e",
+    "tracking_code": "SOKSFLSPHED9BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Marcus Vinicius de Santana nascimento",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "18997159455",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBooUgSPt1TbRYv9ZL2_FUtpiUqUO7bos_bDASRFi8PiJl49sphm41HAyNl4cycjWYi9y4rxxiqM1j2JzYCI6xfK9UUwN8mhEooyDH2m5ivWzNyD2q1lmrzx-XzLsgmYWSqY4r_6QCChEb_HGOfHpFEAGksDxhAgLtgHZPqcP3Wm3oFX5-aLI3y5BjXyBDgG",
+    "ttp": "01KZHC4K76MFXHCX6RKBVKS680_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t2klju5bdr0fmskqtad3",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "19807-462",
+      "uf": "SP",
+      "cidade": "Assis",
+      "bairro": "Portal de São Francisco",
+      "rua": "Rua José Boquembuzo",
+      "numero": "49",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskqup5y_2762a93d62",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d8b489f0-27d4-48ab-a2d8-4c017b0416995204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049A9B",
+    "created_at": "2026-08-08T19:05:41.824Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_044ed36670af2ca3d9b82cea2415595c",
+    "tracking_code": "SOH93GRB7J4LBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Anelza Barbosa de Almeida",
+    "client_email": "anelza35@gmail.com",
+    "client_doc": "08483768623",
+    "client_doc_entered": "08483768623",
+    "doc_pix_fallback": false,
+    "client_phone": "38991413010",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBxdK24qe31ZjwSklAXxtvjHSrbg8ychMa0gG2lu5tXv26tZ-3FB1n0gNL6sjjzV9uKqTeS5Ve7hbcjulYmBE9zVp0jicqR7DgtlHye0mvca9pfhQgKyn3rx0vA8kMWF0AR2i-tHP9_ve_xzCcm0lUVnRRYOB2UGGGB0EVn37al0wzZv25w8STY2r2bNjqFV",
+    "ttp": "01KZHC4HGZSNHZ0C8K6DG02R4F_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1hw4u3bp0ulmskqrvef",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "39442-286",
+      "uf": "MG",
+      "cidade": "Janaúba",
+      "bairro": "Padre Eustáquio",
+      "rua": "Rua Rio Pardo",
+      "numero": "366",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskqwmxl_b64fa2f3b2",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d394dd47-77d7-4517-b8e8-619e1d4acfcc5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630472CE",
+    "created_at": "2026-08-08T19:07:12.325Z",
     "paid_at": null
   }
 ]
