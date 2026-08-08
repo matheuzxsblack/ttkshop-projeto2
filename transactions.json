@@ -2927,5 +2927,52 @@
     "paid_at": "2026-08-07T23:55:41.381Z",
     "net_amount": 3846,
     "email_sent": true
+  },
+  {
+    "id": "psa_8c2a5ad50d34fdd54e187120a16921c7",
+    "tracking_code": "SOXBEL8SUW8ZBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Itsni gomes teixeira",
+    "client_email": "Iranigomes.teixeira@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "24999375199",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBXaNXO9o7jvG0KXAgmQL-a9TS3MWXkAxlomhf6Pm04at-LNxLRFvztizphQhlwuFI1Mk5aVulXx30dXwANcIrbC2MNLpaqceUShTb8pVHUSSqZnOnlUS-VmH7dSG44vbkoOvZct-U9M_IcFkhu0WgnwNcn9uU2pdxbmTnOZePhfVJ81jfmZ9r-dMcGKinTV",
+    "ttp": "01KZERNJ8GY6K39Z0P3S7QTTKQ_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t76z1hvs214omsjlrm17",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "27212-110",
+      "uf": "RJ",
+      "cidade": "Volta Redonda",
+      "bairro": "Vila Americana",
+      "rua": "Rua Costa Rica",
+      "numero": "97",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjlya43_52931d302d",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/cb4114e4-2992-41f4-8a54-d130e00f736e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304382E",
+    "created_at": "2026-08-08T00:00:44.685Z",
+    "paid_at": null
   }
 ]
