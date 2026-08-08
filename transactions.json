@@ -4682,7 +4682,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -4729,13 +4729,119 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskesvk4_8860af4500",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/66a9c3a8-39c4-458e-b3b0-e3b302ddb9225204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048BDA",
     "created_at": "2026-08-08T13:28:21.329Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_92ec1c6a3ea903078ec76e5516b52995",
+    "tracking_code": "SOVD76W8G2M9BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rejane Xavier de Souza",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "85984141947",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBTSvJ6oY0liCeU2k5aJrwXL-D51R3hXt5k0rTG50aKFzpT5Rw7sjlxTKtJ7nEI9gbrYkk5aMN3bZMnQRVNksLgZVVueCwf7QLWzQ5e9Wnh927AeRWr4GTAomXucrQtMs_4sURYUSsMpfVQ2djNxLqJBGalGOWB7JSh-bep-RoLVFTYUB7W3Z7AK3LuwSI6E",
+    "ttp": "01KZGS0V7JT4VC9HXJ2B86NY5F_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tjs96i8oe3kjmskeu9l1",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "60741-510",
+      "uf": "CE",
+      "cidade": "Fortaleza",
+      "bairro": "Serrinha",
+      "rua": "Rua Santiago",
+      "numero": "444",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskeyqmz_3f867d6b61",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/ec71e342-e657-4269-ab55-b096bfc7a84b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047BB2",
+    "created_at": "2026-08-08T13:32:55.295Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_3249799c94bcbf298cc27aedeb401c81",
+    "tracking_code": "SOAR8HT3WHG7BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Mi Quintiliano",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11968605373",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBMVJdiCNBjONfvqh6ETDY8pjxti4Pi4ldRk_D_bpZeC-_DamgLWp6Ab8rlNnBDU8mCWYayVSmm2BQigpTQLgDeWQjDgsVBPIpDgZKemK1uB9qiaNMQhQp3MbwuduBb8DucfMhOxuK_by4uTAqyf6f3R6hCT3RnNMQkQYUkvDTz9HX8at_OvYiS1kV16XSyq",
+    "ttp": "01KZGQ56J5YYMDZFA07HH8NMX4_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tf8ny0a05i0kmskdp4nw",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "37496-000",
+      "uf": "MG",
+      "cidade": "Turvolândia",
+      "bairro": "Centro",
+      "rua": "José Teodoro Domingues",
+      "numero": "206",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskf067g_ae9547ad7b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/a5e65481-e81b-4ba8-a101-cc0d409501b85204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304F722",
+    "created_at": "2026-08-08T13:34:01.939Z",
     "paid_at": null
   }
 ]
