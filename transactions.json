@@ -3035,5 +3035,115 @@
     "paid_at": "2026-08-08T00:20:46.721Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_bfb9ff1bef10499912b278372c9f16f4",
+    "tracking_code": "SODBCH8GKYANBR",
+    "amount": 5861,
+    "status": "pending",
+    "client_name": "dacu",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11111111111",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuYBfVbpRtQANhqe5lu6-cIzRR8zefxXdUt-LDlgnIzJM7HU_1uSPyfTDV0nvsU2NgcSIRjTzasgKZ-ke6dWGu7AcEtH8TdLEO85S-jx70P-vHYdoF_NuY_tu6Qlgig2yf1Ta7ZFX6NFwBstoSuT-jgUwdmg8QtK27q6rzLIgam1anyRRXsCVm3skEGUEp4zwW",
+    "ttp": "",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t9ydbrsmrsldmsjn58o5",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "05407-002",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Pinheiros",
+      "rua": "Rua Cardeal Arcoverde",
+      "numero": "22",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjn7bwg_f5667f62fe",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/74bd0e74-0ff0-4a38-9f67-f0469fefcb8b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304C60F",
+    "created_at": "2026-08-08T00:35:46.525Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_4666fe0771ea99460c7fd54cb4424d00",
+    "tracking_code": "SOKZGJNMJ24MBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Jussara De Paula Rodrigues",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "55439984074",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBU5-2Yth0m4ORopadOQCbfpfq5mFBA0J1zXMNwysAD-iFxh7H69nSBiv_fg9C8Ux6bN4vr_gRC9F5CjpLn21DJtNE8nz7-VFy-uQtNlR22HTZ4WgrQe3KTAIt94isHrC-7itcwzV7j9YNq56cI8C7CirkV_eTH9IEgNW1xaenflLsGWBr9oKj_YCPKV2G8o",
+    "ttp": "01KZFCHBT8RNQSE35ENQ9K3CBA_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgb33uhne78rmsjn2iix",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "84290-000",
+      "uf": "PR",
+      "cidade": "Sapopema",
+      "bairro": "Centro",
+      "rua": "Av. Manoel Ribas,",
+      "numero": "256",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjn8da4_a4041909ea",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/1069f98f-8975-4586-96d3-0d6e132970105204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D282",
+    "created_at": "2026-08-08T00:36:35.024Z",
+    "paid_at": null
   }
 ]
