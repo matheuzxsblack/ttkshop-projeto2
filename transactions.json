@@ -8671,13 +8671,72 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskz1xct_520a538fb4",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6dc9ee71-837e-4578-a6ac-4d9e712db6b25204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304F7EE",
     "created_at": "2026-08-08T22:55:16.023Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_80613ea618e430ff4a213d38587b95c9",
+    "tracking_code": "SON34TJ4Q33ZBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Marta Emilia Da Conceição",
+    "client_email": "cliente@email.com",
+    "client_doc": "06424610405",
+    "client_doc_entered": "06424610405",
+    "doc_pix_fallback": false,
+    "client_phone": "82991049486",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBqgsLv6PPdpiPcfBlTzjCVdanjAoRbZ8xp3sIbkNJ6gnRhn8_pcfWTW_px4uhP6Kj5SxTXLfibYpacIYLxiuVOZbaynpJ-MNxAvofLJ7R1aL5BEZoDstp1HdfMCXNgAtX_yE09IhPGsOMRzUVLZ1QcgpxCwYFZnzWZFFAK85-PUhwvFgOW4aHQief5RIP-c",
+    "ttp": "01KZHQNGK6TC39Q9QRMM30YYD5_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t9if4thc1mtrmsky9k26",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "57038-023",
+      "uf": "AL",
+      "cidade": "Maceió",
+      "bairro": "Cruz das Almas",
+      "rua": "Rua Santa Maria",
+      "numero": "21",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskz76we_90ea9ecd65",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d51edd0d-dc6a-43cb-9503-395f8b319a4d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630418CE",
+    "created_at": "2026-08-08T22:59:22.162Z",
     "paid_at": null
   }
 ]
