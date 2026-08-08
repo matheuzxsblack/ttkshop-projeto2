@@ -3591,7 +3591,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -3599,5 +3599,68 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/1b595945-e18d-49fe-a522-c8c15112cf275204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A316",
     "created_at": "2026-08-08T01:30:40.434Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_66fb15a140199031650a25e9f4702215",
+    "tracking_code": "SOMAVQQBWDP3BR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Flavia Cristina da Silva",
+    "client_email": "cristinaflavia270@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "31986970251",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBYzasuSDutOYu3v3Wm4BRNtmo1bLpIOMri9rV1Om0GfatlNz86qql5s1g-3ywJMo2_HnGf8frcDMkbmUnlRe6RPjklONya9NMGzczm_IT0No7itsi5xBnZOb6_5jGLdlUtLe7hHZNFBMRCoW65XMrsmvv0I7SYbazYUOtVXclVUayG1HGpItLg6EXV55d6s",
+    "ttp": "01KZFFJ5246A8ESM27RMWXJ54P_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tkkn78iven2msjp6soz",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "31235-160",
+      "uf": "MG",
+      "cidade": "Belo Horizonte",
+      "bairro": "Aparecida",
+      "rua": "Rua Vinte e Cinco de Agosto",
+      "numero": "324",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjpa33b_cf09b42f91",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/388f53ae-d8f0-4c6d-9346-f386f93211475204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630472AC",
+    "created_at": "2026-08-08T01:33:55.027Z",
+    "paid_at": "2026-08-08T01:35:16.881Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-08T01:35:48.975Z"
   }
 ]
