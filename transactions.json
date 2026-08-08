@@ -3204,5 +3204,111 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/02a671cb-bf6b-4cce-bcfb-5e140e6115ce5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304690A",
     "created_at": "2026-08-08T00:40:09.127Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_b0913f4fc59d8a657a154d6f20611ad0",
+    "tracking_code": "SONR6VW6ZKKUBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Sonia evangelista madeira santos",
+    "client_email": "soniaemadeira@yahoo.com.br",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "31971252843",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBTkyjrJsWpFToaKfAHCMJHIvmiJFXz1CS5WkJs_kTFUixoGdAMtKKqOwdq2JK9NdRtUl0dOj8bs6DgqEl_W0OT8n4-Oy27ntpnX1sT94-cvemy6q9E-N73WQwoURqbTOWVWU1WlLl6DOjBCt5_bBLaEBcqF6FytwuoZlIqkufzdilgFuBUW8-8B7W0pEbIx",
+    "ttp": "01KZFDM9ZEV815GYRAX7X098VP_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tpoikp5aey09msjnr1i8",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "35970-000",
+      "uf": "MG",
+      "cidade": "Barão de Cocais",
+      "bairro": "Progresso",
+      "rua": "Conceicao caldeira",
+      "numero": "28",
+      "complemento": "Clinica"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjnx3sk_8bb13e2772",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/f41eceb6-10af-42ac-8083-94a477a7217e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63046BBF",
+    "created_at": "2026-08-08T00:55:49.227Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_f83225bd8e7c2280f1c2ce973ae427e3",
+    "tracking_code": "SOHJCEBZZ5H2BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Josete Monteiro da Silva",
+    "client_email": "Zeteamor14@gmail.com",
+    "client_doc": "94045011749",
+    "client_doc_entered": "94045011749",
+    "doc_pix_fallback": false,
+    "client_phone": "21981408021",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBemJAGc2dBuPeRs_DMG7sHxBYGlavjM-aHkLUcK2RplE-oetJ3JkPNIyxpwBTVceBSTOVQeqs1mSAWTA7FqqLssjtMwz06K1p9OkUx-RzeMdfwbiGPIQWjh4V6qY4CqjJBYHDgD4Ierg1CPlKkBMHnYxBbzO8jwVNw4g7toKeSStJ2XaLX6Y1EZqd0xGvcM",
+    "ttp": "01KZEY56MQKJ71N59NBJS6QK1C_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "thkbp8u9qi97msjnu2yx",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "23075-490",
+      "uf": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "Campo Grande",
+      "rua": "Rua Antônio Batista de Oliveira",
+      "numero": "Lt 05 qd 13",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msjnxzg8_a4e52d6009",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/9725abca-fc72-47ab-b2f6-61fca7ec4bc85204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630414FD",
+    "created_at": "2026-08-08T00:56:30.161Z",
+    "paid_at": null
   }
 ]
