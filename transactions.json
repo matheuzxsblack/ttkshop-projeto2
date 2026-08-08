@@ -4635,13 +4635,107 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskemoy3_7e98f018c0",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d36fa519-6eae-4ef1-bf59-fc753a0e78045204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304E28D",
     "created_at": "2026-08-08T13:23:33.463Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_846416475a8159bea7a0869b843c83c0",
+    "tracking_code": "SO545UMGAX7NBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Slenice Brito Ribeiro",
+    "client_email": "indiaribeiro2302@gmail.com",
+    "client_doc": "03157050516",
+    "client_doc_entered": "03157050516",
+    "doc_pix_fallback": false,
+    "client_phone": "75991856282",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBWMnl3e9OT1VWWLsMg6FKGB4E1FRj-sGGNnBeocQ0lSSzSqlaEj8e6nSWeFvO0ilDGWHVw3j9mnpzYMZ_5XGsyEITNWwizOaVLuyOXtcrWVpge4CAf82aN6oltPywemR10l__czWgEZ-LU3iFObfzSgfQcyhcjzV5-NNg4vacEnayFZaXDKR9oDe_wgp4Xh",
+    "ttp": "01KZGRMFV1HR2ABKYX4Q7S0A1W_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgjplu2hta8imskelk5d",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "44071-270",
+      "uf": "BA",
+      "cidade": "Feira de Santana",
+      "bairro": "Santo Antônio dos Prazeres",
+      "rua": "Avenida Barradas Carneiro",
+      "numero": "Bloco28",
+      "complemento": "Padaria Pacheco"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskeqnjc_9db788b681",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0ea38518-828c-409e-b524-18807bef4a7a5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EDDB",
+    "created_at": "2026-08-08T13:26:38.064Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_bf0044a60ed2cb4c4b656573f7071e23",
+    "tracking_code": "SOJ2NYS2QVZRBR",
+    "amount": 5472,
+    "status": "pending",
+    "client_name": "Slenice Brito Ribeiro",
+    "client_email": "indiaribeiro2302@gmail.com",
+    "client_doc": "03157050516",
+    "client_doc_entered": "03157050516",
+    "doc_pix_fallback": false,
+    "client_phone": "75991856282",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBWMnl3e9OT1VWWLsMg6FKGB4E1FRj-sGGNnBeocQ0lSSzSqlaEj8e6nSWeFvO0ilDGWHVw3j9mnpzYMZ_5XGsyEITNWwizOaVLuyOXtcrWVpge4CAf82aN6oltPywemR10l__czWgEZ-LU3iFObfzSgfQcyhcjzV5-NNg4vacEnayFZaXDKR9oDe_wgp4Xh",
+    "ttp": "01KZGRMFV1HR2ABKYX4Q7S0A1W_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgjplu2hta8imskelk5d",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "44071-270",
+      "uf": "BA",
+      "cidade": "Feira de Santana",
+      "bairro": "Santo Antônio dos Prazeres",
+      "rua": "Avenida Barradas Carneiro",
+      "numero": "Bloco28",
+      "complemento": "Padaria Pacheco"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 8
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskesvk4_8860af4500",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/66a9c3a8-39c4-458e-b3b0-e3b302ddb9225204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048BDA",
+    "created_at": "2026-08-08T13:28:21.329Z",
     "paid_at": null
   }
 ]
