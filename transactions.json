@@ -5160,9 +5160,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskh2qv5_0e3c323802",
@@ -5207,9 +5207,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskh39j2_87f2d782f9",
@@ -5449,5 +5449,53 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-08T14:58:07.541Z"
+  },
+  {
+    "id": "psa_f626a5aa119a984d2715b63b3989d9ef",
+    "tracking_code": "SOBP7RA94UAJBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Luiz Firmino neves",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "83987668174",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABwMQdUBtMGVvJREa4v7i5eGvSCcjHQPN21b9QesuSTCPvdmDEFHXIdJ42OQvwlxCa-85h-bDCZlkT9ezyGabn7v8yu3bm39EXVkPns2ZBd4_H68mh0QBMBUHvWE29hEQwOy0ppdH5Tu_Shdax2BjO_aaVEowTdfk9ZgFrL6G9E8k6tO0eDZy1eMSPA-AksB",
+    "ttp": "01KZGY7S3JD82A32N1TSEYNC1B_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tx01gx75dd5gmski3e43",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "58706-610",
+      "uf": "PB",
+      "cidade": "Patos",
+      "bairro": "Salgadinho",
+      "rua": "Rua Maria das Chagas Candeias Pereira",
+      "numero": "501",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mski5sus_c663e393c2",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d0e55e1b-3c9a-4e14-bf32-0704264d7c315204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304DDFC",
+    "created_at": "2026-08-08T15:02:23.332Z",
+    "paid_at": "2026-08-08T15:03:40.812Z",
+    "net_amount": 3077
   }
 ]
