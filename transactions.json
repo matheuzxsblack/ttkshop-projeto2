@@ -8349,14 +8349,61 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mskwnhya_aa5f344aba",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/a4ac4777-90ad-4516-b6bf-9f7bcef67eed5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304FC38",
     "created_at": "2026-08-08T21:48:04.305Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_8a9741fb223406435f89ca9d2931b436",
+    "tracking_code": "SOLSTRLYPTDDBR",
+    "amount": 6990,
+    "status": "pending",
+    "client_name": "Luisana Carolina Figuera Gudino",
+    "client_email": "luisanafiguera17@gmail.com",
+    "client_doc": "80178771961",
+    "client_doc_entered": "80178771961",
+    "doc_pix_fallback": false,
+    "client_phone": "45999251229",
+    "origem": "panelas-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABfmZdDEQNgGHMEJB45MuFdDXSEYk4bnqoVh2PrDr8e8hpFUz6at3J8sZ6GntzamBi0lP_NPYlwWG_EmoC_Ns3G5Jz92qU3cp2l1_oG6jnIMX7K6XzR7eq24ukjCmmZVgor5SL6y4ua5_-AKVlb29D68lPJJnLWwNvOcHg5Sg1DiN25jJKDs766gT_jgVZgP",
+    "ttp": "01KZHQ3JS672HR2WFWRDX7RGZE_.tt.2",
+    "attribution_pixel_id": "",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t0phdshgdqncbmskxmetx",
+    "funnel_store": "panelas",
+    "address": {
+      "cep": "85859-620",
+      "uf": "PR",
+      "cidade": "Foz do Iguaçu",
+      "bairro": "Portal",
+      "rua": "Rua Cardeal",
+      "numero": "53",
+      "complemento": "Casa do fundo"
+    },
+    "items_detail": [
+      {
+        "variante": "04 - Versão Extra Espessa -",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskxrzes_472f41812c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/59c7311b-cfd1-4897-93da-5d908de71b285204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63045127",
+    "created_at": "2026-08-08T22:19:32.826Z",
     "paid_at": null
   }
 ]
