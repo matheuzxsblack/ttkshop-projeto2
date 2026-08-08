@@ -4474,5 +4474,52 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-08T12:42:47.331Z"
+  },
+  {
+    "id": "psa_72c49df906beb7d323cb3350880f55f0",
+    "tracking_code": "SORCXRPAP3E6BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Fernanda Cristina Ornegue Oliveira",
+    "client_email": "cliente@email.com",
+    "client_doc": "14144385833",
+    "client_doc_entered": "14144385833",
+    "doc_pix_fallback": false,
+    "client_phone": "19992721340",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBedPNBVOFXUiHZnAozug1LX9Jk9hGKBlET_aS6Bzj72vGCUG6mYTcgeESL5iAKkg3qXW6k1IRQMzkrqVW8pmAFdaUP7U7WnOeLhUmUCKWmn4kP2TT6xeC5soNUjR1hadfBwbLtzin98JUL_q0wlsxFvhrAXs7JMRCVRJvzs7ExxE1q-XSalDPp4I-ObnQN7",
+    "ttp": "01KZGPVQCZM28VB4QTJJGR3GJ4_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t4wglsu0r8vhmskdkjg1",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13974-212",
+      "uf": "SP",
+      "cidade": "Itapira",
+      "bairro": "Nova Itapira",
+      "rua": "Rua Antônio Francisco Lisboa",
+      "numero": "23",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskdr0v0_ac8dbced5a",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/975b895b-0aee-434d-a9be-180d52d335c55204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304F20A",
+    "created_at": "2026-08-08T12:58:55.458Z",
+    "paid_at": null
   }
 ]
