@@ -5785,7 +5785,7 @@
     "id": "psa_8cf06323da54aadf6c3409cdea8fc935",
     "tracking_code": "SOYFZ84NQNHRBR",
     "amount": 3077,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Donizete.Walther",
     "client_email": "cliente@email.com",
     "client_doc": "03080934881",
@@ -5800,7 +5800,7 @@
     "ttclid": "E_C_P_CuEBdiUBCwIkNCrxJM_6R4ebPs6JhUcJvLa-Eu2udCC2isuWYIZIHXXooVSknKwy3mIKvVW34o5XKBwswk5zjiQfAJIsT5fQ4u7V5h1CdXpcATHpyX8KkLCVILT6-oCGeUG6qLS2rYMD9icl0UGYHbdSxIbGBQe89-kz-tJOwgH4Jzka_9J0kLQPuhR4gcvn2P",
     "ttp": "01KZH5DJ0JVZ3QHJK0EC3RJQX2_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "tw43qcmp8vlmskmntia",
     "funnel_store": "toalha",
     "address": {
@@ -5826,7 +5826,8 @@
     "external_id": "ttk_mskmqk1v_87f3fb838e",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d87a8667-e0ea-452c-ac13-02a8240d80775204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630435C0",
     "created_at": "2026-08-08T17:10:30.727Z",
-    "paid_at": null
+    "paid_at": "2026-08-08T17:36:18.464Z",
+    "net_amount": 3077
   },
   {
     "id": "psa_4505e9aac7b4a33cc64625e4e3303840",
