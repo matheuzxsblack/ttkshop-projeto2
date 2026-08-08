@@ -6046,5 +6046,55 @@
     "net_amount": 3077,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-08T17:42:56.854Z"
+  },
+  {
+    "id": "psa_e166d918ad1bc52853820fe5824bc695",
+    "tracking_code": "SOVSLBB6X8UPBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Vera Alice Maciel",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11964200634",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB4DXTrHiuEGpOY0rKUDmdAd9UJq8yrqboecFH0ZJK_wCatajZDzq6xVPRhEFPO-UhRi5tDLjP0hotYx3oaHCfmQBup6-X8PkK1FmmTzFeGDXPlYsgHR0Xz1AwWuorVZ1KwDm2wsOrRUOuUYwlh2Mgeld8D7BFDj9uanlVe49ZKlrHvvN9DRfwNf0i-lR-lJ",
+    "ttp": "01KZH7J50ESPA64T20EDDWPC4V_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t172m9wpbtq9msko1o6q",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "48311-110",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Jd vista alegre",
+      "rua": "R. Rabindranat Tagore, 374",
+      "numero": "374",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msko6e0r_04944dcc6e",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/96550edd-5163-48f3-a4ab-be04d5b35aa35204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040F91",
+    "created_at": "2026-08-08T17:50:49.007Z",
+    "paid_at": "2026-08-08T17:51:38.360Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-08T17:51:41.231Z"
   }
 ]
