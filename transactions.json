@@ -6367,5 +6367,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5cde39e1-8f14-4109-b375-6e01d8f620fb5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630401F7",
     "created_at": "2026-08-08T18:19:01.778Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_03c6897d80a73b0b5523d908c5138ffa",
+    "tracking_code": "SOSY73R2FRKXBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Cleuza Madureira de Carvalho",
+    "client_email": "cleuzamadureiradecarvalho347@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "35999165686",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBafvlpHeaUkMBbbD6QOAC5ZEBeLT6eQJ_gqluvNaCtXML0tySY-06t6PvzMqx8V9bCIb8KMlfmLuJTGtSFeYvxS8FOPct7IkbX17pB-XQtXwYP7sBdbmW3aynXbWZZofDwdYIySIsbkqdNu5z88HPxlDlBwYxVQhU0zV6Zkjc3GcToVXg7ujoJ7xl80NHHS",
+    "ttp": "01KZH9NWGPMAYJE8PAJR1KB8AA_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tvos8u13a45mskpatws",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "39219-000",
+      "uf": "MG",
+      "cidade": "Augusto de Lima",
+      "bairro": "Santo Agostinho",
+      "rua": "Manoel Luiz da Silveira",
+      "numero": "89",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskpe624_efc88a27cb",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/a10aed87-40a5-437c-a26f-ef74f9a74fea5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D4EB",
+    "created_at": "2026-08-08T18:24:51.006Z",
+    "paid_at": null
   }
 ]
