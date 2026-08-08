@@ -8469,5 +8469,56 @@
     "created_at": "2026-08-08T22:22:44.156Z",
     "paid_at": "2026-08-08T22:23:51.272Z",
     "net_amount": 3846
+  },
+  {
+    "id": "psa_76569b6f37099f91b5ccf66a51f30617",
+    "tracking_code": "SOU5JE3BWM3HBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Joana macedo",
+    "client_email": "macedojooanah@gmail.com",
+    "client_doc": "06745346389",
+    "client_doc_entered": "06745346389",
+    "doc_pix_fallback": false,
+    "client_phone": "21980876003",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBJnoFHYTC0PzkhPkFi-awDVtRhFJ_zVU8YXH-6eBLhbfpyg1DPUf0TD32BPBdiJZJywiYkDAb0tHh-1I1OKWCdoB6MJ9Q9VmpJxyH6i1xzPgO4sX0QUnpq4ht4l_WorJksjyfpjMj3wZj23Y512w1WNQi9DT03IJjWUJ98PDX4tWwmdZwZGIGg9F9vhCuIX",
+    "ttp": "01KZHR3TCQ557FPQ6QGKTTVV0Q_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tqs6kt4oo5himsky92kt",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "22451-370",
+      "uf": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "Rocinha _ Largo do boiadeiro",
+      "rua": "Travessa Alegria",
+      "numero": "526",
+      "complemento": "Ao lado do multimarquet"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mskye42n_bcab725d97",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/7cd11603-a9ba-46ba-bf2f-01c45aa5b15f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040813",
+    "created_at": "2026-08-08T22:36:44.925Z",
+    "paid_at": "2026-08-08T22:37:34.316Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-08T22:37:42.793Z"
   }
 ]
