@@ -14598,5 +14598,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/67eb3c0b-a6a8-44ec-a6d6-f1d8033d37245204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EED5",
     "created_at": "2026-08-09T15:58:50.022Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_3d6d329b38c9b7869a935b0dea7e0454",
+    "tracking_code": "SONMXRCLPDR2BR",
+    "amount": 5472,
+    "status": "pending",
+    "client_name": "Claudisseia ventura",
+    "client_email": "Claudisseiaventura5@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "31997971412",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBIAqA_RCrBDUgEuiem2VSnLk1ouwsmEDFx0knhq_KBlyJafQDtUNDrbsYSx-MWoWy0uriIYXIoFFJALefyQzNPcDnN2EHuu3fcN11TvXWDn4OWQpxG3ijF-QI4z-KsYyi9uX3pVr8gAg8JOQUW_XGlXJYXAUcoTCZ02LiIkIZeJwauTUxnajcegmf2FUsYu",
+    "ttp": "01KZKNCA1XKAB0JW4ZRV18PFD2_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "thvae1oapgsnmsm0hwu5",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "36579-000",
+      "uf": "MG",
+      "cidade": "Viçosa",
+      "bairro": "São José do Triunfo",
+      "rua": "Rua José Soares da Rocha",
+      "numero": "310",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 8
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm0kmjg_189e7ac95f",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d27ea82b-3f73-4551-bfce-421b5d6f9bcc5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048E31",
+    "created_at": "2026-08-09T16:25:35.016Z",
+    "paid_at": null
   }
 ]
