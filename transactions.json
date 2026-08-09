@@ -12380,5 +12380,60 @@
     "paid_at": "2026-08-09T07:34:35.929Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_9de90c3852bfff059089e0433fed3490",
+    "tracking_code": "SOY35TQJBCSEBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Iracema Santana",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5575999568",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBV1Y__ws3B3qBUd52zC_ft0D72rE58FyZoKbkOZIxZC2eYQw5HN_3xqKfflPDki8HT_xVUxqyAMdP4WQJxR4USUvzsvr8ctV4rNsvLnJYPim_7iwRrt6ck8iPukUvy4kTfNlUtUY0N4TuZmUE7e4VXDOpUOC-q5-WRMFHCnayiDNLqNZyIU_k8JfNqmcLXF",
+    "ttp": "01KZJT7JF7HX11WEYSXS1150FE_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "txh7sq0p6908msljjul1",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "48475-000",
+      "uf": "BA",
+      "cidade": "Itapicuru",
+      "bairro": "Centro",
+      "rua": "Mestre fiel",
+      "numero": "Sn",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msljp4nr_e8f4da86c1",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5feca55a-a4c8-4c01-9da2-07d7ebeaf14d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304F956",
+    "created_at": "2026-08-09T08:33:10.873Z",
+    "paid_at": null
   }
 ]
