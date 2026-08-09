@@ -9659,5 +9659,161 @@
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-09T00:33:36.535Z",
     "email_sent": true
+  },
+  {
+    "id": "psa_b62ad4ddeab6f94603b81773bd14e416",
+    "tracking_code": "SO4GSZJ6R4ZWBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "luzia Maria Nogueira",
+    "client_email": "lumarianogueira27@gmail.com",
+    "client_doc": "25609312817",
+    "client_doc_entered": "25609312817",
+    "doc_pix_fallback": false,
+    "client_phone": "17988344645",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB0hAofi8VX6XeSTsEtJgRLwo6iQ_BHWhdc7--N02GZyCP93-9shvggjEvXpsTFHy0XfRIHXGyc5kep8Y4JKp_6T2Mg1zm4gI8_cX5fynGu1kAlQVD_cDn2EpCHwvdy6w6jPTtFm2te9g2OFoBQGZ7pitImpFj95kLFLQwElAFPXqPgdqtqv2L_G6rpKor8c",
+    "ttp": "01KZHZY6N0SYM54KMYGPM5HTYC_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tb4vsora1wbmsl362ml",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "04047-020",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Mirandópolis",
+      "rua": "Rua dos Bogaris",
+      "numero": "205",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl3bkia_78280663e4",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/92f4eed0-72cd-4119-9a39-fb0347742bd75204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630489B4",
+    "created_at": "2026-08-09T00:54:44.990Z",
+    "paid_at": "2026-08-09T00:56:33.340Z",
+    "net_amount": 3077,
+    "email_sent": true
+  },
+  {
+    "id": "psa_60dee5126c20771d48d542f7bce38020",
+    "tracking_code": "SODL9X35VT7MBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Lucidete da Silva Santos",
+    "client_email": "lucidetedasilvasanto@gmail.com",
+    "client_doc": "05557024565",
+    "client_doc_entered": "05557024565",
+    "doc_pix_fallback": false,
+    "client_phone": "71982710252",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtoBtGZUOoT7mDP_KgrvblBstdqAvx9CytJiJyBi9SPQFoqAcvHQ2kEnkdTUfgZcyu_y9Mp_XQjZVS6uyBkpvTt1fapSKtrq-E-2dW7aatCIpv27aM7_3q5FA16b470WDnIwL3S5tKqweQyIiWes7M8feV38Kts4zAXos1Y4nUj6m0f--bQAOLov5vIzsPnY3I",
+    "ttp": "01KZJ06SZE3SDVVE04ZN4DQAD3_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "thafn8rt2tq8msl3aytf",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "41311-020",
+      "uf": "BA",
+      "cidade": "Salvador",
+      "bairro": "Águas Claras",
+      "rua": "Caminho 02-Quadra A",
+      "numero": "3",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl3e9sd_54929254c0",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/aedf926c-47ab-4af9-a4b2-7b2a7d7fc5935204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63046A60",
+    "created_at": "2026-08-09T00:56:50.872Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_898813520b286e5b37a75ad81293b0a7",
+    "tracking_code": "SOSK68JCQ77MBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Maria cilenilda de Oliveira Dias",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11969918663",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBu34lYB1j00soxXNkT88qnESV63nshx2SyshZYMRMv4FRFlNERUFbSWrzUYuFliB-bQA6AOfzL3ACNlXWo9Hr6VUJl5yw_ssBx9vk0j5qVoconndTFRgTS7ORjV16J3GoHheQFm0rxPikd7a94uCji8EYrYDobO3Q2EfRTm1TcAx6Fd5c2OXhw8DEsueTn0",
+    "ttp": "01KZJ0A58MGB51Y99ZD4D14XK9_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tso1s8lvuzgtmsl3ehrc",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "03808-040",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Vila Paranaguá",
+      "rua": "Rua Antônio José Henriques",
+      "numero": "285",
+      "complemento": "Casa  fundos"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl3epr6_271bd7a1cc",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/ee322011-590d-460d-b1f9-df264978d8665204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040E0E",
+    "created_at": "2026-08-09T00:57:11.330Z",
+    "paid_at": "2026-08-09T00:58:24.689Z",
+    "net_amount": 3077
   }
 ]
