@@ -13708,5 +13708,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/ddf9529b-fd7e-4aa6-8ecc-955aa557e56a5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D6DA",
     "created_at": "2026-08-09T13:59:11.419Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_ce5712b4f2aec136a569088bbd6800ae",
+    "tracking_code": "SO5FN6AEVJQXBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Dinalva Pereira Araújo",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "74988288396",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABPCLcCZ5xMD1jb9k2MJm4JjWvAStDmNpW36aSKWgyZ9ZydpDhIUxAlaNMxKEgJLoaR09qRN6lvxhijrAf1D0e_2o6XZv_XpgLdxK1zhGBUAI7KLaUicV9W93wdz0husZNaV0K_0QnlWLd7RdLUbhhhiKlR2pog7uz4rhZwykHUPMj7nIpxC7UJnoI3vaY4Y",
+    "ttp": "01KZKDH3366MNR07XDRTKTFCN1_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "twlz2m2fw7knmslvlj5b",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "44880-055",
+      "uf": "BA",
+      "cidade": "Cafarnaum",
+      "bairro": "Centro",
+      "rua": "Rua Professora Iracema Juazeiro",
+      "numero": "246",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslvrm2l_16e0460e04",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/cdac5666-a6c7-44b7-90f0-ded63cf39a415204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049499",
+    "created_at": "2026-08-09T14:11:02.519Z",
+    "paid_at": null
   }
 ]
