@@ -14894,5 +14894,52 @@
     "paid_at": "2026-08-09T17:40:32.514Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_17d4db66bc0887b72d06396649719388",
+    "tracking_code": "SOLRS699RU2DBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rosemeire vieira Furquim",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "41996503285",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABgl0r2tBatMiBQyYF33oaLeFxWZpgRX2OVawp8EHl-2b6evMTYqbehxWXFvW__K5v9xid7QVggTFCzU05PVf3cS1R3hXXLKAIaYz1U1CyhTBXgQKzldrRc06iLPagUVoLpCBh0QLL4XuJMp7OGVg20PHlPlwdIrRmBjaPRPbC_3oEuu8fwGy5dgi2XRypEl",
+    "ttp": "01KZKSVQZMCH92NGMM1FTFPDXC_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t8oyma0y9ltjmsm3b0wh",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "83590-000",
+      "uf": "PR",
+      "cidade": "Doutor Ulysses",
+      "bairro": "Cordeiros",
+      "rua": "PR092",
+      "numero": "0",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm3hmsb_ddd2918c65",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e315b39c-0735-40f4-8565-901ee80abc0c5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D8BD",
+    "created_at": "2026-08-09T17:47:14.421Z",
+    "paid_at": null
   }
 ]
