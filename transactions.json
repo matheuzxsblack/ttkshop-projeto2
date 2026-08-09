@@ -16409,5 +16409,123 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-09T22:16:18.419Z"
+  },
+  {
+    "id": "psa_13d089492b7e8bc1878303538669e22f",
+    "tracking_code": "SOPWKLT3SY55BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Tatianagaldino",
+    "client_email": "tatianagaldino949@gmail.com",
+    "client_doc": "01482222930",
+    "client_doc_entered": "01482222930",
+    "doc_pix_fallback": false,
+    "client_phone": "48996700124",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBhhsMg9PhdJ7p8LhwutK9iCXHk20UYHODVkRvCQaw1Wh7VPNcjv24v-XsZ8Zu__cJD5Gnkf85cacLV7gUl96QRHki77NAjTaMidrqlaZZo7RruSQ8f0Xb50omekFLU3ZMG5OUzoALwQ7ico9w_PvbkNeRVJXPyKkXACJP3ELhqP1SLuccgc6mewqUVArdZ1",
+    "ttp": "01KZM9T4VDAWEHHHAJ47XMAB37_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "to8yllgjn79bmsmdbqyu",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "88780-000",
+      "uf": "SC",
+      "cidade": "Imbituba",
+      "bairro": "Arroio",
+      "rua": "Rua Olindina Maria Monteiro",
+      "numero": "S/n",
+      "complemento": "Casa de alvenaria com área na frente"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmdidqw_d0048cf7a3",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/c028fc05-0046-4820-837c-48928b95cad25204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047EFF",
+    "created_at": "2026-08-09T22:27:44.724Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_feb30ee1df4e55ed6c13a7eb7403a808",
+    "tracking_code": "SO2CD7RB9EXNBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria Josefa da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5511987670412",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEByWDDsitPsa8bZLhDbp_BH5JN939CK_MLG5bKc4g-DykJ7-oO9uBzbRWUVX09GFuytZAHIZ0rl8gnbppBNZq5XhOe4b2vXwH1Q4NpRpOBvGCZbd-qRt8aCzSfZFJoS8dGpvFRp9Eq50fov7OMqZf7BQiPBCwtSdhE8bBVv6I8FP52GjKLBMClYHwTJJ51S1",
+    "ttp": "01KZM9XX94ETRASSEC1F098QQN_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1up692flc3mmsmdbueg",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "09381-000",
+      "uf": "SP",
+      "cidade": "Mauá",
+      "bairro": "Jardim Oratório378",
+      "rua": "Rua Goiânia",
+      "numero": "378",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmdj7ix_364530131c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/14ee0c16-70c9-4095-8e66-505ab1c701b85204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630428A2",
+    "created_at": "2026-08-09T22:28:23.122Z",
+    "paid_at": null
   }
 ]
