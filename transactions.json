@@ -12817,5 +12817,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/50ddcc0d-2a1c-451a-bf82-8bf079b27f2f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047825",
     "created_at": "2026-08-09T10:07:13.902Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_758c16a69aded22329088df034907b23",
+    "tracking_code": "SORVVTZGZ8SWBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rosileide dos Santos Nascimento",
+    "client_email": "rosileidedossantosnascimentona@gmail.com",
+    "client_doc": "63494108153",
+    "client_doc_entered": "63494108153",
+    "doc_pix_fallback": false,
+    "client_phone": "61990220661",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBCzCn26LmyehYWvWDxKtZS4vRrW3em6UjAL5ruUlBVNwHmNTZxZTS5n70633FK8_YDbToFjNbW_HMn-2oVS3xlXtaD3F2FqDaUPyWi4858mhLXQyLxjwN_EMurBrwiXYhXhJevruU7yzfjroT2J0TOOT9RfjvmhJndSarDrXHCbRzYiwo3M5UDux-J8f4Fk",
+    "ttp": "01KZK2VGNFQEG3XPM479PNSPZC_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tqkduxfw7f1msloxn4e",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "71993-375",
+      "uf": "DF",
+      "cidade": "Brasília",
+      "bairro": "Setor Habitacional Arniqueira",
+      "rua": "Conjunto SHA Conjunto 2 Chácara 54A",
+      "numero": "1",
+      "complemento": "Condomínio eschad"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslp0ryl_066563612f",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/f6f08d33-c63b-430d-a14f-bb0869e042835204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63046232",
+    "created_at": "2026-08-09T11:02:12.690Z",
+    "paid_at": null
   }
 ]
