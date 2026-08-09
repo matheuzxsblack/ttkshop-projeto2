@@ -15039,7 +15039,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -15047,5 +15047,53 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5fbbd0d1-5d80-44bf-af62-1ee23d65a6075204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A8B4",
     "created_at": "2026-08-09T17:56:15.301Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_39825b84c3d8b829147c062c2f6e1d65",
+    "tracking_code": "SODCVK5KAYXABR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Maria José da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11993261040",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABeTRQjbORgaW7uKJISiEDC4MGCHfGsZnV2LqUGWA4GTpZWmzmb6np6qdOQ0VtHAQcOUG7bD5KOuruUslW5ow6RkwzV3bkXmb9HR--qzcK84nt3ZSbRNk6Tv6iJGdOnQ3_KedoLEUtLQO4phklkm-VaBGpjLIGFXnikrqf3tjFxBQeywXNeYvB8PDLw1OTEQ",
+    "ttp": "01KZKTBJE6Z40VZ4Q8QFXP4SNV_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t9c11m4i9asmsm3lu28",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "09930-335",
+      "uf": "SP",
+      "cidade": "Diadema",
+      "bairro": "Taboão Diadema SP cep 09930_335",
+      "rua": "Passagem Caracol",
+      "numero": "26",
+      "complemento": "Reciclagem do número 2080"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm3xkjs_fd1829384d",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/13c21453-1e56-4703-992c-7e96f814e6b55204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304BC09",
+    "created_at": "2026-08-09T17:59:37.703Z",
+    "paid_at": "2026-08-09T18:01:23.447Z",
+    "net_amount": 3077
   }
 ]
