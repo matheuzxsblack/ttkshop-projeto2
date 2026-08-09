@@ -15585,5 +15585,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/cfb505c3-9abd-460d-a2f9-73dd7b66ca945204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630475BE",
     "created_at": "2026-08-09T19:21:45.017Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_9f717d59668e7413319087e7625faa69",
+    "tracking_code": "SOG8CXF4GZDJBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Neusa Bernardo correa",
+    "client_email": "neusabernardo3023@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "15997356580",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_Ct4Bm5_UtjgCj0ly9f68OVLWQq9zX_JCuuy_M7ielJOYy6ylrAuHPTEQ6e9-iBNaUlr2jgZG8xVS5kjH1asathS1WGBPHzlY0hZYlb_w8GkRQPqGgvQggEz9pJcErRXOJnVpnH7F_PggAg8sv8fu96-KsAKiBrxSWZjQPX8mLEhXA9RxSAS-aonQXC6-D9jlo6",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t4atoneez3l8msm78hhp",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18270-854",
+      "uf": "SP",
+      "cidade": "Tatuí",
+      "bairro": "Vila Santa Helena",
+      "rua": "Rua Antônio A. Costa Neves",
+      "numero": "19",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm7cdjf_6aef9c401d",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/be5359a3-6d46-4ed4-a60f-50c39a74ccd75204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63045E28",
+    "created_at": "2026-08-09T19:35:07.219Z",
+    "paid_at": null
   }
 ]
