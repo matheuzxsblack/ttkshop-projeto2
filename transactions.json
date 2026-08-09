@@ -14008,5 +14008,52 @@
     "created_at": "2026-08-09T14:54:02.730Z",
     "paid_at": "2026-08-09T14:55:59.992Z",
     "net_amount": 3077
+  },
+  {
+    "id": "psa_862fe1c08388b3294bd29a81e0092c3b",
+    "tracking_code": "SOTRJF4WZY85BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Paula Macedo",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "84988291646",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBNML3smHuGUdHqrCM2pMnuhImjvY9KANFGUeeybVWrW6AoGui3C3ZVPkxnG-d67yqdQ5nSmKb_vOXyyUTpCaQpQdvlYMaaWuZYsTEff4uexEl3P88_XWvOc75XVaD0RUV63RhIkmR-6fM0CA_Mwc9GuSd_BsjL8SRYQUIyGegAJKGvKPzLSUcXAObswoOlp",
+    "ttp": "01KZKHHQ6BAG5G2YH4RYKCC1PT_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tcgu3f0plhjlmsly3vqd",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "59296-473",
+      "uf": "RN",
+      "cidade": "São Gonçalo do Amarante",
+      "bairro": "Amarante",
+      "rua": "Rua Manganês",
+      "numero": "1106",
+      "complemento": "Por trás mercadinho de Paulo"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msly63j7_be742c69a7",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/a3c96cea-b804-4f91-b30d-e56a65f620355204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63043CC4",
+    "created_at": "2026-08-09T15:18:17.421Z",
+    "paid_at": null
   }
 ]
