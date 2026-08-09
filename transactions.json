@@ -10724,7 +10724,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -10737,7 +10737,7 @@
     "id": "psa_a057c6fa01e38b0ca713e645b09b4f3b",
     "tracking_code": "SOUY5P7JYXHYBR",
     "amount": 3077,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Rozilene Lima Machado Feitoza",
     "client_email": "cliente@email.com",
     "client_doc": "16473249044",
@@ -10752,7 +10752,7 @@
     "ttclid": "E_C_P_CuEB5wOIiYLMFLuxpX4GlAjOgluIDcf0jQSONmCjX1Ax2BacGcaVNlpx4K8tuGlmTXsXncfwFcunGFtYelzFiqOgxWUxgYL0Xq8J4cx9Vmuk8Ac-OeGSxMurUXmKM0vFoVwoG1VeodxVk-4IC33-RUxF_F_biHbBWOT0M7_pRrNjwtJH42P5pV0FyqShC7L3Ek",
     "ttp": "01KZJ4W97RMD0877B5Q2Z0FPN5_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "tywse4k8s23fmsl67xmt",
     "funnel_store": "toalha",
     "address": {
@@ -10790,6 +10790,68 @@
     "external_id": "ttk_msl6cvfp_e382f73281",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0f7b1667-31af-4166-b4e9-cd36db6bd9545204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040170",
     "created_at": "2026-08-09T02:19:43.960Z",
+    "paid_at": "2026-08-09T02:23:03.529Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T02:23:17.424Z"
+  },
+  {
+    "id": "psa_8622e1aae2402a83ee9ceb6a1c625a64",
+    "tracking_code": "SOBRYUMFBUJ6BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Fabiana cristina fuzineli",
+    "client_email": "fabianafuzineli@hotmail.com",
+    "client_doc": "30955255830",
+    "client_doc_entered": "30955255830",
+    "doc_pix_fallback": false,
+    "client_phone": "14999029392",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBr8FgPEbtefLq_Yjt4Kk4Eji6wcECj_w1lexKf-S8_XPJRmodQwzqka4n2RKvd-Q-_be4Zx0u-jhrtl6XaCoohCXw2luJD79CJ7yp6Ex-4cz1gf2_Cs60xor2xqPnEuVPAp-jMXUTclR6s7gXlv0X8uUO_vvuwJx-7PlvyzrkPf6chyq53f50PWqm56jQUm",
+    "ttp": "01KZJ55KZ3V8BRH51AR8ATJQ0A_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tv4swhzphkqmsl6efxm",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "17345-436",
+      "uf": "SP",
+      "cidade": "Barra Bonita",
+      "bairro": "Sonho Nosso II",
+      "rua": "Rua Caetano Mori",
+      "numero": "177",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl6igr4_748c1af142",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/2d6d59b7-1bd9-44a6-85a7-a4243f4e200c5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630476F7",
+    "created_at": "2026-08-09T02:24:05.526Z",
     "paid_at": null
   }
 ]
