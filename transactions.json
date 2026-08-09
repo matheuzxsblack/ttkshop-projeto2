@@ -16241,9 +16241,9 @@
         "qtd": 8
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msmbyyq9_e7c94df5e4",
@@ -16288,9 +16288,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msmc0xik_a68c7c7e8d",
@@ -16346,5 +16346,68 @@
     "paid_at": "2026-08-09T22:10:38.345Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_b09e4b1d76f9d4f81c6365c9db830e9e",
+    "tracking_code": "SOA2TXCV8K94BR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Adtiana jean vidal fonsrca",
+    "client_email": "adrianajeam1707@gmail.com",
+    "client_doc": "30072349808",
+    "client_doc_entered": "30072349808",
+    "doc_pix_fallback": false,
+    "client_phone": "5511985798525",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB1YZQD4-qGk3rtZO59lFOKLoAhw_dpWGbEcE5bOTRDYUyrrrqOAJRoRwPUN1Ae2DbhqMErcYw2GeXMzxsj2mOi0ywm7zh777UFuYW_v6sCWUavJRuGfrEQvbHZB0dq3Y8enikvP_sXyg7jTg-ON34vYCPUrk3UFbYW9sQ_WarEy1T8u6HnaYIQU5bps0E6r",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tm6sdt2x8t9msmczkch",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13327-400",
+      "uf": "SP",
+      "cidade": "Salto",
+      "bairro": "Jardim São Judas Tadeu",
+      "rua": "Rua São Pedro",
+      "numero": "821",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmd2fzp_18a216863b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3dd2e45d-e94a-4af6-96dd-412c6e0e19845204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63045D44",
+    "created_at": "2026-08-09T22:15:21.032Z",
+    "paid_at": "2026-08-09T22:16:06.884Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T22:16:18.419Z"
   }
 ]
