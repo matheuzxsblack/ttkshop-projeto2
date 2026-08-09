@@ -375,7 +375,7 @@
       /* limpa escolha manual — modo aleatório */
       colorCounts = {};
       pickOrder = [];
-      document.querySelectorAll("#sku-grid .sku-opt").forEach(function (o) {
+      document.querySelectorAll("#sku-grid .sku-opt, #sku-grid-times .sku-opt").forEach(function (o) {
         o.classList.remove("selected", "selected2", "has-qty");
         var badge = o.querySelector(".sku-qty-badge");
         if (badge) {
@@ -422,7 +422,7 @@
   }
 
   function colorImg(color) {
-    var opt = document.querySelector('#sku-grid .sku-opt[data-color="' + color + '"]');
+    var opt = document.querySelector('#sku-grid .sku-opt[data-color="' + color + '"], #sku-grid-times .sku-opt[data-color="' + color + '"]');
     return (opt && opt.dataset.img) || "imagens/cor-cinza.png";
   }
 
@@ -434,7 +434,7 @@
       randomKitRow.classList.remove("checked");
       randomKitRow.setAttribute("aria-pressed", "false");
     }
-    document.querySelectorAll("#sku-grid .sku-opt").forEach(function (o) {
+    document.querySelectorAll("#sku-grid .sku-opt, #sku-grid-times .sku-opt").forEach(function (o) {
       o.classList.remove("selected", "selected2", "has-qty");
       var badge = o.querySelector(".sku-qty-badge");
       if (badge) {
@@ -511,7 +511,7 @@
       }
     }
 
-    document.querySelectorAll("#sku-grid .sku-opt").forEach(function (o) {
+    document.querySelectorAll("#sku-grid .sku-opt, #sku-grid-times .sku-opt").forEach(function (o) {
       var c = o.dataset.color;
       var q = colorCounts[c] || 0;
       o.classList.toggle("has-qty", q > 0);
@@ -616,7 +616,7 @@
   }
 
   function selectedColorOpt() {
-    return document.querySelector("#sku-grid .sku-opt.has-qty, #sku-grid .sku-opt.selected");
+    return document.querySelector("#sku-grid .sku-opt.has-qty, #sku-grid .sku-opt.selected, #sku-grid-times .sku-opt.has-qty, #sku-grid-times .sku-opt.selected");
   }
   function selectedSizeOpt() {
     return document.querySelector("#size-grid .size-opt.selected");
@@ -656,7 +656,7 @@
   skuOverlay.addEventListener("click", closeSku);
   document.getElementById("btn-close-sku").addEventListener("click", closeSku);
 
-  document.getElementById("sku-grid").addEventListener("click", function (e) {
+  function handleSkuGridClick(e) {
     var ex = e.target.closest(".expand-ico");
     if (ex) {
       var owner = ex.closest(".sku-opt");
@@ -674,7 +674,7 @@
     var opt = e.target.closest(".sku-opt");
     if (!opt) return;
     if (editingIndex !== null) {
-      this.querySelectorAll(".sku-opt").forEach(function (o) {
+      document.querySelectorAll("#sku-grid .sku-opt, #sku-grid-times .sku-opt").forEach(function (o) {
         o.classList.remove("selected", "has-qty");
       });
       opt.classList.add("selected", "has-qty");
@@ -683,7 +683,11 @@
       return;
     }
     addColor(opt.dataset.color);
-  });
+  }
+  document.getElementById("sku-grid").addEventListener("click", handleSkuGridClick);
+  if (document.getElementById("sku-grid-times")) {
+    document.getElementById("sku-grid-times").addEventListener("click", handleSkuGridClick);
+  }
 
   var pickChipsEl = document.getElementById("pick-chips");
   if (pickChipsEl) {
@@ -1121,12 +1125,12 @@
     if (!item) return;
     editingIndex = i;
     resetPick();
-    document.querySelectorAll("#sku-grid .sku-opt").forEach(function (o) {
+    document.querySelectorAll("#sku-grid .sku-opt, #sku-grid-times .sku-opt").forEach(function (o) {
       var on = o.dataset.color === item.label;
       o.classList.toggle("selected", on);
       o.classList.toggle("has-qty", on);
     });
-    var sel = document.querySelector("#sku-grid .sku-opt.selected");
+    var sel = document.querySelector("#sku-grid .sku-opt.selected, #sku-grid-times .sku-opt.selected");
     if (sel && sel.dataset.img) {
       document.getElementById("sku-thumb").src = sel.dataset.img;
     }
@@ -1142,7 +1146,7 @@
       return;
     }
 
-    var sel = document.querySelector("#sku-grid .sku-opt.selected");
+    var sel = document.querySelector("#sku-grid .sku-opt.selected, #sku-grid-times .sku-opt.selected");
     if (!sel) return;
 
     var label = sel.dataset.color;
