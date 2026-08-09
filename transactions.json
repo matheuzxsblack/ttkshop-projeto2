@@ -12039,9 +12039,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mslgeb59_67e5cfcd3c",
@@ -12268,5 +12268,65 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/285ac632-a25f-459b-ab68-cf1581def3ae5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D4C5",
     "created_at": "2026-08-09T07:26:02.812Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_16e758c38139c2110160fe451f984a2b",
+    "tracking_code": "SO8FX8JET7NBBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Yara Lourenço",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "31982286735",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBrUBg0lwTjN_IQONyidzEQTDIO7ofN2sJqudg5DuANf8jFtFuZHD5BLriztp1JkbE0uxh14-vI6RBc86gsSNrwa3MHajqBLLOXlWs4QtvGj-0xkaUZ8clI6x8UZmHWIxLbtr5tqOBdpSze32SmEi7DxNw9lgGcQ9JdU_dY3yalW-c1lo2PHRRNDc4-GdXEZ",
+    "ttp": "01KZJP7B064BGC1S0K2W3ZVFCP_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t0bk8lbz1vl5mslh1tcx",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "31140-200",
+      "uf": "MG",
+      "cidade": "Belo Horizonte",
+      "bairro": "Graça",
+      "rua": "Rua Doutor Américo Gianetti",
+      "numero": "69",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslhe14m_1af8dffba7",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/2283ccdc-2d29-4162-ba99-5a3a5ada34bc5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D0C9",
+    "created_at": "2026-08-09T07:28:33.756Z",
+    "paid_at": "2026-08-09T07:30:07.532Z",
+    "net_amount": 3077
   }
 ]
