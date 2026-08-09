@@ -12758,5 +12758,64 @@
     "net_amount": 3077,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-09T09:43:32.950Z"
+  },
+  {
+    "id": "psa_e2018a720b9fe6d891bc1a065cb69f16",
+    "tracking_code": "SOW6ZB27G8JZBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Mônica Osório",
+    "client_email": "moossil13@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5521970426",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB3b1XRG8CibNv0HeEV2id2cWrI2GlV26zyLKgYGhEYLewSttWWOirekEZj1lmKuOKO-QKZ-uSopts9vISScEIbvzPm-LiZlstqXGIPXpjatofnqKbKTSMC6jaNBwjPULRhhBKWpvkwwXoHF5cWcFXi9wYhruDgldbDGQDo-CTbiJhD3jegu_zP4s0iyih7s",
+    "ttp": "01KZJZNMDCE1AAES7WYMJG6FE1_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "ty59cbagm3a8mslmyugo",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "23013-425",
+      "uf": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "Senador Vasconcelos",
+      "rua": "Avenida de Santa Cruz",
+      "numero": "11806",
+      "complemento": "Casa 150"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msln22ev_b603e7c8c4",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/50ddcc0d-2a1c-451a-bf82-8bf079b27f2f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047825",
+    "created_at": "2026-08-09T10:07:13.902Z",
+    "paid_at": null
   }
 ]
