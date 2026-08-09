@@ -9596,5 +9596,68 @@
     "created_at": "2026-08-09T00:13:15.926Z",
     "paid_at": "2026-08-09T00:14:12.809Z",
     "net_amount": 3077
+  },
+  {
+    "id": "psa_007ecfaed79948c17b27451bac43e63b",
+    "tracking_code": "SOFMDQ9KS7QPBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Edivaldo José da Silva",
+    "client_email": "familia.ejsa@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11985450340",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuAB-cz-sGtrXwTyY-0zq-q72r7X_YUZKF0n8mh3I_Nu7t8u3uI9CUYI68YPeEWgM1z1HW1gD2FvZbjpcV9yntYFYkAUyl4KWPtNmuRxkzcdXp7hRNaHB68wBJfhQZTGiwWfhZdHJCZh4JiHqVE2_jUDnz2D4dUREd9x-JRVDmriOvsJwh0Jy6aswFjoBjg7UJ",
+    "ttp": "01KZHYTQRHH70B5JNX48ARW8R3_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t0zj4qqqdon8msl2g0ol",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06693-290",
+      "uf": "SP",
+      "cidade": "Itapevi",
+      "bairro": "Jardim Vitápolis",
+      "rua": "Estrada Austral",
+      "numero": "514",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl2jets_9baaab0dd0",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/9bf17ec4-d46c-4507-9ab3-68831a46eb725204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047B90",
+    "created_at": "2026-08-09T00:32:51.227Z",
+    "paid_at": "2026-08-09T00:33:28.738Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T00:33:36.535Z",
+    "email_sent": true
   }
 ]
