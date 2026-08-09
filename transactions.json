@@ -14104,5 +14104,99 @@
     "paid_at": "2026-08-09T15:34:40.114Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_7c68d677369fe4dd353f818317e61943",
+    "tracking_code": "SOAMLFG2T28BBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria Teles",
+    "client_email": "mariateles09157@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "55999964921",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB1nWFFYDAJjOmBTWC8P1M6vI1UoE785eNawu3rck7kN46lxmk6RlYpAxZOCu4TiqnbCK-GNt-7bmnUrIG_JeEUfg1NH7H3lNIB3TErVB7Gg-n7-KR5Sulh9NGHD0_o4dDa544lENlI6wCkgNrV1LhSS5xf1rAufzv-3JIGZtFmqHlyJ4jJCiAb45uHfzxSz",
+    "ttp": "01KZKJMTXZHE0E5JX4DF7KZT2W_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t7d1chiy6m5omslysj8b",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65800-000",
+      "uf": "MA",
+      "cidade": "Balsas",
+      "bairro": "São Caetano",
+      "rua": "Rua 22 entre a 18 e a 19",
+      "numero": "03",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslyyq1r_fa5faf36be",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/35e788a0-ed6d-4454-9ac5-91f7aaff04515204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040407",
+    "created_at": "2026-08-09T15:40:32.819Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_44ef35db977bca5e9c2ab88ad4497193",
+    "tracking_code": "SOK5VKJSC9MZBR",
+    "amount": 5472,
+    "status": "pending",
+    "client_name": "Maria Teles",
+    "client_email": "mariateles09157@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "55999964921",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB1nWFFYDAJjOmBTWC8P1M6vI1UoE785eNawu3rck7kN46lxmk6RlYpAxZOCu4TiqnbCK-GNt-7bmnUrIG_JeEUfg1NH7H3lNIB3TErVB7Gg-n7-KR5Sulh9NGHD0_o4dDa544lENlI6wCkgNrV1LhSS5xf1rAufzv-3JIGZtFmqHlyJ4jJCiAb45uHfzxSz",
+    "ttp": "01KZKJMTXZHE0E5JX4DF7KZT2W_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t7d1chiy6m5omslysj8b",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65800-000",
+      "uf": "MA",
+      "cidade": "Balsas",
+      "bairro": "São Caetano",
+      "rua": "Rua 22 entre a 18 e a 19",
+      "numero": "03",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 8
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslz0fgt_b7ca0c64a7",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/f8e76998-b58e-4678-92d4-fd76336761e75204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63046056",
+    "created_at": "2026-08-09T15:41:52.317Z",
+    "paid_at": null
   }
 ]
