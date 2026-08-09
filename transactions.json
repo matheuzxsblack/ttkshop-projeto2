@@ -10723,9 +10723,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl6bjdc_6799a90b2c",
@@ -10844,9 +10844,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl6igr4_748c1af142",
@@ -11077,5 +11077,222 @@
     "created_at": "2026-08-09T02:43:06.824Z",
     "paid_at": "2026-08-09T02:46:20.856Z",
     "net_amount": 3077
+  },
+  {
+    "id": "psa_761e42bd6d1997baddb221047a86eb53",
+    "tracking_code": "SO8JRM49HF93BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Vera Lucia Alves triz",
+    "client_email": "cliente@email.com",
+    "client_doc": "02047841909",
+    "client_doc_entered": "02047841909",
+    "doc_pix_fallback": false,
+    "client_phone": "44991665435",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABIA2klnd_mELQJFiPlphLgRqY7pipa8y2yK9wq0AsfOZq2du7FODSDEA9p9aIcYBSaQ_BBVeOeantvrSOhVFtCYE4IPNenEqBPoSkIqGUVtdPeAhe-iDKNgThAYiL0Cl1OvWoWzgI7wOzHCpaIogBQwjq6Z7y_RdqF2vZpW3OfYHxyuAJF-ykk_EM_hdqR2",
+    "ttp": "01KZJ6GWESARM8R7F6VFVQYBHM_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tdqhiy7ywlsamsl7ar30",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "87990-000",
+      "uf": "PR",
+      "cidade": "Diamante do Norte",
+      "bairro": "centro",
+      "rua": "Rua Augusto Lisboa",
+      "numero": "297",
+      "complemento": "casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl7eg3z_ecc553f464",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5f536363-4d0c-4974-b071-459bf93bbe805204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D1B0",
+    "created_at": "2026-08-09T02:48:57.671Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_5e4d0b3e9cb9354d9999a09aa3637072",
+    "tracking_code": "SOWNE7AL5THFBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "María Luisa Telles",
+    "client_email": "cliente@email.com",
+    "client_doc": "02363618807",
+    "client_doc_entered": "02363618807",
+    "doc_pix_fallback": false,
+    "client_phone": "18981685295",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB1LSp3Kczxkdy6-urKtHGOKIGvOlTGcFiLlGE9iKo80Xa-GsE3c1gJzsc8UI2BMe3C5ZmQck06pWyDQqFpv00o3wRhbGw1skUt-Oj0jaX18sECg_jXr1flWICNzS9Y1spc-i1xyC__phfWEibeOCu6sKhOytd1L_yL6Lr7AS4VuJrB_SbgPT0WXWRqnDy19",
+    "ttp": "01KZJ66NJM0FGZ7Z9ASXDB72G1_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t58wmre8duo3msl7c2mk",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "16058-730",
+      "uf": "SP",
+      "cidade": "Araçatuba",
+      "bairro": "Residencial Jardim Atlântico",
+      "rua": "Rua João Maria Gomes",
+      "numero": "115",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl7fqft_cc799eb9fa",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/ed8aa9a5-0760-4008-ac1a-bfdfdc5f72295204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304303B",
+    "created_at": "2026-08-09T02:49:57.231Z",
+    "paid_at": "2026-08-09T02:51:42.604Z",
+    "net_amount": 3077
+  },
+  {
+    "id": "psa_d64795b1f0e1d8d53dda4c3cd3f8f2f9",
+    "tracking_code": "SOMR9ZDWYWUDBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Denise Lima da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "03891114494",
+    "client_doc_entered": "03891114494",
+    "doc_pix_fallback": false,
+    "client_phone": "81987367505",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBYiHMcwhDvGfTCBwpP08ymxLg7GVIYe__GbL0AhxWq0fvHxO7sydlMg3UuyLYO_TPfYmBY2PUSKfJ1SwfQhVx99LkYTFnEt-mpme1SXFApHdJVOrQeJ8IXv0XRrTYfZmcJSrHZ1MJPRMrw-LKj_eDmuoL85iuZm4kcpNqwsziq6XbLNTeY4BBd98CIeRLnU",
+    "ttp": "01KZJ6QW87Q36MSBM3B9ZK0A86_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tsa123patlxmsl7dszw",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "54410-715",
+      "uf": "PE",
+      "cidade": "Jaboatão dos Guararapes",
+      "bairro": "Piedade",
+      "rua": "Rua C",
+      "numero": "90",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl7iapt_6060a750f7",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/f41f08d9-7850-4559-beed-68930f6cfdc95204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B9D1",
+    "created_at": "2026-08-09T02:51:57.133Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_c4ee4e9df3e1ae35aa00fb216bf1eca2",
+    "tracking_code": "SOS33QBKEEQMBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Priscila nery",
+    "client_email": "priscilasantosnery@gmail.com",
+    "client_doc": "19242309842",
+    "client_doc_entered": "19242309842",
+    "doc_pix_fallback": false,
+    "client_phone": "1911492027",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABhQMcxhshHYT-oZDMgUmOyGltTKq9P0TSCE0jieJ3WVeRbj8mojvttpkKb4Z8ntxd8CUqJBIc3TW_HoYcM36lydqNo3NnyhdZvPjR2hzTvbbGHWyUPic7MzYh9JMMfIE9mWGioW8ULSrcGiwf3X2raU9pDIdOwKAIEaM7lIHxwqgNCa7i1jk2DnXVUKGOAK",
+    "ttp": "01KZJ6QNMVG19DK6913FH351A6_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tfj4f0im1pdfmsl7hzcu",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06502-285",
+      "uf": "SP",
+      "cidade": "Santana de Parnaíba",
+      "bairro": "Jardim São Luís",
+      "rua": "Rua Franca",
+      "numero": "157",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl7jrkl_0e1e508e3b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/157d3333-3bf6-41b3-bf33-c1d0ad9db77a5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048A90",
+    "created_at": "2026-08-09T02:53:06.325Z",
+    "paid_at": "2026-08-09T02:54:27.359Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T02:54:32.031Z"
   }
 ]
