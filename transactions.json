@@ -16944,5 +16944,127 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-09T23:44:24.222Z"
+  },
+  {
+    "id": "psa_1bcb045db933f1082b4784d2f3373575",
+    "tracking_code": "SOKQWRHHF5ZJBR",
+    "amount": 3846,
+    "status": "pending",
+    "client_name": "Fernanda Maria",
+    "client_email": "nandamaria1985@gmail.com",
+    "client_doc": "32509032801",
+    "client_doc_entered": "32509032801",
+    "doc_pix_fallback": false,
+    "client_phone": "11987022325",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBmhTENEc89I0qns0MpcncBc9EP19MX6CP1AwPbfU3vgiCW4ILvE9wjs1oy7SBtScXeeDNYBm6o7qf8SWl56_K3pHrQPkjWgOtn7GA_PBt2mLGunX2X6MslvcAf9nTHOMR8TCZDEhDmjE2Theuzj75zzaTdRhTQgsJqtfCtaJ1Pxd7Djo_0s4vjA_4DiwYHT",
+    "ttp": "01KZMECEHK7D5AWHWKQ3CRWFXG_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t9mor8qnsg0rmsmg3y6x",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06437-060",
+      "uf": "SP",
+      "cidade": "Barueri",
+      "bairro": "Vale do Sol",
+      "rua": "Rua Tâmisa",
+      "numero": "228",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor São Paulo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmgbwwy_cc35553566",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/561d8a6a-b95c-4d85-af07-ca99840376585204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630479F8",
+    "created_at": "2026-08-09T23:46:42.018Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_1722ab353b382d462553105d94c5fc77",
+    "tracking_code": "SO6M9GETWRPMBR",
+    "amount": 5385,
+    "status": "pending",
+    "client_name": "Alana nascimento dos santos",
+    "client_email": "alanalegslzinha@gmail.com",
+    "client_doc": "42131505850",
+    "client_doc_entered": "42131505850",
+    "doc_pix_fallback": false,
+    "client_phone": "5512988629",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABMkPGNugxHcAxq4_LL73Eqh4Xu84M2qzkKh74U190Sq_L_ZDmKlUk6MyzZdJkJSuR-V8Gp2gJibcmcAUsM66h6COM6E_msAmsXOB_TaQZwhebG9thr1IfgWOS3XOh_ivl1A465abu5kLbULls0Ixs8EyGydAL9ybGjUcZMqyqdulqNpjli3Joz5eIsNPT8z",
+    "ttp": "01KZMEGY4ZZR6DBD3PQ605MNJB_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "trpqowgzvqjmsmg7306",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "12450-000",
+      "uf": "SP",
+      "cidade": "Santo Antônio do Pinhal",
+      "bairro": "Cassununga",
+      "rua": "Sp -50 chale caminho das flores",
+      "numero": "00",
+      "complemento": "Próximo ao chale caminho das flores primeira rua a esquerda de frente com o pinheiro (árvore )que tem no chalé"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 2
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmgd8wl_1b7e7fc476",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/409d1efb-671c-4ef1-89b5-02575284c5245204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044BB9",
+    "created_at": "2026-08-09T23:47:44.018Z",
+    "paid_at": null
   }
 ]
