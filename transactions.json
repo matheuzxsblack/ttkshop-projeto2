@@ -16028,5 +16028,68 @@
     "paid_at": "2026-08-09T20:58:59.903Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_e457e0dc96775a430fcbafb72fd21668",
+    "tracking_code": "SO84XDAMDG2CBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Cleia Fernandes Dos Santos Fernandes",
+    "client_email": "cleiafernandes856@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "06663460",
+    "doc_pix_fallback": true,
+    "client_phone": "11952508713",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBUJ3Tj3B4y1cSlWn8x232WX6DyAoUpRkXaV0fzoEY7z8fnlfhm7agEM3L6YvkeK-lunrFCSvq7_TcHh4Ay5LAJ_Qnu3a66w8bbclQYM99kNc-ErYhQVFPisV1ojQYvyoMDmmVHqgedyd2JZcYyzYcLAnR4sgraOeEesWgk4gFYM4Cw9wchzSoV6ItXaU37l",
+    "ttp": "01KZM5P7XAZPMK3NP22715M06P_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tgy3z70k9djjmsmaoivn",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06663-460",
+      "uf": "SP",
+      "cidade": "Itapevi",
+      "bairro": "Parque Suburbano",
+      "rua": "Rua Alzira Rocha da Silva",
+      "numero": "1163",
+      "complemento": "Casa 1"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmarikr_a53cda2563",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/2f7f92e4-b2c6-426c-9ebd-d1003fc803bd5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049008",
+    "created_at": "2026-08-09T21:10:51.779Z",
+    "paid_at": "2026-08-09T21:11:59.944Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T21:12:16.096Z"
   }
 ]
