@@ -13554,5 +13554,53 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e7b52d54-5b7d-485c-9d7b-72809b8ed4485204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044E3F",
     "created_at": "2026-08-09T13:08:02.417Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_6d7877694a95dbdc647cbf025af5d125",
+    "tracking_code": "SO4EY8KMK8ZLBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Edlayne bacari da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "55/44988051834",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBuNrTihNoCZbTHrwXwDxcsgyhpjYyvFcSF1xmgU6h7cBuoPVWSlrR0EAhYUA35PcO86-eqsXLUsqay2yjru8x_VbeJ_fMCjCCA5cY4sw4Xc1A5oXuB_UbA65fjBfMKSX9G37u3vkrsz1B9xarZxPbeEC7UK-GJbCxpYHGzeTl4jsC5IXPuisWYCnbu_4Mql",
+    "ttp": "01KZKB19J39VQD0D72KSWJCA7B_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tvhlarieuhlomslu1hy0",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "87510-021",
+      "uf": "PR",
+      "cidade": "Umuarama",
+      "bairro": "Conjunto Habitacional Sonho Meu",
+      "rua": "Rua Nelson Rodrigues",
+      "numero": "1690",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslu4qwq_372502c4f3",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d7423d64-86f8-4eb1-9875-261276b121ba5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044B9D",
+    "created_at": "2026-08-09T13:25:15.718Z",
+    "paid_at": "2026-08-09T13:26:00.714Z",
+    "net_amount": 3077
   }
 ]
