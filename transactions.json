@@ -16759,5 +16759,127 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/374c6124-b2df-4a39-b996-4defabf298975204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040A8B",
     "created_at": "2026-08-09T22:57:34.618Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_48f655bb6f450a2ef30e77e43650e57f",
+    "tracking_code": "SOMQVZ55WNGZBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Ana Paula  de Lima",
+    "client_email": "pauladelimasilva26@gmail.com",
+    "client_doc": "03840442478",
+    "client_doc_entered": "03840442478",
+    "doc_pix_fallback": false,
+    "client_phone": "81991625489",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBiBnsUusRXy7Hs6cI8wHRMWnR_uhvgqurK3OCmIXW-F6dgqWRNvtUyql1-R6AGHQKyE32-813MYMPMjSIs54hUDjkIOE4ZhtaHSdMCtz3j9pegwUGRni4vD9C80txoMj2LC-49gcY6fLfydZjR93L57Q4TRQINZDSkjpa8oFaoJGwuNzUbNs52HAHw4UKnf",
+    "ttp": "01KZMD1AAMYHJHXPDN5YKMD84P_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "te33y0hulmdmmsmfni4c",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "55042-750",
+      "uf": "PE",
+      "cidade": "Caruaru",
+      "bairro": "José Carlos de Oliveira",
+      "rua": "Rua da Honestidade",
+      "numero": "96",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmfze2b_884df369cf",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/b0e5757e-a53d-4218-bf78-d9640b5926b25204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048DC6",
+    "created_at": "2026-08-09T23:36:57.281Z",
+    "paid_at": "2026-08-09T23:38:41.177Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T23:39:02.427Z"
+  },
+  {
+    "id": "psa_6df6e9c4a57264cb22fcc1af56268196",
+    "tracking_code": "SO88HPYMRDFRBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Aldecy silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "81998848437",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBegwOQRRrfyCXyCnNBEgzhm7-epZRaxsqLOtHxbIzxj3V46abH3ODYyt_NVlc1Cnpye7neQoX9J7WrFXa6bVyPBV8qRoWExSldUeXJVH7-QQju89ITmGnD8ckVKC14stmV5LrYssz3-Y47wt7d4j9pbZdAiizTVtyC4PB-qyM0fJd9pZYPFBaAqWsoQk02g",
+    "ttp": "01KZME4FCRPWDMB92E2Q0NZN5T_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t2s1mhj2f0jamsmfy90b",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "51240-555",
+      "uf": "PE",
+      "cidade": "Recife",
+      "bairro": "Ibura",
+      "rua": "Rua José Martorano",
+      "numero": "845",
+      "complemento": "Ladeira do PSF inalda"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmg1kwy_617a3da29d",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/c80d5461-d3f4-4c5f-ab50-98412a10a21d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047BE3",
+    "created_at": "2026-08-09T23:38:39.579Z",
+    "paid_at": null
   }
 ]
