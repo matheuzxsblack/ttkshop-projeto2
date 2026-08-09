@@ -15920,5 +15920,64 @@
     "paid_at": "2026-08-09T20:29:20.108Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_70e0da806c737ed25b8b9c653c2eb0bb",
+    "tracking_code": "SO978UZVEAJ5BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria Selma da Silva Monteiro",
+    "client_email": "maria.selma.monteiro73@gmail.com",
+    "client_doc": "14356749871",
+    "client_doc_entered": "14356749871",
+    "doc_pix_fallback": false,
+    "client_phone": "11953998498",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBVSfycXKU9cpBoRiZXZqrv-jrLdx7TDxHQ2fAkWfxc5wNzGDUwK17JjktS4JEB05dqA7LsBJC20gw7uZM2m8ZHMNDTY4CRQe_D-KhqbDqHNjD9INC5dW2ukFePoGVPD32yVN8-Gq3BMfDyMDuovhl9QYtdHOfrZvxVZDNGx03VVQmL2XBdwD6FEbF56wkLJ",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgy2ytlny3qmsm9re9h",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18131-230",
+      "uf": "SP",
+      "cidade": "São Roque",
+      "bairro": "Vila Nova São Roque",
+      "rua": "Avenida Piracicaba",
+      "numero": "600",
+      "complemento": "Avenida"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msma1xto_5ce944b064",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3934509d-022c-4551-8756-87c294fd728f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047212",
+    "created_at": "2026-08-09T20:50:58.465Z",
+    "paid_at": null
   }
 ]
