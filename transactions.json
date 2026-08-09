@@ -13805,5 +13805,52 @@
     "net_amount": 3077,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-09T14:28:17.928Z"
+  },
+  {
+    "id": "psa_11823e7f96c523be99bcbe24b8100d29",
+    "tracking_code": "SO2QE8TA8CCMBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Nereide Cristina  Capricórnio Solano",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11915108447",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABvfsCr5YJpxGxic2_iqbw2aT1SEmqbXaxTzUyraHGPPEiJpKpm8zXfcDrznlQL7NqYZiPf_JF23QKZ2QBQ9WCsPGZQ1HHbVT3EgIJX3Hbrd_VoB0uMSL6woKLxKwTMAxdwFtzPMUY29ihlf1iNgYPtWKlt7aG1fAinDQaemJEb2aPsU6qmMphF1ZH1gCdWs",
+    "ttp": "01KZKF7Y3H4XA2W0KQ0GXTNH2Y_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t4hdwo66lhagmslwo1zw",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "03279-150",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Vila Santa Virginia",
+      "rua": "Rua Antônio José Soares",
+      "numero": "101",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslwsp0k_f80ec7c989",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/eb7df546-3ceb-4c36-a99f-2df8b3db47155204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048F3E",
+    "created_at": "2026-08-09T14:39:52.326Z",
+    "paid_at": null
   }
 ]
