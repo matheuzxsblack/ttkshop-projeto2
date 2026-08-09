@@ -16459,9 +16459,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msmdidqw_d0048cf7a3",
@@ -16688,13 +16688,76 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msmee2lu_db0a0329db",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/b1dd87db-6ee4-4adb-97d1-6233d160013a5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304895F",
     "created_at": "2026-08-09T22:52:23.019Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_cc121acb15d0f5c2855a595b2c2f345c",
+    "tracking_code": "SO5K2XYJSZTDBR",
+    "amount": 3846,
+    "status": "pending",
+    "client_name": "Antônia zelita de sousa lima",
+    "client_email": "Lita13514@gmail.com",
+    "client_doc": "06267916340",
+    "client_doc_entered": "06267916340",
+    "doc_pix_fallback": false,
+    "client_phone": "85992697724",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBB5gesyf2WBXk6WOSSHZasdsX9uxgs8o2Y74ZFf_tNUr14VHFDqQtcAkeUKlZzbphwspKEGb8lIs37re8rF6IeqOkGvX6SXCx5yxs7X3XFZ_aP8jas3klWCmUlltACUalMrvdK5bfVyJasN2KzQYm7E9tIbNbDmer1NjwgKcYsE3WTQNuTZ07u5tRktntG6",
+    "ttp": "01KZMBPS10Q3JJ7FWQM3AR7WDJ_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tv1p4x7x0wfdmsmegzgc",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "62640-000",
+      "uf": "CE",
+      "cidade": "Pentecoste",
+      "bairro": "Itamaraty",
+      "rua": "Rua jonas alcantara",
+      "numero": "00",
+      "complemento": "Bairro itamaraty"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor São Paulo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Santos",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Flamengo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Palmeiras",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Corinthians",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmekqdo_b318e55b3b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/374c6124-b2df-4a39-b996-4defabf298975204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040A8B",
+    "created_at": "2026-08-09T22:57:34.618Z",
     "paid_at": null
   }
 ]
