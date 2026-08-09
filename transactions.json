@@ -9958,9 +9958,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl43a8x_a0b997246d",
@@ -10009,9 +10009,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl46r8t_c587427e06",
@@ -10070,7 +10070,7 @@
     "id": "psa_41dbf04e8d17e20c866e5cf03e23412b",
     "tracking_code": "SOXD5PA3B4UHBR",
     "amount": 5861,
-    "status": "pending",
+    "status": "paid",
     "client_name": "simone oliveira",
     "client_email": "simonesantos64@hotmail.com",
     "client_doc": "23168411809",
@@ -10085,7 +10085,7 @@
     "ttclid": "E_C_P_CuEB_JzhL1g3jjouqdLJb0R7PK8WopeJbob7ToeJlcPnuzj4PsCq-EFQd0-8kqm4sQ38l25oROoNSG-TPpLVzLE1SfLQdW0Vc45yXKU_weQDoyl3gPj4wue6alC3UmdT61v8wI1GBCxS6D9cBv_hCYvuQH2HY4FBzEuV-GbppENJ2WUpM-Rd35dYLOYLKFOEeX",
     "ttp": "01KZJ2DEDYTYK290K7Z3K26RZP_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "tggxdu4alugamsl4okpx",
     "funnel_store": "toalha",
     "address": {
@@ -10120,14 +10120,16 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl4tjtr_2f52b101b5",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/b86c50a1-6be6-4807-a451-22f64f6749ff5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047F34",
     "created_at": "2026-08-09T01:36:43.223Z",
-    "paid_at": null
+    "paid_at": "2026-08-09T01:44:23.425Z",
+    "net_amount": 5861,
+    "email_sent": true
   },
   {
     "id": "psa_05075faab15df9eb96f031b80434b746",
@@ -10179,5 +10181,56 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-09T01:40:22.326Z"
+  },
+  {
+    "id": "psa_420fce128de9ad58df11cf0115ec4a6f",
+    "tracking_code": "SOHTWQ9C6G69BR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Lívia de Santana",
+    "client_email": "libraslv49@gmail.com",
+    "client_doc": "45597049453",
+    "client_doc_entered": "45597049453",
+    "doc_pix_fallback": false,
+    "client_phone": "5581986293",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBS44R5F1hUH2tisSRRp4smEmv5GnSm_DE4Fc-ypBGwGwxJ0fe16xs7jgWrIiOimyUWltbMgQGw9ia1cmaR3cOcbBUgd_sj2vWWSZX-cZc646maHn8ZulVtMgT-GAQEwOzxU0e7M8FP2hqH_JVRZqNVZcr48v1P7VWXEgvIdc5Lze4jTHbQUPwwx4oqZuLSB",
+    "ttp": "01KZJ34GAM5DW5M7NDJA65AZFW_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t7ityrx0z7nbmsl54rn4",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "54250-380",
+      "uf": "PE",
+      "cidade": "Jaboatão dos Guararapes",
+      "bairro": "Cavaleiro",
+      "rua": "Alto Getúlio Vargas",
+      "numero": "110",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl57of5_9b406a7f98",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/796ac55f-b898-4f0d-95f9-7c529189f4b85204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A2D6",
+    "created_at": "2026-08-09T01:47:43.625Z",
+    "paid_at": "2026-08-09T01:49:27.325Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T01:50:32.131Z"
   }
 ]
