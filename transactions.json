@@ -12095,5 +12095,131 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/97dbe2c3-9c2e-4c2c-ae10-1f9b246a09be5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B7A8",
     "created_at": "2026-08-09T07:09:55.076Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_51012c14e68dad5dcd5f3fc29df5ab20",
+    "tracking_code": "SOBL86MUCZ2JBR",
+    "amount": 8256,
+    "status": "pending",
+    "client_name": "Susana gamas Aguiar Louzeiro",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "556193394290",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuAB9e2LGsY_ZKXiAqbVku6y1zOEwsv2gRJAnUaVDoZ1ld62tbPCqtmtO1TP3lcGl45PnaYpJtsoy-7PnuTo_njZUKtwASQRrZLtfgmDiYpU48huWJLZMq7fE2m4Zx5cvAr2hUPOSV7xPeJyZXbfIJxGHxCZwAzAQgVJ0N_uRQVKMxfm2ZA3U_a9hOYraX4sHD",
+    "ttp": "01KZJNFSQWJAE6FZ4D6H923BGJ_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t0iqw4itt36xomslgmp9q",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "72915-543",
+      "uf": "GO",
+      "cidade": "Águas Lindas de Goiás",
+      "bairro": "Mansões Olinda",
+      "rua": "Quadra QA 31",
+      "numero": "10",
+      "complemento": "C"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslgt7ti_574398f977",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/cbb8de1a-f5a7-49ba-9bdb-d4020b00556b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63042678",
+    "created_at": "2026-08-09T07:12:22.692Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_6523dfe1f043a53f725886e82d0e12c2",
+    "tracking_code": "SOKADEGCY4EBBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Susana Gamas",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "556193394290",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuAB9e2LGsY_ZKXiAqbVku6y1zOEwsv2gRJAnUaVDoZ1ld62tbPCqtmtO1TP3lcGl45PnaYpJtsoy-7PnuTo_njZUKtwASQRrZLtfgmDiYpU48huWJLZMq7fE2m4Zx5cvAr2hUPOSV7xPeJyZXbfIJxGHxCZwAzAQgVJ0N_uRQVKMxfm2ZA3U_a9hOYraX4sHD",
+    "ttp": "01KZJNFSQWJAE6FZ4D6H923BGJ_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tz6zqurtea0omslgtihn",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "72915-543",
+      "uf": "GO",
+      "cidade": "Águas Lindas de Goiás",
+      "bairro": "Mansões Olinda",
+      "rua": "Quadra QA 31",
+      "numero": "10",
+      "complemento": "C"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslgvr3d_b1cbf2450b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5e94c741-606a-4aaa-99d7-6a4a7c7676a95204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304FFB8",
+    "created_at": "2026-08-09T07:14:21.006Z",
+    "paid_at": null
   }
 ]
