@@ -13602,5 +13602,64 @@
     "created_at": "2026-08-09T13:25:15.718Z",
     "paid_at": "2026-08-09T13:26:00.714Z",
     "net_amount": 3077
+  },
+  {
+    "id": "psa_2b872aa156c88d8832848684ab87ebe9",
+    "tracking_code": "SOZMPECJ2B95BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Ana Paula Florencio da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "88981763393",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBRfOFeKoyqADOsBoR-BfcnAOwl771sMYU3-9oIqm5yH39dqEztB4Ul8GX_nBJGL_rGxSsKvToFR8KcDHKJCM1_J9ge45lG1FIrJ1-iOxBZtuTdRKsHVDoflyhI1I1-kPkAqV_TDDZedqTkjdq1WiEqJp6fAZln20h-T8XbuFvL5PDH87oG7GpehTo11BsEV",
+    "ttp": "01KZKCQPM68S28QX7E7AM0CA0H_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t4zxq0po86v6mslv3pj6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "63050-720",
+      "uf": "CE",
+      "cidade": "Juazeiro do Norte",
+      "bairro": "Romeirão",
+      "rua": "Rua Beata Maria de Araújo",
+      "numero": "539",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslv7nft_bc2d0ad99f",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/12e46797-806b-4ac8-a2ac-3037d1b2b0e15204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630450AC",
+    "created_at": "2026-08-09T13:55:31.199Z",
+    "paid_at": null
   }
 ]
