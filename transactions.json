@@ -12001,5 +12001,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/92cc5e05-d762-4540-92fb-0042a2487d715204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304342A",
     "created_at": "2026-08-09T06:49:01.298Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_adef7436446f8a0ad6babd275465227a",
+    "tracking_code": "SO62G8535E7WBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Tatiana da silva",
+    "client_email": "tatiana.icv.2023@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "83998416935",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtoBHQX0otEkDFDTIa7zlVFVleIYaRAOuYf9DqsI0HR7MfnFeEIadirKn0PbFg8sqyf-hR7VK0cK781vc-FHzq1ABIZUQNlZQN5vhcqj8ALfSFiXk04Rv_FpsEYwWGBUak4FiGdUEeo4eA_fi0zX_6uQipJcvHd_-5GfRPy-Mt3ryLBG_XWaBV8UJqxLI1zPTU",
+    "ttp": "01KZJN0NKEHY7MC1A7WT75D1Y6_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tbzpnhijp6qqmslgagnk",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "72145-625",
+      "uf": "DF",
+      "cidade": "Brasília",
+      "bairro": "Taguatinga Norte",
+      "rua": "Quadra QNM 36 Conjunto Y",
+      "numero": "25",
+      "complemento": "M norte"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslgeb59_67e5cfcd3c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/80d754e5-83ed-48f1-9fb5-a9c6d42feb105204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63043096",
+    "created_at": "2026-08-09T07:00:47.115Z",
+    "paid_at": null
   }
 ]
