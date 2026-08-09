@@ -16881,5 +16881,68 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/c80d5461-d3f4-4c5f-ab50-98412a10a21d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047BE3",
     "created_at": "2026-08-09T23:38:39.579Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_ef0753549e078466102afb0604724212",
+    "tracking_code": "SO4ZTZGL7QGMBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Jaqueline Valentim da silva",
+    "client_email": "jaquelinevalentim079@gmail.com",
+    "client_doc": "70973519428",
+    "client_doc_entered": "70973519428",
+    "doc_pix_fallback": false,
+    "client_phone": "82999328549",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABwhG8rEOaQPMdN9pukRuA2lWww3oKI5XWn0eFI1FU1qOVWJtdRxy7QS9PfnIwrefLS1TxmeHrDCP2i_bq0rgYWozmTj5Eg3YKiBKe1pKBZansgfKe5v5DZy94NDt3O-I-NEFmsJv7FdFu0hIOqxTOVErypp8cXyijEgPpdpF6QtNOCHbL55-u9jlwZL9P5k",
+    "ttp": "01KZMEB0XH5H5SCM2PKS0H6MGC_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tyrk5t5e2heomsmg5v6s",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "57030-540",
+      "uf": "AL",
+      "cidade": "Maceió",
+      "bairro": "Ponta da Terra",
+      "rua": "Rua Júlio Plech Filho",
+      "numero": "56",
+      "complemento": "Prédio"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmg82hh_d67e7c49ab",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/af90e182-fc78-4158-93c9-9bafcae0018b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304BCC6",
+    "created_at": "2026-08-09T23:43:42.236Z",
+    "paid_at": "2026-08-09T23:44:08.819Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T23:44:24.222Z"
   }
 ]
