@@ -13086,5 +13086,68 @@
     "paid_at": "2026-08-09T11:48:19.524Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_323c6a52053346b809022f25560bec7c",
+    "tracking_code": "SO55RGDYK5PZBR",
+    "amount": 3846,
+    "status": "pending",
+    "client_name": "LaurenisilveiraBento",
+    "client_email": "Laurasilveiramrena1",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "33998260434",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBGXmLItBcAZn5y1iEjE21YSf97CFLmsG35t1Z0yNRRBH1erI0VF8I-7eWHd4V-RU2yNOz3JOibuJCWtn-IHqImJs07TSHKsbpiefM-sbiAUMoYI4VErkrpBoN7oaWPmjJVm95_8jz2LMwwHAA-pA_b7F9AQ3OHXENqZBdGd634KdTPs4NQ-M87EVT5557Uo",
+    "ttp": "01KZK5DXSEHHFTTFDBBQSJBP2A_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "teyhca14k17wmslqjin4",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "35045-610",
+      "uf": "MG",
+      "cidade": "Governador Valadares",
+      "bairro": "JK III",
+      "rua": "Rua José Faustino Tebas",
+      "numero": "158",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslquilm_8e1c7a8cd6",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/c89bfd01-03e6-4483-b517-c362e42b38d45204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63043E0F",
+    "created_at": "2026-08-09T11:53:20.019Z",
+    "paid_at": null
   }
 ]
