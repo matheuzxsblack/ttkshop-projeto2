@@ -11564,5 +11564,112 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/63d88193-d300-437c-a08f-163dd413dba05204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304796F",
     "created_at": "2026-08-09T03:40:15.553Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_608eeccb9e56fd69e565265a83e552b4",
+    "tracking_code": "SONKSR4QY8KFBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Angelina de Jesus Nogueira",
+    "client_email": "angelinadejesusnogueira453@gmail.com",
+    "client_doc": "01674282257",
+    "client_doc_entered": "01674282257",
+    "doc_pix_fallback": false,
+    "client_phone": "97988045024",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBBiKO5Pj2Ti-rX61Tf6kqNPwFYV9wxB5dRd8J3HOU9lD_oBSO69by0t7yvFoZBWLjBV6kvcVlOMgEjLfsnSKB-1OE3sfj_035aW1fUH9UcKcmqA2DtKMq7WhG48Rb2jxDcr6hiIZEH6kKOffSjNqPRiGWxXQazWgaP_iQLUmAS8jhF-cys3RLyeV8VetWaL",
+    "ttp": "01KZJA0Q955PJ3P6YRKYMN8FA9_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tctthq3fabj5msl9feyf",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "69007-600",
+      "uf": "AM",
+      "cidade": "Manaus",
+      "bairro": "Distrito Industrial II",
+      "rua": "Avenida Distrito Industrial II",
+      "numero": "96",
+      "complemento": "Casa no coliseu 3"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl9iu7v_104e823e0d",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/447d519c-0175-41b0-8e9d-f632462832605204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630475AA",
+    "created_at": "2026-08-09T03:48:21.324Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_aaa5eae35f38acd07cc30829888f6502",
+    "tracking_code": "SOCVLRWJLL3CBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Rosinete",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5548999969046",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB6GQLKTCqhGFwOdJ_tCHrWw1B2zVSMmAYkCNBBpCfwBgQQ9Ic9UfU8LhAeMtTf8ihynnhNPKXbdjY2X0OZROFgtHzgP6hJipYbrsbl6FfLbSNYCZxlbhvM2dtaAnXc8LFsnpwODqN_KnrhZs655JRC_XwjeF6n23SAEP0q6XrFadP3Ki2A6585bw4ecX6h6",
+    "ttp": "01KZJ963GWW46CKZ3YYA9F36RS_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t277py6o77vcmsl9g2st",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "88817-448",
+      "uf": "SC",
+      "cidade": "Criciúma",
+      "bairro": "Rio maina",
+      "rua": "Rod SC 447",
+      "numero": "500",
+      "complemento": "Hnca computadores"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl9k2fr_461ad7c207",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/2b487a62-634a-4080-ae4d-1fb9364e1b075204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304BB6C",
+    "created_at": "2026-08-09T03:49:18.823Z",
+    "paid_at": "2026-08-09T03:50:16.621Z",
+    "net_amount": 3077
   }
 ]
