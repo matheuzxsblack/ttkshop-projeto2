@@ -11895,5 +11895,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/28128d98-f65c-4e84-8509-24756ec96d545204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040072",
     "created_at": "2026-08-09T05:45:58.729Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_a22b1aebff90a765d4f6710736a92d1c",
+    "tracking_code": "SOBMDN88B6W6BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Josefa Maria da Silva",
+    "client_email": "mariajosefadasilva2025@gmail.com",
+    "client_doc": "94292868549",
+    "client_doc_entered": "94292868549",
+    "doc_pix_fallback": false,
+    "client_phone": "5511930141",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB-GZCwRWf2QE3aArFsN2oC9SNyBR542waRZCzOg4Hm54T907JrC1amf1ufLzUjkD1VKKfGXBbPI2jlZAOA0HH6fdEC5En4d3E-q6TBVwHHJgb0ZbKjgHkSS14H_JGbf3c_m-ENmXEt1gj2fF4kEMC55kjaGXe8miHgXToehjusbXUM5lScf9EEMpTfbVgbb",
+    "ttp": "01KZJH4PFHVVZWV9X73BRATJ2A_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tv1mg5f07yykmsldwle8",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "07064-007",
+      "uf": "SP",
+      "cidade": "Guarulhos",
+      "bairro": "Vila Galvão",
+      "rua": "Avenida sete de setembro",
+      "numero": "1840",
+      "complemento": "Boteco da VILA"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msle1ufv_5ed8a0c6a9",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/7ad09fdf-2355-4622-8a6a-1492885bade55204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630470B1",
+    "created_at": "2026-08-09T05:55:07.228Z",
+    "paid_at": null
   }
 ]
