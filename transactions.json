@@ -14692,5 +14692,111 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/1a1f0160-0f45-4666-ad70-cc3041af75ee5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040B0A",
     "created_at": "2026-08-09T17:01:30.206Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_9287b700cb90938e31b9c7af5ff3f766",
+    "tracking_code": "SOXC23HFCXJ6BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rosa Neide Cardoso",
+    "client_email": "rosinhaneide01@gmail.c",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "34988980635",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBiaU1eZndcxFVoc-kzLquQOFQbx9OS41npie8-fmHP2x-kE0uTFBjCcwLoB5Jxll2WFIyRVgYmNed1H5yO6wN8Io8Zesav7BS2ecnR21XqVqo2IkXMHsviBvFAGZnLik1D9XzeADdQiGmaYpc_FEKZNx8pgy0i0tuDxz9p8KAb_KWwYU6KGRSoYP6yf2QYT",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tz0ejuw1cghqmsm1x4t7",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38026-550",
+      "uf": "MG",
+      "cidade": "Uberaba",
+      "bairro": "Vila São Vicente",
+      "rua": "Rua São Joaquim",
+      "numero": "348",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm1zoyq_e80dbfce38",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/9341b34b-05e3-4f80-8802-b93804c43eae5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63041BC2",
+    "created_at": "2026-08-09T17:05:17.518Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_afec164a5b3061b867dad2039f05834f",
+    "tracking_code": "SOJFPVXX43N6BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Ranusa dos santos Alves",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "1197235606",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_Ct0Bw7UX3m_IS3_ZcNKGRfVfvMHMw8XiKI1bq3XvYomEYZhnP2iDGNPbqMxemtlf4x-nNzKjZzIvq-8e9kyBNpiBpIbuH6GZJQL7FPAHrVmfVeDKvYFF-y4hRH-x1XOxL5d_Khrkr7BGtStCWeXXHIkX5mlCcrx2ABz1ZWJ6EHLo3Rwprw-KbG6wbHHHZIjpQl",
+    "ttp": "01KZKQ8V6KJ4HA1C4NGRYBNMEW_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tjsqifj2catfmsm1wygb",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06401-000",
+      "uf": "SP",
+      "cidade": "Barueri",
+      "bairro": "Centro",
+      "rua": "Rua Campos Sales",
+      "numero": "653",
+      "complemento": "Vitória bronze"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm1zp76_838ed7be9d",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/31eaedfe-04b2-4dc6-a7ab-dea96b63f0625204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304CB16",
+    "created_at": "2026-08-09T17:05:17.818Z",
+    "paid_at": null
   }
 ]
