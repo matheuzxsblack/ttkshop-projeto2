@@ -14237,7 +14237,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -14284,7 +14284,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -14331,7 +14331,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -14378,7 +14378,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -14425,7 +14425,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -14472,13 +14472,72 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_mslz95l3_e2e7afe72f",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/c9398c74-d7df-408a-a5f1-274d7b79df6e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304DBB6",
     "created_at": "2026-08-09T15:48:39.423Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_80e0a8cc8599da18535d5e6fc9e97dfe",
+    "tracking_code": "SOSCQ6MLJWKMBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Iara Santos",
+    "client_email": "iarasantossantos19@gmail.com",
+    "client_doc": "16945278832",
+    "client_doc_entered": "16945278832",
+    "doc_pix_fallback": false,
+    "client_phone": "11972600994",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBOpiRQ5TMMzJ9lrH1D36ezVZPJovjdbSFG4-iZYHWCYjIW66plivP_U6dOqch6nnQkBMoY99S4bn7XKuPOUqW_cN7tsO8Mm5IuYM8Jqm2gnBsfVpjC4Uxe8_Nh72gczR-m7dffbcoglP5w7zP5z7VtXDWgXa6RX7YmBEm5Q57D6K0JMO6SZ_NdcDfDaFODO",
+    "ttp": "01KZKK142S92WM0ETZVQJQ8KM0_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t0v8f3hj11a6omslz9deg",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06843-370",
+      "uf": "SP",
+      "cidade": "Embu das Artes",
+      "bairro": "Engenho Velho",
+      "rua": "Rua Marquês de Pombal",
+      "numero": "115",
+      "complemento": "Casa 3"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslzc04t_19258f31ef",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/02c36059-34cd-4bbd-ba71-793f772a862c5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EA07",
+    "created_at": "2026-08-09T15:50:52.422Z",
     "paid_at": null
   }
 ]
