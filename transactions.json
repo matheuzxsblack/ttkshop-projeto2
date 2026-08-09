@@ -13150,5 +13150,52 @@
     "created_at": "2026-08-09T11:53:20.019Z",
     "paid_at": "2026-08-09T11:55:46.615Z",
     "net_amount": 3846
+  },
+  {
+    "id": "psa_eb4286c25f4a0371e7846dde484627f8",
+    "tracking_code": "SO5JFX5DRC73BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Albertina Aparecida de Godoi",
+    "client_email": "albertinagodoi@gmail.com",
+    "client_doc": "08720791801",
+    "client_doc_entered": "08720791801",
+    "doc_pix_fallback": false,
+    "client_phone": "11993721955",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBuQCPp2Ejp4QYzzH2oOqOfaSormyg7A4fJuaK6e3aWY6GjPuI1BU1ehiXoA149PoYgrb9rvzWDs9rtaSx9lOd5bZaQ6OovRrbqMmtNoBPE5XkJuEAWoxxNbu7YtMLW1AplsTwvzI7L7a7xLUy6ZiX8XOm-L6Ob7-xyK-ZaLmN_zhaRxzAAcU8ardC8U_OsG",
+    "ttp": "01KZHGANRSWG33X0N79YWNSYWX_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "td75qwrlp8s5mslrcpd3",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "02124-041",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Jardim Japão",
+      "rua": "Rua Osaka",
+      "numero": "1282",
+      "complemento": "Casa 3 tocar a campainha preta"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslrf8fk_dfb3530a19",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/fa73d3ad-b9fd-4578-98e6-4e90d77a23495204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304AA05",
+    "created_at": "2026-08-09T12:09:26.524Z",
+    "paid_at": null
   }
 ]
