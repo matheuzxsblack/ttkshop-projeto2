@@ -15260,5 +15260,102 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e4f9bd9a-1c66-46ef-9fed-cfbeb158c3cb5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63045682",
     "created_at": "2026-08-09T18:39:06.318Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_dd8f9c1af9cc7384ced87a2758af0019",
+    "tracking_code": "SOBB3B54ZJVKBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Josefa faustino de oliveira",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "08399183277",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_Ct4BPeEEKpdBdKXtlBOtIYFH9cNQsZ9J8TgVRMHwX7rCPuiUkckJHBJJDCsQp-zirJiGaeQGQenZftUWAoqLmwYnW0oJ4nFw3NdKo0k19NxA-TPv1usyRSO1kVRRytuZdMs3ZnmpJnu_arH_b2NyekWil0dvr-W7l3rVvYA0cLf27IKpOf2qKIm2X2PZaSf8Mb",
+    "ttp": "01KZKXG2PTD0W7HG1GR0JFHTSS_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "twbpo6yywxl8msm5kfkl",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "58177-000",
+      "uf": "PB",
+      "cidade": "Sossego",
+      "bairro": "Sossego",
+      "rua": "Francisco Eliezer",
+      "numero": "00000",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm5o2be_499ce00039",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/a430845b-2a1a-483a-8c3e-0081ed5ac70e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304879A",
+    "created_at": "2026-08-09T18:48:12.819Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_4e01a474bed82258abc4c05ee1b9e6d7",
+    "tracking_code": "SOAZEUL2CL5QBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Patricia Perojo Caturla",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "41991960817",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuUB6sWeH6TOkvI8QCPiZgMmbQ7hjGF6jE49Kyw8lCsfAomgUzao1LdaUynj7hHNzDNOBv20P79lblydt6Qow-eLHCpqw_rMGxX8wJAXYFM2t5YbM4MQrKm8T1zxuymM0efd2uaGtMfutC1ma8Rj6P3KwEJZGLcQ3dbYXLcyqyejK0KHLe51JtasNdb7z_0uhc",
+    "ttp": "01KZKXK5N822WNH280NH4WM91Q_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tfpz24ytq54msm5mlxx",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "81910-050",
+      "uf": "PR",
+      "cidade": "Curitiba",
+      "bairro": "Sítio Cercado",
+      "rua": "Rua São José de Arimatéia",
+      "numero": "183",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm5o3ms_0c5bce654b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/c2b62e83-2b54-45c9-ab7d-e5ffdbb05fab5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B215",
+    "created_at": "2026-08-09T18:48:14.621Z",
+    "paid_at": "2026-08-09T18:48:55.058Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T18:49:02.024Z"
   }
 ]
