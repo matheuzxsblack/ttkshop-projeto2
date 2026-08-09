@@ -14798,5 +14798,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/31eaedfe-04b2-4dc6-a7ab-dea96b63f0625204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304CB16",
     "created_at": "2026-08-09T17:05:17.818Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_b4811e8b6835c4b489fee759c138e65f",
+    "tracking_code": "SOAUGZW3JC22BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria Madalena de Souza Gonçalves",
+    "client_email": "cliente@email.com",
+    "client_doc": "87845032972",
+    "client_doc_entered": "87845032972",
+    "doc_pix_fallback": false,
+    "client_phone": "43998386397",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABkJrfbHjVK0lqfSaXGOH7s9nT8bTAbTjoGWHjyCL__7x-TvMPrzy0hbY3RWTGAfBWLJH9voQ6b63UDx8_B8ffRBaSPpVn_juvkF2RPRlwqVjmZMFZ0MFU0UGKJOg8-yf1Gtp2H2E43JKrxiYKZ8foXHHoRZYs1vM2nj9rGQrbzEKaXd6YCvbAmvcjKXvtCk",
+    "ttp": "01KZKRM6M5XRCW2RZ8A6Y51VPS_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1srkmhes8lxmsm2ixm7",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "86709-600",
+      "uf": "PR",
+      "cidade": "Arapongas",
+      "bairro": "Casa Família Arapongas IV",
+      "rua": "Rua Anambé Sol",
+      "numero": "295",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm2nlz1_f84aeefd39",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/1d34b15c-113f-46cc-a9c1-c51f708766ea5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63046F9D",
+    "created_at": "2026-08-09T17:23:53.339Z",
+    "paid_at": null
   }
 ]
