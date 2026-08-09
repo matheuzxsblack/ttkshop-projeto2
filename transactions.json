@@ -12485,5 +12485,60 @@
     "net_amount": 3077,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-09T09:05:35.719Z"
+  },
+  {
+    "id": "psa_07c36fc1289e1fda6135c7022615677d",
+    "tracking_code": "SOLJH7F6E5THBR",
+    "amount": 7011,
+    "status": "pending",
+    "client_name": "Teozanira Leite Gondim",
+    "client_email": "telzalleite@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "85988867867",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABNnuw2moClOLewMyoqxmBwtRE39rjJcg6uhrKDB6HmW8VAIeLVfcAgI_OoDMzZZeWwsjqXOBcvoyGp_itOdVRHlTLVtECrW1mpwFd2dg2M2DLgU23UZpyBTi7l4LkoZuTGSFlbg5vGjvAUhj0PDduitdDDwtJb6sCKVMQxNPrNKcd7aDpNvFpb0DN1GILxs",
+    "ttp": "01KZJWFA4WSJ92W16G92W4XRVQ_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tt8ncio7v4gsmslky8lp",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "60405-305",
+      "uf": "CE",
+      "cidade": "Fortaleza",
+      "bairro": "Parquelandia",
+      "rua": "Rua Dom manuel medeiroso",
+      "numero": "1965",
+      "complemento": "5andar apto.505"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 4
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msll836f_75ea74a525",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/82c73dab-2149-48f1-b260-be2fe0dde9715204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63045011",
+    "created_at": "2026-08-09T09:15:54.983Z",
+    "paid_at": null
   }
 ]
