@@ -17066,5 +17066,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/409d1efb-671c-4ef1-89b5-02575284c5245204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044BB9",
     "created_at": "2026-08-09T23:47:44.018Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_9bbddd8bf0ce5cd419a1491482258440",
+    "tracking_code": "SOD2TZ233AC7BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Maria Leonora Schitz da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5551996968663",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBZeSGbP--YBsAxfWAvT8NbEZ30puPaQjw-a2x8nRL2vhg-r13xS0-pHLkPcfLC1lpJ9dsG9ZVVrM1XA453SpNaH_vo1_fl9DxE9ShvH7vIYiKaK0PZKjcszZ26YNVdz-M1GaaEPMaKtw1w76guMRi5RAaJtXxxGFgPXVKfxc-2VcN2sxWGRYGezjAKl9bEo",
+    "ttp": "01KZMF233XYV6891FS6D2TEYSN_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tiigr9c7kcqnmsmgj32d",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "96740-000",
+      "uf": "RS",
+      "cidade": "Arroio dos Ratos",
+      "bairro": "Santa Barbara",
+      "rua": "Trav Vicente Lopez Martins",
+      "numero": "65",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmgmuwb_2f3c09220c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/98bb6323-ebd3-4409-b327-cb82bf33c6ef5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044063",
+    "created_at": "2026-08-09T23:55:12.920Z",
+    "paid_at": null
   }
 ]
