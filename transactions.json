@@ -13899,5 +13899,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/19f2bfb3-90ac-4837-833f-d609de2738125204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047C6B",
     "created_at": "2026-08-09T14:43:43.522Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_7deacf47fb9c1c444527ccadb5a069a8",
+    "tracking_code": "SOJLBN7MHHTCBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rosemary da Silva Soares",
+    "client_email": "rosemary-soares2011@hotmail.com",
+    "client_doc": "03592434799",
+    "client_doc_entered": "03592434799",
+    "doc_pix_fallback": false,
+    "client_phone": "21991310868",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBKCx-NsL50nRuayZwAo7FnShSK5fV3lOwEvCHfrs-HOqbWM_RQgR-4kSw5Kw1Jalw8gxz3dkfSHUVpChn-70wF0B2ghX3vb-6eu963IOaY0QgedNVDP56NRivj-09CKn_s8_8GE-HwaTmQjw9xKlBYbcc8JBKG9tGflyhfyK5gIsgIM98PA8_guwmkkHN4e",
+    "ttp": "01KZKFFQT7Q9YGHTDR8ME6FA8N_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t3ls355beh92mslx1zg5",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "25211-080",
+      "uf": "RJ",
+      "cidade": "Duque de Caxias",
+      "bairro": "Saracuruna",
+      "rua": "Rua Descartes",
+      "numero": "Sn",
+      "complemento": "Lote 22 quadra 42"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslx783t_ac203be2c2",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/f2277e2c-8b2f-4580-a7e5-be365b31a8c15204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630437C1",
+    "created_at": "2026-08-09T14:51:10.095Z",
+    "paid_at": null
   }
 ]
