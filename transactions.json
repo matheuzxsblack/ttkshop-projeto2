@@ -10425,9 +10425,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl5x5cd_254e367c18",
@@ -10472,9 +10472,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl5z9gr_0a575b74f7",
@@ -10519,9 +10519,9 @@
         "qtd": 8
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl60afh_90e510ed04",
@@ -10566,9 +10566,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl61x2b_b062d37440",
@@ -10951,13 +10951,130 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl6vnaf_d5a39d15ae",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0ad0ce95-cd44-443b-b315-78886f10b9fa5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B5D8",
     "created_at": "2026-08-09T02:34:20.524Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_24484a4392da525ec7c34e40cee70d05",
+    "tracking_code": "SO4SH35UAUWYBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Marataíses oliveira da Silva italiano",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "83988452379",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB3yMXgbd231m0UyrlcWs6n1cWBjijFxZYYBYeTp60h6Gfhoh-W6PGReoI9L1VWwlsbi2QhbI3Y-G9kiyV0gr45eannhqemQyCkoFz2t59BPPAawQp9ILuuH2YMVUl6Jro6kacZSWtD0Z4KbGXONHnW-piWvY4maJcJGIMkXO8HMQ8aPEoCYRFZFIb8IER2S",
+    "ttp": "01KZJ5JDW3QA2ZXDYAT3167ZKS_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t2ikqgc74ckamsl6svq5",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "58410-040",
+      "uf": "PB",
+      "cidade": "Campina Grande",
+      "bairro": "Estação Velha",
+      "rua": "Rua Prudente de Morais",
+      "numero": "292",
+      "complemento": "1° andar"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl6yuvi_944a5c9bb0",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/284a46a3-23e7-476e-bb2c-f384d2d178865204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304B7F6",
+    "created_at": "2026-08-09T02:36:49.825Z",
+    "paid_at": "2026-08-09T02:37:17.367Z",
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-09T02:37:21.359Z"
+  },
+  {
+    "id": "psa_4095f4b3e21bb2bc9fbb32ad5508e9c0",
+    "tracking_code": "SOSFT739R9D3BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "María Luisa Telles",
+    "client_email": "cliente@email.com",
+    "client_doc": "02363618807",
+    "client_doc_entered": "02363618807",
+    "doc_pix_fallback": false,
+    "client_phone": "18981685295",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB1LSp3Kczxkdy6-urKtHGOKIGvOlTGcFiLlGE9iKo80Xa-GsE3c1gJzsc8UI2BMe3C5ZmQck06pWyDQqFpv00o3wRhbGw1skUt-Oj0jaX18sECg_jXr1flWICNzS9Y1spc-i1xyC__phfWEibeOCu6sKhOytd1L_yL6Lr7AS4VuJrB_SbgPT0WXWRqnDy19",
+    "ttp": "01KZJ66NJM0FGZ7Z9ASXDB72G1_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tap8ta29l7yqmsl71n2m",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "16058-730",
+      "uf": "SP",
+      "cidade": "Araçatuba",
+      "bairro": "Residencial Jardim Atlântico",
+      "rua": "Rua João Maria Gomes",
+      "numero": "115",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 2
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl76xgf_f8325ffda9",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/2aed5e63-619f-4635-8d78-4cb6b6fb17315204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049F47",
+    "created_at": "2026-08-09T02:43:06.824Z",
     "paid_at": null
   }
 ]
