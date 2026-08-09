@@ -11355,5 +11355,214 @@
     "paid_at": "2026-08-09T03:03:51.225Z",
     "net_amount": 3077,
     "email_sent": true
+  },
+  {
+    "id": "psa_e002de237d14e574e0b5401a390c6198",
+    "tracking_code": "SO756PNN27C7BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rosinete Silva Mendonça",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5548999969046",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB6GQLKTCqhGFwOdJ_tCHrWw1B2zVSMmAYkCNBBpCfwBgQQ9Ic9UfU8LhAeMtTf8ihynnhNPKXbdjY2X0OZROFgtHzgP6hJipYbrsbl6FfLbSNYCZxlbhvM2dtaAnXc8LFsnpwODqN_KnrhZs655JRC_XwjeF6n23SAEP0q6XrFadP3Ki2A6585bw4ecX6h6",
+    "ttp": "01KZJ963GWW46CKZ3YYA9F36RS_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgom3dw8t7bmsl8wqot",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "88817-440",
+      "uf": "SC",
+      "cidade": "Criciúma",
+      "bairro": "Rod SC 447",
+      "rua": "Acesso Estadual Rio Maina",
+      "numero": "500",
+      "complemento": "HNCA computadores"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl958df_b276e0feab",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/362b9c53-73e6-4537-ac01-dcd3e556e41d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63043762",
+    "created_at": "2026-08-09T03:37:47.328Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_0b7aa58236d846da71df34d0a817f16b",
+    "tracking_code": "SOYESL25PWYPBR",
+    "amount": 7011,
+    "status": "pending",
+    "client_name": "Rosinete Silva Mendonça",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5548999969046",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB6GQLKTCqhGFwOdJ_tCHrWw1B2zVSMmAYkCNBBpCfwBgQQ9Ic9UfU8LhAeMtTf8ihynnhNPKXbdjY2X0OZROFgtHzgP6hJipYbrsbl6FfLbSNYCZxlbhvM2dtaAnXc8LFsnpwODqN_KnrhZs655JRC_XwjeF6n23SAEP0q6XrFadP3Ki2A6585bw4ecX6h6",
+    "ttp": "01KZJ963GWW46CKZ3YYA9F36RS_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgom3dw8t7bmsl8wqot",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "88817-440",
+      "uf": "SC",
+      "cidade": "Criciúma",
+      "bairro": "Rod SC 447",
+      "rua": "Acesso Estadual Rio Maina",
+      "numero": "500",
+      "complemento": "HNCA computadores"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl96w3x_d31311f459",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/860800b5-7b1a-4c21-a6e0-d9b22971f3135204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63046612",
+    "created_at": "2026-08-09T03:39:03.924Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_100768b6c4c9a5e2daef1a10055d208f",
+    "tracking_code": "SOMWPSNLHHJVBR",
+    "amount": 10944,
+    "status": "pending",
+    "client_name": "Rosinete Silva Mendonça",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5548999969046",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB6GQLKTCqhGFwOdJ_tCHrWw1B2zVSMmAYkCNBBpCfwBgQQ9Ic9UfU8LhAeMtTf8ihynnhNPKXbdjY2X0OZROFgtHzgP6hJipYbrsbl6FfLbSNYCZxlbhvM2dtaAnXc8LFsnpwODqN_KnrhZs655JRC_XwjeF6n23SAEP0q6XrFadP3Ki2A6585bw4ecX6h6",
+    "ttp": "01KZJ963GWW46CKZ3YYA9F36RS_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgom3dw8t7bmsl8wqot",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "88817-440",
+      "uf": "SC",
+      "cidade": "Criciúma",
+      "bairro": "Rod SC 447",
+      "rua": "Acesso Estadual Rio Maina",
+      "numero": "500",
+      "complemento": "HNCA computadores"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 3
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 3
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 2
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl98fjl_c22f4e70ea",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/63d88193-d300-437c-a08f-163dd413dba05204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304796F",
+    "created_at": "2026-08-09T03:40:15.553Z",
+    "paid_at": null
   }
 ]
