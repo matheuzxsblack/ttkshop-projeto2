@@ -15213,5 +15213,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/83d8deb2-7c15-4f5e-a27e-03e96bedc55e5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304F06F",
     "created_at": "2026-08-09T18:29:58.244Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_a8bdbece703aedefb0cf8698e33e9f87",
+    "tracking_code": "SOPT86E7NNWWBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Franciele dos anjos Lopes Ribeiro",
+    "client_email": "cliente@email.com",
+    "client_doc": "03030225070",
+    "client_doc_entered": "03030225070",
+    "doc_pix_fallback": false,
+    "client_phone": "5196119296",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBmPayAjcrDWNn2n9NiN_7Jp23b4DN8DBPAMN1cS0y0zLbLdCWnYo5tBN9Q6HCyFG-iGnodMn29RXIxP_0Enaghd4-pIyjVQcsOsKv-eJ0M-x8FcKFK4aAgeqep8irEcsF3EOHKjhUDs7qX_bB1cXhd2SXDVlVes-GuPhqutTNdXctXhuik7yPKCQanAuL4u",
+    "ttp": "01KZKX28S9J054YQ6WK8GQ79X3_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tqojcl78g38msm5aqaw",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "95630-000",
+      "uf": "RS",
+      "cidade": "Parobé",
+      "bairro": "Arroio do sal",
+      "rua": "Pedro movius",
+      "numero": "228",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm5cc95_1fa2a688bc",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/e4f9bd9a-1c66-46ef-9fed-cfbeb158c3cb5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63045682",
+    "created_at": "2026-08-09T18:39:06.318Z",
+    "paid_at": null
   }
 ]
