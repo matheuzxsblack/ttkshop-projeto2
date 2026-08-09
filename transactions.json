@@ -8994,9 +8994,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl05uw3_30d9d25968",
@@ -9422,13 +9422,60 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl144op_7dfce33395",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6f5abfbd-b4fc-47bd-b75d-8e13a0d0c8365204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048FD0",
     "created_at": "2026-08-08T23:52:58.282Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_44ec7fd1b306cdffb2bb5e07b575846a",
+    "tracking_code": "SOW358X28VJJBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Eleia Ribeiro dos Santos",
+    "client_email": "eleiarsantos@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "18997162674",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_Ct0B0_JGUEqksOsGVDCaDiYE3-e0yinpXP-TNxwtJhv-lGyNKGAd2NUyWEi3a4P81k-O7v3BgSCV-Ol6LcmfAxgiucmbXgiyvf91i-PwDKhRP9T77QxQCP5BadSsNRHLdwKv5rX47DSLDjg2CYz_Gxbij18bm5eQbW9E4E80M5RL7dieaF5avyQ6f2Be01Spak",
+    "ttp": "01KZHWEZAF92VEDHQ00NMX9E9D_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tipqy9hl91pmsl174ym",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "17860-000",
+      "uf": "ES",
+      "cidade": "Pacaembu",
+      "bairro": "Guaraniuva",
+      "rua": "AV VEREADOR  ANACLETO RODRIGUES MONGE",
+      "numero": "200",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msl1arni_6288c7d982",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d1c19ece-7cfd-4f60-a076-df623bbbc6085204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630453EB",
+    "created_at": "2026-08-08T23:58:07.940Z",
     "paid_at": null
   }
 ]
