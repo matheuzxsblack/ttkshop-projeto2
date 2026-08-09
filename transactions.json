@@ -14539,5 +14539,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/02c36059-34cd-4bbd-ba71-793f772a862c5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EA07",
     "created_at": "2026-08-09T15:50:52.422Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_dd04dba1143527896e44e67cb0c6706f",
+    "tracking_code": "SO2G9WSLWAWPBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Soraia Cristina de Sousa de Alencar",
+    "client_email": "soul_soraia@hotmail.com",
+    "client_doc": "95747770225",
+    "client_doc_entered": "95747770225",
+    "doc_pix_fallback": false,
+    "client_phone": "5591981756747",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEByxkRMwmWCIyGMY3FDSHnbAS3dY__qOZlaj67Wb1TTePyIuAGjeTvc_IDrb3AadeQRDDtnnmumHpKTfitUbKehLz5IVqIXnfzvcdWAiIP2hWfnXrWsLAAW-8wPjwvF650CwHHjeEg2s0UGDfY52f6o_R_61xruCckSg7uKu03fePoWPuohCGQkIAwYR6372",
+    "ttp": "01KZKKK87G1ED20QJMJJ6XJJYN_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t6nt8l5sutb4mslzi33f",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "67030-325",
+      "uf": "PA",
+      "cidade": "Ananindeua",
+      "bairro": "Centro",
+      "rua": "Rua Cláudio Sanders",
+      "numero": "727",
+      "complemento": "Condomínio  viver Ananindeua  BL 79 apto 401"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslzm8t2_d29df2ce5e",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/67eb3c0b-a6a8-44ec-a6d6-f1d8033d37245204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EED5",
+    "created_at": "2026-08-09T15:58:50.022Z",
+    "paid_at": null
   }
 ]
