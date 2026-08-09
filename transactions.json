@@ -10950,9 +10950,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msl6vnaf_d5a39d15ae",
@@ -11299,7 +11299,7 @@
     "id": "psa_e7a94a870d6a5515c76263ded78d0bd7",
     "tracking_code": "SOLYB8JY5DVSBR",
     "amount": 3077,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Carlos Augusto Murari",
     "client_email": "murarirp8@gmail.com",
     "client_doc": "01882259866",
@@ -11314,7 +11314,7 @@
     "ttclid": "E_C_P_CuEBOK2wUNhbhHQpaMhMsYUTjvAB2dsj0AYgCc9zghQSZv4GdRQOnEFjhiNYHnjSU6NGEg8stdtRvMnG1MX7pB8qOpfx_8asE78aYebUqcatjQfb3MwIVdAK5bN6sbbvq6balmueWP0eEwnhQJPwQZCxU2K8eWj2KIOQpUxMnU7tfXgEmxLJFOSwR2l3mg0oWG",
     "ttp": "01KZH34WRHHZERGWHS5CW6PVRN_.tt.2",
     "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "tgnqjhmm5dzmsl7q2fw",
     "funnel_store": "toalha",
     "address": {
@@ -11352,6 +11352,8 @@
     "external_id": "ttk_msl7uxlq_be7123a61e",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/44e8ec6b-d244-455d-ac9a-6656ec31d5b25204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304A4DF",
     "created_at": "2026-08-09T03:01:46.612Z",
-    "paid_at": null
+    "paid_at": "2026-08-09T03:03:51.225Z",
+    "net_amount": 3077,
+    "email_sent": true
   }
 ]
