@@ -13385,5 +13385,123 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-09T12:39:32.218Z"
+  },
+  {
+    "id": "psa_b2bfc711efa0473b45afbced62e948f7",
+    "tracking_code": "SOLMJQ66EYQKBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Nice Figueiredo",
+    "client_email": "nicedudaprasempre@gmail.com",
+    "client_doc": "03909922759",
+    "client_doc_entered": "03909922759",
+    "doc_pix_fallback": false,
+    "client_phone": "21966100",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBPppzhg_GSh1BpSvdCx1BzNzLbAi62gqd5DDenUA3L5pnUCoBPPCiHyup32gg-H29WiaV3rHqA32z4kJzSUKlYwEJ_-o1Dc7HRTVgxFcjLedZbgoiad2ZVKhTKkQxDRe3vkM2cu-sziMI8a5Lg3mU5TJvg4a3M13PVGmjNnbcvxLRiVRMaoOu9Z86cYZg6M",
+    "ttp": "01KZK8DT37AFZB0NKRQTWST0DC_.tt.2",
+    "attribution_pixel_id": "D9HB8JBC77U84G6G56LG",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t2lbi6zlhnhrmslsiotu",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "28890-161",
+      "uf": "RJ",
+      "cidade": "Rio das Ostras",
+      "bairro": "Cidade Beira Mar",
+      "rua": "R. Serafim Bastos, 56",
+      "numero": "56",
+      "complemento": "Esquina com Ceará"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslslcsk_86406ea958",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/b0856b50-1443-4353-bd56-5236974286f55204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044B5F",
+    "created_at": "2026-08-09T12:42:11.421Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_0a5f7d314b50781419aa8c9b81655846",
+    "tracking_code": "SOT6C2NWHK2LBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Regilene Mendes da Silva de Souza",
+    "client_email": "egimendes@gmail.com",
+    "client_doc": "72302020197",
+    "client_doc_entered": "72302020197",
+    "doc_pix_fallback": false,
+    "client_phone": "61984148440",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBX0ULsEPaJhYyx-cp_IS06Tz--g8z9TidSh7aVnj7ntKj9E1gdm1Pw9qlVEjXXIFXB3ltZgBzFmjO-JrM2ySEsLuP7cA029R_ixxI_KzJlIm5dM5i_Xs4S3END4L8b1ypeEfGldHfx-IktfLaPjtY4a69ndMpL1Ae3lOd_t2YBvW4222_f_4dmLftiMwVZr",
+    "ttp": "01KZK8FVNP17YPHSHW6AGH509J_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tz0in9sirykmslsgb3z",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "72310-708",
+      "uf": "DF",
+      "cidade": "Brasília",
+      "bairro": "Samambaia Sul",
+      "rua": "Quadra QR 504 Conjunto 7",
+      "numero": "10",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mslslqen_e119538ca4",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/baa4a593-31aa-4cfb-a08e-54aad9b2467b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63042ED5",
+    "created_at": "2026-08-09T12:42:29.018Z",
+    "paid_at": null
   }
 ]
