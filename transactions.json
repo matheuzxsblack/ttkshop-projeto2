@@ -14645,5 +14645,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d27ea82b-3f73-4551-bfce-421b5d6f9bcc5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048E31",
     "created_at": "2026-08-09T16:25:35.016Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_adee59b7b55d743ff8c8c40f49125396",
+    "tracking_code": "SOFN6ZR6LFHHBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rosa Neide Cardoso",
+    "client_email": "rosinhaneide01@gmail.c",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "34988980635",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBiaU1eZndcxFVoc-kzLquQOFQbx9OS41npie8-fmHP2x-kE0uTFBjCcwLoB5Jxll2WFIyRVgYmNed1H5yO6wN8Io8Zesav7BS2ecnR21XqVqo2IkXMHsviBvFAGZnLik1D9XzeADdQiGmaYpc_FEKZNx8pgy0i0tuDxz9p8KAb_KWwYU6KGRSoYP6yf2QYT",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "th2r2z8mu1ukmsm1ofrv",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38026-550",
+      "uf": "MG",
+      "cidade": "Uberaba",
+      "bairro": "Vila São Vicente",
+      "rua": "Rua São Joaquim",
+      "numero": "348",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msm1uu35_c59e96bacf",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/1a1f0160-0f45-4666-ad70-cc3041af75ee5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63040B0A",
+    "created_at": "2026-08-09T17:01:30.206Z",
+    "paid_at": null
   }
 ]
