@@ -18203,5 +18203,68 @@
     "created_at": "2026-08-10T01:50:39.819Z",
     "paid_at": "2026-08-10T01:52:15.594Z",
     "net_amount": 3077
+  },
+  {
+    "id": "psa_2fd5c558b0a837fa55f652f3edf6226f",
+    "tracking_code": "SOZD27RMEFLJBR",
+    "amount": 5472,
+    "status": "pending",
+    "client_name": "Ana Cláudia da Silva Souza",
+    "client_email": "cliente@email.com",
+    "client_doc": "25448577814",
+    "client_doc_entered": "25448577814",
+    "doc_pix_fallback": false,
+    "client_phone": "16992442859",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBynxJoNJ5uqBdXrzVqhkF3sUnTYF9ec6KZaXPGpxc9gUnQb8AnrUP-vnnCtmXj7UF7tmQjMaxxm9-b-pAqgF570GM1uUauwwD1JLnPk4lysnObHQOb0_ZZuI-R44S3RRiWv_CZkkOh8JV4dYYrNr4DwjTcbkaWrwt3qLVMPYHteLo8zMMfI5QxW8-ElMdzj",
+    "ttp": "01KZJEKQ2RQF5NDMA8SSBHJPP1_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "timq35d1pnx9msmkur98",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "14246-036",
+      "uf": "SP",
+      "cidade": "Cajuru",
+      "bairro": "Santo Antônio",
+      "rua": "Avenida Major Adolfo Paoliello",
+      "numero": "577",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmkyr35_5f88e62361",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/39e12961-55b2-4d3d-b560-f0f4fe6285f35204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63041313",
+    "created_at": "2026-08-10T01:56:25.696Z",
+    "paid_at": null
   }
 ]
