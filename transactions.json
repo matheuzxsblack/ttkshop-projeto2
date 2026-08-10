@@ -18731,5 +18731,52 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-10T04:51:18.720Z"
+  },
+  {
+    "id": "psa_730497cae9d2c3a44e314d41e391d34a",
+    "tracking_code": "SOW4XPB9SHDNBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Ellen Rocha",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11977887993",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtoBlj0H5hyL3w0vmr94ao9HZh_F1N1ozXtO7VjkRBP4kG6mu9G50mN2D3UG4iWTopNalBZ1WyCFoCRBWSmhERWE42GMgIPoboPrYGI06NmIYbmvw1PFcw-M6on5ixrqvprrPCcTsvGe3iSRBFiNEWSsNk3yqW-d9ZwAqDnz8C05cU1aPR-x00Pw0R3vJ4phUs",
+    "ttp": "01KZN0RKFF8J0E144BXJKPCQF5_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "twq0b9hmlm3fmsmrq6q0",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06824-160",
+      "uf": "SP",
+      "cidade": "Embu das Artes",
+      "bairro": "Jardim da Luz",
+      "rua": "Rua Carazinho",
+      "numero": "92",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmrs2kf_6173468c29",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3764139a-f9dd-4c12-8fee-38923fc420165204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63043F3B",
+    "created_at": "2026-08-10T05:07:11.520Z",
+    "paid_at": null
   }
 ]
