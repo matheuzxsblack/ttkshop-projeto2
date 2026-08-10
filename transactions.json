@@ -18364,5 +18364,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/09053bf3-9998-4774-bbd3-eb78d0350c275204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044D2F",
     "created_at": "2026-08-10T02:08:00.436Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_43f34bea1dd2366ac3b4121b1a15b330",
+    "tracking_code": "SO4BH76NJQUPBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Elson Meneses nascimento",
+    "client_email": "elsonmeneses52@gmail.com",
+    "client_doc": "77954025500",
+    "client_doc_entered": "77954025500",
+    "doc_pix_fallback": false,
+    "client_phone": "5571992688",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtoBh_c8psW9hmR6SFJlAoJXmuM-Epc0lOUvzNVKhTyHe4yVc6QaAYo8DT_Je1oPXadbOpkwhdOVPM1FiwYgCNaAJy9bvqwdOfjnubrn4QpUdhGqnRpY-tX9psBb-RZvoKRuUiw3SuC2QIqIuP15Zsb5cpvMEspf9RPbcJcl1OjE9HmaBj_N8cGWdXk05w4Gav",
+    "ttp": "01KZMQD3B0ET2S7J6TH3YQMEER_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t0ewyt1xnqudamsmlqmfu",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "41216-340",
+      "uf": "BA",
+      "cidade": "Salvador",
+      "bairro": "Nova Sussuarana",
+      "rua": "Travessa Wilson Menezes",
+      "numero": "4e",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmlurdr_a0ed72cc0b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/fdd6b6a2-9041-45ed-a309-3d15b971a96b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EE34",
+    "created_at": "2026-08-10T02:21:19.057Z",
+    "paid_at": null
   }
 ]
