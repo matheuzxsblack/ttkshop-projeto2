@@ -19006,5 +19006,65 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0617a269-2019-4951-b15d-7866821262715204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63041A37",
     "created_at": "2026-08-10T07:36:00.381Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_40f323311b243f29d94e373d6eb5fa77",
+    "tracking_code": "SOETWH8D62JCBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Genilda da rocha Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "33988508284",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIBdEcxCglnmNuYl2MEK6Z8AjRTm5hEQZT_-fLpr--JdvPNs-q_aVCCUlP94RW_fC8ngnRssWqNWQAna0y6dDtCmzBqWmEn7_DLpgUFkGCBRNL6kWHcIQJldoG8v50t1k--y61kPW6NcGLIMvE5F24M1l6M6PnQd8fLafygY8LZnvBW9TT4nHzBW5gKK21OwE",
+    "ttp": "01KZN96Z94PECKSG8TK2CYJ9NN_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tv3gk46qdhmemsmx6p54",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "39925-000",
+      "uf": "MG",
+      "cidade": "Salto da Divisa",
+      "bairro": "Cansanção",
+      "rua": "Almenara",
+      "numero": "781",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Corinthians",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmx9s7i_8b0976c45e",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3da8db39-0ba2-49a9-818c-4adb5479346f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630432C1",
+    "created_at": "2026-08-10T07:40:55.609Z",
+    "paid_at": "2026-08-10T07:42:33.111Z",
+    "net_amount": 3077
   }
 ]
