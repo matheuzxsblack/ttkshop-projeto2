@@ -16998,9 +16998,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msmgbwwy_cc35553566",
@@ -17057,9 +17057,9 @@
         "qtd": 2
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msmgd8wl_1b7e7fc476",
@@ -17210,5 +17210,52 @@
     "net_amount": 3077,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-10T00:03:04.027Z"
+  },
+  {
+    "id": "psa_83fb106d9ad87fd8fac799ac85bcc18e",
+    "tracking_code": "SO3HBU8D2RY3BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Roseli Masson",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "18997135711",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBVJ4dtJSten_Gfb85vnmst1pSHVp4-2z3Y70RdF44b0HsH0wsGHPtqglaoJBbRI--Z8aN7GKEgHTOqBDYJ4bwko5ljHW4LKdX59wdY5snBe_ZfNfqcqsbKy4wBhdbLfIg8dRnos9JP6ySiP-gOm3uph_K0YVvqkdiAZSRB3ls6na44zGzEkdFwt_mBLq-5c",
+    "ttp": "01KZMG85P11ZE56FBAX16V89P0_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tvwsmmlb9xgmsmh9w32",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "15290-368",
+      "uf": "SP",
+      "cidade": "Buritama",
+      "bairro": "Parque Residencial Brasil",
+      "rua": "Rua João Polizel",
+      "numero": "705",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmhemc7_101d8bbd12",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/08c308bd-2b70-4edf-b25d-df9b955c8d495204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044FF9",
+    "created_at": "2026-08-10T00:16:47.646Z",
+    "paid_at": null
   }
 ]
