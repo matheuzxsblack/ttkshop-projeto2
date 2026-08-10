@@ -17113,5 +17113,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/98bb6323-ebd3-4409-b327-cb82bf33c6ef5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044063",
     "created_at": "2026-08-09T23:55:12.920Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_46ae13a8ae1d84c48d561119cda2bd6f",
+    "tracking_code": "SOWM7ZMJR5CKBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Rosangela santos",
+    "client_email": "rosaf9246@hotmail.com",
+    "client_doc": "11734361204",
+    "client_doc_entered": "11734361204",
+    "doc_pix_fallback": false,
+    "client_phone": "5591999130",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuQBghafI5Z4rqYe43AOvkDUbn2vQ6zta8LM1T81iaAV9cDCVoO8DwkrRmDv0K_PU6KnYuk4Xf1HK1kpR1X7dR7JTN671hke3-xh_QjAFs8LagkppN2yKCy6O2ZaXouHU4FZln7d807tMlmK3KjYJNUkKmeBdlfk116DAESCm9_Th6Hovpc0foFhkdKJVVlBaD",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t2rib3b128d6msmgmr89",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "66093-674",
+      "uf": "PA",
+      "cidade": "Belém",
+      "bairro": "Marco",
+      "rua": "Avenida Rômulo Maiorana",
+      "numero": "1606",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmgqqh9_199e191a24",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/6348de81-e29c-46b5-8e0d-4ef39a4abd565204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304F2A1",
+    "created_at": "2026-08-09T23:58:13.318Z",
+    "paid_at": null
   }
 ]
