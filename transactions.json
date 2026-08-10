@@ -17257,5 +17257,115 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/08c308bd-2b70-4edf-b25d-df9b955c8d495204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63044FF9",
     "created_at": "2026-08-10T00:16:47.646Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_980d721efd00c3c4f6ebc1c1c27bf282",
+    "tracking_code": "SOB73DJ7TKVHBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "josekma francisca dos santos",
+    "client_email": "joselmafh1@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "1",
+    "doc_pix_fallback": true,
+    "client_phone": "83986613581",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBgALDA-6qgogWb9b-4SEBcuToAJ1M__CytS-I0tVSpxTTfWMJkF_PQqZo6Rt1xzF11tbg59VtiT60j14jLRTS17EY-zwhIzR5ex8CxdvZzIDgltzYKuT9UaoWCjpXpfmR6j5XdRW3rMpjc7T6vLXS2g4TnwrKFP0hIw_SGELRE8b2Oqom-NGPc769txkmEZ",
+    "ttp": "01KZMGJMZTRVXWGVJBDEWTA2F7_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tdgo06d4pdnmsmhh9ck",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "58465-000",
+      "uf": "PB",
+      "cidade": "Riacho de Santo Antônio",
+      "bairro": "bom jesus",
+      "rua": "rua, sao Sebastião",
+      "numero": "521",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmhknvh_ee5f3fca40",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/8108b9e1-9efc-4eec-bb14-afb6e7bb45b15204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049816",
+    "created_at": "2026-08-10T00:21:30.021Z",
+    "paid_at": "2026-08-10T00:22:35.245Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-10T00:22:37.717Z"
+  },
+  {
+    "id": "psa_42b09f8eb699838eba074845a3e332e6",
+    "tracking_code": "SOU7ABFU9WJGBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Zenilacerdamoraes1968@gmail.com",
+    "client_email": "zenilacerdamoraes@hotmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5551981211053",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBLLTuSwEXNs6Lp-SMiXNVL_p92a1Njx5FdOdNjJzvRrb12ANR719TbuagSAdH4mjLYHny9YQtEeBF5_hPlZnaYfyH-3gXzIiJDAgf0SfbBXVkZULTmmAZGTm1hkqsAq2g4DVSv-AiRjGWTTyL_culmossgIgkoqFGRtDE3M49OwsKhayhCGfhcJVXhdI8G2",
+    "ttp": "01KZMGMDF1CHVERQDCV12MYKPG_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tt4h89pi3hqjmsmhlqqv",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "93222-000",
+      "uf": "RS",
+      "cidade": "Sapucaia do Sul",
+      "bairro": "Vargas",
+      "rua": "Rua Vinte e Cinco de Julho",
+      "numero": "42",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmhodtj_3ffa1ac83b",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/290490d9-028b-40cd-915d-8537b213a50d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049EAC",
+    "created_at": "2026-08-10T00:24:24.319Z",
+    "paid_at": null
   }
 ]
