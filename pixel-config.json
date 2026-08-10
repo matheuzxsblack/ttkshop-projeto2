@@ -1,9 +1,16 @@
 {
   "panelas": {
-    "pixels": [],
+    "pixels": [
+      {
+        "id": "D9T166RC77U6RO6J6TJ0",
+        "label": "Principal",
+        "accessToken": "e5c91ede4acd408d3744cf6c5cd7ffbb80a22d2b",
+        "enabled": true
+      }
+    ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-06T17:10:00.000Z"
+    "updatedAt": "2026-08-10T18:18:10.024Z"
   },
   "jaqueta": {
     "pixels": [],
