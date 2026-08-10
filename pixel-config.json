@@ -23,7 +23,7 @@
         "id": "D9RB5URC77UAISU2J0I0",
         "label": "Pixel 2",
         "accessToken": "0cab8e60544eff601831267b7e14ebf671bcebe0",
-        "enabled": true
+        "enabled": false
       },
       {
         "id": "D9T2VABC77U5OHLI6JDG",
@@ -34,7 +34,7 @@
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-10T20:09:50.269Z"
+    "updatedAt": "2026-08-10T20:10:01.415Z"
   },
   "bobojaco": {
     "pixels": [],
