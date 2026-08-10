@@ -18896,5 +18896,115 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/91b901e7-f257-4fbc-84b0-78cea16558b35204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63042B29",
     "created_at": "2026-08-10T06:35:48.011Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_33af4b930c76d01d856b4cf938983fda",
+    "tracking_code": "SOWFJE43VXABBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "José Roberto de Paula",
+    "client_email": "joseroberto3850@gmail.com",
+    "client_doc": "02342131402",
+    "client_doc_entered": "02342131402",
+    "doc_pix_fallback": false,
+    "client_phone": "34996493335",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIBHFWFL-lkRg4B_aMD4Y3o2jem6fgdAHsn63dax2sQRU1OiSoJgjaWjnQcEQcDd6lmRa4u4yOu9aWiFz7x_K4brjnDbgJLJqG1eOJ1Jz8oH56-04jWN2_2s0aMDDYQOLxL2HrrqQAcz7ek3N9rDG9n8NyUQTDUn53TDthBCuvtfzeXRclUAE-7kqUSXBA0es",
+    "ttp": "01KZN999RTQ3QPENCQ51M6PN6R_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "ttilrrr9yqwmsmwwhly",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38210-000",
+      "uf": "MG",
+      "cidade": "Pirajuba",
+      "bairro": "Centro",
+      "rua": "Oscar prata",
+      "numero": "174",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmx2yk2_11c2e272d6",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/abe83116-e50b-43f8-96af-0682d2dc82395204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049704",
+    "created_at": "2026-08-10T07:35:37.523Z",
+    "paid_at": "2026-08-10T07:36:56.670Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-10T07:37:32.525Z"
+  },
+  {
+    "id": "psa_a697f945f5e50d4fd403516843197e07",
+    "tracking_code": "SO8JDF8ZUR37BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Genilda da rocha silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "33988508284",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIBdEcxCglnmNuYl2MEK6Z8AjRTm5hEQZT_-fLpr--JdvPNs-q_aVCCUlP94RW_fC8ngnRssWqNWQAna0y6dDtCmzBqWmEn7_DLpgUFkGCBRNL6kWHcIQJldoG8v50t1k--y61kPW6NcGLIMvE5F24M1l6M6PnQd8fLafygY8LZnvBW9TT4nHzBW5gKK21OwE",
+    "ttp": "01KZN96Z94PECKSG8TK2CYJ9NN_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t6wezrqlz4rbmsmwuwxr",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "39925-000",
+      "uf": "MG",
+      "cidade": "Salto da Divisa",
+      "bairro": "Cansanção",
+      "rua": "Almenara",
+      "numero": "781",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Corinthians",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmx3gdg_3a32ffdbd6",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0617a269-2019-4951-b15d-7866821262715204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63041A37",
+    "created_at": "2026-08-10T07:36:00.381Z",
+    "paid_at": null
   }
 ]
