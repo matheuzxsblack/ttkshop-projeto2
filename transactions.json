@@ -17358,9 +17358,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msmhodtj_3ffa1ac83b",
@@ -17533,5 +17533,64 @@
     "created_at": "2026-08-10T00:42:23.802Z",
     "paid_at": "2026-08-10T00:44:13.198Z",
     "net_amount": 3077
+  },
+  {
+    "id": "psa_d76ec739fb95b56ffbd3ff3c9569c605",
+    "tracking_code": "SORR8DAG7FNVBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Alcineia Santos",
+    "client_email": "alcineiasantos62@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "55919929145",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBd1ZA7ODmMOKyVz-avMhK8kYKeTDL4X5PLLHzUdZdVVgmBUnnJLs0PNfXKc6rqwOrRzXgkYHGMN4lw4TPOLDRQ-uNXFU1Bx6zY27dnl8YLd4wdlKuKfy5b2OrCuTotWAYxU5v1rkHps1VIsJ7Nxot7DsF8fnTRNRnbQdMrG947A9kQInM-KtSwJdCT8Vbr3",
+    "ttp": "01KZMJE9Q37J200AVTNRB48V6G_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "txavj9vis18rmsmin5oe",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "66087-422",
+      "uf": "PA",
+      "cidade": "Belém",
+      "bairro": "Pedreira",
+      "rua": "Travessa Vileta",
+      "numero": "830",
+      "complemento": "fundos"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmiqxil_b62793bbc2",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/b931b79c-c0e6-4dd0-820a-d4145cc6d74d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63042A7A",
+    "created_at": "2026-08-10T00:54:21.788Z",
+    "paid_at": null
   }
 ]
