@@ -18083,5 +18083,125 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/d911896f-17a2-4900-bc54-3e90e74fe6745204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304E44F",
     "created_at": "2026-08-10T01:39:57.724Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_81885bda36512045022300c815886575",
+    "tracking_code": "SO3FCM9YEBJ5BR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Joana Angélica Gonçalves ferigoti Ferigoti",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5541998501966",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABh9cxe8RDkDTn9pQSxSFa8Ocagb4xLjg7RSjXH38PFeVAK4GbUF1n33CZ_Nq3Yyyin9ffSGKg0zZR96nSOvBsF8TQVqLfb9EUUtRXB49NKm-TSE2GgLUV5EiECJ6Z9AnZtaWXyfPtpbYCoPBqjEhxUKDHjk1xKm4OqVVUEAhCsyqQjNLIb7nu8od9CkP7wT",
+    "ttp": "01KZMNCB3GMH83CQMZDKK9MBHP_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tcwqbgamjuromsmkk250",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "81810-430",
+      "uf": "PR",
+      "cidade": "Curitiba",
+      "bairro": "Xaxim",
+      "rua": "Rua Leôncio Derosso",
+      "numero": "1052 sobrado 04",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmkpr63_0339c26503",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/1cc2abc3-432d-4c66-949e-458c4903383c5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63046EFC",
+    "created_at": "2026-08-10T01:49:26.059Z",
+    "paid_at": "2026-08-10T01:53:02.534Z",
+    "net_amount": 3077
+  },
+  {
+    "id": "psa_bedb3b5ca8e0d481f6fa1f2204de7d08",
+    "tracking_code": "SOGDSM8J6ZZBBR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Cliviana do Carmo Santos Pimentel",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "27998109235",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB5H_AQUiThy_oiJX18o-qfU2gAvOCBt2n5k_a2j21fu_DTKHF3Qcz2zXCkjcQrHtqRWEf4a1yiFcS99gbG34EaOc6Hj2b8PGrPNj8wX-4iTGUoSJFaFrEaquBQFAK6BLm4Kl47GtlsXrDCVhrXb0AD0K7ReQLQ59LOYV6BQCEzM8LLuYynnoQ9j322D621Q",
+    "ttp": "01KZMNKTYTC11HRRJSAWSRMNDA_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "ti8wkr2m3mummsmkodoq",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "29141-182",
+      "uf": "ES",
+      "cidade": "Cariacica",
+      "bairro": "São Conrado",
+      "rua": "Rua Bigodinho",
+      "numero": "12",
+      "complemento": "Ao lado da igreja missão graça e vida"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmkrbyx_84d2c45c08",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/8bc4cf8c-e8ae-45c9-a4fa-d10a95021b995204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EFBA",
+    "created_at": "2026-08-10T01:50:39.819Z",
+    "paid_at": "2026-08-10T01:52:15.594Z",
+    "net_amount": 3077
   }
 ]
