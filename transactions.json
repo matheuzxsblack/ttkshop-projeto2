@@ -18027,9 +18027,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msmk0kav_1a3442a3b6",
@@ -18266,5 +18266,56 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/39e12961-55b2-4d3d-b560-f0f4fe6285f35204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63041313",
     "created_at": "2026-08-10T01:56:25.696Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_820eb9e5a2083371a35ca61ddfcff422",
+    "tracking_code": "SOHYGX3LGYD7BR",
+    "amount": 3077,
+    "status": "paid",
+    "client_name": "Adriana Bittencourt de Oliveira",
+    "client_email": "adriana.bittencourt4848@gmail.com",
+    "client_doc": "08990542774",
+    "client_doc_entered": "08990542774",
+    "doc_pix_fallback": false,
+    "client_phone": "28992757565",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABUG53071I8JUT4bS_OcX7OlDRfRqJUnhfMGJqBHkBYCsh60sIjLBX448vCnjNdYOGnZSRGZDsPvR0gj2-jJL5x31Ch-NlgyTZQ9ftBXUKQoQ4CPArg3rp0kxkSKturgljZUm__Ke8wFA36T17kYSTDUdU1HaqsZKAHlg1FxbZYX1dy3mccxLttubd_fe0A4",
+    "ttp": "01KZMP715V183F8FXHY5WB27N3_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tiovcnm46d8msml18wb",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "29490-000",
+      "uf": "ES",
+      "cidade": "Atílio Vivácqua",
+      "bairro": "Centro",
+      "rua": "Rodovia do contorno",
+      "numero": "S/N",
+      "complemento": "Apartamento 201"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msml421u_9fae8809a0",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/40aff26d-0ab6-4dca-b598-6d84fa8e98d45204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304DA65",
+    "created_at": "2026-08-10T02:00:33.120Z",
+    "paid_at": "2026-08-10T02:01:34.706Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-10T02:01:49.517Z"
   }
 ]
