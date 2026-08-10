@@ -18778,5 +18778,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3764139a-f9dd-4c12-8fee-38923fc420165204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63043F3B",
     "created_at": "2026-08-10T05:07:11.520Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_120a9155372968783f13e531b5d95b71",
+    "tracking_code": "SOAFBM7JZNYNBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Janio Arruda Matos",
+    "client_email": "jarruda1979@gmail.com",
+    "client_doc": "64923231220",
+    "client_doc_entered": "64923231220",
+    "doc_pix_fallback": false,
+    "client_phone": "93991302170",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIBWf25MnCcf44DZ1piXx-yaYjNSfZeGlMAvOmOQ1T9xlM29jJf1yd_NSRifof-Oy7b-f2L8mGCIn6aopSksmzun9nDxQNNNiGsRaNv5pgU4kI9iN8m2Gp_GDxxjAWaLczVYLz84XyStkU0qVlIQaGgsTfDBmQAMRZNvTQllmjhN6sejtTCdVjoxbxiNuJ82z",
+    "ttp": "01KZN2CTZS6RZRYEKFKMCC9TA3_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1nbri5iskjomsmslp25",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "68015-450",
+      "uf": "PA",
+      "cidade": "Santarém",
+      "bairro": "Aeroporto Velho",
+      "rua": "Avenida Tupaiulândia",
+      "numero": "392",
+      "complemento": "Próximo ao Posto de saúde"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmss6fg_bfd351b208",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/974466b1-0f2c-48e1-a94e-1009afa9d7ac5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63047084",
+    "created_at": "2026-08-10T05:35:15.918Z",
+    "paid_at": null
   }
 ]
