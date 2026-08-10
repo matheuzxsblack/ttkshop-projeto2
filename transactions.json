@@ -17651,5 +17651,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/0e6d0379-8af7-4452-81d6-89c6490136435204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630498FC",
     "created_at": "2026-08-10T00:59:23.541Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_cb4e464ab66a23133765014239abdc8c",
+    "tracking_code": "SO4D39GXSYWWBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Josenilda Maria Bezerra da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "37991617138",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABIQwiqJcrSK9n6DK-B1h6Wvu9FbwFuP5f1xi7xXLeD2Ktxmef7Mg4TVO_Wf7nKEI0W6sMYKZCdc3Ev0vyM5suKOcY4ZO8L0FglPbRT9M_2-kPoSVRUiK2CSsVn6E_Ed_x0oZYrPLiwvjri4ZwG_dQqqF4CtRWjoXVHgkaARcN3POYq21ip2BZ2QNgFP0h0H",
+    "ttp": "01KZMJEYA2VNG52HQ65QPYPY9H_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "trf88zf00jafmsminlk2",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "35680-606",
+      "uf": "MG",
+      "cidade": "Itaúna",
+      "bairro": "Aeroporto",
+      "rua": "Rua Antônio Alves Rodrigues",
+      "numero": "33",
+      "complemento": "Apartamento 204 Bloco A"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Corinthians",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Flamengo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmj4rgw_47776238a9",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/39663b5d-4530-462b-8916-3928e0c642975204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304C1FA",
+    "created_at": "2026-08-10T01:05:07.651Z",
+    "paid_at": null
   }
 ]
