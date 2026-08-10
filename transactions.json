@@ -17426,5 +17426,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/65400c15-4c45-4fcc-b235-5dab4b4d9fa75204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304FFF6",
     "created_at": "2026-08-10T00:26:32.618Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_9fc3d9bae7a5aee04a60c99ef2311966",
+    "tracking_code": "SOW6TBBMTSDNBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Cleide dos Santos Andrade",
+    "client_email": "cleidesandrade@hotmail.com",
+    "client_doc": "81843208504",
+    "client_doc_entered": "81843208504",
+    "doc_pix_fallback": false,
+    "client_phone": "71987065264",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBpsdUFCwQnTNixCWO0-AZNhE5B1IpanghRy04lzYBU8YyKtvBYI-4f0hzXPDW1G2PPCnRkB_GKdOr-xqtqATBeBvHaqtsrtZ8su5hZXWGG4JJChe675RJF0249-PnAAfkLd-m9nXdpQk52YfGdjF7XsDtl7oeJE9HMZeQbKz0aAnL2N8AXtGjcBBlTa8lYS",
+    "ttp": "01KZMH896MYGZKNHPPH2H2X9BE_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "trphymhim6fmsmhwg5t",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "40714-135",
+      "uf": "BA",
+      "cidade": "Salvador",
+      "bairro": "Itacaranha",
+      "rua": "Rua Carneiro Ribeiro",
+      "numero": "32",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmhzavq_4eb0cbb05c",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/968ea9ac-3085-4a96-937e-412870b613e65204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304D013",
+    "created_at": "2026-08-10T00:32:52.719Z",
+    "paid_at": null
   }
 ]
