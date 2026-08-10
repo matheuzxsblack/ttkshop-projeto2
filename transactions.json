@@ -18369,7 +18369,7 @@
     "id": "psa_43f34bea1dd2366ac3b4121b1a15b330",
     "tracking_code": "SO4BH76NJQUPBR",
     "amount": 3077,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Elson Meneses nascimento",
     "client_email": "elsonmeneses52@gmail.com",
     "client_doc": "77954025500",
@@ -18384,7 +18384,7 @@
     "ttclid": "E_C_P_CtoBh_c8psW9hmR6SFJlAoJXmuM-Epc0lOUvzNVKhTyHe4yVc6QaAYo8DT_Je1oPXadbOpkwhdOVPM1FiwYgCNaAJy9bvqwdOfjnubrn4QpUdhGqnRpY-tX9psBb-RZvoKRuUiw3SuC2QIqIuP15Zsb5cpvMEspf9RPbcJcl1OjE9HmaBj_N8cGWdXk05w4Gav",
     "ttp": "01KZMQD3B0ET2S7J6TH3YQMEER_.tt.2",
     "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "t0ewyt1xnqudamsmlqmfu",
     "funnel_store": "toalha",
     "address": {
@@ -18410,6 +18410,57 @@
     "external_id": "ttk_msmlurdr_a0ed72cc0b",
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/fdd6b6a2-9041-45ed-a309-3d15b971a96b5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304EE34",
     "created_at": "2026-08-10T02:21:19.057Z",
+    "paid_at": "2026-08-10T02:23:23.644Z",
+    "net_amount": 3077,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-10T02:24:28.081Z"
+  },
+  {
+    "id": "psa_bcdf172f490b3b0009b9fc7076082572",
+    "tracking_code": "SO44SBL97X5DBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Romilda parecida pereira Gonçalves de Souza",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5527988255",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBGCR2Z9QlbsUW0kRpbSJ8uYYcSASApUJMCHMW0fL8QrT7ntOIEbo4HxLvJ9KiKxyamdHl3QzcaSYMcyrtprnwa5L9y9YMyUUgeVVNjgE-sZ1WACkzRkTCCE6UCAG3BPkqzT-RfvguFd0Qt3HFnTCYRJLpmS0PLTsPsTcl4C8M8EoLaDWbCJjfgTcf_Tmtpb",
+    "ttp": "01KZMPQT09JZATG9T6CFB4W76Q_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "th1xn392hgtjmsmluvmm",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "17284-100",
+      "uf": "SP",
+      "cidade": "Pederneiras",
+      "bairro": "Vila Ruiz",
+      "rua": "Rua Eugenio Rosin",
+      "numero": "686",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmlyng5_2de05aca71",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/5e320326-0728-4d30-9cac-93d7f801a8ad5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304814B",
+    "created_at": "2026-08-10T02:24:20.984Z",
     "paid_at": null
   }
 ]
