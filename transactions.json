@@ -19065,6 +19065,8 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/3da8db39-0ba2-49a9-818c-4adb5479346f5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***630432C1",
     "created_at": "2026-08-10T07:40:55.609Z",
     "paid_at": "2026-08-10T07:42:33.111Z",
-    "net_amount": 3077
+    "net_amount": 3077,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-10T07:44:41.823Z"
   }
 ]
