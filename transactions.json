@@ -18561,5 +18561,52 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/7c50ff04-1e06-4226-bd4d-b96b0e4cc1d65204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63048E1A",
     "created_at": "2026-08-10T02:28:50.946Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_dea4c1e0b74f5ea06185aa6fa4e5e938",
+    "tracking_code": "SORAWUWL77CSBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "zenaide gomes S.A",
+    "client_email": "z08almeida@gmail.com",
+    "client_doc": "08948157841",
+    "client_doc_entered": "08948157841",
+    "doc_pix_fallback": false,
+    "client_phone": "5519992625580",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_Ct8BV5ntBq5qVAWKWWdonl2LpIj6fJvQxk3tHdEE7JXQwIzgS5a1fi8RKyWaWHokzFVsZGTO_K6IlqEoNoIL9I0kv77Xu4-1WkPS-jDHn4R69F6EqUhyemsdcbcE8eHAY7W2NKJ16STv_-28AFl7YMRAG4Y4Kd2NsVHmSpHwz9J0IgKGQwb4YIppFPoYFat3Ku",
+    "ttp": "01KZMRY9R5RRTQGQVEBP2ZA2JS_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1kd7pqprrxnmsmn4uw7",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13481-050",
+      "uf": "SP",
+      "cidade": "Limeira",
+      "bairro": "Jardim Ibirapuera",
+      "rua": "Rua Bento de Barros Franco",
+      "numero": "172",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmna4rf_3f09c0a0a1",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/eb1ce0fb-1657-48ad-8508-ddf35bd88f4c5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304E205",
+    "created_at": "2026-08-10T03:01:15.915Z",
+    "paid_at": null
   }
 ]
