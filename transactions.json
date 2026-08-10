@@ -17367,5 +17367,64 @@
     "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/290490d9-028b-40cd-915d-8537b213a50d5204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***63049EAC",
     "created_at": "2026-08-10T00:24:24.319Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_1c2c873633a764a33b72a1f0bf133efb",
+    "tracking_code": "SOM7G3KKJE5WBR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "Teresinha Timm Pinto",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "51993280671",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuAB-sQi_CrfeZQAQCL1LiaIdfDX2iaePNL-EkAgcRvmHILIFvEELxsHct8kewC7cACloYCqgE23CMnE3FN_6xgAPt_AlWZ7EfWCvhyWosXCvEhzueAg2noYx4F-rMpbkhAcp1WdsEpycCkaL9wAqFN1hkllGIlSvbPahABD_qTr49wRAKqaHCw_izvmgjnWYu",
+    "ttp": "01KZMGZ3V2YV3R67TBT26G1VMS_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t8w62grumughmsmhvt8g",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "94910-110",
+      "uf": "RS",
+      "cidade": "Cachoeirinha",
+      "bairro": "Vila Cachorrinha",
+      "rua": "Rua Imbuí",
+      "numero": "396",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msmhr4tk_a8e697a2f1",
+    "br_code": "00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/65400c15-4c45-4fcc-b235-5dab4b4d9fa75204000053039865802BR5925PURINCASH PAGAMENTOS LTDA6009SAO PAULO62070503***6304FFF6",
+    "created_at": "2026-08-10T00:26:32.618Z",
+    "paid_at": null
   }
 ]
