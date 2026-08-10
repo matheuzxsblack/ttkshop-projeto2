@@ -19013,7 +19013,7 @@
     "amount": 3077,
     "status": "paid",
     "client_name": "Genilda da rocha Silva",
-    "client_email": "cliente@email.com",
+    "client_email": "3388425037.gs@gmail.com",
     "client_doc": "16473249044",
     "client_doc_entered": "",
     "doc_pix_fallback": true,
@@ -19067,6 +19067,7 @@
     "paid_at": "2026-08-10T07:42:33.111Z",
     "net_amount": 3077,
     "pixel_purchase_ack": "browser",
-    "pixel_purchase_ack_at": "2026-08-10T07:44:41.823Z"
+    "pixel_purchase_ack_at": "2026-08-10T07:44:41.823Z",
+    "email_sent": true
   }
 ]
