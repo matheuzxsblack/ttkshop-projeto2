@@ -19069,5 +19069,64 @@
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-10T07:44:41.823Z",
     "email_sent": true
+  },
+  {
+    "id": "psa_aad028fa8adb31622adf8775a3e64a8c",
+    "tracking_code": "SOALP9WP9YP6BR",
+    "amount": 3077,
+    "status": "pending",
+    "client_name": "teste",
+    "client_email": "viraliza365@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "11111111111",
+    "doc_pix_fallback": true,
+    "client_phone": "11111111111",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tr1caflhr9nemstfvwst",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13299-272",
+      "uf": "SP",
+      "cidade": "Itupeva",
+      "bairro": "Monte Serrat",
+      "rua": "Estrada Municipal Benedito de Souza",
+      "numero": "32",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_mstfwftd_0db9d97779",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/d1302b66-8329-4987-be97-3ffdef3b76c5520400005303986540530.775802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo6229052506340755d4c84c55bc0bdc3b563046469",
+    "created_at": "2026-08-14T21:09:02.799Z",
+    "paid_at": null
   }
 ]
