@@ -20486,5 +20486,67 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/2c69572f-691f-4a2e-9836-9af52ddb462e5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63046E02",
     "created_at": "2026-08-15T16:40:45.772Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_ed80c95f705b406fb6d9366a5135c723",
+    "tracking_code": "SODCRGRWFUYQBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Patrícia Aparecida Graciano",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "14988359165",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuUBs2kI39IsltN8Rl8w49Ba6MF_WXwhmpBTc5sBl5aOIu2oqfloxQsm7n_M64CZInZHgNMvN6cGI_-ihyh3RE_aO_R8x-HR4T-QC3-74ftd7zWmJvfx6INSLTh6tSBjImMOspv1tf3OpXEVZ91YHzpcLVJHma8pEK0daTEDFCTWhH-7WXPeOGE4pySHeOS1rP",
+    "ttp": "01M034JRYZQCJB07R885PFG38N_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "trhlpkauogfgmsulwlbk",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18650-300",
+      "uf": "SP",
+      "cidade": "São Manuel",
+      "bairro": "Canepele",
+      "rua": "Rua Três de Maio",
+      "numero": "434",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msulz3gu_32dd581b18",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/ed38b0bf-2cfc-4349-84e4-1011ad2867d45204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63040DB4",
+    "created_at": "2026-08-15T16:46:51.054Z",
+    "paid_at": "2026-08-15T16:48:04.742Z",
+    "net_amount": 3499,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-15T16:48:06.600Z"
   }
 ]
