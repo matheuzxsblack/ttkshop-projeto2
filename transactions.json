@@ -19330,5 +19330,64 @@
     "created_at": "2026-08-15T09:58:53.213Z",
     "paid_at": "2026-08-15T10:00:45.534Z",
     "net_amount": 3499
+  },
+  {
+    "id": "psa_c9452c7950ed041a4a63ceef53e2b235",
+    "tracking_code": "SOSX4ETJTHXXBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Luciana Pereira",
+    "client_email": "lucianapereiralp9669095@gmail.com",
+    "client_doc": "09565894801",
+    "client_doc_entered": "09565894801",
+    "doc_pix_fallback": false,
+    "client_phone": "18991723385",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABd8fVZ9lJEw2msUCOmSlNkTob3GN8H-8IAibps-2UOc7OzlKpo5WVzBstGcb-KsqhZEGFrVKiRo5lr3mlBeYX1_x0mVvxD1Ou0uKzhsItxvbJrSBdTCaAUZkCN759lP2ddazuIMOhIy7BwH2V_Cz6h10-YuTgXOrdWkFGb3kJBHyjVHdd5gzFT7P2u7hX_v",
+    "ttp": "01M02E3DP1841Y7A13CNFJXF05_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "ts0umyj42f8msu7ogca",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "16204-000",
+      "uf": "SP",
+      "cidade": "Birigui",
+      "bairro": "Jardim Jussara Maria",
+      "rua": "Avenida Euclides Miragaia",
+      "numero": "2427",
+      "complemento": "Sala 6"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msu7r85q_f17f580564",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/4ea5ebd5-9ef2-4280-8ecd-e30c80ba0c8d520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525e0f6aabf5edd48f6ae31b25306304B4B2",
+    "created_at": "2026-08-15T10:08:49.456Z",
+    "paid_at": null
   }
 ]
