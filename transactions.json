@@ -20586,9 +20586,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msumbjj4_b25da03d08",
@@ -20787,5 +20787,52 @@
     "paid_at": "2026-08-15T17:20:46.382Z",
     "net_amount": 3499,
     "email_sent": true
+  },
+  {
+    "id": "psa_80c21bba14fb4dbe05dea7422e00a8db",
+    "tracking_code": "SOZPCV5JQHDZBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Juscicleide de morais delmondes",
+    "client_email": "juleinhamorais@gmail.com",
+    "client_doc": "33162780870",
+    "client_doc_entered": "33162780870",
+    "doc_pix_fallback": false,
+    "client_phone": "5511947764719",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuMBAWyDt6_QyPWrfoUfw0CaKAbuPtQLIHoiWWzryrpEWvW7uuAGXM_N-7zEB0Cu-j4BVipzWDkgPytjSHX0XWgZuy_eVyWBzlwixUvo6NdqvJJgxjKSTo7sd-vs6sRn3uIAHQbPvEKnUKL_Fe20kcEZ579plaqDOHgy1rBkV7qD9QBz0fcGevfHCCum6Gza6S",
+    "ttp": "01M0379A16YFBX9ET1MQ3TERGB_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t9g7pmp9dcxmsunc7q6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06162-040",
+      "uf": "SP",
+      "cidade": "Osasco",
+      "bairro": "Padroeira",
+      "rua": "Rua Aparecida Moreira César Turíbio",
+      "numero": "40A",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msunf22t_eb5dbefae6",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/f55338fa-17b9-4373-9c6b-0f9f1992da635204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63048053",
+    "created_at": "2026-08-15T17:27:15.273Z",
+    "paid_at": null
   }
 ]
