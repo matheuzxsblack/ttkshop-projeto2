@@ -19380,14 +19380,73 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msu7r85q_f17f580564",
     "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/4ea5ebd5-9ef2-4280-8ecd-e30c80ba0c8d520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525e0f6aabf5edd48f6ae31b25306304B4B2",
     "created_at": "2026-08-15T10:08:49.456Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_34195396e47b2d468a9a39a6de688a9c",
+    "tracking_code": "SONWQ55LDCCVBR",
+    "amount": 4374,
+    "status": "pending",
+    "client_name": "Elizangela Rocha Santos",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5511957951775",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBZMwGFVaJTXioLIwZMtZ-IE0vm5X4rIwx2i5SvLjn3KO5qNZr6dmGRXfyKu9W-bK8FJC9DBZUvn9tJvVMGMx4OGarqbnQ0pRZwAmXtA--5rm1w4FdkiAD88h1I-cqunRGtTBBZNznJ82IzXxOgkvb0EZkgWv3SIjWht6Neb57DGEmC0DBk8uts_WSFzQ-OE",
+    "ttp": "01M02FQYGFYBS07VEYQDMTR1VE_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tjorspgywwamsu8n40p",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "05760-030",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Jardim Faria Lima",
+      "rua": "Rua Dolores Coelho",
+      "numero": "23",
+      "complemento": "Casa 1 campainha 1"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msu8rrid_261144e68c",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/3a1754ee-3892-4b12-b3d4-4e94be0ceaca520400005303986540543.745802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525b196b5c361524125b5ef57de7630463D1",
+    "created_at": "2026-08-15T10:37:14.123Z",
     "paid_at": null
   }
 ]
