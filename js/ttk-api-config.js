@@ -1,7 +1,7 @@
 /** Front projeto 2 → Render ttkshop-projeto2. ofertasgrandes.com → projeto 1. */
 (function (g) {
   var RENDER_P2 = "https://ttkshop-projeto2.onrender.com";
-  var RENDER_P1 = "https://ttkshop-projeto2.onrender.com";
+  var RENDER_P1 = "https://ttkshop-panelas-9e6w.onrender.com";
 
   var PROJETO2_HOSTS = {
     "ofertasdemulher.vercel.app": 1,
