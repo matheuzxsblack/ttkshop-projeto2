@@ -2209,7 +2209,7 @@ console.log(
     var remoteObj = JSON.parse(remoteGw.text || "{}");
     if (!remoteObj || typeof remoteObj !== "object") return;
     var localGw = loadPaymentGatewayConfig();
-    var mergedGw = Object.assign({}, localGw, remoteObj);
+    var mergedGw = Object.assign({}, remoteObj, localGw); /* local vence: remote so preenche chaves ausentes (acaba volta pra pixzy em deploy) */
     savePaymentGatewayConfig(mergedGw);
     console.log("[gateway] boot merge GitHub OK — ativo: " + (mergedGw.gateway || "(env/auto)"));
   } catch (eGw) {
