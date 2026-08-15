@@ -21947,5 +21947,53 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-15T23:36:43.389Z"
+  },
+  {
+    "id": "psa_30aafaf3688c5a606436d27e9d2a6d01",
+    "tracking_code": "SOC4GK9EQFPDBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Sérgio Luciano da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "21979756686",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBIuHIvYnm5cTPyrNcSG8OqHuTgZVDxShLGuuW7yiyJSVXvEI2Tr4MVu6K9cqQci_rr0DxzSThrE-VdlSfth4mZE7AemnSaxiObY22osL5ECI6V2iOjwd75zBd-4r6Xs-N1tcSC5NVSZ1g5xJwFeUumXQc09u5F6qIviWBfUkAunuIXOc8sO9pRFoOSSFOLt",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tkfgbrjkr31msv0nvhv",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "26260-555",
+      "uf": "RJ",
+      "cidade": "Nova Iguaçu",
+      "bairro": "Da Luz",
+      "rua": "Rua Álvaro Macedo",
+      "numero": "128",
+      "complemento": "Ap"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msv0tg54_89f40f72dd",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/edde82a5-4f45-4c79-befa-ebeeea5aae315204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304AB33",
+    "created_at": "2026-08-15T23:42:21.261Z",
+    "paid_at": "2026-08-15T23:43:46.413Z",
+    "net_amount": 3499
   }
 ]
