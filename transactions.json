@@ -21788,5 +21788,113 @@
     "paid_at": "2026-08-15T21:34:53.676Z",
     "net_amount": 3499,
     "email_sent": true
+  },
+  {
+    "id": "psa_05198b8822ff2256dfb307f7f2823196",
+    "tracking_code": "SOWZFL2QW9MNBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Francilene Medeiros do Carmo",
+    "client_email": "francilenecarmo68@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "85992780152",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB8etoUjdLYI4_obEnHVcegSQyFYwey5nGeWoKSjwlzJb2_oYUYLOVCtbh_MvC6N5nCdb1XQpNxzFY8qMzFM6yKkbEVBaWGyka5XQMn8j2HVxshwCJJ-83iSHZk0-iP7TC6pPe9Wln43hNPaX5e-NJoC_GdgJn0EvnurKSA6Ui6lMa8YFcvsKNtYHjBoOVN9",
+    "ttp": "01M03NSF9FV2RDGF917SEDP9JS_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "th0is7o60birmsuwe8bj",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "62880-132",
+      "uf": "CE",
+      "cidade": "Horizonte",
+      "bairro": "Centro",
+      "rua": "Rua Raimundo Nogueira Lopes",
+      "numero": "227",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msuwinr0_52e30e01ef",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/9eef7371-a3b7-4887-88cf-6bf84b7d306f5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630488EA",
+    "created_at": "2026-08-15T21:41:59.426Z",
+    "paid_at": "2026-08-15T21:42:44.281Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_8ef65eb449ce856798977fec032895fa",
+    "tracking_code": "SOLK252SM92GBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Sônia Lima dos Santos",
+    "client_email": "sonia-llima@hotmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "61996375325",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuAB5pMiEZt1HRF9qDNl7v-uFIB8mp1kgngOfRsbuBGIjKsVXqzvmsDLFZ9R2SKO5Ioei-uFyDE27aqSIwe1RoXOOTfem8Q5pw7FIbfSGXWrE2TQHcgGqb3OKIcr5vTExbxG2hrkPAvPO7XlFpkr2py6tZP_OQ8ZRWFi6SZQNGiDxqbmXUSOw1TVom3dZjcke0",
+    "ttp": "01M03NT6QYD8MTF15321P68M5S_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgf7py4vsfwdmsuweqqv",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "72720-100",
+      "uf": "DF",
+      "cidade": "Brasília",
+      "bairro": "Setor Tradicional (Brazlândia)",
+      "rua": "Quadra 10 lote 10",
+      "numero": "03",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msuwjsis_17c12ff34e",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c9fe0c73-5426-460a-99e4-3e3d68c824955204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630498C7",
+    "created_at": "2026-08-15T21:42:52.301Z",
+    "paid_at": null
   }
 ]
