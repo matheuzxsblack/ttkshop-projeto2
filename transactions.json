@@ -19557,5 +19557,52 @@
     "created_at": "2026-08-15T10:44:01.700Z",
     "paid_at": "2026-08-15T10:45:23.152Z",
     "net_amount": 3499
+  },
+  {
+    "id": "psa_8985e2f5778672346f38de0a111e3618",
+    "tracking_code": "SOJKC2UFAESXBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Cecília Gonçalves Bueno",
+    "client_email": "ceciliageracina@gmail.com",
+    "client_doc": "45320101104",
+    "client_doc_entered": "45320101104",
+    "doc_pix_fallback": false,
+    "client_phone": "65992153942",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBzPmJpIse4u6ZvvD7BYPyxs_LfCppdFQHu_Zw1xb5sEKYmBS4QnlHq6zvr5ZRHaeDc9hpAnhf1UOgwRHsZY4RUFe1Sw4nGkfM5c5m3u5PBL9BdGaIa1shg8atM2mntlcGHeXOq4MKkCCKBlIcn2iX2AN3XOYXnoh1JIRCyF3VCiLgSvxyj9AGtI79UQ8WiP",
+    "ttp": "01M02JDCMMZWBESA98QSVT14J1_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tvqiciokaqzkmsuab3k7",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "78055-494",
+      "uf": "MT",
+      "cidade": "Cuiabá",
+      "bairro": "Morada da Serra 2",
+      "rua": "Rua Pedra Preta",
+      "numero": "02",
+      "complemento": "Quadra 24"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msuagqyl_04d71566ee",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/ad4581cf-a218-4414-a2c2-0d70d04272b1520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo622905258127144b162d4bf5ad9df626763041EB3",
+    "created_at": "2026-08-15T11:24:39.308Z",
+    "paid_at": null
   }
 ]
