@@ -350,7 +350,7 @@ function githubCommitMessage(message) {
 function githubUpsertFile(repoPath, content, message) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
     if (!token) {
       return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
     }
@@ -1916,7 +1916,7 @@ function mergeTxLists(a, b) {
 function githubGetFile(repoPath) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
     if (!token) return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
     var apiBase =
       "/repos/" + repo + "/contents/" + String(repoPath || "").replace(/^\//, "");
