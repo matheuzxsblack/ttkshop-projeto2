@@ -21268,7 +21268,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -21276,5 +21276,68 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/37df9823-43b8-4ebd-8cae-615081a222605204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63041A4C",
     "created_at": "2026-08-15T19:55:58.038Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_4f0c2b4d4e7fe782dd2c14583f58b502",
+    "tracking_code": "SORMRD2JSV4WBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Poliana Medeiros da Silva",
+    "client_email": "medeirosdasilvapoliana@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5516996516",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBfE5EOn7JuUyRAZHKxfMTG__ZgXFoZ0z7zvwi5Wg4nbdvKcajNO020gEH39csDXcNml8-EetwivtzYgp0e3huB6jrQcAxhxCsLSoyTbKFRsouNz2GQihzno3l-bOThoOOZtqC7MzwLPQdxiv4C3cSf5YAZgaVDFIdfZw_Oc5eRfpXcThf6m_0lpT4IyDBBk",
+    "ttp": "01M03FVE015NBMM61FXKXNF8DM_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tca0owyamymsusspxy",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "14811-590",
+      "uf": "SP",
+      "cidade": "Araraquara",
+      "bairro": "Jardim Altos de Pinheiros I e II",
+      "rua": "Rua Benedito Rodrigues da Silva",
+      "numero": "287",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msusup6y_0203a36c22",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/64e13ae1-5096-49c6-a293-e1a2c86663c65204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63043B6E",
+    "created_at": "2026-08-15T19:59:23.198Z",
+    "paid_at": "2026-08-15T20:00:07.573Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-15T20:00:18.152Z"
   }
 ]
