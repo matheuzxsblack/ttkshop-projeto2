@@ -19175,5 +19175,52 @@
     "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/4a074d33-03f5-4293-b87e-2634d4fb7521520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525194aeb8bdee34a36bd02803976304BCF8",
     "created_at": "2026-08-15T08:33:11.242Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_054dbd4a7754ce751cd6373ca2ad3da9",
+    "tracking_code": "SOCU9E66PCYQBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "teste",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "11111111111",
+    "doc_pix_fallback": true,
+    "client_phone": "11111111111",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t69yrz50obbkmsu4w0es",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13299-272",
+      "uf": "SP",
+      "cidade": "Itupeva",
+      "bairro": "Monte Serrat",
+      "rua": "Estrada Municipal Benedito de Souza",
+      "numero": "32",
+      "complemento": "32"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msu4w9pv_dd579b289d",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/65394e09-cf20-49fd-beb9-1efc85eab48d520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525a938e9c68d2d4806911734bba630467A2",
+    "created_at": "2026-08-15T08:48:45.601Z",
+    "paid_at": null
   }
 ]
