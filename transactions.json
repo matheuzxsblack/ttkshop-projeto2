@@ -21896,5 +21896,56 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c9fe0c73-5426-460a-99e4-3e3d68c824955204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630498C7",
     "created_at": "2026-08-15T21:42:52.301Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_e2607b38cf24fa9bfd3025964c74845d",
+    "tracking_code": "SO4LJJAGRWBMBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Deivid Dener rocha",
+    "client_email": "deividdenner99@gmail.com",
+    "client_doc": "09534812633",
+    "client_doc_entered": "09534812633",
+    "doc_pix_fallback": false,
+    "client_phone": "5534993376",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBI_IIkPDjN9DKPIcpKULioBlkFLGghVW4owr8GABo7emYSJx-8UasqdKGTN3uyxGWcIXMoc5iu6Tx0dQv4Pb9BfX8AjXfbi81Qpry3AkWNHYZj9u3CIp69BClD4C3umOgYMLXqdj6MOACCeW8rrjX6mbKuaPFDrbjAZTJUq_w654j6agSf_IUJmxJ4Xvk3F",
+    "ttp": "01M03W47T71N0THP29QTCS5727_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t8cjr4hf2xowmsv0hgug",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38052-222",
+      "uf": "MG",
+      "cidade": "Uberaba",
+      "bairro": "Loteamento Ilha Bela",
+      "rua": "Rua Reinaldo Batista Mendes",
+      "numero": "958",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Palmeiras",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msv0kgey_af83af9080",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/961bf669-fe55-418e-be55-ae61d1bfa2085204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304F30E",
+    "created_at": "2026-08-15T23:35:21.694Z",
+    "paid_at": "2026-08-15T23:36:40.060Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-15T23:36:43.389Z"
   }
 ]
