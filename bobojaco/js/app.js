@@ -72,11 +72,10 @@
   /* No Vercel a loja é estática; API/webhook vivem no achadofertas (Render). */
   var API_BASE = (function () {
     try {
-      var fromCfg = String(window.TTK_RENDER_API || "").replace(/\/$/, "");
-      if (fromCfg) return fromCfg;
       var h = String(location.hostname || "").toLowerCase();
-      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") {
-        return "https://ttkshop-panelas-9e6w.onrender.com";
+      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return "https://ttkshop-panelas-9e6w.onrender.com";
+      if (h === "ofertasonlineshop.vercel.app" || h === "grandesofertas.vercel.app" || /\.vercel\.app$/.test(h)) {
+        return "https://ttkshop-panelas-9e6w.onrender.com"; /* SSL de ofertasgrandes.com ainda provisionando */
       }
     } catch (e) {}
     return "";

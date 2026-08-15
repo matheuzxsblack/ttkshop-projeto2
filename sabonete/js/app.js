@@ -1,14 +1,13 @@
 (function () {
   "use strict";
 
-  function ttkFunnel(ev, extra) {
+  function setFunnelStep(step) {
     try {
-      if (typeof window.ttkShopFunnel === "function") window.ttkShopFunnel(ev, extra || {});
-    } catch (eF) {}
+      if (typeof window.setFunnelStep === "function") window.setFunnelStep(step);
+      else window.__funnelStep = step;
+    } catch (eFs) {}
   }
-  function ttkProdId() {
-    return String(window.TTK_STORE || "roupao").toLowerCase();
-  }
+  setFunnelStep("product");
 
   /* modo simulação: /simular ou /?simular=1 — Pix auto-pago em 1 min */
   var SIMULATE_MODE = false;
@@ -30,6 +29,8 @@
         prev = JSON.parse(sessionStorage.getItem(ATTR_KEY) || "{}") || {};
       } catch (eP) {}
       var attr = {
+        /* ?pixel=ID na URL da campanha força a atribuição da venda àquele pixel/loja */
+        pixel_id: (q.get("pixel") || q.get("pixel_id") || prev.pixel_id || "").trim().slice(0, 40),
         ttclid: (q.get("ttclid") || prev.ttclid || "").trim().slice(0, 200),
         utm_source: (q.get("utm_source") || prev.utm_source || "").trim().slice(0, 80),
         utm_campaign: (q.get("utm_campaign") || prev.utm_campaign || "").trim().slice(0, 120),
@@ -69,19 +70,36 @@
     ensureSimBanner();
   }
 
-  /* No Vercel a loja é estática; API/webhook vivem no achadofertas (Render). */
+  /* API no mesmo host (Render/local). Em front estático separado (Vercel), aponta pro Render. */
   var API_BASE = (function () {
+    var renderApi = "https://ttkshop-panelas-9e6w.onrender.com";
     try {
       var h = String(location.hostname || "").toLowerCase();
-      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return "https://ttkshop-panelas-9e6w.onrender.com";
-      if (h === "ofertasonlineshop.vercel.app" || h === "grandesofertas.vercel.app" || /\.vercel\.app$/.test(h)) {
-        return "https://ttkshop-panelas-9e6w.onrender.com"; /* SSL de ofertasgrandes.com ainda provisionando */
-      }
-    } catch (e) {}
-    return "";
+      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com" || h.endsWith(".onrender.com")) return "";
+      return renderApi;
+    } catch (e) {
+      return renderApi;
+    }
   })();
   function apiUrl(path) {
     return API_BASE + path;
+  }
+
+  function round2(v) {
+    return Math.round(Number(v) * 100) / 100;
+  }
+
+  /* adicional no sheet: kit 4 toalhas da loja */
+  var TOALHA_KIT_PRICE = 34.99;
+  var TOALHA_KIT_OLD = 109.9;
+  var TOALHA_KIT_C = 3499;
+  var TOALHA_KIT_LABEL = "Kit 4 Toalhas Gigante";
+  var TOALHA_KIT_IMG = "/toalha/imagens/01.png";
+
+  function escHtml(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
   }
 
   var main = document.getElementById("main-scroll");
@@ -96,7 +114,7 @@
   var qty = 1;
   var suppressSpy = false;
 
-  /* ---------- galeria: contador 1/10 ---------- */
+  /* ---------- galeria: contador 1/8 ---------- */
   var carousel = document.getElementById("hero-carousel");
   var heroCounter = document.getElementById("hero-counter");
   var heroTotal = carousel.children.length;
@@ -122,6 +140,7 @@
     geral: document.getElementById("section-geral"),
     avaliacoes: document.getElementById("section-avaliacoes"),
     descricao: document.getElementById("section-descricao"),
+    recomendacoes: document.getElementById("section-recomendacoes"),
   };
 
   function setActiveTab(name) {
@@ -135,7 +154,6 @@
       var el = sectionOf[tab.dataset.tab];
       if (!el) return;
       setActiveTab(tab.dataset.tab);
-      ttkFunnel("product", { product_id: ttkProdId() });
       suppressSpy = true;
       main.scrollTo({ top: el.offsetTop, behavior: "smooth" });
       setTimeout(function () { suppressSpy = false; }, 700);
@@ -181,11 +199,17 @@
     reviewsBody.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  /* ---------- sheet de variantes (cor + tamanho) ---------- */
+  /* ---------- sheet de compra (Cor da Caixa) ---------- */
   var sizeHint = document.getElementById("size-hint");
   var extraRow = document.getElementById("extra-row");
-  /* só true se a pessoa clicar de propósito no upsell (nunca herda de abertura) */
   var extraOptIn = false;
+  var corCaixaLabel = document.getElementById("cor-caixa-label");
+  var skuSelectedName = document.getElementById("sku-selected-name");
+  var skuPriceInt = document.getElementById("sku-price-int");
+  var skuPriceCents = document.getElementById("sku-price-cents");
+  var skuPriceOld = document.getElementById("sku-price-old");
+  var skuPriceOff = document.getElementById("sku-price-off");
+  var optionsLabel = document.getElementById("options-label");
 
   function selectedColorOpt() {
     return document.querySelector("#sku-grid .sku-opt.selected");
@@ -196,28 +220,50 @@
 
   function setExtraChecked(on) {
     extraOptIn = !!on;
+    if (!extraRow) return;
     extraRow.classList.toggle("checked", extraOptIn);
     extraRow.setAttribute("aria-checked", extraOptIn ? "true" : "false");
+    syncSkuPriceUi(selectedColorOpt());
+  }
+
+  function syncSkuPriceUi(opt) {
+    opt = opt || selectedColorOpt();
+    if (!opt) return;
+    var price = Number(opt.dataset.price) || 26.96;
+    if (extraOptIn) price = round2(price + TOALHA_KIT_PRICE);
+    var old = Number(opt.dataset.old) || 74.9;
+    if (extraOptIn) old = round2(old + TOALHA_KIT_OLD);
+    var off = String(opt.dataset.off || "57");
+    var color = opt.dataset.color || "kit com 8 unidades";
+    var parts = price.toFixed(2).split(".");
+    if (skuPriceInt) skuPriceInt.textContent = parts[0];
+    if (skuPriceCents) skuPriceCents.textContent = "," + parts[1];
+    if (skuPriceOld) skuPriceOld.textContent = "R$ " + old.toFixed(2).replace(".", ",");
+    if (skuPriceOff) skuPriceOff.textContent = "-" + off + "%";
+    if (skuSelectedName) skuSelectedName.textContent = color;
+    if (corCaixaLabel) corCaixaLabel.textContent = color;
+    if (optionsLabel) optionsLabel.textContent = color;
+    if (opt.dataset.img) {
+      var thumb = document.getElementById("sku-thumb");
+      if (thumb) thumb.src = opt.dataset.img;
+    }
   }
 
   function openSku() {
-    ttkFunnel("product", { product_id: ttkProdId() });
-    /* cor aleatória sempre começa desligada — a pessoa marca se quiser */
+    setFunnelStep("sku");
+    qty = 1;
+    if (qtyEl) qtyEl.textContent = "1";
     setExtraChecked(false);
-    skuSheet.removeAttribute("hidden");
-    skuOverlay.removeAttribute("hidden");
+    syncSkuPriceUi(selectedColorOpt());
+    skuOverlay.hidden = false;
+    skuSheet.hidden = false;
   }
   function closeSku() {
-    skuSheet.setAttribute("hidden", "");
-    skuOverlay.setAttribute("hidden", "");
+    skuOverlay.hidden = true;
+    skuSheet.hidden = true;
     editingIndex = null;
     setExtraChecked(false);
   }
-  function syncSkuLayers() {
-    if (!skuOverlay || !skuSheet) return;
-    if (skuSheet.hasAttribute("hidden")) skuOverlay.setAttribute("hidden", "");
-  }
-  syncSkuLayers();
 
   document.getElementById("btn-open-sku").addEventListener("click", openSku);
   document.getElementById("btn-add-cart").addEventListener("click", openSku);
@@ -230,49 +276,45 @@
   document.getElementById("btn-close-sku").addEventListener("click", closeSku);
 
   document.getElementById("sku-grid").addEventListener("click", function (e) {
-    /* ícone de expandir: abre a foto inteira sem selecionar a variante */
-    var ex = e.target.closest(".expand-ico");
-    if (ex) {
-      var owner = ex.closest(".sku-opt");
-      if (owner && owner.dataset.img) openLightbox(owner.dataset.img);
-      return;
-    }
-
     var opt = e.target.closest(".sku-opt");
     if (!opt) return;
     this.querySelectorAll(".sku-opt").forEach(function (o) {
       o.classList.remove("selected", "selected2");
     });
     opt.classList.add("selected");
-    if (opt.dataset.img) {
-      document.getElementById("sku-thumb").src = opt.dataset.img;
-    }
+    syncSkuPriceUi(opt);
     handleVariantPick();
   });
 
-  document.getElementById("size-grid").addEventListener("click", function (e) {
-    var opt = e.target.closest(".size-opt");
-    if (!opt) return;
-    this.querySelectorAll(".size-opt").forEach(function (o) {
-      o.classList.remove("selected");
+  var sizeGridEl = document.getElementById("size-grid");
+  if (sizeGridEl) {
+    sizeGridEl.addEventListener("click", function (e) {
+      var opt = e.target.closest(".size-opt");
+      if (!opt) return;
+      this.querySelectorAll(".size-opt").forEach(function (o) {
+        o.classList.remove("selected");
+      });
+      opt.classList.add("selected");
+      if (sizeHint) sizeHint.textContent = opt.dataset.size;
+      handleVariantPick();
     });
-    opt.classList.add("selected");
-    sizeHint.textContent = opt.dataset.size;
-    handleVariantPick();
-  });
+  }
 
-  /* leve +1 cor aleatória (checkbox) — só troca com clique direto */
-  extraRow.addEventListener("click", function (e) {
-    e.stopPropagation();
-    setExtraChecked(!extraOptIn);
-  });
-  extraRow.addEventListener("keydown", function (e) {
-    if (e.key === " " || e.key === "Enter") {
-      e.preventDefault();
+  if (extraRow) {
+    extraRow.addEventListener("click", function (e) {
+      e.stopPropagation();
       setExtraChecked(!extraOptIn);
-    }
-  });
+    });
+    extraRow.addEventListener("keydown", function (e) {
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        setExtraChecked(!extraOptIn);
+      }
+    });
+  }
+
   setExtraChecked(false);
+  syncSkuPriceUi(selectedColorOpt());
 
   /* ---------- aviso (toast) ---------- */
   var toastEl = document.getElementById("toast");
@@ -341,23 +383,130 @@
     lightbox.hidden = true;
   });
 
+  /* ---------- avaliações 100+ + clique nas fotos ---------- */
+  (function initReviews() {
+    var names = ["m**a","c**a s**","j**n","l**i","r**a","a**e","p**o","f**a","t**i","v**r","b**a","g**i","n**o","s**a","d**s","h**a","k**e","w**n","y**a","z**o","u**i","q**a","e**r","i**s","o**a","x**e"];
+    var texts = [
+      "Chegou rápido, embalado com cuidado. Produto consagrado e com o melhor preço da internet.",
+      "Produto bem embalado, chegou rápido, recomendo e vou comprar novamente.",
+      "Caixa linda, fragrâncias bem fortes e agradáveis. Super indico!",
+      "Vieram todas as cores/cheiros. Lavanda e Odor de Rosas são minhas favoritas.",
+      "Base vegetal, limpa bem sem ressecar. Minha família toda usa agora.",
+      "Cheiro dura o dia todo. Compensa muito pelo kit com 16 unidades.",
+      "Comprei no impulso e não me arrependi. Entrega rápida e produto de qualidade.",
+      "Gostei bastante, Patchouly é bem marcado. As outras fragrâncias são ótimas.",
+      "Perfeito pro banho diário. Espuma boa e hidrata. Recomendo demais.",
+      "Comprei 2 kits: um pra casa e um de presente. Todo mundo pediu o link.",
+      "Embalagem perfeita pra presentear. Chegou lacrado.",
+      "Melhor custo-benefício que achei. Já é a segunda compra.",
+      "Não resseca a pele, aroma clássico. Amei.",
+      "Kit completo com 16 sabonetes. Vale cada centavo.",
+      "Entrega antes do prazo. Produto original.",
+      "Usei no banho e a pele ficou macia. Indico!",
+      "Caixa amarela linda. Presenteei minha mãe e ela adorou.",
+      "Fragrâncias icônicas. Qualidade Phebo de verdade.",
+      "Comprei a caixa VINHO também. As duas são ótimas.",
+      "Espuma cremosa e cheiro marcante. Nota 10."
+    ];
+    var days = ["Há 1d","Há 2d","Há 3d","Há 4d","Há 5d","Há 6d","Há 7d","Há 8d","Há 10d","Há 12d","Há 2 sem"];
+    /* fotos únicas — sem repetir a mesma imagem nas avaliações */
+    var reviewPhotos = [
+      "images/rev-1.png",
+      "images/rev-2.png",
+      "images/rev-3.png",
+      "images/rev-4.png",
+      "images/rev-5.png",
+      "images/rev-6.png",
+      "images/rev-7.png",
+      "images/rev-8.png",
+      "images/rev-9.png",
+      "images/rev-10.png",
+    ];
+    var list = document.getElementById("reviews-list");
+    if (!list) return;
+    var total = 112;
+    var withImg = reviewPhotos.length;
+    var html = "";
+    var likeSvg = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M7 10.5V20H4a1 1 0 01-1-1v-7.5a1 1 0 011-1h3zm0 0l4.2-6.8a1.8 1.8 0 013.3 1V9h4.3a1.6 1.6 0 011.6 2l-1.8 7.6a1.6 1.6 0 01-1.6 1.3H7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+    document.querySelectorAll("#reviews-page .rf-chip, #reviews-page .filter-chip").forEach(function (chip) {
+      if (/Inclui imagens/i.test(chip.textContent || "")) {
+        chip.textContent = "Inclui imagens ou vídeos (" + withImg + ")";
+      }
+    });
+    for (var i = 0; i < total; i++) {
+      var stars = i % 17 === 0 ? "★★★★" : "★★★★★";
+      var starHtml = i % 17 === 0 ? '★★★★<i class="star-off">★</i>' : "★★★★★";
+      var name = names[i % names.length];
+      var text = texts[i % texts.length];
+      var av = "images/av-" + ((i % 8) + 1) + ".png";
+      var day = days[i % days.length];
+      var likes = (i % 7) + 1;
+      var media = "";
+      if (i < withImg) {
+        var src = reviewPhotos[i];
+        media =
+          '<div class="fr-media">' +
+          '<button type="button" class="fr-thumb rev-photo" data-src="' + src + '" aria-label="Ampliar foto da avaliação">' +
+          '<img src="' + src + '" alt="Foto da avaliação" />' +
+          "</button></div>";
+      }
+      html +=
+        '<article class="full-review">' +
+        '<div class="fr-user"><img class="avatar lg" src="' + av + '" alt="" /><b>' + name + "</b></div>" +
+        '<div class="fr-meta"><span class="stars md">' + starHtml + '</span><span class="variant">• Kit 16 un., 90g</span></div>' +
+        '<div class="fr-text"><p>' + text + "</p></div>" +
+        media +
+        '<div class="fr-footer"><span>' + day + '</span><span class="fr-actions">' +
+        '<button type="button" aria-label="Mais">⋯</button>' +
+        '<button type="button" class="like-btn" aria-label="Curtir">' + likeSvg + " " + likes + "</button>" +
+        "</span></div></article>";
+    }
+    list.innerHTML = html;
+  })();
+
+  document.addEventListener(
+    "click",
+    function (e) {
+      var btn = e.target.closest(".rev-photo, .fr-thumb, .rm-thumb");
+      if (!btn) return;
+      var src = btn.getAttribute("data-src");
+      if (!src) {
+        var img = btn.querySelector("img");
+        src = img ? img.getAttribute("src") : "";
+      }
+      if (!src) return;
+      e.preventDefault();
+      e.stopPropagation();
+      openLightbox(src);
+    },
+    true
+  );
+
+
   /* ---------- carrinho ---------- */
   var cartPage = document.getElementById("cart-page");
   var cartItemsEl = document.getElementById("cart-items");
   var cartItems = []; /* { label, img, qty, price, extra } */
   var editingIndex = null; /* item do carrinho em troca de variante */
-  var PRICE = 29.68;
-  var OLD_PRICE = 86.50;
-  var EXTRA_PRICE = 21.10;
+  var BOX_PRICE = 26.96; /* kit com 8 unidades */
+  var BOX_OLD = 74.9;
+  var COMBO_PRICE = 35.32; /* kit com 16 unidades */
+  var COMBO_OLD = 139.8;
+  var PRICE = BOX_PRICE;
+  var OLD_PRICE = BOX_OLD;
+  var EXTRA_PRICE = COMBO_PRICE;
+  var EXTRA_QTY = 16;
   var EXTRA_IMGS = [
-    "images/hero-02.png", "images/hero-03.png", "images/hero-04.png", "images/hero-05.png",
-    "images/hero-06.png", "images/hero-07.png", "images/hero-08.png", "images/hero-09.png",
+    "images/01.png", "images/02.png", "images/03.png", "images/04.png",
+    "images/05.png", "images/06.png", "images/07.png", "images/08.png",
   ];
   /* limite do ticket na Pixzy: o pedido inteiro não pode passar de R$ 200 */
   var MAX_TICKET = 200;
   var LIMIT_MSG = "O valor total do pedido não pode passar de R$ 200,00.";
-  var PRICE_C = Math.round(PRICE * 100);
-  var EXTRA_C = Math.round(EXTRA_PRICE * 100);
+  var PRICE_C = Math.round(BOX_PRICE * 100);
+  var EXTRA_C = Math.round(COMBO_PRICE * 100);
+  var BOX_C = PRICE_C;
+  var COMBO_C = EXTRA_C;
   var MAX_C = MAX_TICKET * 100;
 
   function cartCents() {
@@ -368,13 +517,73 @@
     showToast(LIMIT_MSG, 4500);
   }
 
+  
+  /* ---------- upsell no carrinho (16 unidades) ---------- */
+  var cartUpsell = document.getElementById("cart-upsell");
+  var cartUpsellBtn = document.getElementById("cart-upsell-btn");
+
+  function syncCartUpsellUi() {
+    if (!cartUpsell) return;
+    var filled = cartItems.some(function (it) { return !it.extra; });
+    cartUpsell.hidden = !filled;
+    var on = hasUpsellInCart();
+    cartUpsell.classList.toggle("checked", on);
+    cartUpsell.setAttribute("aria-checked", on ? "true" : "false");
+    if (cartUpsellBtn) {
+      cartUpsellBtn.textContent = on ? "Remover oferta" : "Sim, quero aproveitar";
+    }
+  }
+
+  function toggleCartUpsell() {
+    if (hasUpsellInCart()) {
+      cartItems = cartItems.filter(function (it) { return !it.extra && !it.combo; });
+      setExtraChecked(false);
+      renderCart();
+      syncCartUpsellUi();
+      showToast("Kit com 16 unidades removido.");
+      return;
+    }
+    if (cartCents() + COMBO_C > MAX_C) {
+      warnLimit();
+      return;
+    }
+    cartItems.push({
+      label: "kit com 16 unidades",
+      img: "images/01.png",
+      qty: 1,
+      price: COMBO_PRICE,
+      oldPrice: COMBO_OLD,
+      soapPerKit: 16,
+      combo: true,
+      extra: true,
+    });
+    setExtraChecked(true);
+    renderCart();
+    syncCartUpsellUi();
+    showToast("Kit com 16 unidades adicionado!");
+  }
+
+  if (cartUpsell) {
+    cartUpsell.addEventListener("click", function (e) {
+      if (e.target && e.target.id === "cart-upsell-btn") return;
+      toggleCartUpsell();
+    });
+  }
+  if (cartUpsellBtn) {
+    cartUpsellBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      toggleCartUpsell();
+    });
+  }
+
   /* ---------- quantidade (sheet) ---------- */
   document.getElementById("qty-minus").addEventListener("click", function () {
     if (qty > 1) qtyEl.textContent = String(--qty);
   });
   document.getElementById("qty-plus").addEventListener("click", function () {
-    var extraC = extraOptIn && extraRow.classList.contains("checked") ? EXTRA_C : 0;
-    var prospective = cartCents() + (qty + 1) * PRICE_C + extraC;
+    var sel = selectedColorOpt();
+    var unitC = sel ? Math.round(Number(sel.dataset.price) * 100) : BOX_C;
+    var prospective = cartCents() + (qty + 1) * unitC;
     if (prospective > MAX_C) {
       warnLimit();
       return;
@@ -411,25 +620,52 @@
   }
 
   function itemHtml(item, i) {
-    var variantBtn = item.extra
-      ? '<span class="cart-variant static"><span>' + item.label + "</span></span>"
-      : '<button class="cart-variant" type="button" data-vi="' + i + '"><span>' + item.label + "</span> " + CHEV_DOWN_SVG + "</button>";
-    var oldRow = item.extra
-      ? ""
-      : '<p class="cart-old-row"><span class="price-old">R$ 109,90</span> <span class="cart-off">-68%</span></p>';
+    var isToalha = !!item.toalha;
+    var variantBtn =
+      item.extra || isToalha
+        ? '<span class="cart-variant static"><span>' + escHtml(item.label) + "</span></span>"
+        : '<button class="cart-variant" type="button" data-vi="' +
+          i +
+          '"><span>' +
+          escHtml(item.label) +
+          "</span> " +
+          CHEV_DOWN_SVG +
+          "</button>";
+    var oldRow =
+      item.extra && !isToalha
+        ? ""
+        : '<p class="cart-old-row"><span class="price-old">' +
+          money(item.oldPrice || (isToalha ? TOALHA_KIT_OLD : OLD_PRICE)) +
+          '</span> <span class="cart-off">-' +
+          (item.combo ? "58" : isToalha ? "61" : "57") +
+          "%</span></p>";
+    var title = isToalha ? "Kit Toalhas Gigante — 4 unidades" : "Kit Sabonete Granado";
     return (
       '<div class="cart-item">' +
       '<span class="cart-check checked" aria-hidden="true"></span>' +
-      '<img class="cart-item-img" src="' + item.img + '" alt="Produto" />' +
+      '<img class="cart-item-img" src="' +
+      item.img +
+      '" alt="Produto" />' +
       '<div class="cart-item-info">' +
-      '<p class="cart-item-title">' + (item.extra ? "Cor surpresa — Roupão Plush" : "Roupão Microfibra Plush") + "</p>" +
+      '<p class="cart-item-title">' +
+      title +
+      "</p>" +
       variantBtn +
       '<div class="cart-price-row">' +
-      '<span class="cart-price">' + moneyParts(item.price) + "</span>" + COUPON_SVG +
+      '<span class="cart-price">' +
+      moneyParts(item.price) +
+      "</span>" +
+      COUPON_SVG +
       '<span class="cart-qty-ctrl">' +
-      '<button type="button" data-act="minus" data-i="' + i + '" aria-label="Diminuir">−</button>' +
-      "<b>" + item.qty + "</b>" +
-      '<button type="button" data-act="plus" data-i="' + i + '" aria-label="Aumentar">+</button>' +
+      '<button type="button" data-act="minus" data-i="' +
+      i +
+      '" aria-label="Diminuir">−</button>' +
+      "<b>" +
+      item.qty +
+      "</b>" +
+      '<button type="button" data-act="plus" data-i="' +
+      i +
+      '" aria-label="Aumentar">+</button>' +
       "</span></div>" +
       oldRow +
       '<p class="cart-others">Em outros 342 carrinhos</p>' +
@@ -458,9 +694,11 @@
     } else {
       cartItemsEl.innerHTML = "";
     }
+    try { syncCartUpsellUi(); } catch (eSu) {}
   }
 
   function openCart() {
+    setFunnelStep("cart");
     renderCart();
     cartPage.hidden = false;
   }
@@ -480,25 +718,58 @@
     return colorOpt.dataset.color + ", " + sizeOpt.dataset.size;
   }
 
+  function upsellLabel() {
+    return "kit com 16 unidades";
+  }
+
+  function regularSoapCount() {
+    return cartItems.reduce(function (sum, it) {
+      return sum + (it.extra ? 0 : it.qty);
+    }, 0);
+  }
+
+  function hasUpsellInCart() {
+    return cartItems.some(function (it) {
+      return (it.extra || it.combo) && !it.toalha;
+    });
+  }
+
+  function hasToalhaInCart() {
+    return cartItems.some(function (it) {
+      return !!it.toalha;
+    });
+  }
+
+  function totalSoapUnits() {
+    return cartItems.reduce(function (sum, it) {
+      if (it.toalha) return sum;
+      var per = it.soapPerKit || (it.combo || it.extra ? 16 : 8);
+      return sum + it.qty * per;
+    }, 0);
+  }
+
   /* adicionar a partir do sheet de variantes */
   function addToCart(mode) {
     var sel = selectedColorOpt();
-    var size = selectedSizeOpt();
-    if (!size) {
-      showToast("Selecione um tamanho para continuar.");
+    if (!sel) {
+      showToast("Selecione o kit para continuar.");
       return;
     }
 
-    /* ajusta quantidade/extra para o pedido não passar de R$ 200 */
+    var unitPrice = Number(sel.dataset.price) || BOX_PRICE;
+    var unitOld = Number(sel.dataset.old) || BOX_OLD;
+    var unitC = Math.round(unitPrice * 100);
+    var soapPer = Math.max(1, parseInt(sel.dataset.soap, 10) || 8);
+    var isCombo = sel.dataset.combo === "1";
+    var addToalha = !!extraOptIn;
     var budgetC = MAX_C - cartCents();
-    var addExtra = !!extraOptIn && extraRow.classList.contains("checked");
     var addQty = qty;
 
-    if (addQty * PRICE_C + (addExtra ? EXTRA_C : 0) > budgetC) {
-      addQty = Math.floor((budgetC - (addExtra ? EXTRA_C : 0)) / PRICE_C);
-      if (addQty < 1 && addExtra) {
-        addExtra = false;
-        addQty = Math.floor(budgetC / PRICE_C);
+    if (addQty * unitC + (addToalha ? TOALHA_KIT_C : 0) > budgetC) {
+      addQty = Math.floor((budgetC - (addToalha ? TOALHA_KIT_C : 0)) / unitC);
+      if (addQty < 1 && addToalha) {
+        addToalha = false;
+        addQty = Math.floor(budgetC / unitC);
       }
       if (addQty < 1) {
         warnLimit();
@@ -507,37 +778,44 @@
       warnLimit();
     }
 
-    var label = "Caramelo, " + size.dataset.size;
-    var img = "images/01.png";
-    if (sel) {
-      label = variantLabel(sel, size);
-      if (sel.dataset.img) img = sel.dataset.img;
-    }
+    var label = sel.dataset.color || "kit com 8 unidades";
+    var img = sel.dataset.img || "images/08.png";
 
     var existing = cartItems.find(function (it) {
-      return !it.extra && it.label === label;
+      return !it.toalha && it.label === label && !!it.combo === isCombo;
     });
     if (existing) {
       existing.qty += addQty;
     } else {
-      cartItems.push({ label: label, img: img, qty: addQty, price: PRICE, extra: false });
+      cartItems.push({
+        label: label,
+        img: img,
+        qty: addQty,
+        price: unitPrice,
+        oldPrice: unitOld,
+        soapPerKit: soapPer,
+        combo: isCombo,
+        extra: isCombo,
+      });
     }
 
-    /* leve +1 cor aleatória */
-    if (addExtra) {
-      var extraLabel = "Cor aleatória, " + size.dataset.size;
-      var existingExtra = cartItems.find(function (it) {
-        return it.extra && it.label === extraLabel;
+    if (addToalha) {
+      var existingToalha = cartItems.find(function (it) {
+        return !!it.toalha;
       });
-      if (existingExtra) {
-        existingExtra.qty += 1;
+      if (existingToalha) {
+        existingToalha.qty += 1;
       } else {
         cartItems.push({
-          label: extraLabel,
-          img: EXTRA_IMGS[Math.floor(Math.random() * EXTRA_IMGS.length)],
+          label: TOALHA_KIT_LABEL,
+          img: TOALHA_KIT_IMG,
           qty: 1,
-          price: EXTRA_PRICE,
-          extra: true,
+          price: TOALHA_KIT_PRICE,
+          oldPrice: TOALHA_KIT_OLD,
+          soapPerKit: 0,
+          toalha: true,
+          combo: false,
+          extra: false,
         });
       }
     }
@@ -545,12 +823,32 @@
     closeSku();
     renderCart();
 
+    try {
+      if (window.ttq && typeof window.ttq.track === "function") {
+        var atcVal = round2(addQty * unitPrice + (addToalha ? TOALHA_KIT_PRICE : 0));
+        window.ttq.track("AddToCart", {
+          contents: [
+            {
+              content_id: "sabonete-" + String(label || "item").replace(/\s+/g, "-").toLowerCase(),
+              content_type: "product",
+              content_name: String(label || "kit sabonete"),
+              quantity: addQty,
+              price: unitPrice,
+            },
+          ],
+          content_type: "product",
+          currency: "BRL",
+          value: atcVal,
+        });
+      }
+    } catch (eAtc) {}
+
+    setFunnelStep("cart");
+
     if (mode === "buy") {
-      /* comprar agora: vai direto para a compra */
       openCheckout();
     } else {
-      /* só adicionou: continua na página para escolher mais itens */
-      showToast("Adicionado ao carrinho!");
+      showToast(addToalha ? "Sabonete + kit de toalhas no carrinho!" : "Adicionado ao carrinho!");
     }
   }
 
@@ -599,34 +897,20 @@
     var item = cartItems[i];
     if (!item) return;
     editingIndex = i;
-    /* edição de variante não liga o upsell */
     setExtraChecked(false);
 
-    var parts = item.label.split(", ");
-    var color = parts[0] || "";
-    var size = parts[1] || "";
-
-    /* marca a cor atual do item na grade */
+    var color = item.label || "";
     document.querySelectorAll("#sku-grid .sku-opt").forEach(function (o) {
       o.classList.toggle("selected", o.dataset.color === color);
       o.classList.remove("selected2");
     });
-    var sel = selectedColorOpt();
-    if (sel && sel.dataset.img) {
-      document.getElementById("sku-thumb").src = sel.dataset.img;
-    }
+    syncSkuPriceUi(selectedColorOpt());
 
-    /* marca o tamanho atual */
-    document.querySelectorAll("#size-grid .size-opt").forEach(function (o) {
-      o.classList.toggle("selected", o.dataset.size === size);
-    });
-    if (size) sizeHint.textContent = size;
-
-    skuSheet.removeAttribute("hidden");
-    skuOverlay.removeAttribute("hidden");
+    skuOverlay.hidden = false;
+    skuSheet.hidden = false;
   }
 
-  /* aplica a variante escolhida ao item em edição (cor ou tamanho) */
+  /* aplica a variante escolhida ao item em edição */
   function handleVariantPick() {
     if (editingIndex === null) return;
     var item = cartItems[editingIndex];
@@ -636,17 +920,19 @@
     }
 
     var sel = selectedColorOpt();
-    var size = selectedSizeOpt();
-    if (!sel || !size) return;
+    if (!sel) return;
 
-    var label = variantLabel(sel, size);
+    var label = sel.dataset.color || item.label;
     var img = sel.dataset.img || item.img;
+    var isCombo = sel.dataset.combo === "1";
+    var unitPrice = Number(sel.dataset.price) || BOX_PRICE;
+    var unitOld = Number(sel.dataset.old) || BOX_OLD;
+    var soapPer = Math.max(1, parseInt(sel.dataset.soap, 10) || 16);
 
-    /* se já existe um item com essa variante, junta as quantidades */
     var editIdx = editingIndex;
     var otherIdx = -1;
     cartItems.forEach(function (it, idx) {
-      if (idx !== editIdx && !it.extra && it.label === label) otherIdx = idx;
+      if (idx !== editIdx && it.label === label && !!it.combo === isCombo) otherIdx = idx;
     });
 
     if (otherIdx !== -1) {
@@ -655,6 +941,11 @@
     } else {
       item.label = label;
       item.img = img;
+      item.price = unitPrice;
+      item.oldPrice = unitOld;
+      item.soapPerKit = soapPer;
+      item.combo = isCombo;
+      item.extra = isCombo;
     }
 
     editingIndex = null;
@@ -672,39 +963,63 @@
   var pixSecsLeft = 0;
   var FRETE = 12.0;
 
-  /* modo definido no painel admin: "tiktok" (original) ou "simple" */
-  var checkoutMode = "tiktok";
-  fetch(apiUrl("/api/checkout-mode?store=roupao"))
+  /* checkout SEMPRE simples — igual panela / imagem pedida */
+  var checkoutMode = "simple";
+  fetch(apiUrl("/api/checkout-mode?store=sabonete"))
     .then(function (r) { return r.json(); })
-    .then(function (j) {
-      if (j && (j.mode === "simple" || j.mode === "tiktok")) checkoutMode = j.mode;
+    .then(function () {
+      checkoutMode = "simple";
     })
-    .catch(function () {});
+    .catch(function () {
+      checkoutMode = "simple";
+    });
 
   function coItemHtml(item, i) {
-    var oldRow = item.extra
-      ? ""
-      : '<p class="co-item-old"><span class="price-old">R$ 109,90</span> <span class="cart-off">-68%</span></p>';
+    var isToalha = !!item.toalha;
+    var oldRow =
+      item.extra && !isToalha
+        ? ""
+        : '<p class="co-item-old"><span class="price-old">' +
+          money(item.oldPrice || (isToalha ? TOALHA_KIT_OLD : OLD_PRICE)) +
+          '</span> <span class="cart-off">-' +
+          (item.combo ? "58" : isToalha ? "61" : "57") +
+          "%</span></p>";
+    var title = isToalha
+      ? "Kit Toalhas Gigante"
+      : item.extra
+        ? "kit com 16 unidades"
+        : "kit com 8 unidades";
     return (
       '<div class="co-item">' +
-      '<img class="co-item-img" src="' + item.img + '" alt="Produto" />' +
+      '<img class="co-item-img" src="' +
+      item.img +
+      '" alt="Produto" />' +
       '<div class="co-item-info">' +
-      '<p class="co-item-title">' + (item.extra ? "Cor surpresa — Roupão Plush" : "Roupão Microfibra Plush") + "</p>" +
-      '<p class="co-item-variant">' + item.label + "</p>" +
+      '<p class="co-item-title">' +
+      title +
+      "</p>" +
+      '<p class="co-item-variant">' +
+      escHtml(item.label) +
+      "</p>" +
       '<div class="co-item-price-row">' +
-      '<span class="co-item-price">' + money(item.price) + "</span>" + COUPON_SVG +
+      '<span class="co-item-price">' +
+      money(item.price) +
+      "</span>" +
+      COUPON_SVG +
       '<span class="cart-qty-ctrl">' +
-      '<button type="button" data-act="minus" data-i="' + i + '" aria-label="Diminuir">−</button>' +
-      "<b>" + item.qty + "</b>" +
-      '<button type="button" data-act="plus" data-i="' + i + '" aria-label="Aumentar">+</button>' +
+      '<button type="button" data-act="minus" data-i="' +
+      i +
+      '" aria-label="Diminuir">−</button>' +
+      "<b>" +
+      item.qty +
+      "</b>" +
+      '<button type="button" data-act="plus" data-i="' +
+      i +
+      '" aria-label="Aumentar">+</button>' +
       "</span></div>" +
       oldRow +
       "</div></div>"
     );
-  }
-
-  function round2(v) {
-    return Math.round(v * 100) / 100;
   }
 
   function orderTotals() {
@@ -712,7 +1027,15 @@
     var subtotal = cartSubtotal();
     var original = round2(
       cartItems.reduce(function (sum, it) {
-        return sum + (it.extra ? it.price : OLD_PRICE) * it.qty;
+        var unitOld =
+          it.oldPrice != null
+            ? it.oldPrice
+            : it.toalha
+              ? TOALHA_KIT_OLD
+              : it.extra || it.combo
+                ? COMBO_OLD
+                : OLD_PRICE;
+        return sum + unitOld * it.qty;
       }, 0)
     );
     var total = subtotal;
@@ -735,16 +1058,34 @@
     document.getElementById("sum-total").textContent = money(t.total);
   }
 
+  var checkoutPixelFired = false;
   function openCheckout() {
-    ttkFunnel("checkout");
     if (totalQty() === 0) return;
-    if (checkoutMode === "simple") {
-      renderSimpleCheckout();
-      simplePage.hidden = false;
-      return;
+    if (!checkoutPixelFired && window.ttq && typeof window.ttq.track === "function") {
+      checkoutPixelFired = true;
+      try {
+        var t = orderTotals();
+        window.ttq.track("InitiateCheckout", {
+          contents: cartItems.map(function (it, i) {
+            return {
+              content_id: "sabonete-" + String(it.label || i).replace(/\s+/g, "-").toLowerCase(),
+              content_type: "product",
+              content_name: it.extra ? "Upsell: 16 sabonetes" : "Sabonete " + (it.label || ""),
+              quantity: Number(it.qty) || 1,
+              price: Number(it.price) || 0,
+            };
+          }),
+          content_type: "product",
+          currency: "BRL",
+          value: Number(t.total) || 0,
+        });
+        console.log("[TikTok Pixel] InitiateCheckout R$", t.total);
+      } catch (eIc) {}
     }
-    renderCheckout();
-    checkoutPage.hidden = false;
+    renderSimpleCheckout();
+    setFunnelStep("checkout");
+    if (simplePage) simplePage.hidden = false;
+    if (checkoutPage) checkoutPage.hidden = true;
   }
 
   document.getElementById("btn-checkout").addEventListener("click", openCheckout);
@@ -911,11 +1252,11 @@
 
   foneInput.addEventListener("input", function () {
     /* DDD + celular = 11 dígitos */
-    foneInput.value = foneInput.value.replace(/\D/g, "").slice(0, 14);
+    foneInput.value = foneInput.value.replace(/\D/g, "").slice(0, 11);
   });
 
   cpfInput.addEventListener("input", function () {
-    var d = cpfInput.value.replace(/\D/g, "").slice(0, 14);
+    var d = cpfInput.value.replace(/\D/g, "").slice(0, 11);
     cpfInput.value = formatCpf(d);
   });
 
@@ -933,9 +1274,16 @@
     var numero = get("addr-numero");
     var cpf = get("addr-cpf");
 
-    var email = get("addr-email") || "cliente@email.com";
-    if (!nome || !fone || !cep || !uf || !cidade || !bairro || !rua || !numero || !cpf) {
-      showToast("Preencha todos os campos obrigatórios (o e-mail é opcional).");
+    var emailRaw = normalizeClientEmail(get("addr-email"));
+    var email = looksLikeEmail(emailRaw) ? emailRaw : "cliente@email.com";
+    if (!nome || !fone || !cep || !uf || !cidade || !bairro || !rua || !numero) {
+      showToast("Preencha todos os campos obrigatórios (e-mail é opcional).");
+      return;
+    }
+
+    if (fone.replace(/\D/g, "").length < 10) {
+      showToast("Telefone incompleto. Digite o DDD + número (10 ou 11 dígitos).");
+      foneInput.focus();
       return;
     }
     if (cep.replace(/\D/g, "").length !== 8) {
@@ -943,14 +1291,24 @@
       cepInput.focus();
       return;
     }
-    /* CPF: aceita o que a pessoa digitar (mesmo inválido) — não bloqueia o pagamento */
+    var cpfDigits = cpf.replace(/\D/g, "");
+    if (cpfDigits.length !== 11) {
+      showToast("Informe um CPF válido com 11 dígitos.");
+      cpfInput.focus();
+      return;
+    }
+    if (!isValidCpfClient(cpfDigits)) {
+      showToast("CPF inválido. Confira os dígitos.");
+      cpfInput.focus();
+      return;
+    }
 
     var compl = get("addr-compl");
     address = {
       nome: nome,
       fone: fone,
       email: email,
-      cpf: cpf.replace(/\D/g, ""),
+      cpf: cpfDigits,
       cep: cep,
       uf: uf,
       cidade: cidade,
@@ -964,8 +1322,8 @@
       cidade + ", " + uf + ", " + cep;
 
     document.getElementById("co-address-text").innerHTML =
-      "<b>" + nome + ", (+55)" + fone + "</b>" +
-      '<span class="addr-line2">' + linha2 + "</span>";
+      "<b>" + escHtml(nome) + ", (+55)" + escHtml(fone) + "</b>" +
+      '<span class="addr-line2">' + escHtml(linha2) + "</span>";
 
     addressPage.hidden = true;
     showToast("Endereço salvo!");
@@ -987,27 +1345,68 @@
     return scEl(id).value.trim();
   }
 
+  function isValidCpfClient(digits) {
+    var s = String(digits || "").replace(/\D/g, "");
+    if (s.length !== 11) return false;
+    if (/^(\d)\1{10}$/.test(s)) return false;
+    var i, sum, rev;
+    sum = 0;
+    for (i = 0; i < 9; i++) sum += parseInt(s.charAt(i), 10) * (10 - i);
+    rev = 11 - (sum % 11);
+    if (rev >= 10) rev = 0;
+    if (rev !== parseInt(s.charAt(9), 10)) return false;
+    sum = 0;
+    for (i = 0; i < 10; i++) sum += parseInt(s.charAt(i), 10) * (11 - i);
+    rev = 11 - (sum % 11);
+    if (rev >= 10) rev = 0;
+    return rev === parseInt(s.charAt(10), 10);
+  }
+
   function scItemHtml(item, i) {
-    var title = item.extra ? "Cor surpresa — Roupão Plush" : "Roupão Microfibra Plush";
-    var oldRow = item.extra
-      ? ""
-      : '<span class="sc-item-old">R$ 109,90</span> <span class="sc-item-off">-68%</span>';
+    var isToalha = !!item.toalha;
+    var title = isToalha
+      ? "Kit 4 Toalhas Gigante"
+      : item.extra
+        ? "kit com 16 unidades"
+        : "kit com 8 unidades";
+    var oldRow =
+      item.extra && !isToalha
+        ? ""
+        : '<span class="sc-item-old">' +
+          money(item.oldPrice || (isToalha ? TOALHA_KIT_OLD : OLD_PRICE)) +
+          '</span> <span class="sc-item-off">-' +
+          (item.combo ? "58" : isToalha ? "61" : "57") +
+          "%</span>";
     return (
       '<div class="sc-item">' +
-      '<img class="sc-item-img" src="' + item.img + '" alt="Produto" />' +
+      '<img class="sc-item-img" src="' +
+      item.img +
+      '" alt="Produto" />' +
       '<div class="sc-item-info">' +
-      '<p class="sc-item-title">' + title + ' <span class="sc-variant">(' + item.label + ")</span></p>" +
+      '<p class="sc-item-title">' +
+      title +
+      ' <span class="sc-variant">(' +
+      escHtml(item.label) +
+      ")</span></p>" +
       '<span class="sc-item-flash">' +
       '<svg width="12" height="12" viewBox="0 0 24 24" fill="#FE2C55"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>' +
       "Oferta Relâmpago</span>" +
       '<div class="sc-item-price-row">' +
-      '<span class="sc-item-price">' + money(item.price) + "</span>" +
+      '<span class="sc-item-price">' +
+      money(item.price) +
+      "</span>" +
       oldRow +
       "</div>" +
       '<span class="sc-item-qty">' +
-      '<button type="button" data-act="minus" data-i="' + i + '" aria-label="Diminuir">−</button>' +
-      "<b>" + item.qty + "</b>" +
-      '<button type="button" data-act="plus" data-i="' + i + '" aria-label="Aumentar">+</button>' +
+      '<button type="button" data-act="minus" data-i="' +
+      i +
+      '" aria-label="Diminuir">−</button>' +
+      "<b>" +
+      item.qty +
+      "</b>" +
+      '<button type="button" data-act="plus" data-i="' +
+      i +
+      '" aria-label="Aumentar">+</button>' +
       "</span>" +
       "</div></div>"
     );
@@ -1097,11 +1496,11 @@
   });
 
   scEl("sc-fone").addEventListener("input", function () {
-    this.value = this.value.replace(/\D/g, "").slice(0, 14);
+    this.value = this.value.replace(/\D/g, "").slice(0, 11);
   });
 
   scEl("sc-cpf").addEventListener("input", function () {
-    var d = this.value.replace(/\D/g, "").slice(0, 14);
+    var d = this.value.replace(/\D/g, "").slice(0, 11);
     this.value = formatCpf(d);
   });
 
@@ -1109,15 +1508,16 @@
     this.value = this.value.replace(/[^a-zA-Z]/g, "").toUpperCase().slice(0, 2);
   });
 
-  /* formulário completo (complemento e e-mail são opcionais) → botão rosa TikTok */
+  /* formulário completo (complemento e e-mail opcionais; CPF obrigatório) */
   function scFormReady() {
     var required = ["sc-nome", "sc-fone", "sc-cep", "sc-rua", "sc-numero", "sc-bairro", "sc-cidade", "sc-uf"];
     for (var i = 0; i < required.length; i++) {
       if (!scVal(required[i])) return false;
     }
+    if (scVal("sc-fone").replace(/\D/g, "").length < 10) return false;
     if (scVal("sc-cep").replace(/\D/g, "").length !== 8) return false;
-    /* CPF só precisa estar preenchido — valor inválido não impede o Pix */
-    if (!scVal("sc-cpf").replace(/\D/g, "")) return false;
+    var cpfDig = scVal("sc-cpf").replace(/\D/g, "");
+    if (cpfDig.length !== 11 || !isValidCpfClient(cpfDig)) return false;
     return true;
   }
 
@@ -1146,10 +1546,17 @@
       scEl(id).classList.toggle("sc-invalid", bad);
       if (bad && !firstBad) firstBad = scEl(id);
     });
+    scEl("sc-cpf").classList.remove("sc-invalid");
     if (firstBad) {
       showToast("Preencha os campos marcados em vermelho.");
       firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
       firstBad.focus();
+      return null;
+    }
+    if (scVal("sc-fone").replace(/\D/g, "").length < 10) {
+      scEl("sc-fone").classList.add("sc-invalid");
+      showToast("WhatsApp incompleto. Digite o DDD + número.");
+      scEl("sc-fone").focus();
       return null;
     }
     if (scVal("sc-cep").replace(/\D/g, "").length !== 8) {
@@ -1158,11 +1565,27 @@
       scEl("sc-cep").focus();
       return null;
     }
+    /* CPF obrigatório — 11 dígitos válidos */
+    var cpfDigits = scVal("sc-cpf").replace(/\D/g, "");
+    if (cpfDigits.length !== 11) {
+      scEl("sc-cpf").classList.add("sc-invalid");
+      showToast("Informe um CPF válido com 11 dígitos.");
+      scEl("sc-cpf").focus();
+      return null;
+    }
+    if (!isValidCpfClient(cpfDigits)) {
+      scEl("sc-cpf").classList.add("sc-invalid");
+      showToast("CPF inválido. Confira os dígitos.");
+      scEl("sc-cpf").focus();
+      return null;
+    }
+    var emailRaw = normalizeClientEmail(scVal("sc-email"));
+    var emailOk = looksLikeEmail(emailRaw) ? emailRaw : "cliente@email.com";
     return {
       nome: scVal("sc-nome"),
       fone: scVal("sc-fone"),
-      email: scVal("sc-email") || "cliente@email.com",
-      cpf: scVal("sc-cpf").replace(/\D/g, ""),
+      email: emailOk,
+      cpf: cpfDigits,
       cep: scVal("sc-cep"),
       uf: scVal("sc-uf"),
       cidade: scVal("sc-cidade"),
@@ -1212,6 +1635,107 @@
   var pixLoading = document.getElementById("pix-loading");
   var pixContent = document.getElementById("pix-content");
   var pixCopyBtn = document.getElementById("btn-copy-pix");
+
+  function copyTextToClipboard(text) {
+    return new Promise(function (resolve) {
+      var t = String(text || "");
+      if (!t || t === "—" || t === "Gerando…") return resolve(false);
+
+      function legacyCopy() {
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = t;
+          ta.setAttribute("readonly", "");
+          ta.setAttribute("aria-hidden", "true");
+          ta.style.cssText =
+            "position:fixed;top:0;left:0;width:2px;height:2px;padding:0;margin:0;border:0;outline:none;opacity:0;";
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          ta.setSelectionRange(0, t.length);
+          var ok = false;
+          try {
+            ok = document.execCommand("copy");
+          } catch (e1) {}
+          document.body.removeChild(ta);
+          return !!ok;
+        } catch (e2) {
+          return false;
+        }
+      }
+
+      try {
+        if (
+          navigator.clipboard &&
+          typeof navigator.clipboard.writeText === "function" &&
+          window.isSecureContext
+        ) {
+          navigator.clipboard
+            .writeText(t)
+            .then(function () {
+              resolve(true);
+            })
+            .catch(function () {
+              resolve(legacyCopy());
+            });
+          return;
+        }
+      } catch (eClip) {}
+      resolve(legacyCopy());
+    });
+  }
+
+  function setPixCodeDisplay(code) {
+    var el = document.getElementById("pix-code");
+    if (!el) return;
+    if ("value" in el) el.value = code || "";
+    else el.textContent = code || "";
+  }
+
+  function getPixCodeDisplay() {
+    var el = document.getElementById("pix-code");
+    if (!el) return "";
+    if ("value" in el) return String(el.value || "").trim();
+    return String(el.textContent || "").trim();
+  }
+
+  function markPixCopyBtn(ok) {
+    if (!pixCopyBtn) return;
+    pixCopyBtn.classList.toggle("is-copied", !!ok);
+    var label = pixCopyBtn.querySelector(".pix-copy-label");
+    if (label) label.textContent = ok ? "Código copiado!" : "Copiar código Pix";
+    else pixCopyBtn.lastChild && (pixCopyBtn.lastChild.textContent = ok ? " Código copiado!" : " Copiar código Pix");
+  }
+
+  function copyPixCode(opts) {
+    opts = opts || {};
+    var code = currentPixCode || getPixCodeDisplay();
+    if (!code || code === "—" || code === "Gerando…") {
+      if (!opts.silent) showToast("Aguarde o código Pix ser gerado.");
+      return Promise.resolve(false);
+    }
+    return copyTextToClipboard(code).then(function (ok) {
+      if (ok) {
+        markPixCopyBtn(true);
+        if (!opts.silent) showToast("Código Pix copiado! Abra o banco e cole.");
+        setTimeout(function () {
+          markPixCopyBtn(false);
+        }, 4000);
+      } else if (!opts.silent) {
+        try {
+          var el = document.getElementById("pix-code");
+          if (el && el.focus) {
+            el.focus();
+            if (el.select) el.select();
+            if (el.setSelectionRange) el.setSelectionRange(0, String(code).length);
+          }
+        } catch (eSel) {}
+        showToast("Toque e segure o código para copiar.");
+      }
+      return ok;
+    });
+  }
+
   var currentPixCode = "";
   var currentTxId = null;
   var pixPollId = null;
@@ -1248,20 +1772,57 @@
     }
   }
 
+  function clearPixTimer() {
+    if (pixTimerId) {
+      clearInterval(pixTimerId);
+      pixTimerId = null;
+    }
+  }
+
   function startPixPoll(txId) {
     stopPixPoll();
     currentTxId = txId;
     var pollMs = SIMULATE_MODE ? 2000 : 5000;
-    pixPollId = setInterval(function () {
+    var ticks = 0;
+    var failStreak = 0;
+    var maxTicks = SIMULATE_MODE ? 60 : 720; /* ~1h no real */
+
+    function tick() {
+      if (String(currentTxId) !== String(txId)) return; /* poll antigo descartado */
+      ticks++;
+      if (ticks > maxTicks) {
+        stopPixPoll();
+        showToast("Ainda não confirmamos o Pix. Se já pagou, aguarde ou use o código de rastreio do e-mail.", 6000);
+        return;
+      }
       fetch(apiUrl("/api/pix/" + encodeURIComponent(txId)))
         .then(function (r) {
-          return r.json();
+          return r.text().then(function (txt) {
+            var json = null;
+            try {
+              json = txt ? JSON.parse(txt) : null;
+            } catch (eP) {
+              json = null;
+            }
+            return { ok: r.ok, json: json };
+          });
         })
-        .then(function (json) {
-          var data = (json && json.data) || json || {};
+        .then(function (res) {
+          if (String(currentTxId) !== String(txId)) return;
+          if (!res.ok || !res.json) {
+            failStreak++;
+            if (failStreak === 3 || failStreak === 10) {
+              showToast("Não conseguimos verificar o pagamento agora. Tentando de novo…", 4000);
+            }
+            return;
+          }
+          failStreak = 0;
+          var data = (res.json && res.json.data) || res.json || {};
           var st = String(data.status || "").toLowerCase();
           if (st === "paid" || st === "approved" || st === "completed") {
             stopPixPoll();
+            clearPixTimer();
+            setFunnelStep("paid");
             showSuccessPage();
           } else if (SIMULATE_MODE && data.simulate_pay_in_ms != null) {
             var left = Math.ceil(Number(data.simulate_pay_in_ms) / 1000);
@@ -1272,8 +1833,16 @@
             }
           }
         })
-        .catch(function () {});
-    }, pollMs);
+        .catch(function () {
+          failStreak++;
+          if (failStreak === 3 || failStreak === 10) {
+            showToast("Sem conexão ao verificar o Pix. Tentando de novo…", 4000);
+          }
+        });
+    }
+
+    tick(); /* 1ª checagem na hora — sem janela cega de 5s */
+    pixPollId = setInterval(tick, pollMs);
   }
 
 
@@ -1299,6 +1868,7 @@
         utm_content: (q.get("utm_content") || stored.utm_content || "").trim(),
         ttclid: (q.get("ttclid") || stored.ttclid || "").trim(),
         ttp: ttp,
+        pixel_id: (q.get("pixel") || q.get("pixel_id") || stored.pixel_id || "").trim(),
       };
     } catch (e) {
       return {
@@ -1308,45 +1878,102 @@
         utm_content: "",
         ttclid: "",
         ttp: "",
+        pixel_id: "",
       };
+    }
+  }
+
+  var pixCreatePromise = null;
+
+  function pixCartFingerprint(cents) {
+    var items = (cartItems || [])
+      .map(function (it) {
+        return String(it.label || "") + "x" + String(it.qty || 0);
+      })
+      .join("|");
+    var a = address || {};
+    return [
+      String(cents),
+      items,
+      String(a.cpf || ""),
+      String(a.cep || ""),
+      String(a.numero || ""),
+      String(a.nome || ""),
+    ].join("#");
+  }
+
+  function getPixIdempotencyKey(cents) {
+    var fp = pixCartFingerprint(cents);
+    var sk = "pix_idem_sabonete_" + fp;
+    try {
+      var existing = sessionStorage.getItem(sk);
+      if (existing) return existing;
+      var key =
+        "j-" +
+        String(cents) +
+        "-" +
+        Date.now().toString(36) +
+        "-" +
+        Math.random().toString(36).slice(2, 10);
+      sessionStorage.setItem(sk, key);
+      return key;
+    } catch (eId) {
+      return "j-" + String(cents) + "-" + Date.now();
     }
   }
 
   function createPixCharge(total) {
     var cents = Math.min(Math.round(total * 100), MAX_TICKET * 100);
-    var utm = readUtmParams();
-    var attrPixel = "";
+    var idemKey = getPixIdempotencyKey(cents);
+    var fp = pixCartFingerprint(cents);
     try {
-      if (window.tikTokAttributionPixelId) attrPixel = String(window.tikTokAttributionPixelId);
-      if (!attrPixel) {
-        var q = new URLSearchParams(location.search || "");
-        attrPixel = String(q.get("pixel") || q.get("px") || q.get("pixel_id") || "").trim();
-        var lojaN = parseInt(q.get("loja") || "", 10);
-        var ids = window.tikTokPixelIds || [];
-        if (!attrPixel && lojaN >= 1 && ids[lojaN - 1]) attrPixel = String(ids[lojaN - 1]);
-        if (!attrPixel && ids && ids.length) attrPixel = String(ids[0] || "");
-        if (!attrPixel && window.tikTokPixelId) attrPixel = String(window.tikTokPixelId);
+      var cached = JSON.parse(sessionStorage.getItem("pix_cache_sabonete") || "null");
+      if (
+        cached &&
+        cached.br_code &&
+        cached.transaction_id &&
+        Number(cached.amount) === cents &&
+        cached.fp === fp &&
+        Date.now() - Number(cached.at || 0) < 30 * 60 * 1000
+      ) {
+        return Promise.resolve(cached);
       }
-    } catch (ePix) {}
-    return fetch(apiUrl("/api/pix"), {
+    } catch (eCache) {}
+
+    if (pixCreatePromise) return pixCreatePromise;
+
+    var utm = readUtmParams();
+    var ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    var to = setTimeout(function () {
+      try {
+        if (ctrl) ctrl.abort();
+      } catch (eAb) {}
+    }, 55000);
+    pixCreatePromise = fetch(apiUrl("/api/pix"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Object.assign({
+      body: JSON.stringify({
         amount: cents,
-        origem: SIMULATE_MODE ? "simular" : (String(window.TTK_STORE || "roupao").toLowerCase() + "-ttkshop"),
+        store: "sabonete",
+        idempotency_key: idemKey,
+        origem: SIMULATE_MODE ? "simular" : "sabonete-ttkshop",
         simulate: SIMULATE_MODE ? true : false,
-        attribution_pixel_id: attrPixel,
         utm_source: utm.utm_source || (SIMULATE_MODE ? "simular" : ""),
         utm_campaign: utm.utm_campaign || (SIMULATE_MODE ? "simular" : ""),
         utm_medium: utm.utm_medium || (SIMULATE_MODE ? "simular" : ""),
         utm_content: utm.utm_content,
         ttclid: utm.ttclid || "",
         ttp: utm.ttp || "",
+        /* pixel que estava rodando na página → define a "loja" da venda no admin */
+        pixel_id: utm.pixel_id || window.tikTokPixelId || "",
         client_name: address.nome,
         client_email: address.email || "cliente@email.com",
-        client_doc: address.cpf,
+        client_doc: address.cpf || "",
         client_phone: address.fone,
-        items: totalQty(),
+        items: totalSoapUnits(),
+        upsell: hasUpsellInCart(),
+        /* kits no carrinho; soap_qty = unidades de sabão */
+        soap_qty: totalSoapUnits(),
         address: {
           cep: address.cep,
           uf: address.uf,
@@ -1357,58 +1984,136 @@
           complemento: address.compl || "",
         },
         items_detail: cartItems.map(function (it) {
-          return { variante: "Roupão Plush " + it.label, qtd: it.qty };
+          if (it.toalha) {
+            return {
+              variante: "Kit 4 Toalhas Gigante",
+              qtd: it.qty,
+            };
+          }
+          if (it.combo || it.extra) {
+            return {
+              variante: "kit com 16 unidades — 16 sabonetes 90g",
+              qtd: it.qty,
+            };
+          }
+          return {
+            variante: String(it.label || "kit com 8 unidades") + " — " + (it.soapPerKit || 8) + " sabonetes 90g",
+            qtd: it.qty,
+          };
         }),
-      }, typeof window.ttkFunnelPixMeta === "function" ? window.ttkFunnelPixMeta() : {})),
-    }).then(function (r) {
-      return r.json().then(function (json) {
-        if (!r.ok) {
-          throw new Error((json && json.error) || "Falha ao gerar Pix");
+      }),
+      signal: ctrl ? ctrl.signal : undefined,
+    })
+      .then(function (r) {
+        return r.text().then(function (txt) {
+          var json = null;
+          try {
+            json = txt ? JSON.parse(txt) : null;
+          } catch (eParse) {
+            json = null;
+          }
+          if (!r.ok) {
+            var msg =
+              (json && json.error) ||
+              (r.status === 429
+                ? "Muitas tentativas. Aguarde alguns segundos e tente de novo."
+                : r.status >= 500
+                  ? "Servidor indisponível. Tente de novo em instantes."
+                  : "Falha ao gerar Pix");
+            throw new Error(msg);
+          }
+          var data = (json && (json.data || json)) || {};
+          try {
+            sessionStorage.setItem(
+              "pix_cache_sabonete",
+              JSON.stringify({
+                br_code: data.br_code,
+                transaction_id: data.transaction_id || data.id,
+                tracking_code: data.tracking_code || "",
+                amount: cents,
+                fp: fp,
+                at: Date.now(),
+              })
+            );
+          } catch (eSet) {}
+          return data;
+        });
+      })
+      .catch(function (err) {
+        if (err && err.name === "AbortError") {
+          throw new Error("Demorou demais para gerar o Pix. Tente de novo.");
         }
-        return json.data || json;
+        throw err;
+      })
+      .finally(function () {
+        clearTimeout(to);
+        pixCreatePromise = null;
       });
-    });
+    return pixCreatePromise;
   }
 
   /* mostra a tela do Pix já com o código gerado */
   function showPixPage(total, data) {
+    if (!data || !data.br_code) {
+      throw new Error("O Pix não foi gerado corretamente.");
+    }
+    var txId = data.transaction_id || data.id || null;
+    if (!txId) {
+      throw new Error("Pedido sem ID — tente gerar o Pix de novo.");
+    }
+    if (simplePage) simplePage.hidden = true;
+    if (checkoutPage) checkoutPage.hidden = true;
     currentPixCode = data.br_code || "";
-    currentTxId = data.transaction_id || null;
+    currentTxId = txId;
+    purchasePixelFired = false; /* nova compra nesta aba */
     stopPixPoll();
 
     /* guarda o resumo do pedido para a tela de pagamento confirmado */
     lastOrder = {
       tracking: data.tracking_code || "",
-      txId: data.transaction_id || "",
-      total: (data.amount != null ? data.amount : Math.round(total * 100)) / 100,
+      txId: String(txId),
+      total: round2(total),
       items: cartItems.map(function (it) {
-        return { label: it.label, img: it.img, qty: it.qty, price: it.price, extra: it.extra };
+        return {
+          label: it.label,
+          img: it.img,
+          qty: it.qty,
+          price: it.price,
+          extra: it.extra,
+          combo: it.combo,
+          toalha: it.toalha,
+          soapPerKit: it.soapPerKit,
+        };
       }),
       address: address,
     };
 
-    document.getElementById("pix-amount").textContent = money(
-      (data.amount != null ? data.amount : Math.round(total * 100)) / 100
-    );
-    document.getElementById("pix-code").textContent = currentPixCode;
+    document.getElementById("pix-amount").textContent = money(total);
+    setPixCodeDisplay(currentPixCode);
     pixCopyBtn.disabled = false;
 
     var deadline = new Date(Date.now() + 24 * 3600 * 1000);
     document.getElementById("pix-deadline").textContent = formatPixDeadline(deadline);
     pixSecsLeft = 24 * 3600 - 1;
     tickPixCountdown();
-    clearInterval(pixTimerId);
+    clearPixTimer();
     pixTimerId = setInterval(tickPixCountdown, 1000);
 
     setPixLoading(false);
+    setFunnelStep("pix");
     pixPage.hidden = false;
-    ttkFunnel("pix");
-    if (currentTxId) startPixPoll(currentTxId);
+    startPixPoll(currentTxId);
+    markPixCopyBtn(false);
+    setTimeout(function () {
+      copyPixCode({ silent: true }).then(function (ok) {
+        if (ok) showToast("Código Pix copiado! Abra o banco e cole.");
+      }).catch(function () {});
+    }, 180);
   }
 
   document.getElementById("btn-close-pix").addEventListener("click", function () {
     pixPage.hidden = true;
-    stopPixPoll();
+    /* NÃO para o poll — se o cliente pagar com a tela fechada, ainda confirma e dispara pixel */
   });
 
   /* ---------- tela de pagamento confirmado (resumo + rastreio) ---------- */
@@ -1417,33 +2122,47 @@
 
   function trackingLink() {
     var code = (lastOrder && lastOrder.tracking) || "";
-    if (!code) return "/rastreio/";
-    try {
-      var h = String(location.hostname || "").toLowerCase();
-      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com" || h.endsWith(".onrender.com")) {
-        return "/rastreio/?c=" + encodeURIComponent(code);
-      }
-    } catch (eH) {}
-    var base = String(window.TRACKING_SITE_BASE || "https://ofertasgrandes.com").replace(/\/+$/, "");
-    return base + "/rastreio/?c=" + encodeURIComponent(code);
+    return location.origin + "/rastreio/?c=" + encodeURIComponent(code);
+  }
+
+  function normalizeClientEmail(e) {
+    var s = String(e || "").trim().toLowerCase();
+    if (!s) return "";
+    var bare = s.match(/^([^\s@]+)@(gmail|hotmail|outlook|yahoo|icloud|uol|bol|terra)$/i);
+    if (bare) s = bare[1] + "@" + bare[2].toLowerCase() + ".com";
+    return s;
   }
 
   function looksLikeEmail(e) {
-    var s = String(e || "").trim().toLowerCase();
+    var s = normalizeClientEmail(e);
     if (!s || s === "cliente@email.com") return false;
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(s);
   }
 
   function sucItemHtml(item) {
-    var title = item.extra ? "Cor surpresa — Roupão Plush" : "Roupão Microfibra Plush";
+    var title = item.toalha
+      ? "Kit 4 Toalhas Gigante"
+      : item.extra || item.combo
+        ? "kit com 16 unidades"
+        : "kit com 8 unidades";
     return (
       '<div class="suc-item">' +
-      '<img src="' + item.img + '" alt="Produto" />' +
+      '<img src="' +
+      item.img +
+      '" alt="Produto" />' +
       '<div class="suc-item-info">' +
-      "<p>" + title + "</p>" +
-      "<span>" + item.label + " · " + item.qty + " un.</span>" +
+      "<p>" +
+      title +
+      "</p>" +
+      "<span>" +
+      escHtml(item.label) +
+      " · " +
+      item.qty +
+      " un.</span>" +
       "</div>" +
-      '<span class="suc-item-price">' + money(item.price * item.qty) + "</span>" +
+      '<span class="suc-item-price">' +
+      money(item.price * item.qty) +
+      "</span>" +
       "</div>"
     );
   }
@@ -1454,9 +2173,7 @@
     if (looksLikeEmail(email)) {
       card.innerHTML =
         '<h3 class="suc-card-title">Acompanhe por e-mail</h3>' +
-        '<p class="suc-email-note">Enviamos o resumo do pedido e o código de rastreio para <b>' +
-        email +
-        "</b>. Verifique a caixa de entrada e também o <b>spam/lixo eletrônico</b>.</p>";
+        '<p class="suc-email-note">O resumo do pedido e o código de rastreio serão enviados para <b>' + escHtml(email) + "</b>.</p>";
       return;
     }
     card.innerHTML =
@@ -1491,7 +2208,7 @@
           }
           if (lastOrder && lastOrder.address) lastOrder.address.email = val;
           renderSucEmailCard(val);
-          showToast("E-mail salvo! Verifique a caixa de entrada e o spam em instantes.");
+          showToast("E-mail salvo! O resumo do pedido chega em instantes.");
         })
         .catch(function () {
           btn.disabled = false;
@@ -1503,10 +2220,14 @@
 
   var purchasePixelFired = false;
 
-  /* igual ofertasdetudo: Purchase no browser + ack pro servidor (CAPI) + retry se SDK atrasar */
+  /* Purchase no browser + ack pro servidor (CAPI) + retry se SDK atrasar */
   function firePurchasePixel(order, attempt) {
     attempt = attempt || 0;
     if (!order || purchasePixelFired) return;
+    /* trava persistente: reload/reabrir não repete o Purchase */
+    try {
+      if (localStorage.getItem("tt_paid_fired_" + (order.txId || order.id || "x"))) return;
+    } catch (eLsChk) {}
     if (!window.ttq || typeof window.ttq.track !== "function") {
       if (attempt < 25) {
         setTimeout(function () {
@@ -1531,9 +2252,9 @@
       purchasePixelFired = true;
       var contents = (order.items || []).map(function (it, i) {
         return {
-          content_id: "roupao-" + String(it.label || i).replace(/\s+/g, "-").toLowerCase(),
+          content_id: "sabonete-" + String(it.label || i).replace(/\s+/g, "-").toLowerCase(),
           content_type: "product",
-          content_name: it.extra ? "Cor surpresa — Roupão Plush" : "Roupão Plush " + (it.label || ""),
+          content_name: it.extra ? "Upsell: 16 sabonetes" : "Sabonete " + (it.label || ""),
           quantity: Number(it.qty) || 1,
           price: Number(it.price) || 0,
         };
@@ -1542,7 +2263,10 @@
       var payload = {
         contents: contents.length
           ? contents
-          : [{ content_id: "roupao", content_type: "product", content_name: "Roupão Microfibra Plush", quantity: 1, price: value }],
+          : [{ content_id: "sabonete", content_type: "product", content_name: "Sabonete Artesanal", quantity: 1, price: value }],
+        content_ids: (contents.length ? contents : [{ content_id: "sabonete" }]).map(function (c) {
+          return c.content_id;
+        }),
         content_type: "product",
         currency: "BRL",
         value: value,
@@ -1568,32 +2292,26 @@
         : window.tikTokPixelId
           ? [window.tikTokPixelId]
           : [];
-      var names = ["CompletePayment", "Purchase", "PlaceAnOrder"];
+      /* 1 pagamento real = 1 CompletePayment (padrão TikTok); event_id = mesmo do CAPI (dedup) */
+      var names = ["CompletePayment"];
       var txId = order.txId || order.id || "";
-      if (!ids.length) {
-        names.forEach(function (name) {
+      try { localStorage.setItem("tt_paid_fired_" + (txId || "x"), String(Date.now())); } catch (eLs) {}
+      names.forEach(function (name) {
+        var trackTargets = ids.length ? ids : [null];
+        trackTargets.forEach(function (pid) {
           try {
-            window.ttq.track(name, payload, { event_id: eventIdFor(name, txId, "0") });
-            console.log("[pixel] ✓", name, "R$", value);
+            var eid = eventIdFor(name, txId, pid || ids[0] || "0");
+            if (pid && typeof window.ttq.instance === "function") {
+              window.ttq.instance(pid).track(name, payload, { event_id: eid });
+            } else {
+              window.ttq.track(name, payload, { event_id: eid });
+            }
+            console.log("[TikTok Pixel] ✓", name, "R$", value, pid || "");
           } catch (err) {
-            console.warn("[pixel] ✗", name, err && err.message);
+            console.warn("[TikTok Pixel] ✗", name, err && err.message);
           }
         });
-      } else {
-        ids.forEach(function (pid) {
-          names.forEach(function (name) {
-            try {
-              var opts = { event_id: eventIdFor(name, txId, pid) };
-              var inst = window.ttq.instance(pid);
-              if (inst && typeof inst.track === "function") inst.track(name, payload, opts);
-              else window.ttq.track(name, payload, opts);
-              console.log("[pixel] ✓", pid, name, "R$", value);
-            } catch (err) {
-              console.warn("[pixel] ✗", pid, name, err && err.message);
-            }
-          });
-        });
-      }
+      });
       try {
         fetch(apiUrl("/api/pixel/purchase-ack"), {
           method: "POST",
@@ -1607,18 +2325,14 @@
       } catch (eAck) {}
     }
 
-    if (typeof window.ttq.ready === "function") {
-      try {
-        window.ttq.ready(doTrack);
-        setTimeout(doTrack, 2500);
-        return;
-      } catch (eReady) {}
-    }
+    /* dispara NA HORA — não espera ttq.ready (redirect/navegação matava o evento) */
     doTrack();
+    try {
+      if (typeof window.ttq.ready === "function") window.ttq.ready(doTrack);
+    } catch (eReady) {}
   }
 
   function showSuccessPage() {
-    ttkFunnel("success");
     if (!lastOrder) return;
 
     var now = new Date();
@@ -1633,8 +2347,8 @@
     var a = lastOrder.address || {};
     document.getElementById("suc-addr-name").textContent = (a.nome || "") + (a.fone ? " · (+55) " + a.fone : "");
     document.getElementById("suc-addr-lines").innerHTML =
-      (a.rua || "") + ", " + (a.numero || "") + (a.compl ? ", " + a.compl : "") + "<br>" +
-      (a.bairro || "") + " — " + (a.cidade || "") + "/" + (a.uf || "") + "<br>CEP " + (a.cep || "");
+      escHtml(a.rua || "") + ", " + escHtml(a.numero || "") + (a.compl ? ", " + escHtml(a.compl) : "") + "<br>" +
+      escHtml(a.bairro || "") + " — " + escHtml(a.cidade || "") + "/" + escHtml(a.uf || "") + "<br>CEP " + escHtml(a.cep || "");
 
     renderSucEmailCard(null);
 
@@ -1654,29 +2368,25 @@
   }
 
   document.getElementById("btn-suc-track").addEventListener("click", function () {
-    var url = trackingLink();
-    try {
-      window.location.assign(url);
-    } catch (e) {
-      window.location.href = url;
-    }
+    location.href = trackingLink();
   });
 
   document.getElementById("btn-suc-copy").addEventListener("click", function () {
     var link = trackingLink();
     function done() { showToast("Link de rastreio copiado!"); }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(link).then(done).catch(function () {
-        var ta = document.createElement("textarea");
-        ta.value = link;
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand("copy"); } catch (e) {}
-        document.body.removeChild(ta);
-        done();
-      });
-    } else {
+    function fallbackCopy() {
+      var ta = document.createElement("textarea");
+      ta.value = link;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
       done();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(link).then(done).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
     }
   });
 
@@ -1690,34 +2400,36 @@
   });
 
   pixCopyBtn.addEventListener("click", function () {
-    var code = currentPixCode || document.getElementById("pix-code").textContent;
-    if (!code || code === "—" || code === "Gerando…") {
-      showToast("Aguarde o código Pix ser gerado.");
-      return;
-    }
-    function done() {
-      showToast("Código Pix copiado!");
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(code).then(done).catch(function () {
-        var ta = document.createElement("textarea");
-        ta.value = code;
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand("copy"); } catch (e) {}
-        document.body.removeChild(ta);
-        done();
-      });
-    } else {
-      done();
-    }
+    copyPixCode();
   });
+
+  (function bindPixCodeTap() {
+    var box = document.querySelector(".pix-code-box");
+    var codeEl = document.getElementById("pix-code");
+    function onTap(e) {
+      if (e && e.target && e.target.closest && e.target.closest("#btn-copy-pix")) return;
+      copyPixCode();
+    }
+    if (box && !box.dataset.pixTapBound) {
+      box.dataset.pixTapBound = "1";
+      box.addEventListener("click", onTap);
+    }
+    if (codeEl && !codeEl.dataset.pixFocusBound) {
+      codeEl.dataset.pixFocusBound = "1";
+      codeEl.addEventListener("focus", function () {
+        try {
+          codeEl.select && codeEl.select();
+        } catch (eF) {}
+      });
+    }
+  })();
 
   /* fazer pedido — gera o Pix antes de trocar de tela (botão trava carregando ~3s) */
   var placeOrderBtn = document.getElementById("btn-place-order");
   var orderBtnLabel = placeOrderBtn.querySelector("span");
   var orderBtnSmall = placeOrderBtn.querySelector("small");
-  var ORDER_MIN_WAIT = 3000;
+  var ORDER_MIN_WAIT = 1200;
+  var pixCreating = false;
 
   function setOrderBtnLoading(on) {
     placeOrderBtn.disabled = on;
@@ -1726,17 +2438,18 @@
     orderBtnSmall.style.display = on ? "none" : "";
   }
 
-  placeOrderBtn.addEventListener("click", function () {
-    if (placeOrderBtn.disabled) return;
+  placeOrderBtn.addEventListener("click", function (ev) {
+    if (ev) {
+      try {
+        ev.preventDefault();
+        ev.stopPropagation();
+      } catch (eEv) {}
+    }
+    if (placeOrderBtn.disabled || pixCreating) return;
 
     if (!address) {
       addressPage.hidden = false;
       showToast("Adicione seu endereço de entrega para continuar.");
-      return;
-    }
-    if (!address.cpf) {
-      addressPage.hidden = false;
-      showToast("Salve o endereço com CPF para gerar o Pix.");
       return;
     }
     if (!payPix.classList.contains("selected")) {
@@ -1750,6 +2463,7 @@
 
     var total = orderTotals().total;
     var started = Date.now();
+    pixCreating = true;
     setOrderBtnLoading(true);
 
     function remainingWait() {
@@ -1763,11 +2477,19 @@
         }
         setTimeout(function () {
           setOrderBtnLoading(false);
-          showPixPage(total, data);
+          placeOrderBtn.disabled = true;
+          try {
+            showPixPage(total, data);
+          } catch (eShow) {
+            pixCreating = false;
+            placeOrderBtn.disabled = false;
+            showToast((eShow.message || "Não foi possível abrir o Pix.") + " Tente de novo.", 6000);
+          }
         }, remainingWait());
       })
       .catch(function (err) {
         setTimeout(function () {
+          pixCreating = false;
           setOrderBtnLoading(false);
           showToast(
             (err.message || "Não foi possível gerar o Pix.") + " Por favor, tente novamente.",
@@ -1789,8 +2511,14 @@
     scOrderSmall.style.display = on ? "none" : "";
   }
 
-  scOrderBtn.addEventListener("click", function () {
-    if (scOrderBtn.disabled) return;
+  scOrderBtn.addEventListener("click", function (ev) {
+    if (ev) {
+      try {
+        ev.preventDefault();
+        ev.stopPropagation();
+      } catch (eEv) {}
+    }
+    if (scOrderBtn.disabled || pixCreating) return;
 
     var addr = scValidate();
     if (!addr) return;
@@ -1804,6 +2532,7 @@
 
     var total = orderTotals().total;
     var started = Date.now();
+    pixCreating = true;
     setScOrderLoading(true);
 
     function remainingWait() {
@@ -1817,11 +2546,19 @@
         }
         setTimeout(function () {
           setScOrderLoading(false);
-          showPixPage(total, data);
+          scOrderBtn.disabled = true;
+          try {
+            showPixPage(total, data);
+          } catch (eShow) {
+            pixCreating = false;
+            scOrderBtn.disabled = false;
+            showToast((eShow.message || "Não foi possível abrir o Pix.") + " Tente de novo.", 6000);
+          }
         }, remainingWait());
       })
       .catch(function (err) {
         setTimeout(function () {
+          pixCreating = false;
           setScOrderLoading(false);
           showToast(
             (err.message || "Não foi possível gerar o Pix.") + " Por favor, tente novamente.",

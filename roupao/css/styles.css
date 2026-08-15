@@ -1,5 +1,5 @@
 /* ============================================================
-   Ofertas Online — Jaqueta Feminina Puffer Forrada Premium
+   Ofertas De Mulher — Jaqueta Feminina Puffer Forrada Premium
    Base: clone das panelas + oferta relâmpago, tamanhos e guia
    ============================================================ */
 :root {
@@ -2569,6 +2569,7 @@ img.avatar {
   text-decoration: line-through;
 }
 
+
 /* ============ AVALIAÇÕES DA LOJA ============ */
 .store-reviews {
   padding: 10px 14px 14px;
@@ -2945,7 +2946,7 @@ img.avatar {
   border-radius: 3px;
 }
 
-/* Ofertas Online encima do produto */
+/* Ofertas De Mulher encima do produto */
 .sc-shop-title {
   font-size: 17px;
   font-weight: 800;

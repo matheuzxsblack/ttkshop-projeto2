@@ -83,11 +83,11 @@
   /* No Vercel a loja é estática; API/webhook vivem no Render (mesmo backend das panelas). */
   var API_BASE = (function () {
     try {
-      var fromCfg = String(window.TTK_RENDER_API || "").replace(/\/$/, "");
-      if (fromCfg) return fromCfg;
       var h = String(location.hostname || "").toLowerCase();
-      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") {
-        return "https://ttkshop-panelas-9e6w.onrender.com";
+      var renderApi = "https://ttkshop-panelas-9e6w.onrender.com";
+      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return renderApi;
+      if (h === "ofertasonlineshop.vercel.app" || h === "grandesofertas.vercel.app" || /\.vercel\.app$/.test(h)) {
+        return renderApi;
       }
     } catch (e) {}
     return "";
@@ -333,7 +333,7 @@
   /* ---------- sheet de variantes (escolha de cores · mín. 4) ---------- */
   var sizeHint = document.getElementById("size-hint");
   var MIN_TOWELS = 4;
-  var KIT_CENTS = 3077; /* R$ 30,77 = kit 4 toalhas */
+  var KIT_CENTS = 3499; /* R$ 34,99 = kit 4 toalhas */
   var DISC_8_CENTS = 682; /* R$ 6,82 a cada 8 toalhas */
   var EXTRA_CENTS = 2784; /* R$ 27,84 — mais 4 cores aleatórias */
   var EXTRA_PRICE = EXTRA_CENTS / 100;

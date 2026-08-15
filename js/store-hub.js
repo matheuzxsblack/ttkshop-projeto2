@@ -1,4 +1,4 @@
-/* Recomendações + link para página da loja (Ofertas Online) */
+/* Recomendações + link para página da loja (Ofertas De Mulher) */
 (function () {
   "use strict";
 
@@ -91,7 +91,7 @@
         "</p>";
       grid.appendChild(a);
     });
-    anchor.parentNode.insertBefore(sec, anchor);
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(sec, anchor);
   }
 
   function syncStoreLabels() {

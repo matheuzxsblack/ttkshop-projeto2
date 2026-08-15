@@ -22,7 +22,7 @@ window.DEMO_ORDER = {
     {
       status: "PAGAMENTO CONFIRMADO — PEDIDO REGISTRADO",
       at: "2026-08-01T14:32:00-03:00",
-      detail: "Ofertas Online confirmou o pagamento. Encomenda aguardando separação no centro logístico.",
+      detail: "Ofertas De Mulher confirmou o pagamento. Encomenda aguardando separação no centro logístico.",
     },
     {
       status: "EM SEPARAÇÃO",

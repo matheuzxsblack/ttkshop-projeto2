@@ -2,5 +2,5 @@
 window.TRACKING_BRAND = {
   carrier: "Express Entregas Brasil",
   carrierTagline: "Rastreamento de encomendas",
-  store: "Ofertas Online",
+  store: "Ofertas De Mulher",
 };

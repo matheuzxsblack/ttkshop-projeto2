@@ -92,6 +92,16 @@
     );
   }
 
+  /* eventos reais de variante (escolha de cor) e carrinho — delegação captura antes dos handlers da loja */
+  try {
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      if (t.closest(".sku-opt, .swatch, [data-color]")) { send("variant"); return; }
+      if (t.closest("#btn-add-cart, .btn-cart")) send("cart");
+    }, true);
+  } catch (eClick) {}
+
   window.ttkShopFunnel = send;
   window.ttkFunnelPixMeta = function () {
     return { funnel_sid: sid, funnel_store: store, funnel_host: location.hostname || "" };
