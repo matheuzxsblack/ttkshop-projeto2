@@ -21154,5 +21154,127 @@
     "net_amount": 3499,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-15T18:21:18.763Z"
+  },
+  {
+    "id": "psa_27062f1e6cbf1c699b065b1417d26eff",
+    "tracking_code": "SOX4HYWKJC9YBR",
+    "amount": 4374,
+    "status": "pending",
+    "client_name": "Regiani Benedita Afonso",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "15996045258",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBCMGd5c0Z_J2GWDEh1QJNOHnKpzgaT_okpcehBWHfw5cWv1U9siJwrKUKz-XWurW7Mrcwe6Pkvu-_n5zuQ876HXo1y9imASYBTpDjpPd52mnmX1cydARqBMqaDc3Nq-AmvpMmN_UhWJvxGzkFH0TWv6dvY6hRjMxfdgTdht6eEUsj295cOpmDWqLBtu-EZA",
+    "ttp": "01M03FRZ717J2HFTRAEZXKNMXC_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tmkhaeywwd19msusn47c",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18330-033",
+      "uf": "SP",
+      "cidade": "Iporanga",
+      "bairro": "Centro",
+      "rua": "Rua Bela Vista",
+      "numero": "74",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msuspwvi_b8ee30bc4a",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/46433512-1ffc-480e-ade7-77706c7f2c675204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63043EF3",
+    "created_at": "2026-08-15T19:55:39.977Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_f6e349902c73f39e859c3b730d1cc488",
+    "tracking_code": "SO6D8MNLZTCEBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Daniela Costa",
+    "client_email": "daniellalogancosta@gmail.com",
+    "client_doc": "29021147882",
+    "client_doc_entered": "29021147882",
+    "doc_pix_fallback": false,
+    "client_phone": "5511963405",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBw5JW1Svxu5_8WkkZpz09U2kjI-RSsSxCeRHhFyIIj9KBlTXlfnHFck7AGvUUXNJvKP6BYk3SoYbceE5OdymvQU2bcpSJPIUz0lxDUNjlppL5LJ1--cuynJ60d_AcCu2ar_KNEzw5qlqHH8LerYHa9JNMKuz6-S8LZLrM3NqGeldJPfC2UvdGqrnT-qmqWL",
+    "ttp": "01M03FES1EBQ81TBCK99S0Y78F_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tlntfo9f336msusom2a",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "03804-010",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Parque Boturussu",
+      "rua": "Rua Rubens Galvão de França",
+      "numero": "61",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msusqbb4_c9ea58adba",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/37df9823-43b8-4ebd-8cae-615081a222605204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63041A4C",
+    "created_at": "2026-08-15T19:55:58.038Z",
+    "paid_at": null
   }
 ]
