@@ -21727,5 +21727,66 @@
     "net_amount": 3499,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-15T21:29:19.167Z"
+  },
+  {
+    "id": "psa_0af96c1e64d9b37bf6b4a79ee5de735c",
+    "tracking_code": "SOHV3UVD94BKBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Francilene Medeiros do Carmo",
+    "client_email": "francilenecarmo68@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "85992780152",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBYtwpksHNwxKjdX18ZKcOOO30oUtfgnMo0SNas2IRFKCES8UFa8qaRlHfYD9BLcKU3VJ_JrdxRLL3kMgJIt8S-kUoO1L8qgWnXZRYmYLv80QNKyheG2FU_vL1DYofgWJbOm19_0T6B330rNTlUQ7WKajqqlnlE3wEJBrr02nJTBrdn8WzkmWC1zYNIm9ppl",
+    "ttp": "01M03NCC6X07E4ND2JYY8KDKZM_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tmpww8nlfcljmsuw4xnb",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "62880-132",
+      "uf": "CE",
+      "cidade": "Horizonte",
+      "bairro": "Centro",
+      "rua": "Rua Raimundo Nogueira Lopes",
+      "numero": "227",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msuw8ecz_789868836d",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/eeaa4e28-3ea0-4190-ad4c-2a6e106e70b55204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630428F8",
+    "created_at": "2026-08-15T21:34:01.276Z",
+    "paid_at": "2026-08-15T21:34:53.676Z",
+    "net_amount": 3499,
+    "email_sent": true
   }
 ]
