@@ -3104,22 +3104,37 @@
           })
           .join("");
       }
+      function filterByHostname(pages) {
+        var host = String(window.location.hostname || "").toLowerCase();
+        if (!host || host === "localhost" || host === "127.0.0.1") return pages;
+        return (pages || []).filter(function(row) {
+          var url = String(row && row.url ? row.url : "").toLowerCase();
+          // Se é caminho relativo (começa com /), inclui
+          if (url.startsWith("/")) return true;
+          // Se contém o hostname atual, inclui
+          if (url.indexOf(host) !== -1) return true;
+          // Caso contrário, filtra
+          return false;
+        });
+      }
       function renderOnlinePages(d) {
         var counts = (d && d.counts) || {};
+        var storePages = filterByHostname((d && d.pages_store) || []);
+        var cloakPages = filterByHostname((d && d.pages_cloaker) || []);
         if (onlineSplitCountsEl) {
           onlineSplitCountsEl.textContent =
-            "Loja: " + (counts.store != null ? counts.store : "0") + " · Cloaker: " + (counts.cloaker != null ? counts.cloaker : "0");
+            "Loja: " + storePages.length + " · Cloaker: " + cloakPages.length;
         }
         renderOnlineList(
           onlinePagesStoreEl,
-          (d && d.pages_store) || [],
+          storePages,
           "Ninguém na vitrine",
           "op-tag-store",
           "LOJA"
         );
         renderOnlineList(
           onlinePagesCloakerEl,
-          (d && d.pages_cloaker) || [],
+          cloakPages,
           "Ninguém no cloaker",
           "op-tag-cloak",
           "CLOAK"
