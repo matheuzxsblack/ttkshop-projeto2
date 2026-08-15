@@ -20427,5 +20427,64 @@
     "paid_at": "2026-08-15T16:13:20.962Z",
     "net_amount": 3499,
     "email_sent": true
+  },
+  {
+    "id": "psa_1ae8b78cc2191cc730e79bf6ab409efa",
+    "tracking_code": "SO7357RHJ2VBBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Mirlene Rocha",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11984225816",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBHWfnFA_fhG6HYqnqQwwripIX7TigEWgtIPxTY81fKHsyYmnh0pXNrZR4E_U32eHnj27QV_FgOqrCKLrvFA7V-DPsJWoFx-3WonDuiPfnTyGLmCQaFY45qyODbx7Xkf5OSTEYPbQi2VGvfeFsBJiCIESTTSAn94Vw7GbHCzaYWzEj8ZxBvx5GSJu0eqqbpl",
+    "ttp": "01M0313P032F97070J54MKNHBG_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tzpnh94htwamsulp2z6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06340-380",
+      "uf": "SP",
+      "cidade": "Carapicuíba",
+      "bairro": "Parque Santa Teresa",
+      "rua": "Rua Eduardo Augusto Mesquita",
+      "numero": "150",
+      "complemento": "Casa 3"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msulr9yx_a1fb4121ea",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/2c69572f-691f-4a2e-9836-9af52ddb462e5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63046E02",
+    "created_at": "2026-08-15T16:40:45.772Z",
+    "paid_at": null
   }
 ]
