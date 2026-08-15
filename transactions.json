@@ -19651,5 +19651,111 @@
     "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/d5500a60-54e3-4d16-bd50-aeabab2e3220520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525ff6aef13b6ab4d34bd6a0234b63042BA9",
     "created_at": "2026-08-15T11:38:53.026Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_317ac35734d58ba4ce5574472ee82158",
+    "tracking_code": "SO76GQTENEWVBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Elisandra dos Santos matos",
+    "client_email": "alessandramariaaylla65@gmail.com",
+    "client_doc": "05332396309",
+    "client_doc_entered": "05332396309",
+    "doc_pix_fallback": false,
+    "client_phone": "99991261794",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABzOfOOFLcWCFrG0xEz8POFSxwJMsBQxOD3nO4kPHXwNNlrXTyAG41dhOuEUjKrsOvpg2XaMvRwhD-3MI-FCnr8V5ViCcxXH0tg8tgTa2_wKY7Y4OfaSQLO3cifRF-7WVWrKxk0y6B6_r4r8dyzNVa9T8iV728OVy9yS6fkUPSW2xAF60Lyj2GVz-rw7ek1L",
+    "ttp": "01M02R32J721W80ANWAT8PEEJF_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t92tiwcqw74msudul8k",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65763-000",
+      "uf": "MA",
+      "cidade": "Tuntum",
+      "bairro": "Vila real",
+      "rua": "Das flores",
+      "numero": "Sn",
+      "complemento": "Quandra"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msudx3gb_c104ff8bcf",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/94faa7f0-a638-46e8-b8d1-ed79bb0f5c72520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525a9110e19c5b9485eb2e7eca2263048321",
+    "created_at": "2026-08-15T13:01:21.440Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_3618042ebacd614adae7508385ab7d1a",
+    "tracking_code": "SOPJEHRSNJ8ABR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Palmira Sousa Santos",
+    "client_email": "cliente@email.com",
+    "client_doc": "99334976500",
+    "client_doc_entered": "99334976500",
+    "doc_pix_fallback": false,
+    "client_phone": "5577988124",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBXIs7VIzzo2h81VTdp9xXvEkcDucu2a5w33wuY9Gly5s34R0ejqSXb7L7AwHNiVWWu524_ZSZ2RRtEBBh0qIOBhXgT2fuLhBiCKxf2OvuZRwPPvk38L2V1jfaapkcw7nkW5Pp2z2xyYi9BwwmDKKn4b7F9OQiyynwCJWe-tNLurq21IkW_0geUhVXTtpubj",
+    "ttp": "01M02R4WM3HDNAX7VP15ZENDN7_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tudlmohkr2mmsudvzvl",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "45760-000",
+      "uf": "BA",
+      "cidade": "Macarani",
+      "bairro": "Jardim Guarujá",
+      "rua": "Av. Eujácio Brito",
+      "numero": "475",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msudy7i3_fbe203334a",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/9fc75dbf-8290-4b0c-b7c8-028ab6ed65fb520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525b6b3203c4fd546a382eb3236e6304D0F5",
+    "created_at": "2026-08-15T13:02:13.044Z",
+    "paid_at": null
   }
 ]
