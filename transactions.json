@@ -20305,5 +20305,66 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/91a3e22d-b72e-48c6-9f5b-fda1cd8cf0525204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304C8CE",
     "created_at": "2026-08-15T15:47:47.013Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_77c67cb75574de658b85ad4d8dbda556",
+    "tracking_code": "SOVXT5GSS7L2BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Marcia Cristina Da Silva",
+    "client_email": "marcia1012@live.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5543991744376",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBvmik1266meUPQ19PlyHivQI-yBq3SXvxqugGhMokoWz57nPjpuUit8Jmwa0_jApHAigCW7KqCbJeAP5fCfNYoqtH3jxlaUUjQOWwbHHj0FOKzlAHN4kf1Bi6IINgNfQ1p-t29HXnEZyCpRbO8rar-pRPxBCQDrjyrMPX3QNlngr3r_ICldNh610w0lcsPK",
+    "ttp": "01M031ZGE6RGRMDZYPJJCV3WVH_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tc6o5w4m1nvmsuk0zgd",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "86010-906",
+      "uf": "PR",
+      "cidade": "Londrina",
+      "bairro": "Centro",
+      "rua": "Rua Piauí",
+      "numero": "191",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msuk9og9_f9db183fac",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/72e7946b-853f-4d20-a1b8-580c099e83695204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63048032",
+    "created_at": "2026-08-15T15:59:05.406Z",
+    "paid_at": "2026-08-15T15:59:45.283Z",
+    "net_amount": 3499,
+    "email_sent": true
   }
 ]
