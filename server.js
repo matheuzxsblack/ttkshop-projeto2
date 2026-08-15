@@ -4846,7 +4846,7 @@ function serveStatic(req, res, pathname) {
 
 /* preços oficiais da loja toalha (centavos)
    Kit: R$ 30,77 / 4 toalhas · desconto R$ 6,82 a cada 8 · extra R$ 27,84 (mais 4 aleatórias) */
-var TOALHA_KIT_CENTS = 3077;
+var TOALHA_KIT_CENTS = 3499;
 var TOALHA_DISC_8_CENTS = 682;
 var TOALHA_EXTRA_CENTS = 2784;
 function toalhaAmountCents(n, extraPacks) {
