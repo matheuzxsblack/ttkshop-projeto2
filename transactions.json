@@ -20683,7 +20683,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -20691,5 +20691,101 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c0b2180b-dd38-4af1-b6f9-b3d068f9d1f35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63043B46",
     "created_at": "2026-08-15T17:16:11.621Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_5a897037ad25f919301110dad2f1fef4",
+    "tracking_code": "SO8B3ZDVAEC8BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Rafaela avila",
+    "client_email": "rafaelaavila865@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "86",
+    "doc_pix_fallback": true,
+    "client_phone": "5521969717",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBDjHio8YPNnVIa4EWgzuVLqueu5RmKRoZF8SA4k5OXBH3lv1cYZb-vamGg--4hobhY1GhG2R8s68E0026-hCdOYHBU96pjMhTjsqA68rIo1GABwPDxYA5fAn5cOWNOGL91lyWOO1QB8EFEwYsnqsGW9LqiW-HaGVheDODz6iuaigwednohyC5ad93dcWSXS",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tssjcpqzh028msun0imw",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "23092-031",
+      "uf": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "Santíssimo",
+      "rua": "Estrada do Lameirão",
+      "numero": "191",
+      "complemento": "Casa 8"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msun3v8p_250ebafda8",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/be4e0248-5610-4d40-86fc-f9b8b9f7fa7c5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304102D",
+    "created_at": "2026-08-15T17:18:32.801Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_012062552f4c902bea4cb101e59cff22",
+    "tracking_code": "SOMHVX6WG5EBBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Anisia Aparecida Rodrigues coimbra",
+    "client_email": "anisiacoimbra@gmail.com",
+    "client_doc": "14607567892",
+    "client_doc_entered": "14607567892",
+    "doc_pix_fallback": false,
+    "client_phone": "5511975304400",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBOK-tN9Q3tptBc3fW_13Cfds9Yzpp396BCfvhxni3V8-S8j_12mmVD0j0pWM33NYt0TU8w9PrHulaLoqVtv7A2J24XpOOrNAVGzVrwXcYH859KjktMSjEWpwTf_xTIt5dC-6pHT8KIU7GQQwC2Qnf7ixMOLziCgcAWUR6Y861J2WCTSUV-BcUYcWwaSFx4U",
+    "ttp": "01M036VBMCBSY3M74MPQ54M1R4_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t21jdo8ctc2rmsun2fts",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "06447-020",
+      "uf": "SP",
+      "cidade": "Barueri",
+      "bairro": "Jardim Itaparica",
+      "rua": "Avenida Cidade de Itu",
+      "numero": "578",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msun5653_9d995b3539",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/1e21cd32-8c16-4332-a775-418e91cd7daf5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304BF55",
+    "created_at": "2026-08-15T17:19:33.596Z",
+    "paid_at": "2026-08-15T17:20:46.382Z",
+    "net_amount": 3499,
+    "email_sent": true
   }
 ]
