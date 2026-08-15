@@ -2217,6 +2217,33 @@ console.log(
   }
 })();
 
+(async function bootMergeCampaignsFromGithub() {
+  if (!shouldSyncTxGithub()) return;
+  try {
+    var remote = await githubGetFile("campaigns-config.json");
+    if (!remote.ok) {
+      console.log("[campaigns] boot merge falhou get:", remote.reason || "erro");
+      return;
+    }
+    if (remote.missing) return;
+    var remoteObj = JSON.parse(remote.text || "{}");
+    if (!remoteObj || typeof remoteObj !== "object" || !Array.isArray(remoteObj.campaigns)) return;
+    var localCfg = loadCampaignsConfig();
+    /* local vence em ids existentes; remoto devolve campanhas que o local perdeu (acaba wipe em deploy) */
+    var localIds = {};
+    (localCfg.campaigns || []).forEach(function (c) { if (c && c.id) localIds[c.id] = c; });
+    var merged = (localCfg.campaigns || []).slice();
+    remoteObj.campaigns.forEach(function (c) {
+      if (c && c.id && !localIds[c.id]) merged.push(c);
+    });
+    var mergedCfg = Object.assign({}, localCfg, { campaigns: merged });
+    saveCampaignsConfig(mergedCfg);
+    console.log("[campaigns] boot merge GitHub OK — " + merged.length + " campanha(s) preservada(s)");
+  } catch (eCmp) {
+    console.log("[campaigns] boot merge falhou:", eCmp.message || eCmp);
+  }
+})();
+
 (async function bootMergeFunnelFromGithub() {
   if (!shouldSyncTxGithub()) return;
   try {
