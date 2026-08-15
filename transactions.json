@@ -20207,5 +20207,56 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c133ca96-4473-486e-be75-52d587a18a035204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63043D04",
     "created_at": "2026-08-15T15:14:00.116Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_45edd72ca94aa94ae4dedc6d4b626ca7",
+    "tracking_code": "SOP444VL9GAZBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Jucianepereira050@gmail.com",
+    "client_email": "jucianepereira050@gmail.com",
+    "client_doc": "09865473950",
+    "client_doc_entered": "09865473950",
+    "doc_pix_fallback": false,
+    "client_phone": "48999695196",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB4BZLDsG-WQsDbAJBFiJe6jho0sLmsN1CBTQ-o1Mfui119Yz1ohzCmDgchJIRwpBbVcs-hurxvBHPGVO4vHklC9XTo66mYMmmTfD4cNs2MbmprwShO771g9Bdc66was7dCtuB6rJMUtKfogVlcCmxnGEqXLs_4Reiz9M2xwLBpC23jOHR8uGz8vAROOS0SP",
+    "ttp": "01M030VYY2VMDHFVS9VEM2BTSB_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tsmft3kxxthmsujce4e",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "88153-140",
+      "uf": "SC",
+      "cidade": "Águas Mornas",
+      "bairro": "Vargem Grande",
+      "rua": "Rua Prefeito Germano José Steinbach",
+      "numero": "1204",
+      "complemento": "Casa beje"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msuje628_7374d27676",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/8bcce75b-e870-458b-abba-9b6d794258715204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63045194",
+    "created_at": "2026-08-15T15:34:34.957Z",
+    "paid_at": "2026-08-15T15:36:07.565Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-15T15:36:17.814Z"
   }
 ]
