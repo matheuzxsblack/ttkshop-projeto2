@@ -20160,5 +20160,52 @@
     "net_amount": 3499,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-15T14:48:16.076Z"
+  },
+  {
+    "id": "psa_a5a19d114d2a6af8716dfa70b0bd9a0c",
+    "tracking_code": "SOPV6R9S5Q5TBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Karina Paola Alves",
+    "client_email": "karina89alves@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "47996394143",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBqZNRYjPfi8agJuqthE9v1qQ2kVG9flkAMmeZMqLTtW_D_T04gBA61-ysi0DekwNxy0TSuXZkSpI6vM21O0z7s9jSEVK70LMVbDxeHPxm4beiOdIKsgwgdtqjF-akVXIvVdk4yJK8C8OZZBBbN3uZx1sxWegpSvq_0E_J4K7TF6w160_ekmGpIaOwgo3dOh",
+    "ttp": "01M02ZP8YYWYZDT028G1H2JM6J_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tga9li8mxrucmsuiljjc",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "89289-070",
+      "uf": "SC",
+      "cidade": "São Bento do Sul",
+      "bairro": "Lençol",
+      "rua": "Rua Roberto Liebl",
+      "numero": "157",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msuinp7h_28ca318b11",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c133ca96-4473-486e-be75-52d587a18a035204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63043D04",
+    "created_at": "2026-08-15T15:14:00.116Z",
+    "paid_at": null
   }
 ]
