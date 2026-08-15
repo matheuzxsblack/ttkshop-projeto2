@@ -20595,5 +20595,52 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/8ece10cf-14ff-4aeb-a674-4769268102a35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304E1D2",
     "created_at": "2026-08-15T16:56:31.728Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_294d11dcfe955fb11d7104dfac488115",
+    "tracking_code": "SOEUW7BJ24PRBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Dayana da Silva Borges",
+    "client_email": "dayfiel13.ribeirosilva@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11964568117",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBAGdaUsTMFDM-kh3NTSNBBouLPOoJvEv0QN28qSRFLSTWdQmJvTrQKmX-34eY0DJCa4kEzBh-nCUzt7x3tMrzliQviMZEZEuihfbNRZFPL4pCHGHKCM-JUmOwaR-9Sz8E1qTof1br2_VZTQcIk7Bn3o4wMROCWH5YGKXwJ18DvGsJ11YR-sa5simBNgTAN1",
+    "ttp": "01M035Z39N2Z36BPTR8FJS52EK_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tvevi9piypqrmsumiqp8",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "04892-090",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Jardim Silveira Parelheiros",
+      "rua": "Rua Andréas Romberg",
+      "numero": "134",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msumn2qu_f2de0ee605",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/63979086-9404-49bd-bf75-e0e0fd070e105204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304F9E3",
+    "created_at": "2026-08-15T17:05:29.409Z",
+    "paid_at": null
   }
 ]
