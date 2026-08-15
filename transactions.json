@@ -20366,5 +20366,64 @@
     "paid_at": "2026-08-15T15:59:45.283Z",
     "net_amount": 3499,
     "email_sent": true
+  },
+  {
+    "id": "psa_7994e049c0f45da1ff9816e43eec0e41",
+    "tracking_code": "SOEEGYXJYVLRBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Cleuzimar Santos de Sousa",
+    "client_email": "santoscleuzimar82@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "21972239915",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBkg-xtMlsF81k5pE4Ci_Ih42ydSyHUMu_ovNLTMzc9hmkaGlf0mHGZT9gsEBqFPBhTUDGgXhGxeJRcDjMN1bpZ6wgVZTT00QIQaTtNWPsCbSLuciq_ow32OsmLbtadasuorjCkAFGrNVG-poBHt6bVcNsuDDexiqBsD94yuq_FspkROwlNgR6-85xsh8TY-",
+    "ttp": "01M031TZ5SJKAT75GYZDM74RY3_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "to998jt6cupsmsukf707",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "26183-804",
+      "uf": "RJ",
+      "cidade": "Belford Roxo",
+      "bairro": "Jardim Tupiara",
+      "rua": "Rua Iracema",
+      "numero": "105",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msukmcow_190a139d12",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/9cd426b2-4997-429d-899b-2e1cdbfc68565204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63048C9E",
+    "created_at": "2026-08-15T16:08:56.762Z",
+    "paid_at": null
   }
 ]
