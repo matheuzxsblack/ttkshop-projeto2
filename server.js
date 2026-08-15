@@ -178,7 +178,7 @@ function paymentUsesBuckPay() {
 
 /* ---------- admin ---------- */
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
-const ADMIN_PASS = process.env.ADMIN_PASS || "TTKshop!2026#9xKz";
+const ADMIN_PASS = process.env.ADMIN_PASS || "Ma@303030";
 /* Alias opcional — mesmo painel completo (não é login separado) */
 const PIXEL_ADMIN_USER = process.env.PIXEL_ADMIN_USER || "linuxfodaooo";
 const PIXEL_ADMIN_PASS = process.env.PIXEL_ADMIN_PASS || "PixelLab!2026#Chuteira";
