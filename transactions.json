@@ -19916,13 +19916,68 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msug1nwp_55d6555b98",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/af6a414e-6aea-4fe4-8d00-6bbe4ad934165204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304C247",
     "created_at": "2026-08-15T14:00:52.999Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_6c7ec3ecffc7e1568e9acbcf86d3016a",
+    "tracking_code": "SOQUEZ3XK9EEBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Marinalva Silva Bezerra",
+    "client_email": "cliente@email.com",
+    "client_doc": "26497024867",
+    "client_doc_entered": "26497024867",
+    "doc_pix_fallback": false,
+    "client_phone": "11951558530",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBK6hvYbWQDx0KZI_UT3uwnTnnQpp1Yjj6Jgkpe3s0VemvdODqApHRWYlljg8_rJWf2VFF4ySnY8Jhsf6Y294NZXbwP7S7HPorUKURo72urp6w0unNVDzdy6tGJxsWc0-cDUNbOlQJk9xItPnXdjpzxcYIsNtkPBy19wspMat7KgYi6ZNd8IJGVHT1B2gfyF",
+    "ttp": "01M02VPSDKQPMGDMAZRP71XQQ5_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tl3s0nlu704emsug40dl",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "05773-080",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Parque Regina",
+      "rua": "Praça João Pais Málio",
+      "numero": "625",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 2
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msugaqbe_e2742f51a0",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/f46793e9-6cc2-478f-b40e-93c628d3a5c35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304F29F",
+    "created_at": "2026-08-15T14:07:56.091Z",
     "paid_at": null
   }
 ]
