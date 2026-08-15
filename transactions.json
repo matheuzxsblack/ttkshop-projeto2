@@ -20947,5 +20947,68 @@
     "created_at": "2026-08-15T17:44:59.134Z",
     "paid_at": "2026-08-15T17:49:48.146Z",
     "net_amount": 3499
+  },
+  {
+    "id": "psa_0118b52a69dac5c6728518c530ff878f",
+    "tracking_code": "SOJDV2PCFBF6BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Maria Cristina de Souza",
+    "client_email": "cristinasz1909@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "38998649105",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBy6h5tsOoGVr_9xGrAya7_FZbxdnBvIEIaE9oNTz8XmuHv8HtKBphG2PcIjgq47_9KcgHHWwMjKa9OOI9oXYQ1uwuZX5UryOnPttBZAeWx9rI0tCgFLzP83TNNpYlPqBqBN_BeqqBfifJc-K3lp6XiwIJ4f4B5UAhohy4MS6UaEf_oarRnQgqM3ZHWb1M1Q",
+    "ttp": "01M039DA6A7ZH6TW7RPVV6BWS5_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tlh0rcar7yvqmsuooa2p",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38625-000",
+      "uf": "MG",
+      "cidade": "Cabeceira Grande",
+      "bairro": "Planalto",
+      "rua": "Rua Manoel de Almeida",
+      "numero": "620",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msuorlh9_0a0b68c22f",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/098aa8b6-45ca-4ad1-9e11-1b3171021d625204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630452A6",
+    "created_at": "2026-08-15T18:05:00.067Z",
+    "paid_at": "2026-08-15T18:06:03.300Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-15T18:06:22.232Z"
   }
 ]
