@@ -20644,5 +20644,52 @@
     "paid_at": "2026-08-15T17:07:47.683Z",
     "net_amount": 3499,
     "email_sent": true
+  },
+  {
+    "id": "psa_f72dd37a8ef8b7e8f6edc6412806e12a",
+    "tracking_code": "SOXWPL5JW8PVBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Ana Alves Viana de Oliveira",
+    "client_email": "AnaViana3874@gmail.com",
+    "client_doc": "12201035865",
+    "client_doc_entered": "12201035865",
+    "doc_pix_fallback": false,
+    "client_phone": "4298204039",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuAB4P2_yo4psWp32qItJf3Bcr1IbrBABmfua0UMKa4lM51MxEas_794PjxF17Z3FdKRbPfZoMqZRWHxPEQzSuYHWjVqWLzkH1XcydnFs9t7YZq6Xt8FDWdRSfrB6y428sX0q5HbGwuVz4zYx5JvwNVOm0T1DPS3abpOyElHWgqGq9pXwZ2-iLftiWtOtktvph",
+    "ttp": "01M036KBDE1WZGYWXFPKB7NXHT_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1ylz6g07mkzmsumwt41",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "12045-410",
+      "uf": "SP",
+      "cidade": "Taubaté",
+      "bairro": "Jardim Santa Tereza",
+      "rua": "Rua Wilson de Campos Coelho",
+      "numero": "11",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msun0uca_5b6022e913",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c0b2180b-dd38-4af1-b6f9-b3d068f9d1f35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63043B46",
+    "created_at": "2026-08-15T17:16:11.621Z",
+    "paid_at": null
   }
 ]
