@@ -19979,5 +19979,124 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/f46793e9-6cc2-478f-b40e-93c628d3a5c35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304F29F",
     "created_at": "2026-08-15T14:07:56.091Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_d9911a71acadc6d1746e4ff7b4b826d2",
+    "tracking_code": "SO3PHXHR3NTFBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Simone",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "21968852493",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBt18D2PLYHXjb8YfQKfUE_y5lo000cjNSuRi-EtVHygYK89Vvv4JJilQQO4WPoYJ5h2900Y8ysdTOQ0FhR4hw-IXyMawjwPJY-XusqfzjEoOJyBh_Qe4clwExwa6q1gdNOoKdSjPqlgOet7StalR98ZkURr97-oKCX53DARt-3FdKRK7Mk-bXx8mwObV18W",
+    "ttp": "01M02WEGE1KAD61QT0673NG00C_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tf4yxzngzgfsmsugl6ef",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "26061-098",
+      "uf": "RJ",
+      "cidade": "Nova Iguaçu",
+      "bairro": "Miguel Couto",
+      "rua": "Travessa Ernestina",
+      "numero": "9",
+      "complemento": "Quadra A"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msugpe2x_04939761ec",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/3397e4cb-fc69-4104-babe-4a5c997187025204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63049F98",
+    "created_at": "2026-08-15T14:19:20.191Z",
+    "paid_at": "2026-08-15T14:20:37.879Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_9b38696463b6336daeda64fbd6cdf10b",
+    "tracking_code": "SO9WWUB2FYTSBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Maria Lúcia feitosa da silva",
+    "client_email": "silvaalucia999@gmail.com",
+    "client_doc": "13954009706",
+    "client_doc_entered": "13954009706",
+    "doc_pix_fallback": false,
+    "client_phone": "21969271562",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBOJjmj7W80HpcQ_MqegnYD9kkFEhH9hypW9AXkT3RG4wQAdKGe4P1djnABljgyAZC_Np8X0ZFze3fSDxeXM53CyQ_tDQPgf4ajU2CHvryeSG4pJsFEjDBZsTyZp71Td-mY4R4XpiIy0p473i5fQ5ffJzZkR0M1M9re8EZQjTjZJG1Hi8Wqa8nS9HRpdT3IA",
+    "ttp": "01M02WKZGBM1KYP9BJZD7E9G0F_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tsx18q1wn3wmsugo372",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "21044-700",
+      "uf": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "Casa",
+      "rua": "Rua Juscelino Caetano",
+      "numero": "44",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msugrd05_62bd042d2d",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/7f5952ad-b2bd-45e0-916d-8942a9fab68b5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63040A27",
+    "created_at": "2026-08-15T14:20:52.057Z",
+    "paid_at": null
   }
 ]
