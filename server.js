@@ -4873,6 +4873,395 @@ function isPlausibleToalhaAmount(cents) {
   return false;
 }
 
+/* ---------- Cloaker Pro (backend proprio do projeto2, campanhas independentes do panelas) ---------- */
+const CAMPAIGNS_CONFIG_FILE = path.join(DATA_DIR, "campaigns-config.json");
+const CAMPAIGNS_CONFIG_BOOTSTRAP = path.join(ROOT, "campaigns-config.json");
+const CAMPAIGNS_STATS_FILE = path.join(DATA_DIR, "campaigns-stats.json");
+
+function loadCampaignsConfig() {
+  try {
+    if (fs.existsSync(CAMPAIGNS_CONFIG_FILE)) {
+      var raw = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_FILE, "utf8"));
+      if (raw && typeof raw === "object") return raw;
+    }
+  } catch (e) {}
+  try {
+    if (CAMPAIGNS_CONFIG_BOOTSTRAP !== CAMPAIGNS_CONFIG_FILE && fs.existsSync(CAMPAIGNS_CONFIG_BOOTSTRAP)) {
+      var boot = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_BOOTSTRAP, "utf8"));
+      if (boot && typeof boot === "object") return boot;
+    }
+  } catch (e2) {}
+  return { campaigns: [] };
+}
+
+function saveCampaignsConfig(cfg) {
+  var json = JSON.stringify(cfg, null, 2);
+  fs.writeFileSync(CAMPAIGNS_CONFIG_FILE, json);
+  try {
+    if (CAMPAIGNS_CONFIG_BOOTSTRAP !== CAMPAIGNS_CONFIG_FILE) {
+      fs.writeFileSync(CAMPAIGNS_CONFIG_BOOTSTRAP, json);
+    }
+  } catch (eM) {}
+}
+
+function persistCampaignsConfigToGithub() {
+  return Promise.resolve({ ok: false, reason: "sync off (projeto2 nao sincroniza campanhas)" });
+}
+
+function genToken() {
+  return crypto.randomBytes(5).toString("hex");
+}
+
+function slugify(name, existingSlugs) {
+  var base = String(name || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-+/g, "-");
+  if (!base) base = "campaign";
+  var slug = base;
+  var n = 2;
+  existingSlugs = existingSlugs || [];
+  while (existingSlugs.indexOf(slug) !== -1) {
+    slug = base + "-" + n;
+    n++;
+  }
+  return slug;
+}
+
+function defaultCampaign(body) {
+  var b = body || {};
+  return {
+    id: "cp_" + crypto.randomBytes(4).toString("hex"),
+    name: String(b.name || "Nova campanha").trim(),
+    slug: "",
+    token: genToken(),
+    tokenEnabled: true,
+    source: "tiktok",
+    domain: "*",
+    entryStore: "sabonete",
+    enabled: true,
+    safe: { method: "redirect", url: "" },
+    offer: { method: "internal", type: "single", urls: ["/sabonete/"] },
+    targeting: { device: "all", countryMode: "off", countries: [] },
+    filters: {
+      botUa: true,
+      automation: true,
+      softwareGl: true,
+      desktopLike: true,
+      datacenterIp: true,
+      proxy: true,
+      tor: false,
+      ttclidBypass: true
+    },
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  };
+}
+
+/* ---------- Campaign stats ---------- */
+var campStatsCache = null;
+var campStatsSaveTimer = null;
+var campStatsDirty = false;
+
+function todayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function loadCampStats() {
+  if (campStatsCache) return campStatsCache;
+  try {
+    if (fs.existsSync(CAMPAIGNS_STATS_FILE)) {
+      var raw = JSON.parse(fs.readFileSync(CAMPAIGNS_STATS_FILE, "utf8"));
+      if (raw && typeof raw === "object") {
+        campStatsCache = raw;
+        return raw;
+      }
+    }
+  } catch (e) {}
+  campStatsCache = {};
+  return campStatsCache;
+}
+
+function recordCampEvent(campId, kind) {
+  var cache = loadCampStats();
+  var day = todayKey();
+  if (!cache[day]) cache[day] = {};
+  if (!cache[day][campId]) cache[day][campId] = { requests: 0, offer: 0, safe: 0, bots: 0 };
+  cache[day][campId].requests++;
+  if (kind === "offer" || kind === "safe" || kind === "bots") {
+    cache[day][campId][kind]++;
+  }
+  campStatsDirty = true;
+  if (campStatsSaveTimer) clearTimeout(campStatsSaveTimer);
+  campStatsSaveTimer = setTimeout(function() {
+    if (campStatsDirty) {
+      try {
+        fs.writeFileSync(CAMPAIGNS_STATS_FILE, JSON.stringify(cache, null, 2));
+        campStatsDirty = false;
+      } catch (e) {}
+    }
+  }, 2000);
+}
+
+/* ---------- IP Intel ---------- */
+var ipIntelCache = new Map();
+
+var CAMP_LOG_FILE = path.join(DATA_DIR, "campaigns-log.json");
+var campLogCache = null;
+var campLogSaveT = null;
+function loadCampLog() {
+  if (campLogCache) return campLogCache;
+  try {
+    if (fs.existsSync(CAMP_LOG_FILE)) {
+      var rawL = JSON.parse(fs.readFileSync(CAMP_LOG_FILE, "utf8"));
+      if (Array.isArray(rawL)) { campLogCache = rawL; return campLogCache; }
+    }
+  } catch (e) {}
+  campLogCache = [];
+  return campLogCache;
+}
+function saveCampLog() {
+  try { fs.writeFileSync(CAMP_LOG_FILE, JSON.stringify(loadCampLog())); } catch (e) {}
+}
+function recordCampAccess(entry) {
+  var log = loadCampLog();
+  log.unshift(entry);
+  if (log.length > 300) log.length = 300;
+  campLogCache = log;
+  if (campLogSaveT) clearTimeout(campLogSaveT);
+  campLogSaveT = setTimeout(saveCampLog, 2000);
+}
+function clientIpOf(req) {
+  var xff = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  var ip = xff || String(req.socket.remoteAddress || "");
+  return ip.replace(/^::ffff:/, "");
+}
+function fetchIpIntel(ip) {
+  return new Promise(function(resolve) {
+    var cached = ipIntelCache.get(ip);
+    if (cached && Date.now() - cached.t < 1800000) {
+      return resolve(cached.data);
+    }
+    var req = http.get("http://ip-api.com/json/" + ip + "?fields=status,proxy,hosting,as,org,countryCode,mobile", function(res) {
+      var data = "";
+      res.on("data", function(chunk) { data += chunk; });
+      res.on("end", function() {
+        try {
+          var parsed = JSON.parse(data);
+          ipIntelCache.set(ip, { t: Date.now(), data: parsed });
+          resolve(parsed);
+        } catch (e) {
+          resolve(null);
+        }
+      });
+    });
+    req.on("error", function() { resolve(null); });
+    req.setTimeout(2500, function() {
+      req.destroy();
+      resolve(null);
+    });
+    setTimeout(function() {
+      req.destroy();
+      resolve(null);
+    }, 3000);
+  });
+}
+
+/* ---------- Server-side bot detection ---------- */
+function serverBotUa(u) {
+  return /headlesschrome|phantomjs|selenium|webdriver|puppeteer|playwright|slurp|crawl|spider|facebookexternalhit|whatsapp|telegrambot|preview|lighthouse|pagespeed|gptbot|claudebot|anthropic|bytespider|petalbot|semrush|ahrefs|bingbot|googlebot|yandexbot|applebot|curl\/|python-requests|go-http-client|wget|tiktokbot|adsbot/i.test(u);
+}
+
+function serverAutomationUa(u) {
+  return /headless|webdriver|phantom|nightmare|selenium|puppeteer|playwright|httrack|scrapy/i.test(u);
+}
+
+function serverDesktopUa(u) {
+  return !/android|iphone|ipad|ipod|mobile|silk|kindle/i.test(u);
+}
+
+var TOR_ASNS = ["as13329", "as207446", "as396522"];
+var DC_ASNS = [
+  "as136907", "as55990", "as9808", "as132203", "as138699", "as396986",
+  "as16509", "as14618", "as15169", "as8075", "as14061", "as20473",
+  "as45090", "as31898", "as54113"
+];
+var DC_ORGS = [
+  "amazon", "google cloud", "microsoft azure", "digitalocean", "vultr", "linode",
+  "ovh", "hetzner", "m247", "datacamp"
+];
+
+async function decideCampaign(campaign, req, url) {
+  var clientIp = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim().replace(/:.*$/, "");
+  var ua = String(req.headers["user-agent"] || "").toLowerCase();
+  var hasTtclid = url.searchParams && url.searchParams.get("ttclid") && url.searchParams.get("ttclid").trim();
+
+  var botLike = false;
+  var outcome = "offer";
+  var reason = "";
+
+  if (campaign.filters.botUa && serverBotUa(ua)) {
+    botLike = true;
+    outcome = "safe";
+    reason = "bot-ua";
+  } else if (campaign.filters.automation && serverAutomationUa(ua)) {
+    botLike = true;
+    outcome = "safe";
+    reason = "automation";
+  }
+
+  /* Dispositivo "Nenhum" = nao deixa entrar dispositivo algum (todo trafego vai pra safe page) */
+  if (!botLike && campaign.targeting && campaign.targeting.device === "none") {
+    outcome = "safe";
+    reason = "device";
+  }
+  if (hasTtclid && campaign.filters.ttclidBypass && !botLike) {
+    // skip remaining filters
+  } else if (!botLike) {
+    if (campaign.filters.desktopLike) {
+      if (campaign.targeting.device === "mobile" && serverDesktopUa(ua)) {
+        outcome = "safe";
+        reason = "device";
+      } else if (campaign.targeting.device === "desktop" && !serverDesktopUa(ua)) {
+        outcome = "safe";
+        reason = "device";
+      }
+    }
+
+    if (outcome === "offer") {
+      var intel = await fetchIpIntel(clientIp);
+      if (intel) {
+        if (campaign.filters.proxy && intel.proxy === true) {
+          botLike = true;
+          outcome = "safe";
+          reason = "proxy";
+        } else if (campaign.filters.tor) {
+          var asn = String(intel.as || "").toLowerCase();
+          var org = String(intel.org || "").toLowerCase();
+          if (TOR_ASNS.some(function(a) { return asn.indexOf(a) !== -1; }) || org.indexOf("tor exit") !== -1) {
+            botLike = true;
+            outcome = "safe";
+            reason = "tor";
+          }
+        } else if (campaign.filters.datacenterIp) {
+          var asn2 = String(intel.as || "").toLowerCase();
+          var org2 = String(intel.org || "").toLowerCase();
+          if (intel.hosting === true || DC_ASNS.some(function(a) { return asn2.indexOf(a) !== -1; }) || DC_ORGS.some(function(o) { return org2.indexOf(o) !== -1; })) {
+            botLike = true;
+            outcome = "safe";
+            reason = "datacenter";
+          }
+        }
+
+        if (outcome === "offer" && campaign.targeting.countryMode !== "off") {
+          var cc = String(intel.countryCode || "").toUpperCase();
+          var countries = (campaign.targeting.countries || []).map(function(c) { return String(c).toUpperCase().trim(); });
+          if (campaign.targeting.countryMode === "allow" && countries.indexOf(cc) === -1) {
+            outcome = "safe";
+            reason = "country";
+          } else if (campaign.targeting.countryMode === "block" && countries.indexOf(cc) !== -1) {
+            outcome = "safe";
+            reason = "country";
+          }
+        }
+      }
+    }
+  }
+
+  var offerUrl = null;
+  if (outcome === "offer") {
+    if (campaign.offer.type === "ab" && campaign.offer.urls.length > 1) {
+      var hash = (clientIp + ua).split("").reduce(function(a, b) { return ((a << 5) - a + b.charCodeAt(0)) | 0; }, 0);
+      var idx = Math.abs(hash) % campaign.offer.urls.length;
+      offerUrl = campaign.offer.urls[idx];
+    } else {
+      offerUrl = campaign.offer.urls[0] || "/";
+    }
+    if (campaign.offer.method === "redirect" && campaign.tokenEnabled) {
+      offerUrl = offerUrl + (offerUrl.indexOf("?") !== -1 ? "&" : "?") + "tk=" + encodeURIComponent(campaign.token);
+      if (url.searchParams) {
+        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ttclid"].forEach(function(p) {
+          var v = url.searchParams.get(p);
+          if (v) offerUrl = offerUrl + "&" + p + "=" + encodeURIComponent(v);
+        });
+      }
+    }
+  }
+
+  return { outcome: outcome, reason: reason, botLike: botLike, offerUrl: offerUrl };
+}
+
+/* ---------- Delivery helpers ---------- */
+function serveInternalStore(res, storeKey, pathname, req) {
+  var dir = STORE_PATHS[storeKey] ? STORE_PATHS[storeKey].dir : storeKey;
+  var file = path.join(ROOT, dir, "index.html");
+  try {
+    var html = fs.readFileSync(file, "utf8");
+    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
+    res.end(html);
+  } catch (e) {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("Not found");
+  }
+}
+
+function proxyHtml(res, targetUrl, req, fallbackRedirect) {
+  var parsed;
+  try {
+    parsed = new URL(targetUrl);
+  } catch (e) {
+    res.writeHead(302, { Location: fallbackRedirect || targetUrl });
+    return res.end();
+  }
+  var lib = parsed.protocol === "https:" ? https : http;
+  var req2 = lib.get(targetUrl, {
+    headers: {
+      "user-agent": req.headers["user-agent"] || "Mozilla/5.0",
+      "accept-language": "pt-BR,pt;q=0.9"
+    }
+  }, function(resp) {
+    var chunks = [];
+    resp.on("data", function(c) { chunks.push(c); });
+    resp.on("end", function() {
+      var body = Buffer.concat(chunks).toString("utf8");
+      var ct = resp.headers["content-type"] || "text/html";
+      if (ct.indexOf("text/html") !== -1) {
+        var origin = parsed.origin;
+        if (body.indexOf("<head>") !== -1) {
+          body = body.replace(/<head>/i, "<head><base href=\"" + origin + "/\">");
+        } else {
+          body = "<base href=\"" + origin + "/\">" + body;
+        }
+      }
+      res.writeHead(resp.statusCode || 200, { "Content-Type": ct, "Cache-Control": "no-store" });
+      res.end(body);
+    });
+  });
+  req2.on("error", function() {
+    res.writeHead(302, { Location: fallbackRedirect || targetUrl });
+    res.end();
+  });
+  req2.setTimeout(4000, function() {
+    req2.destroy();
+    res.writeHead(302, { Location: fallbackRedirect || targetUrl });
+    res.end();
+  });
+}
+
+function withParams(urlStr, paramsObj) {
+  var u = urlStr;
+  var sep = u.indexOf("?") !== -1 ? "&" : "?";
+  var parts = [];
+  Object.keys(paramsObj || {}).forEach(function(k) {
+    if (paramsObj[k]) parts.push(k + "=" + encodeURIComponent(paramsObj[k]));
+  });
+  return parts.length ? u + sep + parts.join("&") : u;
+}
+
+
 var server = http.createServer(async function (req, res) {
   var url = new URL(req.url || "/", "http://" + (req.headers.host || "localhost"));
   var pathname = url.pathname;
@@ -8220,6 +8609,218 @@ var server = http.createServer(async function (req, res) {
     }
   }
 
+  /* ---------- Cloaker Pro: rotas admin (campanhas/log/stats) ---------- */
+  /* ---------- Cloaker Pro: admin campanhas ---------- */
+  if (req.method === "GET" && pathname === "/api/admin/campaigns") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    var cfgCamp = loadCampaignsConfig();
+    var camps = (cfgCamp.campaigns || []).slice().sort(function(a, b) {
+      return String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
+    });
+    return sendJson(res, 200, { ok: true, campaigns: camps });
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawCamp = await readBody(req);
+      var bodyCamp = rawCamp ? JSON.parse(rawCamp) : {};
+      if (!String(bodyCamp.name || "").trim()) {
+        return sendJson(res, 400, { error: "Nome da campanha é obrigatório." });
+      }
+      var cfgCamp2 = loadCampaignsConfig();
+      var existingSlugs = (cfgCamp2.campaigns || []).map(function(c) { return c.slug; });
+      var newCamp = defaultCampaign(bodyCamp);
+      newCamp.slug = slugify(newCamp.name, existingSlugs);
+      if (String(bodyCamp.slug || "").trim()) {
+        newCamp.slug = slugify(String(bodyCamp.slug).trim(), existingSlugs);
+      }
+      newCamp.token = genToken();
+      if (!Array.isArray(cfgCamp2.campaigns)) cfgCamp2.campaigns = [];
+      cfgCamp2.campaigns.push(newCamp);
+      saveCampaignsConfig(cfgCamp2);
+      var ghCamp = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        campaign: newCamp,
+        persisted: { github: !!(ghCamp && ghCamp.ok), github_error: ghCamp && !ghCamp.ok ? ghCamp.reason : null }
+      });
+    } catch (eCamp) {
+      return sendJson(res, 400, { error: eCamp.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns/update") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawUpd = await readBody(req);
+      var bodyUpd = rawUpd ? JSON.parse(rawUpd) : {};
+      if (!bodyUpd.id) return sendJson(res, 400, { error: "ID é obrigatório." });
+      var cfgUpd = loadCampaignsConfig();
+      var found = null;
+      for (var iUpd = 0; iUpd < (cfgUpd.campaigns || []).length; iUpd++) {
+        if (cfgUpd.campaigns[iUpd].id === bodyUpd.id) {
+          found = cfgUpd.campaigns[iUpd];
+          break;
+        }
+      }
+      if (!found) return sendJson(res, 404, { error: "Campanha não encontrada." });
+      if (bodyUpd.slug != null && String(bodyUpd.slug).trim()) {
+        var othersUpd = (cfgUpd.campaigns || []).filter(function (cU) { return cU.id !== bodyUpd.id; }).map(function (cU) { return cU.slug; });
+        found.slug = slugify(String(bodyUpd.slug).trim(), othersUpd);
+      }
+      var keysUpd = ["name", "domain", "source", "entryStore", "enabled", "safe", "offer", "targeting", "filters", "tokenEnabled"];
+      keysUpd.forEach(function(k) {
+        if (bodyUpd.hasOwnProperty(k)) found[k] = bodyUpd[k];
+      });
+      found.updatedAt = new Date().toISOString();
+      saveCampaignsConfig(cfgUpd);
+      var ghUpd = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        campaign: found,
+        persisted: { github: !!(ghUpd && ghUpd.ok), github_error: ghUpd && !ghUpd.ok ? ghUpd.reason : null }
+      });
+    } catch (eUpd) {
+      return sendJson(res, 400, { error: eUpd.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns/delete") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawDel = await readBody(req);
+      var bodyDel = rawDel ? JSON.parse(rawDel) : {};
+      if (!bodyDel.id) return sendJson(res, 400, { error: "ID é obrigatório." });
+      var cfgDel = loadCampaignsConfig();
+      cfgDel.campaigns = (cfgDel.campaigns || []).filter(function(c) { return c.id !== bodyDel.id; });
+      saveCampaignsConfig(cfgDel);
+      var ghDel = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        persisted: { github: !!(ghDel && ghDel.ok), github_error: ghDel && !ghDel.ok ? ghDel.reason : null }
+      });
+    } catch (eDel) {
+      return sendJson(res, 400, { error: eDel.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns/toggle") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawTog = await readBody(req);
+      var bodyTog = rawTog ? JSON.parse(rawTog) : {};
+      if (!bodyTog.id) return sendJson(res, 400, { error: "ID é obrigatório." });
+      var cfgTog = loadCampaignsConfig();
+      var foundTog = null;
+      for (var iTog = 0; iTog < (cfgTog.campaigns || []).length; iTog++) {
+        if (cfgTog.campaigns[iTog].id === bodyTog.id) {
+          foundTog = cfgTog.campaigns[iTog];
+          break;
+        }
+      }
+      if (!foundTog) return sendJson(res, 404, { error: "Campanha não encontrada." });
+      foundTog.enabled = !!bodyTog.enabled;
+      foundTog.updatedAt = new Date().toISOString();
+      saveCampaignsConfig(cfgTog);
+      var ghTog = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        enabled: foundTog.enabled,
+        persisted: { github: !!(ghTog && ghTog.ok), github_error: ghTog && !ghTog.ok ? ghTog.reason : null }
+      });
+    } catch (eTog) {
+      return sendJson(res, 400, { error: eTog.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns/regen-token") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawReg = await readBody(req);
+      var bodyReg = rawReg ? JSON.parse(rawReg) : {};
+      if (!bodyReg.id) return sendJson(res, 400, { error: "ID é obrigatório." });
+      var cfgReg = loadCampaignsConfig();
+      var foundReg = null;
+      for (var iReg = 0; iReg < (cfgReg.campaigns || []).length; iReg++) {
+        if (cfgReg.campaigns[iReg].id === bodyReg.id) {
+          foundReg = cfgReg.campaigns[iReg];
+          break;
+        }
+      }
+      if (!foundReg) return sendJson(res, 404, { error: "Campanha não encontrada." });
+      foundReg.token = genToken();
+      foundReg.updatedAt = new Date().toISOString();
+      saveCampaignsConfig(cfgReg);
+      var ghReg = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        token: foundReg.token,
+        persisted: { github: !!(ghReg && ghReg.ok), github_error: ghReg && !ghReg.ok ? ghReg.reason : null }
+      });
+    } catch (eReg) {
+      return sendJson(res, 400, { error: eReg.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "GET" && pathname === "/api/admin/campaigns/log") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Nao autorizado" });
+    var limL = 100;
+    try { limL = Math.min(300, Math.max(10, parseInt(String(url.searchParams.get("limit") || "100"), 10) || 100)); } catch (eL) {}
+    return sendJson(res, 200, { ok: true, log: loadCampLog().slice(0, limL) });
+  }
+
+  if (req.method === "GET" && pathname === "/api/admin/campaigns/stats") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    var days = parseInt(url.searchParams && url.searchParams.get("days"), 10) || 7;
+    if (days > 30) days = 30;
+    if (days < 1) days = 1;
+    var statsCache = loadCampStats();
+    var cfgStats = loadCampaignsConfig();
+    var campaignsMap = {};
+    (cfgStats.campaigns || []).forEach(function(c) { campaignsMap[c.id] = c; });
+    var series = [];
+    var totals = { requests: 0, offer: 0, safe: 0, bots: 0 };
+    var perCampaignMap = {};
+    for (var d = days - 1; d >= 0; d--) {
+      var dt = new Date();
+      dt.setDate(dt.getDate() - d);
+      var dayKey = dt.toISOString().slice(0, 10);
+      var dayData = statsCache[dayKey] || {};
+      var daySum = { d: dayKey, requests: 0, offer: 0, safe: 0, bots: 0 };
+      Object.keys(dayData).forEach(function(campId) {
+        var ev = dayData[campId];
+        daySum.requests += ev.requests || 0;
+        daySum.offer += ev.offer || 0;
+        daySum.safe += ev.safe || 0;
+        daySum.bots += ev.bots || 0;
+        if (!perCampaignMap[campId]) perCampaignMap[campId] = { requests: 0, offer: 0, safe: 0, bots: 0 };
+        perCampaignMap[campId].requests += ev.requests || 0;
+        perCampaignMap[campId].offer += ev.offer || 0;
+        perCampaignMap[campId].safe += ev.safe || 0;
+        perCampaignMap[campId].bots += ev.bots || 0;
+      });
+      series.push(daySum);
+      totals.requests += daySum.requests;
+      totals.offer += daySum.offer;
+      totals.safe += daySum.safe;
+      totals.bots += daySum.bots;
+    }
+    var perCampaign = Object.keys(perCampaignMap).map(function(campId) {
+      var c = campaignsMap[campId];
+      return {
+        id: campId,
+        name: c ? c.name : "Desconhecida",
+        slug: c ? c.slug : "",
+        requests: perCampaignMap[campId].requests,
+        offer: perCampaignMap[campId].offer,
+        safe: perCampaignMap[campId].safe,
+        bots: perCampaignMap[campId].bots
+      };
+    }).sort(function(a, b) { return b.requests - a.requests; });
+    return sendJson(res, 200, { ok: true, totals: totals, series: series, perCampaign: perCampaign });
+  }
+
   /* rota bonita do painel */
   if ((req.method === "GET" || req.method === "HEAD") && (pathname === "/admin" || pathname === "/admin/")) {
     return serveStatic(req, res, "/admin.html");
@@ -8245,6 +8846,101 @@ var server = http.createServer(async function (req, res) {
   ) {
     res.writeHead(302, { Location: "/" });
     return res.end();
+  }
+
+  /* ---------- Cloaker Pro: entrada publica /c/:slug + resolve ---------- */
+  if (req.method === "GET" && pathname.indexOf("/c/") === 0) {
+    var slug = pathname.slice(3).replace(/\/+$/, "");
+    var cfg = loadCampaignsConfig();
+    var camp = null;
+    for (var i = 0; i < (cfg.campaigns || []).length; i++) {
+      var c = cfg.campaigns[i];
+      if (c.enabled && String(c.slug || "").toLowerCase() === slug.toLowerCase()) {
+        camp = c;
+        break;
+      }
+    }
+    if (!camp) {
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      return res.end("Not found");
+    }
+    recordCampEvent(camp.id, "requests");
+    var dec = await decideCampaign(camp, req, url);
+    (function () {
+      try {
+        var ipL = clientIpOf(req);
+        var uaL = String(req.headers["user-agent"] || "");
+        var refL = String(req.headers.referer || "");
+        var refHost = "";
+        try { if (refL) refHost = new URL(refL).hostname; } catch (eR) {}
+        var devL = serverDesktopUa(uaL.toLowerCase()) ? "desktop" : "mobile";
+        var ttL = !!(url.searchParams && String(url.searchParams.get("ttclid") || "") !== "");
+        var entryL = {
+          t: new Date().toISOString(), camp: camp.id, slug: camp.slug,
+          ip: ipL, cc: "", device: devL,
+          ua: uaL.slice(0, 80),
+          outcome: dec.outcome === "offer" ? "offer" : (dec.botLike ? "bot" : "safe"),
+          reason: dec.reason || "", ttclid: ttL, ref: refHost
+        };
+        recordCampAccess(entryL);
+        fetchIpIntel(ipL).then(function (d) {
+          if (d && d.countryCode) { entryL.cc = String(d.countryCode).toUpperCase(); saveCampLog(); }
+        });
+      } catch (eLog) {}
+    })();
+    if (dec.outcome === "safe") {
+      recordCampEvent(camp.id, dec.botLike ? "bots" : "safe");
+      var safeUrl = camp.safe.url || "/compra";
+      if (camp.safe.method === "redirect" || camp.safe.method === "unpack" || camp.safe.method === "mirror") {
+        if (url.searchParams) {
+          ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ttclid"].forEach(function(p) {
+            var v = url.searchParams.get(p);
+            if (v) safeUrl = safeUrl + (safeUrl.indexOf("?") !== -1 ? "&" : "?") + p + "=" + encodeURIComponent(v);
+          });
+        }
+        if (camp.safe.method === "redirect") {
+          res.writeHead(302, { Location: safeUrl, "Cache-Control": "no-store" });
+          return res.end();
+        } else {
+          return proxyHtml(res, safeUrl, req, safeUrl);
+        }
+      }
+    } else {
+      recordCampEvent(camp.id, "offer");
+      if (camp.offer.method === "internal") {
+        return serveInternalStore(res, camp.entryStore, pathname, req);
+      } else if (camp.offer.method === "redirect") {
+        res.writeHead(302, { Location: dec.offerUrl, "Cache-Control": "no-store" });
+        return res.end();
+      } else {
+        return proxyHtml(res, dec.offerUrl, req, dec.offerUrl);
+      }
+    }
+  }
+
+  /* ---------- Cloaker Pro: resolver campanha (público, sem auth) ---------- */
+  if (req.method === "GET" && pathname === "/api/campaigns/resolve") {
+    var qSlug = String((url.searchParams && url.searchParams.get("q")) || "").trim();
+    var cfg2 = loadCampaignsConfig();
+    var found = null;
+    for (var j = 0; j < (cfg2.campaigns || []).length; j++) {
+      var c2 = cfg2.campaigns[j];
+      if (c2.enabled && String(c2.slug || "").toLowerCase() === qSlug.toLowerCase()) {
+        found = {
+          id: c2.id,
+          slug: c2.slug,
+          enabled: c2.enabled,
+          safe: c2.safe,
+          offer: c2.offer,
+          targeting: c2.targeting,
+          filters: c2.filters,
+          tokenEnabled: c2.tokenEnabled,
+          entryStore: c2.entryStore
+        };
+        break;
+      }
+    }
+    return sendJson(res, 200, { ok: true, campaign: found });
   }
 
   if (req.method === "GET" || req.method === "HEAD") {
