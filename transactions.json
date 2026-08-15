@@ -21339,5 +21339,64 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-15T20:00:18.152Z"
+  },
+  {
+    "id": "psa_ef8f4fd349fb51c57967318cb41d11b1",
+    "tracking_code": "SOHVA6FQU5HUBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Roseli Camargo",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "15996652455",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuMB1dtbumdkFGjtTseWmFyT0tlO3R0iDTBMVUWgxaeIf-W8SKMxu0HnBDynYpBS_tRjOa8yI5Ost2yTMVu2jHzoGTZWP6A6hhneLZRVcUaR3e1mHN8qttw9yDiTxZjmpzsFAk1OqHA5J1sBuRE-uXhsjBOtMyQAcs7gHvWO_2e4LQwEUC6JnzZqvzsGMzD86J",
+    "ttp": "01M03GPBQ8J9JREXBPJNGDPJ8R_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t4e95bmaxm4omsut7ohg",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18320-085",
+      "uf": "SP",
+      "cidade": "Apiaí",
+      "bairro": "Centro",
+      "rua": "Rua Benedito Cesário Prestes",
+      "numero": "56",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msutalg1_405c2a777a",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/4f878a73-f88c-41db-8f68-27c00e01b20b5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63049A34",
+    "created_at": "2026-08-15T20:11:44.896Z",
+    "paid_at": null
   }
 ]
