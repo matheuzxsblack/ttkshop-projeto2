@@ -19448,5 +19448,114 @@
     "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/3a1754ee-3892-4b12-b3d4-4e94be0ceaca520400005303986540543.745802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525b196b5c361524125b5ef57de7630463D1",
     "created_at": "2026-08-15T10:37:14.123Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_1cf08fdb3de55e576fc527ceef9fda10",
+    "tracking_code": "SOWPT8FANPX2BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Viviane Santiago de Deus",
+    "client_email": "viviasanthy@hotmail.com",
+    "client_doc": "95255990515",
+    "client_doc_entered": "95255990515",
+    "doc_pix_fallback": false,
+    "client_phone": "71986178886",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABtl7zSu1Kz-5gbhDzhCyFZXNIMW-KbD8xOd3T9-xxOIxYzEejiFJZiiKFFkf3yNZpIbHCdV8WbWDPwhcPVmQHnCutWzAqW5VwaammR7egsKCU7JK514vXsLQMHeqc2YQgJ_RSy0relRlvzBcEfd0WyunW4DSrmTao0DG9552-rnfgW3a1zXV6zKfg7FT-63",
+    "ttp": "01M02G3BV4ANWMTRZ2D903PGJP_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tvbpfyqwogemmsu8v593",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "41480-060",
+      "uf": "BA",
+      "cidade": "Salvador",
+      "bairro": "Mussurunga",
+      "rua": "Alameda Vila Mariana",
+      "numero": "34",
+      "complemento": "Rua D, Setor J ,Bloco 7, apartamento 001"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msu8zwgm_96e00df2fd",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/6c447f92-2552-4fa4-9d96-1d07c99543f2520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo622905254c4114378b85452d9bfa64ad56304B7DE",
+    "created_at": "2026-08-15T10:43:33.699Z",
+    "paid_at": "2026-08-15T10:45:19.424Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_a591a7883b6e213e4f1a25971aec942c",
+    "tracking_code": "SOZQ4RMED5ZHBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Madalena Vadora Benites",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "18981070020",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBH94J7YHWGd3UpyKn0alWz4Dk2opZHKhHWdQDetH1uMIBluBUpDfUmd6AfJrOCvj2Hq-VDNxBYql4l_uAlOkjST0Und6VMbst2dkmblZyRx4twYyqfePzofwanZDVr40KQryo8WHdj5KCXPwcyUzlLDitauvnm5wB67Fln4B3tW36wVRaoqG4-dPre7vh9Z",
+    "ttp": "01M02G4AJK29T19TBBGV3ZX0GG_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tjfmnej10epcmsu8vti4",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "87720-295",
+      "uf": "PR",
+      "cidade": "Paranavaí",
+      "bairro": "Jardim das Américas (Sumaré)",
+      "rua": "Rua José Gracindo de Oliveira",
+      "numero": "864",
+      "complemento": "Cs"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msu90i4u_866c64d52d",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/6406f612-558b-4080-ab26-1c3135d8fac1520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525dcdd35e0545f41bd9293023bb6304AD2A",
+    "created_at": "2026-08-15T10:44:01.700Z",
+    "paid_at": "2026-08-15T10:45:23.152Z",
+    "net_amount": 3499
   }
 ]
