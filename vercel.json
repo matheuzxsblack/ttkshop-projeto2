@@ -5,26 +5,96 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/panelas", "destination": "/panela", "permanent": false },
-    { "source": "/panelas/", "destination": "/panela", "permanent": false },
-    { "source": "/simular", "destination": "/?simular=1", "permanent": false },
-    { "source": "/simular/", "destination": "/?simular=1", "permanent": false },
-    { "source": "/admin/", "destination": "/admin", "permanent": false },
-    { "source": "/bbj", "destination": "/compra?topic=casaco", "permanent": false },
-    { "source": "/bbj/", "destination": "/compra?topic=casaco", "permanent": false },
-    { "source": "/jqt", "destination": "/compra?topic=jaqueta", "permanent": false },
-    { "source": "/jqt/", "destination": "/compra?topic=jaqueta", "permanent": false },
-    { "source": "/tlh", "destination": "/compra?topic=toalha", "permanent": false },
-    { "source": "/tlh/", "destination": "/compra?topic=toalha", "permanent": false },
-    { "source": "/rp", "destination": "/compra?topic=roupao", "permanent": false },
-    { "source": "/rp/", "destination": "/compra?topic=roupao", "permanent": false },
-    { "source": "/tdd", "destination": "/compra?topic=casaquinho", "permanent": false },
-    { "source": "/tdd/", "destination": "/compra?topic=casaquinho", "permanent": false }
+    {
+      "source": "/c/:path*",
+      "destination": "https://ttkshop-projeto2.onrender.com/c/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/panelas",
+      "destination": "/panela",
+      "permanent": false
+    },
+    {
+      "source": "/panelas/",
+      "destination": "/panela",
+      "permanent": false
+    },
+    {
+      "source": "/simular",
+      "destination": "/?simular=1",
+      "permanent": false
+    },
+    {
+      "source": "/simular/",
+      "destination": "/?simular=1",
+      "permanent": false
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin",
+      "permanent": false
+    },
+    {
+      "source": "/bbj",
+      "destination": "/compra?topic=casaco",
+      "permanent": false
+    },
+    {
+      "source": "/bbj/",
+      "destination": "/compra?topic=casaco",
+      "permanent": false
+    },
+    {
+      "source": "/jqt",
+      "destination": "/compra?topic=jaqueta",
+      "permanent": false
+    },
+    {
+      "source": "/jqt/",
+      "destination": "/compra?topic=jaqueta",
+      "permanent": false
+    },
+    {
+      "source": "/tlh",
+      "destination": "/compra?topic=toalha",
+      "permanent": false
+    },
+    {
+      "source": "/tlh/",
+      "destination": "/compra?topic=toalha",
+      "permanent": false
+    },
+    {
+      "source": "/rp",
+      "destination": "/compra?topic=roupao",
+      "permanent": false
+    },
+    {
+      "source": "/rp/",
+      "destination": "/compra?topic=roupao",
+      "permanent": false
+    },
+    {
+      "source": "/tdd",
+      "destination": "/compra?topic=casaquinho",
+      "permanent": false
+    },
+    {
+      "source": "/tdd/",
+      "destination": "/compra?topic=casaquinho",
+      "permanent": false
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     }
   ]
 }

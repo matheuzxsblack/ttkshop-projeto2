@@ -1,7 +1,7 @@
 /* Funil multi-loja — eventos ao Render (ttkshop-panelas). */
 (function () {
   function renderApiUrl() {
-    return (typeof window.TTK_RENDER_API === "string" && window.TTK_RENDER_API) || "https://ttkshop-panelas-9e6w.onrender.com";
+    return (typeof window.TTK_RENDER_API === "string" && window.TTK_RENDER_API) || "https://ttkshop-projeto2.onrender.com";
   }
   function apiBase() {
     try {

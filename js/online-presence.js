@@ -13,7 +13,7 @@
       ) {
         return (
           (typeof window.TTK_RENDER_API === "string" && window.TTK_RENDER_API) ||
-          "https://ttkshop-panelas-9e6w.onrender.com"
+          "https://ttkshop-projeto2.onrender.com"
         );
       }
     } catch (e) {}

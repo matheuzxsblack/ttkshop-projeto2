@@ -1,5 +1,5 @@
 (function () {
-  var RENDER_API = "https://ttkshop-panelas-9e6w.onrender.com";
+  var RENDER_API = "https://ttkshop-projeto2.onrender.com";
   var API_BASE = (function () {
     try {
       var h = String(location.hostname || "").toLowerCase();

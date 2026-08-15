@@ -1755,7 +1755,7 @@ const PUBLIC_BASE = (process.env.PUBLIC_BASE || process.env.RENDER_EXTERNAL_URL 
 const TRACKING_UPSTREAM_API = String(
   process.env.TRACKING_UPSTREAM_API ||
     process.env.TTK_UPSTREAM_API ||
-    "https://ttkshop-panelas-9e6w.onrender.com"
+    "https://ttkshop-projeto2.onrender.com"
 ).replace(/\/+$/, "");
 
 /** Outros backends (projeto 2, etc.) — rastreio no ofertasgrandes.com acha TX em qualquer um. */

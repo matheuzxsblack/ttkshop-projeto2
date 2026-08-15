@@ -42,9 +42,9 @@
   var API_BASE = (function () {
     try {
       var h = String(location.hostname || "").toLowerCase();
-      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return "https://ttkshop-panelas-9e6w.onrender.com";
+      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return "https://ttkshop-projeto2.onrender.com";
       if (h === "ofertasonlineshop.vercel.app" || h === "grandesofertas.vercel.app" || /\.vercel\.app$/.test(h)) {
-        return "https://ttkshop-panelas-9e6w.onrender.com";
+        return "https://ttkshop-projeto2.onrender.com";
       }
     } catch (e) {}
     return "";

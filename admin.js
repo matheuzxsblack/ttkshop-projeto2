@@ -9,7 +9,7 @@
           if (h.endsWith(".onrender.com")) return "";
           var fromCfg = String((window.TTK_RENDER_API || "")).replace(/\/$/, "");
           if (fromCfg) return fromCfg;
-          if (/\.vercel\.app$/.test(h)) return "https://ttkshop-panelas-9e6w.onrender.com";
+          if (/\.vercel\.app$/.test(h)) return "https://ttkshop-projeto2.onrender.com";
         } catch (e) {}
         return "";
       })();

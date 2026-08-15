@@ -72,7 +72,7 @@
 
   /* API no mesmo host (Render/local). Em front estático separado (Vercel), aponta pro Render. */
   var API_BASE = (function () {
-    var renderApi = "https://ttkshop-panelas-9e6w.onrender.com";
+    var renderApi = "https://ttkshop-projeto2.onrender.com";
     try {
       var h = String(location.hostname || "").toLowerCase();
       if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com" || h.endsWith(".onrender.com")) return "";

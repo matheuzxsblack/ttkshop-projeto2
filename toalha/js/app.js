@@ -84,7 +84,7 @@
   var API_BASE = (function () {
     try {
       var h = String(location.hostname || "").toLowerCase();
-      var renderApi = "https://ttkshop-panelas-9e6w.onrender.com";
+      var renderApi = "https://ttkshop-projeto2.onrender.com";
       if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return renderApi;
       if (h === "ofertasonlineshop.vercel.app" || h === "grandesofertas.vercel.app" || /\.vercel\.app$/.test(h)) {
         return renderApi;
