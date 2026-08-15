@@ -19222,5 +19222,53 @@
     "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/65394e09-cf20-49fd-beb9-1efc85eab48d520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525a938e9c68d2d4806911734bba630467A2",
     "created_at": "2026-08-15T08:48:45.601Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_ee469e8bc7dd83d6b1d0eec5965fc3fb",
+    "tracking_code": "SO2TCZYYBBQ8BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Adriana SantanaMaia",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5522997276227",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB-1FydwL87siBErWXjjP1lCu8GL_anr61czyNX5-lIClXs4nTFc4kQYZRZIAmSDKIXxaFFFCuWc0ru00pialHbdSAYWtbBTgYULhI07HB9xVFx4kDRz-STnXPkY3SRsqDfkTzWceOOMKu4j0z-jvrNYOWxgM1vWc2KdErKAdfnRH8FWz5W7PFli1EXRZQBH",
+    "ttp": "01M02CA6YXRMXTQHYMFQ4VPEDW_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "to9al1drnjwemsu6i1wg",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "28860-000",
+      "uf": "RJ",
+      "cidade": "Casimiro de Abreu",
+      "bairro": "RIO DOURADO",
+      "rua": "Rua Leopoldo Salles",
+      "numero": "02",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msu6lb4p_1a5e8033f6",
+    "br_code": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/a1da8357-f174-4fec-8f10-d0497cdf58c6520400005303986540534.995802BR5918PAYSYNC PAGAMENTOS6009Sao Paulo62290525587738a32de847ce856ed63a66304BACB",
+    "created_at": "2026-08-15T09:36:13.938Z",
+    "paid_at": "2026-08-15T09:37:44.238Z",
+    "net_amount": 3499
   }
 ]
