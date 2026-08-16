@@ -24711,9 +24711,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvtgc0d_b041af6830",
@@ -25255,6 +25255,65 @@
     "external_id": "ttk_msvu8zav_396a95b4c8",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/b1d2be91-3378-4f5c-96c0-a859e154d9595204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304DDEA",
     "created_at": "2026-08-16T13:26:15.272Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_a928a6ea8adb4a97063d20b36c4b6b0c",
+    "tracking_code": "SOT7PMLQUSNGBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Marlene  silva",
+    "client_email": "Maraiura@gmail.com",
+    "client_doc": "78782414149",
+    "client_doc_entered": "78782414149",
+    "doc_pix_fallback": false,
+    "client_phone": "5564981770",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABibFh4Q8UC0jdD9nj6jcc3FX5hxjjAvp99zglzs2Oy5pjXqvjzNEToUBMFguMWRVdlsDsdhxuuAhZpSsyF5BkBr1jK0ObJaR-cRxkvctKwGEB3PZZqKSzCbP-Yj1vSxp8U2hX8mQSMiX4cf9Iwh9jkSCX6OwO7V3N32dSe45D3wMaI57A84bAprtwTFcsm3",
+    "ttp": "01M05CCNRV56PR0WGDPYAN0Q3G_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgykyjkq4iu9msvuhcgo",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "75533-338",
+      "uf": "GO",
+      "cidade": "Itumbiara",
+      "bairro": "Vila Vitória I",
+      "rua": "Rua Maria das Dores Silva",
+      "numero": "74",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvukb8r_9224f9b7e1",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/9a738d2d-f59f-4509-8c8a-034240df1c025204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304D02D",
+    "created_at": "2026-08-16T13:35:04.040Z",
     "paid_at": null
   }
 ]
