@@ -30503,5 +30503,271 @@
     "paid_at": "2026-08-16T19:08:28.433Z",
     "net_amount": 3499,
     "email_sent": true
+  },
+  {
+    "id": "psa_fe6d5307a5f55856bdca0353648d4866",
+    "tracking_code": "SO94XZUJB5Q8BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Lorete B. Monteiro",
+    "client_email": "loretebenck@gmail.com",
+    "client_doc": "91745098020",
+    "client_doc_entered": "91745098020",
+    "doc_pix_fallback": false,
+    "client_phone": "5599608315",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBPq2OO5KALl6Wb-wAuctk9fuEaMsi0vle-IBccLlg00vIW0EjdEvLrmihiCW4ohwh1uiphpjpzxtMSiObMDlx1Mv_ak_1oexKWSOt2d2TEP9qfKoSqm-VcHwiSHtdXhggZDoiZcVvHJm6af8g6_8HVRQ8MHhCUkMt1WTx6QrY71B8iDfeI5LW7nGMO2wN_M",
+    "ttp": "01M05Z9YP227QZBQQ6Y23NP6KG_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tlds92aeb21msw6i6rj",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "95560-000",
+      "uf": "RS",
+      "cidade": "Torres",
+      "bairro": "São Braz",
+      "rua": "Br 101 km 08 são Braz",
+      "numero": "8001",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw6kxmy_6ad21acc88",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/43eeb5b9-d768-49a7-8db6-f14aa14c50355204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630461E1",
+    "created_at": "2026-08-16T19:11:28.532Z",
+    "paid_at": "2026-08-16T19:12:26.218Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T19:12:29.972Z"
+  },
+  {
+    "id": "psa_e2dab3ce77c2602227167187154b92ed",
+    "tracking_code": "SO9WNCWHB7MZBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Norelis Palma",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "92994561358",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBgEcxjy3sdzp4BeyWzgSjMXbleJpHC3Ck1qRbrGvDDQKdNCiayk3QeXsw07wcr-l7wpffVYf8uJauedJAYcdZdW7EJa-Vnnal7uWh5nidgyZVd4ULQgXfVnt32HCnog9RXFVDXHvNBzjjdDw822crp2M5nrrNrkq3L6OvHeWdepo5uAMDWYcKw3t6QR-qdR",
+    "ttp": "01M05ZPWGXKGA3153E0QGV9P0G_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t3nxuivjcc4pmsw6jidd",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "69048-190",
+      "uf": "AM",
+      "cidade": "Manaus",
+      "bairro": "Da Paz",
+      "rua": "Rua Gurupi",
+      "numero": "82",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw6lu55_bc067f027c",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/f0068847-8cb1-4da5-88c7-cc97ead7ca775204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304F727",
+    "created_at": "2026-08-16T19:12:10.154Z",
+    "paid_at": "2026-08-16T19:14:29.509Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_bf7a097bba9a7ef40eaee9967706ec6f",
+    "tracking_code": "SOPNEATN6GHABR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Cleide Castelar",
+    "client_email": "mauro.pennacchi@yahoo.com.br",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "43999735812",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBBupx9ueRRXJSJ6q079vvZQ-aR0vV1zOt3jNuMIxpRzOh3JcdErOTYnVMiKqPCvqhaT9S3Up-eg524hjyxfrC1LXcZZqJJvUIqQZn7VRdT8upc85R5aAy_N5xElpHJR9T5KdqkBpti6VmKZbKkcleWxvRfKjCwMjEjK16LA1YTMF8MhEy-oYIaxFJ29QyM-",
+    "ttp": "01M05ZD91XZ5ECFQG6CAX20E1S_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tsiij9j4351msw6j2cz",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "86930-000",
+      "uf": "PR",
+      "cidade": "São João do Ivaí",
+      "bairro": "Distrito de Luar",
+      "rua": "Rua José Andrade de Abreu",
+      "numero": "395",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw6mgia_8fc89176c9",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/ff0502fa-f0ee-49cd-95d7-d226e537187e5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63045F47",
+    "created_at": "2026-08-16T19:12:39.129Z",
+    "paid_at": "2026-08-16T19:14:41.132Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_9d0af6556ba50ac809d529ff05d728a6",
+    "tracking_code": "SOP66DQGKYLGBR",
+    "amount": 6316,
+    "status": "pending",
+    "client_name": "Norelis Palma",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "92994561358",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBgEcxjy3sdzp4BeyWzgSjMXbleJpHC3Ck1qRbrGvDDQKdNCiayk3QeXsw07wcr-l7wpffVYf8uJauedJAYcdZdW7EJa-Vnnal7uWh5nidgyZVd4ULQgXfVnt32HCnog9RXFVDXHvNBzjjdDw822crp2M5nrrNrkq3L6OvHeWdepo5uAMDWYcKw3t6QR-qdR",
+    "ttp": "01M05ZPWGXKGA3153E0QGV9P0G_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t3nxuivjcc4pmsw6jidd",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "69048-190",
+      "uf": "AM",
+      "cidade": "Manaus",
+      "bairro": "Da Paz",
+      "rua": "Rua Gurupi",
+      "numero": "82",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 8
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw6n0ul_1e45ab408d",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/32d8c77d-805c-4fb8-95bc-6b6ee0c582635204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63047D19",
+    "created_at": "2026-08-16T19:13:05.521Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_9e673cb0c429d9777c4f926187b3942a",
+    "tracking_code": "SO8PU7DRR7DYBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Marineide Santos Da Trindade",
+    "client_email": "marineidesantosdatrindade74@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "18997666894",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBwlVZmyfcOF1eEFGvTYnsI31U2Bz4TvAfhZkYqVGN24iBIj8j2lWw7aC7pcSDty2VY0cv65uljFtVYzUNebqnUsE5JRzT8B16Gg6PsBLObv_GQZSA6_7-jVdYzKMH-JtjN1ld39r68zcu99MFs9qJeH1LgGpj_1k7dIQzUYH1_xR_WZfvvMp2fW4OwUGolb",
+    "ttp": "01M05Z80XFCGQGB4AVE5VHKXZS_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1510f75wdzemsw69z8h",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "46463-860",
+      "uf": "BA",
+      "cidade": "Palmas de Monte Alto",
+      "bairro": "Barrinha",
+      "rua": "Avenida Sebastião Laranjeiras",
+      "numero": "345",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw6nnk5_748f6d2ba4",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/96f0a4a6-cd94-4302-b2ad-812b1b2964a65204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63046649",
+    "created_at": "2026-08-16T19:13:34.872Z",
+    "paid_at": null
   }
 ]
