@@ -23648,5 +23648,52 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/2b6b4780-6457-4c3a-b92b-442ea054b4d95204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304C971",
     "created_at": "2026-08-16T11:40:49.902Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_e6b4d42d52667b796b486ab1ab5b7242",
+    "tracking_code": "SO8K3C5XRGDHBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Cilene correa Mendonça",
+    "client_email": "mendoncacilene126@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "91984407075",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABAk9rxz1xHMYdq9l0xpQ9LrUtucCV7y3NH7_zmkTUkW-9uLfyfarqdTuJ5qfJowGUzeOey2dRjphqoKdqToQFanF1lMQpr46CjlwZ33jIQiQIhvAOVtjsB1g-ELBubWTwlpvL5lq6LhaF4QySDOpq3c9QnrbhhK-uWrcADYJwycZIeD0-YRWncfu3E3K0aZ",
+    "ttp": "01M055Z3C6MEDT3K4HH13F3VM7_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t7wgsl7cc5n8msvqiwx4",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "66645-500",
+      "uf": "PA",
+      "cidade": "Belém",
+      "bairro": "Castanheira",
+      "rua": "Rua Santa Odília",
+      "numero": "903",
+      "complemento": "Estância tijolão atalaia"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvqk5ia_1552f3158f",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/b4c05671-7882-4f8e-a77e-b83d7b98b7d45204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63049D64",
+    "created_at": "2026-08-16T11:42:57.817Z",
+    "paid_at": null
   }
 ]
