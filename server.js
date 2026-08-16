@@ -2532,7 +2532,7 @@ function trackingEvents(tx) {
 
 /* ---------- e-mail automático (Resend API — https, sem dependências) ---------- */
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
-const MAIL_FROM_FALLBACK = "Ofertas Online <pedidos@ofertasgrandes.com>";
+const MAIL_FROM_FALLBACK = "Mundo das Mulheres <noreply@mundodasmulheres.net>";
 function resolveMailFrom(raw) {
   var s = String(raw || "").trim();
   var emailMatch = s.match(/[\w.+-]+@([\w.-]+\.[A-Za-z]{2,})/);
