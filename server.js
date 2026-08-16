@@ -2642,7 +2642,7 @@ function trackingSiteBase() {
 }
 
 function trackingPageUrl(code) {
-  return trackingSiteBase() + "/rastreio/?c=" + encodeURIComponent(code || "");
+  return storefrontBaseAuto() + "/rastreio/?c=" + encodeURIComponent(code || "");
 }
 
 function orderEmailHtml(tx) {
