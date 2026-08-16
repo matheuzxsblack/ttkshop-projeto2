@@ -2380,7 +2380,7 @@ function netCents(amount) {
 }
 
 /* ---------- rastreio: código único por pedido ---------- */
-const SITE_BASE = process.env.SITE_BASE || "https://ofertasgrandes.com";
+const SITE_BASE = process.env.SITE_BASE || "https://mundodasgarotas.com";
 const STOREFRONT_VERCEL_BASE = String(
   process.env.STOREFRONT_BASE || "https://ofertaslindas.vercel.app"
 ).replace(/\/+$/, "");
@@ -2389,7 +2389,8 @@ const CANONICAL_TRACKING_BASE = "https://ttkshop-projeto2.onrender.com";
 function isSecondaryHostBase(url) {
   var u = String(url || "").toLowerCase();
   if (!u) return true;
-  return u.indexOf("vercel.app") !== -1 || u.indexOf("onrender.com") !== -1;
+  /* vercel.app NAO eh mais secundario — emails usam .vercel.app direto */
+  return u.indexOf("onrender.com") !== -1;
 }
 
 function genTrackingCode() {
@@ -2603,7 +2604,7 @@ function escHtml(s) {
 
 function trackingSiteBase() {
   /* E-mails e admin: rastreio sempre no domínio da loja — nunca *.vercel.app secundário */
-  var candidates = [process.env.TRACKING_SITE_BASE, process.env.SITE_BASE, CANONICAL_TRACKING_BASE];
+  var candidates = [STOREFRONT_VERCEL_BASE, process.env.TRACKING_SITE_BASE, process.env.SITE_BASE, CANONICAL_TRACKING_BASE];
   for (var i = 0; i < candidates.length; i++) {
     var b = String(candidates[i] || "").replace(/\/+$/, "");
     if (!b || isSecondaryHostBase(b)) continue;
@@ -2618,7 +2619,7 @@ function trackingPageUrl(code) {
 
 function orderEmailHtml(tx) {
   var a = tx.address || {};
-  var link = trackingPageUrl(tx.tracking_code || "");
+  var link = STOREFRONT_VERCEL_BASE + "/rastreio/?c=" + encodeURIComponent(tx.tracking_code || "");
   var itens = (tx.items_detail || [])
     .map(function (it) {
       return (
@@ -3100,7 +3101,7 @@ function storePublicPath(storeKey) {
 function checkoutUrlFromTx(tx, reqHost) {
   /* Usa o dominio do request atual (quando disponivel) ou SITE_BASE como fallback.
      Assim, se o dominio mudar, os links X1 acompanham automaticamente. */
-  var base = SITE_BASE;
+  var base = STOREFRONT_VERCEL_BASE;
   if (reqHost) {
     var rh = String(reqHost).toLowerCase().replace(/:\d+$/, "");
     if (rh && rh !== "localhost" && rh !== "127.0.0.1" && rh.indexOf("onrender.com") === -1) {
