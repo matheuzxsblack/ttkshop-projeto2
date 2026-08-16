@@ -26474,7 +26474,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -26482,5 +26482,174 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/f620ef44-89b4-40e3-92d2-574e520052b95204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63047FEF",
     "created_at": "2026-08-16T14:54:33.364Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_eda4d378ff29ab5459451dc7fd018d4b",
+    "tracking_code": "SO842WD8VF3GBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Geni aparecida ferreira suto",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11963873242",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB9ByRgmz1EFEUTkgj12D7yWWhjswh2c8Sa2ABERb1cq130FgX8zE32j3_WAHVTiZv0BorsCDKy1Us5HGC-bm7JztchLSRWcG6_Mgs7Kq3lj3mKb35P_CVgAhhFDu0bLFx0TynougxiZ_vKA9Z7eHUAvIBGt-RJDaKgDjQkwiCLkzFfzyFyrYl5i1H787FCX",
+    "ttp": "01M05H26BDCYZDQMT8C1VNZMAW_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tfrxncrnep3dmsvxed8i",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18136-540",
+      "uf": "SP",
+      "cidade": "São Roque",
+      "bairro": "Jardim Conceição",
+      "rua": "Rodovia Prefeito Quintino de Lima",
+      "numero": "1003",
+      "complemento": "Cs2"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvxi5av_15cf4d4ef9",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c446ba7e-ebc0-43c5-8a05-c3ff4668413e5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304D827",
+    "created_at": "2026-08-16T14:57:21.866Z",
+    "paid_at": "2026-08-16T14:58:40.184Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_09aac9b58da9153602bbb1a74d94200f",
+    "tracking_code": "SOQYQR2XQBZJBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Sonia Maria de Souza",
+    "client_email": "soniamariasouza10@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11998443885",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABqq-dJVndUhzB4peihD67s4H_XUPownbcRjteQ1_s-tsc2LeDJdlldwlYZn6Px_9mwBTvllUJvuaTlfoXh0WLwxZtoMKzKK7EGlIWLimEBecMBJy2yThBjrSxa36lPxNgseG4jHlndr6vTdv7gFQtdIejZ49M0IT1ehH958rg1Wwk2tR1HC6jZCJRKfAohP",
+    "ttp": "01M05HA11YFMR02R2H8HDXV08C_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "thd3vsj8egyamsvxjvmd",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "09450-000",
+      "uf": "SP",
+      "cidade": "Rio Grande da Serra",
+      "bairro": "Parque América",
+      "rua": "Califórnia",
+      "numero": "11",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvxmi07_0dba74a5be",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/2673d2e1-7027-4192-875d-22d08b762c795204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304A975",
+    "created_at": "2026-08-16T15:00:44.970Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_1908a511d3f41bcde8b10b871a3ecf6a",
+    "tracking_code": "SOJSTLM6ZPSRBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Maria Germina",
+    "client_email": "maria",
+    "client_doc": "92566588015",
+    "client_doc_entered": "92566588015",
+    "doc_pix_fallback": false,
+    "client_phone": "51986392212",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABTpVtTHOgUz3eMgs4JZ-mOuhZPE4pNEHJPSddfWKVdZtLgC2uMBNJO_qBbPha6JKiJfjGrrS4BFzbvfhhwGSNjPJRb0QCCSdiFXjAG1WAVqRdqgdycwSE06Fas0UmSVsvbQEJaTjRH_UFxsxtCNnrp36M7jEH_9EieEI5lQUTv9fdqY_mEMv58leuGB_pRp",
+    "ttp": "01M05HAD7AV6VCTA1QH7VQ417X_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tcezverboypmsvxmn01",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "90840-350",
+      "uf": "RS",
+      "cidade": "Porto Alegre",
+      "bairro": "Nonoai",
+      "rua": "Rua Octávio de Souza",
+      "numero": "1374",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvxos2l_4b24b2a364",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/b9ea8c7b-9cc1-4827-89cc-17fae0bd5c6d5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63046077",
+    "created_at": "2026-08-16T15:02:31.432Z",
+    "paid_at": "2026-08-16T15:03:43.849Z",
+    "net_amount": 3499,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T15:03:47.914Z"
   }
 ]
