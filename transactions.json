@@ -21995,5 +21995,124 @@
     "created_at": "2026-08-15T23:42:21.261Z",
     "paid_at": "2026-08-15T23:43:46.413Z",
     "net_amount": 3499
+  },
+  {
+    "id": "psa_2046397642b2b3dfa75e43eb247a2ef4",
+    "tracking_code": "SO828R5U3RMMBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Maristela custodio",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5531989314568",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBZmnTBS_wWbYr86EHyUnd79evzXf-b9zOgtdGrgx6Ga6MzcU_2GFWT-qNwHof6ezwD83egnS862Z7gkzNj1T7fJPafTPOg3YKnV_N9X-dbNMcScDLGjwCUHzOz2sX7BShdCw0hSWa3MHuLVM6IPMHGgjn8o9PwwZIs8UnCizgCccS3ZHkmu2Uw1d6IXda6n",
+    "ttp": "01M03XV9Z3WDW9Z60Y809VDKC6_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tom14g39ksmsv1f5x0",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "30880-310",
+      "uf": "MG",
+      "cidade": "Belo Horizonte",
+      "bairro": "Novo Glória",
+      "rua": "Rua João Ramalho",
+      "numero": "39",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msv1h7zt_9d34210f1d",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/2fab5463-d508-4de6-be8d-ad2f3aa6e1345204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304DF8B",
+    "created_at": "2026-08-16T00:00:50.822Z",
+    "paid_at": "2026-08-16T00:02:33.469Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_fc567e9dae3b187378b708a79694d9be",
+    "tracking_code": "SOU4QZ89LK8PBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Erilene Silva de Carvalho",
+    "client_email": "serilene320@gmail.com",
+    "client_doc": "19069549840",
+    "client_doc_entered": "19069549840",
+    "doc_pix_fallback": false,
+    "client_phone": "77999891406",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBlQSz1yJhqieVVdmLA8zk2y6YHhfLMTRwswG9nDbea3ycP5qt-jukrqug9BEHk4ENEBgLp713DViAYq6D5xoZpUAdvXDW3ncNszUOsZazhmjNipkhttpmVJl9mB5ugszcXwL9jtH2bNEDmKRNHBvgItKWmOPpIsM6dYEmmU0uFMs3T_8H24c_39WLCRl-Pa",
+    "ttp": "01M03XHDAN5K0QTJXNZRMEQHAV_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t6c4p7sgms6msv1dhqo",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "46470-000",
+      "uf": "BA",
+      "cidade": "Riacho de Santana",
+      "bairro": "Bom retiro",
+      "rua": "Rua Joaquim Guimarães e Silva",
+      "numero": "100",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msv1hesi_8fc5d5ee69",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/5609d4a0-e4a5-4047-9c7b-359c9604eff55204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304BF1F",
+    "created_at": "2026-08-16T00:00:59.207Z",
+    "paid_at": null
   }
 ]
