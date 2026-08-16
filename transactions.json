@@ -23695,5 +23695,52 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/b4c05671-7882-4f8e-a77e-b83d7b98b7d45204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63049D64",
     "created_at": "2026-08-16T11:42:57.817Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_560d3d55765c8d69eac8033feb40eb4a",
+    "tracking_code": "SOW8KS7SBQZBBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Juliana Santos",
+    "client_email": "santos.juliana.30.vieira@gmail.com",
+    "client_doc": "16074754721",
+    "client_doc_entered": "16074754721",
+    "doc_pix_fallback": false,
+    "client_phone": "5522999235948",
+    "origem": "jaqueta-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABCbUpeH-EMr5qCLkmAr8LNVLRboplkgX2AE09w6r5JP5dZeWngy79i6IbhL4ouJXIM72Q0DDxYF6VQxuNAeapL08Is7hXzfV1gVDm4DTP5HwxvWBR7FghfDvcrC1d-S_FdM4uCIT8IqUPUZf4bXetHjNZUjlcy0rBZ4IA5uIsGUqaIKHktSxE9XHzZ-PpvO",
+    "ttp": "01M0564E62S8TVNNXDQQMCC7KX_.tt.2",
+    "attribution_pixel_id": "D9H8UP3C77U5O97QPF1G",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tba6xrc1zs9dmsvqo1be",
+    "funnel_store": "jaqueta",
+    "address": {
+      "cep": "27910-020",
+      "uf": "RJ",
+      "cidade": "Macaé",
+      "bairro": "Centro",
+      "rua": "Rua Visconde de Quissama",
+      "numero": "218",
+      "complemento": "Loja"
+    },
+    "items_detail": [
+      {
+        "variante": "Jaqueta Caramelo, G5",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvqualw_5bb9fb2e37",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/6d256c54-a607-4cc8-8b3d-08c3949374595204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63044A41",
+    "created_at": "2026-08-16T11:50:50.929Z",
+    "paid_at": null
   }
 ]
