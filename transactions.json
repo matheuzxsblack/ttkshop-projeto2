@@ -23733,9 +23733,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvqualw_5bb9fb2e37",
@@ -24094,13 +24094,169 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvrscnf_8ba6d066f6",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/aa97c6fc-3317-46fa-85d3-d5bf7e95c2015204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630473FF",
     "created_at": "2026-08-16T12:17:20.227Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_466583adcc99e22db9345fe92c73d0cf",
+    "tracking_code": "SO9MCJLX9PQUBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Marta de B da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11979644137",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABmH00l9Ph-X9sHNrDu45uueL0gWr2LTozHfvP-7iJP23NDRuuqlBjSqLzBMKAHcWrIpXJ6ST_uOn0jfOUntWxuCVDuMfma-GSgOPj3W3FdO8sMhfSaRhxa09Pwi1XHnO1pUA7zHkzsainowSWiC0uvuyImV-Ps7eHm4cFsUmg9PGK5TEIl4iIOS0nFXStJb",
+    "ttp": "01M057V8NFDKW6S303X4CA74B3_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tcxio3x1kw7kmsvrp3ym",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "08225-510",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Conjunto Habitacional A E Carvalho",
+      "rua": "Rua Monsueto Campos de Meneses",
+      "numero": "05",
+      "complemento": "Quadra G"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvrvjyo_981301814f",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/8e0e9321-463b-4859-99bf-f7181e398edd5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304E5B3",
+    "created_at": "2026-08-16T12:19:49.777Z",
+    "paid_at": "2026-08-16T12:20:54.997Z",
+    "net_amount": 3499,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T12:21:45.337Z"
+  },
+  {
+    "id": "psa_868e1bde50eb4e3ecd456e5b32f5457b",
+    "tracking_code": "SOGGHTUQ89YQBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Manoel Candido de Siqueira",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "19991411592",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBv7bqB9tihN_4swukf5ZciZh5fF-_r6n_LSMgy5mIpY_c4IimQj9bxRPea2qGKhC1OVXtqri1YLMOzseyEiuXKH5oKP2uY477mFPm2Gv3yHTFI7quQ1TL0UdJK7n5W-n_ccpz2yI6N1DVpoqrIWr87yl_iG63Jbe3MpGxFzT0o7qgucKDc5vBKl3UTcnbuJ",
+    "ttp": "01M05810QNJX2NZTN3Z5H3XKF5_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tjgamw7ok58msvrr9f4",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13457-632",
+      "uf": "SP",
+      "cidade": "Santa Bárbara D'Oeste",
+      "bairro": "Jardim dos Cedros",
+      "rua": "Rua Alexandre Furlan",
+      "numero": "263",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvrvs1i_bc5a98e24d",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/22003907-83eb-4c6c-b4a6-8060c271f2fc5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63040FA4",
+    "created_at": "2026-08-16T12:19:59.744Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_cc654be5a5f431d16eed957cca44a2cc",
+    "tracking_code": "SO7UNYZVHGRJBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Maria de Jesus Pereira couto",
+    "client_email": "melrycouto141066@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "1410",
+    "doc_pix_fallback": true,
+    "client_phone": "980232362",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBZaOIAx-lyByvR-lAfaVZCs-vi6zXhVMOVOIOuey1tlDzSRC88Q-xiccYsBXKSXgrAuXZPUXQWGRp6FTMC8yYvqzyr9gMQEWuCvUJLs0Uh4wcKO3__ATXYjNiGfQ6yjywsXJUbQxgO9bPUBkVxDIv4-IsQeGYd5SvHv8dcK4Xg3X18iTY0ypcWb8_KR-u2Z",
+    "ttp": "01M0583E0CHGC651HMCWEMD41N_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tek0l7owasu5msvrswz8",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "68742-850",
+      "uf": "PA",
+      "cidade": "Castanhal",
+      "bairro": "Fonte Boa",
+      "rua": "Rua I",
+      "numero": "62",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvrxomx_ab8fa8fbb2",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/14a1c945-f678-4852-9cc9-fecf042a5fc45204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630423A3",
+    "created_at": "2026-08-16T12:21:28.723Z",
     "paid_at": null
   }
 ]
