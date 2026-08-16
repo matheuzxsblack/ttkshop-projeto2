@@ -24411,9 +24411,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvsdq54_d4a5967c4c",
@@ -24611,6 +24611,114 @@
     "external_id": "ttk_msvsuv5l_271b862829",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/97fb847e-f071-4342-a6c0-15d5b08909a35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304B9E1",
     "created_at": "2026-08-16T12:47:16.711Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_ffdda5d356ad54cecc8892fff0f18b26",
+    "tracking_code": "SOKJAH5QBSTZBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Jaqueline BELARMINO MARTINS",
+    "client_email": "jaquelinemartins19857@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5527995223",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB7K7SrAK1YHOFcvH0kF9rZlTgYj0HtcW5aZcIDoflELyiaj2HMErj3BRZo0gRrBb11AiVKEzyquZlOLoUjwGJmqxDOVknJRchrjiBllzd-_KyeeYuW2NlG6d8_sFURdXROtCEOR-eUqFY4va3B54laCKClMeTkPHpvjhP9nCT24tmv5SK5PkXmlhuIllKY-",
+    "ttp": "01M05AD7ATWFMQEMEX3XNZCC87_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "ttra62k40sqcmsvtb8y1",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "29118-600",
+      "uf": "ES",
+      "cidade": "Vila Velha",
+      "bairro": "Santa Rita",
+      "rua": "Rua Moacir Motta",
+      "numero": "12",
+      "complemento": "Beco"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvtdxie_411face1bb",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/2326e227-0ddb-44b4-b39a-eb1d9dcaf5b35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304FD93",
+    "created_at": "2026-08-16T13:02:06.698Z",
+    "paid_at": "2026-08-16T13:03:48.423Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_ceaec355bbbee44521e59e4a6c9ee9bd",
+    "tracking_code": "SOB4VU3CYK89BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Marta Maria dos Santos",
+    "client_email": "mar@gmail.com",
+    "client_doc": "01651043256",
+    "client_doc_entered": "01651043256",
+    "doc_pix_fallback": false,
+    "client_phone": "91991070310",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABdPPI3Yq8b4I_OtteHfWcMVkHu8LL8fmrFEcnI-YKhyDeu7Um5OZeMVPqbKjQX72nWz0s9yOuEt2OmrdeZsydgeSZXhajksYlRYtPNTh2XER213PVw3USam0hFa0nmwm5m17A5UEQ3UOCwijqoYinZwc-4DpmE88-qn7y_Gl9zr-PX0nPpeLP4bmahoLdvn",
+    "ttp": "01M05AJEBBE4WQTZWHTQK37X10_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tibw9ab6w07omsvtd4kn",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "68485-000",
+      "uf": "PA",
+      "cidade": "Pacajá",
+      "bairro": "Bairro do Vila",
+      "rua": "Rua Isabel",
+      "numero": "03",
+      "complemento": "Bom jardim"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvtgc0d_b041af6830",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/dba043de-d0d1-47db-af70-095a6fe22f415204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63047B63",
+    "created_at": "2026-08-16T13:03:58.493Z",
     "paid_at": null
   }
 ]
