@@ -12,7 +12,7 @@
       "enabled": true,
       "safe": {
         "method": "redirect",
-        "url": "https://ofertasdemulher.vercel.app/"
+        "url": "https://bolosedoces-dulce.blogspot.com/"
       },
       "offer": {
         "method": "internal",
@@ -39,7 +39,7 @@
         "ttclidBypass": false
       },
       "createdAt": "2026-08-16T08:20:15.401Z",
-      "updatedAt": "2026-08-16T08:23:33.813Z"
+      "updatedAt": "2026-08-16T08:38:37.384Z"
     }
   ]
 }
