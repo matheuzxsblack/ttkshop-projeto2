@@ -23073,5 +23073,124 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/62f281c4-1111-4e6c-ae63-98ef093eda405204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630479C4",
     "created_at": "2026-08-16T11:12:09.618Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_5db6889f2f1fb637c2a694d0f701b0a5",
+    "tracking_code": "SOMHBCH64RWQBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Adriana da silva galvao",
+    "client_email": "Adrianagalvao769@gmail.com",
+    "client_doc": "68672446291",
+    "client_doc_entered": "68672446291",
+    "doc_pix_fallback": false,
+    "client_phone": "5596991123",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBix4KsBrLkFHF0YHmN54THk5a1_dTKGp0G2ICTtR_W5AT5x9HrPZ9S0mh8_eDB07ftJlzJJh69z6B_b79vVWoCeL0lfORbjNucF0JYRoNMRiuGI6rgUHGB7faQqM-awrc2kiq_BkJB6xCABTi9j89OnwSLhXuR10FODwF1A2y6emT_F60vSWe-UuLmmjd1z",
+    "ttp": "01M054QZEA504RH9M6HXFCATDQ_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "to1pgwwcgq5msvppigb",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "68903-346",
+      "uf": "AP",
+      "cidade": "Macapá",
+      "bairro": "Jardim Marco Zero",
+      "rua": "Rua José Rodrigues Leitão",
+      "numero": "176",
+      "complemento": "casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvpt9yf_be5cbd1be1",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/71741885-f787-4d4c-b6db-274f29a465485204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63047EA4",
+    "created_at": "2026-08-16T11:22:03.787Z",
+    "paid_at": "2026-08-16T11:22:53.268Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_212beb911140767ced9b4c054da89e13",
+    "tracking_code": "SOLZKSMXVVVGBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Elisabete de pontes",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "14997315713",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBTJ6yzgA6abYJInanEFyqXb9q_8lk-i8c7puVRDQdn-5RjXwkhDBQJwEE3bBC-ESnMZJFGOZ8RFW2LMz66OJxzaXdnkvSBRYuvAzHiRT99v_tecLP4WQpGTZpSEpMICb3QEOW70gcOKcxYub9a_iunC0CLN3a8GNFZMCSK7_a2yPkF0qqJZ1GLQWqg3Ezba",
+    "ttp": "01M054NY0WNJQYH3J9JBHMJ72Y_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t23vx0h3i6lemsvppzbi",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18640-210",
+      "uf": "SP",
+      "cidade": "Pardinho",
+      "bairro": "Conjunto Habitacional Oswaldo Corrêa",
+      "rua": "Rua Benedito Bernardo de Oliveira",
+      "numero": "O5",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvptna6_0751356a1d",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/afba9bf3-16e6-4745-9529-bf98e5daefc95204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304FDBC",
+    "created_at": "2026-08-16T11:22:21.062Z",
+    "paid_at": null
   }
 ]
