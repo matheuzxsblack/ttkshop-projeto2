@@ -26580,9 +26580,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvxmi07_0dba74a5be",
@@ -26761,13 +26761,347 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvyfjx3_283e554d85",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/18eaa53e-0760-4bfd-888f-33e73a0cdaa25204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304F82C",
     "created_at": "2026-08-16T15:23:20.713Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_6810580205c9d5051a63227f6a35fe7e",
+    "tracking_code": "SOMHY4X5WJBQBR",
+    "amount": 6316,
+    "status": "pending",
+    "client_name": "Francisca Xavier",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "83991048066",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB8h0bEXReTH25qRgLPJRO2hhhE6KjrlksspP1WaSsxjE7cirq2CScBZFxY-1xA8NyxhLdrTqogbEJB695sodJeUTsMrVtkh5rnNUFm29Fw1wlJEdQTQy6FTIhazGOrpR-hPaASM5wfXQhpXZ3w9MW7BJmNLs1DB0-Bl9AkMaOuAJCnHefF0ZNiYv6SXKctI",
+    "ttp": "01M05JTZDV95583WX0144XRD7D_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tqkdor4qbolmsvyig1z",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "58225-000",
+      "uf": "PB",
+      "cidade": "Solânea",
+      "bairro": "Centro",
+      "rua": "Rua açudinho",
+      "numero": "0000",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 8
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvykio8_d2fbad7390",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/2233d5c1-e91c-4c25-aef0-7b03e4a05a065204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304F384",
+    "created_at": "2026-08-16T15:27:12.098Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_8d72361f1a288ae82df795473d180202",
+    "tracking_code": "SO9P6PDYKWR7BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Ednilza Rodrigues",
+    "client_email": "ednilzarodriguessilva@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5511915580",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBhAZGRD3Xy-3eyzrYKcKb63TjQZEnJ6vKoXWMZTAh8VePAZiLuvu-C_YwvxtWsZXCAr8cJQFELcNnkjHuUtf3BZrF0Cq_5TUG_PvOz8H_J_xTKpmNAD4ducSpDacuvFV4iLx5hRmGNuKc5ku7bNP5N82fi76VXCeFlE1GIwaSOzpEUKzpVz2K-Xgtxo3NDS",
+    "ttp": "01M05JW0494MSPHKJFKA71WA11_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "txssski3g1umsvyiyfz",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "05894-310",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Jardim Macedônia",
+      "rua": "Rua Francisco Antônio da Luz",
+      "numero": "156",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvykl6k_bd54a2f3d3",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/71735d44-4f6f-45fe-a4b3-7b5a46e40cfb5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304AD15",
+    "created_at": "2026-08-16T15:27:14.882Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_23aac8f20465a77f1f68d857875aac06",
+    "tracking_code": "SOAG4L78WRESBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Regiane Azevedo da Silva",
+    "client_email": "regianeazevedo44@gmail.com",
+    "client_doc": "70098573268",
+    "client_doc_entered": "70098573268",
+    "doc_pix_fallback": false,
+    "client_phone": "5596984264942",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABmW_qti6vII8pc_B4D6T-CVGj_1yYymg4KQ50hN66XD5Tl8nXpECePlcYCG8KPJm2I-Wydfh6dNMcsoylA0qvyHpEIkXX5aOSAcBOOhkasdpsd6hsN8vvwW7faDHEj-Q11PpFZCb19iCCw4jL-IQ9lOMiG3ZTNNdLqz22a35VSrD0rKWGnDF7nLqqBwSfS5",
+    "ttp": "01M05JY52J1SCHHDRE1E3QSTFF_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tnjiuri7aicmsvykgz3",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "68902-347",
+      "uf": "AP",
+      "cidade": "Macapá",
+      "bairro": "Muca",
+      "rua": "Avenida dos Tembés",
+      "numero": "829",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvyoe48_92f2db74c4",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/6243e66e-e351-4787-90c8-9e3f94bc11745204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63044E64",
+    "created_at": "2026-08-16T15:30:12.808Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_14914497d3aabf1372bc1e163250b068",
+    "tracking_code": "SOTKEEYTTVEABR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Nídia Alvarez",
+    "client_email": "cliente@email.com",
+    "client_doc": "80057750912",
+    "client_doc_entered": "80057750912",
+    "doc_pix_fallback": false,
+    "client_phone": "45999771698",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEByfy01yqOwd3N77jg4KVI3dIympjEX9ktoeLvpRKs-FlHmoMOCWG4NTHE0nf7AZoD3nQIVFUqb3igLNDvHfSA8x3iz32CKwaH8__AUo50MlCEOZjHjQ0r9oXtz4U0oBnlZBdf0L0bAo6hPnq9h2REIsar-OxLxMFOYRYcXnSY4Qf9b0RfLD1k1smlPQhQPC",
+    "ttp": "01M05K1E1HVYF8N2A9K020KJQ6_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tfb91t130339msvymr8q",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "85877-000",
+      "uf": "PR",
+      "cidade": "São Miguel do Iguaçu",
+      "bairro": "Jardim Paraguaçu",
+      "rua": "Rua albino Marcon",
+      "numero": "363",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvyp9zn_8a99517908",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/11f86c27-4997-4fdc-a3e3-de1eed2983b95204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304666B",
+    "created_at": "2026-08-16T15:30:53.775Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_3e8a599a17315f8c7f09382e440d0ace",
+    "tracking_code": "SO23HPTEHULWBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Genilda Alves dos Santos",
+    "client_email": "genildaalves1020@gmail.com",
+    "client_doc": "23801776867",
+    "client_doc_entered": "23801776867",
+    "doc_pix_fallback": false,
+    "client_phone": "55119844643",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBL09bgIEv8LXOxXbI6Bx8M5MAui3h8wAIe09qgFns0oW7VUvd9pRoJC61FM6zdvBHcf0ZmtNfWqMr_myWE6eCKpl9YFi_iJtg4yR1LztUiO5WDvEvzKPT7hQekH52qg5k09MCvoqMaHiMeS7S1kac2NnrHWt7gebZ3Z9GxcJ75-EItN1qhlCstdb7jHMJ91",
+    "ttp": "01M05K4EV1AQCP8PQ1WAVKP5GC_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "txf749kinwgamsvyox7u",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "03268-040",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Vila Tolstoi",
+      "rua": "Rua Aparecido Carlos Ferreira Correa",
+      "numero": "137",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvytmxn_a117dd4b27",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/88198ebe-d9f4-416f-9dd5-681b5e8e620f5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63041648",
+    "created_at": "2026-08-16T15:34:17.519Z",
+    "paid_at": "2026-08-16T15:36:49.102Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T15:37:03.050Z"
+  },
+  {
+    "id": "psa_cc0ae9771311a5ad989f2c240ca8bae1",
+    "tracking_code": "SO75ZDKJP4YTBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Lenice Luiz Barbosa da Silva",
+    "client_email": "leniceb78@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "2182880425",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABXdEPIwNKXTlUzf2iGUJG27De9AbO9n_r8Nz0DlmSqBEGChWNFy6_M6OL1VKP4sUcmI5CXZF2kGc11wh5JDZfvRIRH1Ey1j1XIAMy4d2yazLlZqOskk0_QYyz4ZAa5RAuiz0NCJWjYLD9FpeHXOzp71Ll_IB-lCXpbYrn9mGh4Az2FmpXHqCjskQtIZ5Gqi",
+    "ttp": "01M05K9CTQNWBE9TBWC4T83G0T_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t4kg7q4om6i3msvytrfh",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "25580-166",
+      "uf": "RJ",
+      "cidade": "São João de Meriti",
+      "bairro": "Jardim Santo Antônio",
+      "rua": "Rua Sete de Setembro",
+      "numero": "0",
+      "complemento": "L5Q6 cs1"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvywg9a_049dd61730",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/8782b331-b583-4843-8fb7-2e4bae320d0a5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63046C95",
+    "created_at": "2026-08-16T15:36:28.958Z",
     "paid_at": null
   }
 ]
