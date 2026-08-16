@@ -23018,5 +23018,60 @@
     "created_at": "2026-08-16T11:10:31.707Z",
     "paid_at": "2026-08-16T11:10:31.707Z",
     "email_sent": true
+  },
+  {
+    "id": "psa_fb9ada0ff9dd54a08352cab392133883",
+    "tracking_code": "SOQ5P7UNU86EBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Joice Ravaneda",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5541998739635",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBkFB3NfHcbZXW1KfW5ZvwhOd3rmuG6sWJrk4NgyMZd9yh8y7qaQnzmDATLGWepQqNYf1b2PeVD1j6vJp7Q6slaf0Aitmo8zgnd0EuS8ryolElsktrw2naEbibnXahk_MsgFViaPXUXmazAp4D9qJdKHvnVSU5zA1bjkXyIh4Aaou3nUf6RXLUE7PH8NYW8W",
+    "ttp": "01M05424P34A501EXNPVJQQYEN_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tlzwz7ak0mopmsvpd9d5",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "81925-380",
+      "uf": "PR",
+      "cidade": "Curitiba",
+      "bairro": "Sítio Cercado",
+      "rua": "Rua Maria Nicolas",
+      "numero": "228",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvpgji2_af1d65f2a2",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/62f281c4-1111-4e6c-ae63-98ef093eda405204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630479C4",
+    "created_at": "2026-08-16T11:12:09.618Z",
+    "paid_at": null
   }
 ]
