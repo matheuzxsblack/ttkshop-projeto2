@@ -22596,5 +22596,64 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-16T01:46:42.955Z"
+  },
+  {
+    "id": "psa_fcfd57a54c5e85b7bfa16455f3407e52",
+    "tracking_code": "SOU7WHQX3RXKBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Alexandre Santiago",
+    "client_email": "avadistribuidora.armazem2022@gmail.com",
+    "client_doc": "84673958420",
+    "client_doc_entered": "84673958420",
+    "doc_pix_fallback": false,
+    "client_phone": "8",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBrzC9_pGsDrAhrX8-RHtm-FcJH3m_374AtAjAlpTg7l_0Oq030-_vreqb5qZHCIaIuWeCwUTYcfLL5xEzZVjd0ray9-XeMzwaWAKRUvC6Hrd4KYvFZgV0R5Y7OuqH8IsQfw9Ok6N8iCn7DvA0vLEVg6sHdqAxf57lgy9BNE1_4oXviVz2IUDktLTa84oeDO",
+    "ttp": "01M044C1Z5WFDFYPM940XC5HTB_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "trr9bjl3x7gmsv5k2cm",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "54233-027",
+      "uf": "PE",
+      "cidade": "Jaboatão dos Guararapes",
+      "bairro": "Curado VY",
+      "rua": "Rua esperança",
+      "numero": "204",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msv5o2n4_213676e8d3",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/708b73b1-b065-4cda-a64b-2481d1b91dba5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63049887",
+    "created_at": "2026-08-16T01:58:08.647Z",
+    "paid_at": null
   }
 ]
