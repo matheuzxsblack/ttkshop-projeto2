@@ -29497,9 +29497,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw3slfm_64f776ed74",
@@ -30041,7 +30041,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -30049,5 +30049,83 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/4e0901f2-9dca-4ac3-a246-870680f8fb935204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630465AF",
     "created_at": "2026-08-16T18:17:04.761Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_6585b4756ffbc817a5038682dd97e6ac",
+    "tracking_code": "SO9LUEK43VCBBR",
+    "amount": 6316,
+    "status": "paid",
+    "client_name": "Aline Raquel Batista Pereira",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "62991098255",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBnkeE_j9cLabdYuhvVARD-GqbHkYEmgA7FLW4QwVvoE3BkQvDBBGgFQ8oy6OEBX2UOf7rfT_nDWuQ5olIqViO_aBZ9VBqaQzcVJEQZd4S7hlU2MQTsCnO5UV_zrHdVAxnLVbOKEjorwekCUvnClmqKVQzlQSxclC9ldkL63VESaXXQNTm0mWUHLMyr5FfRU",
+    "ttp": "01M05WTC47TCYTY3090MKX0FM4_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "thub87mabdbsmsw4qkro",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "74675-810",
+      "uf": "GO",
+      "cidade": "Goiânia",
+      "bairro": "Jardim Guanabara",
+      "rua": "Rua Uruguaiana",
+      "numero": "S/N",
+      "complemento": "Qd 146 LT 12"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw4tjxx_abfdc3646b",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/ece43bed-924d-49fa-a7f8-c266e8ed0a1b5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304D8C9",
+    "created_at": "2026-08-16T18:22:10.938Z",
+    "paid_at": "2026-08-16T18:22:42.602Z",
+    "net_amount": 6316,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T18:22:47.553Z"
   }
 ]
