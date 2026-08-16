@@ -1,3 +1,43 @@
 {
-  "campaigns": []
+  "campaigns": [
+    {
+      "id": "cp_67493ba1",
+      "name": "toalha",
+      "slug": "toalha",
+      "token": "bd836bdd30",
+      "tokenEnabled": true,
+      "source": "tiktok",
+      "domain": "*",
+      "entryStore": "sabonete",
+      "enabled": true,
+      "safe": {
+        "method": "redirect",
+        "url": ""
+      },
+      "offer": {
+        "method": "internal",
+        "type": "single",
+        "urls": [
+          "/sabonete/"
+        ]
+      },
+      "targeting": {
+        "device": "all",
+        "countryMode": "off",
+        "countries": []
+      },
+      "filters": {
+        "botUa": true,
+        "automation": true,
+        "softwareGl": true,
+        "desktopLike": true,
+        "datacenterIp": true,
+        "proxy": true,
+        "tor": false,
+        "ttclidBypass": true
+      },
+      "createdAt": "2026-08-16T08:20:15.401Z",
+      "updatedAt": "2026-08-16T08:20:15.401Z"
+    }
+  ]
 }
