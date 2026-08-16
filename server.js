@@ -750,6 +750,28 @@ function applyPixelsToStoreHtml(storeKey, pixelIds) {
 
 /* ---------- visitantes online (presença por ping — sem SSE fantasma) ---------- */
 var onlinePresence = new Map(); /* key -> { t, path, host } */
+/* ---------- auto-deteccao do dominio .vercel.app atual (emails sempre atualizados) ---------- */
+var LAST_STOREFRONT_HOST_FILE = path.join(DATA_DIR, "last-storefront-host.txt");
+var LAST_STOREFRONT_HOST = "";
+try {
+  LAST_STOREFRONT_HOST = fs.existsSync(LAST_STOREFRONT_HOST_FILE)
+    ? String(fs.readFileSync(LAST_STOREFRONT_HOST_FILE, "utf8")).trim()
+    : "";
+} catch (eH) {}
+function rememberStorefrontHost(rawHost) {
+  var s = String(rawHost || "").trim().toLowerCase().replace(/:\d+$/, "");
+  if (!s || s === "localhost" || s === "127.0.0.1") return;
+  if (s.indexOf("onrender.com") !== -1) return;
+  if (!/^[a-z0-9.-]+$/.test(s)) return;
+  if (s === LAST_STOREFRONT_HOST) return;
+  LAST_STOREFRONT_HOST = s;
+  try { fs.writeFileSync(LAST_STOREFRONT_HOST_FILE, s); } catch (eW) {}
+  console.log("[storefront] dominio atual detectado: " + s);
+}
+function storefrontBaseAuto() {
+  if (LAST_STOREFRONT_HOST) return "https://" + LAST_STOREFRONT_HOST;
+  return STOREFRONT_VERCEL_BASE;
+}
 var ONLINE_DISK_FILE = path.join(DATA_DIR, "online-presence.json");
 var ONLINE_DISK_SAVE_INTERVAL = 30000; /* salva a cada 30s */
 var _onlineDiskDirty = false;
@@ -2559,13 +2581,14 @@ function isRealEmail(e) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 }
 
-function sendEmail(to, subject, html) {
+function sendEmail(to, subject, html, retryFrom) {
   return new Promise(function (resolve, reject) {
     if (!RESEND_API_KEY) {
       return reject(new Error("RESEND_API_KEY não configurada"));
     }
+    var fromAddr = retryFrom || MAIL_FROM;
     var payload = JSON.stringify({
-      from: MAIL_FROM,
+      from: fromAddr,
       to: [to],
       subject: subject,
       html: html,
@@ -2586,6 +2609,11 @@ function sendEmail(to, subject, html) {
         resp.on("data", function (c) { buf += c; });
         resp.on("end", function () {
           if (resp.statusCode >= 200 && resp.statusCode < 300) return resolve(true);
+          /* 403 = dominio nao verificado no Resend — retry com resend.dev (sempre funciona) */
+          if (resp.statusCode === 403 && !retryFrom) {
+            console.log("[email] 403 com " + fromAddr + ", retry com resend.dev");
+            return sendEmail(to, subject, html, "Pedidos <noreply@resend.dev>").then(resolve, reject);
+          }
           reject(new Error("Resend HTTP " + resp.statusCode + ": " + buf.slice(0, 300)));
         });
       }
@@ -2619,7 +2647,7 @@ function trackingPageUrl(code) {
 
 function orderEmailHtml(tx) {
   var a = tx.address || {};
-  var link = STOREFRONT_VERCEL_BASE + "/rastreio/?c=" + encodeURIComponent(tx.tracking_code || "");
+  var link = storefrontBaseAuto() + "/rastreio/?c=" + encodeURIComponent(tx.tracking_code || "");
   var itens = (tx.items_detail || [])
     .map(function (it) {
       return (
@@ -3101,7 +3129,7 @@ function storePublicPath(storeKey) {
 function checkoutUrlFromTx(tx, reqHost) {
   /* Usa o dominio do request atual (quando disponivel) ou SITE_BASE como fallback.
      Assim, se o dominio mudar, os links X1 acompanham automaticamente. */
-  var base = STOREFRONT_VERCEL_BASE;
+  var base = storefrontBaseAuto();
   if (reqHost) {
     var rh = String(reqHost).toLowerCase().replace(/:\d+$/, "");
     if (rh && rh !== "localhost" && rh !== "127.0.0.1" && rh.indexOf("onrender.com") === -1) {
@@ -5416,6 +5444,7 @@ var server = http.createServer(async function (req, res) {
 
   /* ---------- ping de presença (loja) — JSON curto, sem SSE ---------- */
   if (req.method === "GET" && pathname === "/api/online-ping") {
+    rememberStorefrontHost(url.searchParams && url.searchParams.get("host"));
     var originPing = String(req.headers.origin || "").toLowerCase();
     var refPing = String(req.headers.referer || "").toLowerCase();
     var qClient = String((url.searchParams && url.searchParams.get("client")) || "") === "1";
