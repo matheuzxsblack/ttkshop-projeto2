@@ -28458,7 +28458,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -28517,7 +28517,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -28525,5 +28525,191 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/db4df5bb-4a3c-4d72-8cd1-047ee9bb3cea5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630400F1",
     "created_at": "2026-08-16T16:50:22.635Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_9656bce09523309e883b698214b5d136",
+    "tracking_code": "SOLV8QQYBMFRBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Silvana Quintana",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5553991117123",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBqSoR8pssn4McRKKC5wZrU_yGBdml_w6TQV5S6DoJnE2bDO6vkB05jbRncFsxUqFq_iN5onUew31hG0n7u6qEMJJ2rNsnTk2tn72BOCgATZg4HR0hIiQgQntw75arVi2qFDSASXdcl2loYkANCTdM7dSDVYqRgN5dIupKwEfLvttCZ5xZodb6H1bADsJehM",
+    "ttp": "01M05QRHSDSXWWS08CWA66ESW2_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tb3slslwon1omsw1kwnx",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "96213-410",
+      "uf": "RS",
+      "cidade": "Rio Grande",
+      "bairro": "Vila Nossa Senhora de Fátima",
+      "rua": "Rua Helen Keller",
+      "numero": "620A",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1mu4a_abf66d3010",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/d6da1b09-2afd-4538-a24c-4d323d4175635204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63045753",
+    "created_at": "2026-08-16T16:52:59.204Z",
+    "paid_at": "2026-08-16T16:55:46.398Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_af015eebd324e1386dc22f46a18cd181",
+    "tracking_code": "SORNMRH4UXEYBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Gabi Pacará",
+    "client_email": "gabi_pacara@hotmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "21986944860",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuMBL2PZJ53n-fY7WzSMhuHtbD29YTUSGT-Q41ks7CljgT0d2w6Z4f3zIGiYUgZOIIKD01LEfXc3PFuHNkvVnJahOhwYLB8kL3fFZ6Dm2rfVPiIcJphSmddBjvKcdNdqERerQeIQHOI4lYSLMbEFmOAp6pLm9W4JqNYMrMY31R6uF8PJZZLJ1BUAIT1iZli2XF",
+    "ttp": "01M05QMA4H31YEF56GBBTHVQHG_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t9a3w9qnfdwwmsw1hxt2",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "20740-180",
+      "uf": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "Piedade",
+      "rua": "Rua Sílvia",
+      "numero": "17",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1o4vg_7a8e0956f8",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/fb0f5ad1-09b1-466b-b4f0-5ad5949eca235204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304CE32",
+    "created_at": "2026-08-16T16:53:59.538Z",
+    "paid_at": "2026-08-16T16:54:23.938Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T16:54:28.261Z"
+  },
+  {
+    "id": "psa_48d87ae07aab57047bafe26f053aa104",
+    "tracking_code": "SONNYZ5E4LPLBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Andrea Gomes da Silva",
+    "client_email": "andreagomesdasilva00@gmail.com",
+    "client_doc": "01597068314",
+    "client_doc_entered": "01597068314",
+    "doc_pix_fallback": false,
+    "client_phone": "94993029766",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB-caXLEKi6eIX5l3MVPuffwdfnlAYE3ZBEy47TZ4-Mn3sjPQiqox_VLWoJAGwjSdQc_od7IBdhM45Dm2sPpzBJe979q1N3vJWHQFnn-6U7FBCAeHt0I-BdDjSE06JKrcird7pgCb2YO0tV1EfApAM-rRGa_0IHNq7b5AA85aLON_eFe7lRdUXU5XPg_PbXh",
+    "ttp": "01M05QTNP60Y9QNF9D2DXXADK7_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tt6608ncc89fmsw1me0d",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "68390-000",
+      "uf": "PA",
+      "cidade": "Ourilândia do Norte",
+      "bairro": "Joel hermogenes",
+      "rua": "Celina rabelo",
+      "numero": "367",
+      "complemento": "Quadrado comprimento"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1s8qf_59eac7dbdb",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/58080473-7a77-4cc1-b0ad-c3e9a98ccf125204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630436BB",
+    "created_at": "2026-08-16T16:57:10.955Z",
+    "paid_at": "2026-08-16T16:58:06.498Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T16:58:43.557Z"
   }
 ]
