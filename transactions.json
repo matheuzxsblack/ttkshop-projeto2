@@ -26380,7 +26380,7 @@
     "id": "psa_ab6f5f08ae89cf52907249d76387cc6d",
     "tracking_code": "SO4J38U5QLVEBR",
     "amount": 3499,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Rosineide",
     "client_email": "cliente@email.com",
     "client_doc": "16473249044",
@@ -26395,7 +26395,7 @@
     "ttclid": "E_C_P_CuEBa-euE6xW0w8ZNlyjK2mt3FamLr4RcSwvtmzMMdtMHogP9BProW5-LnKPkd50BzQccgy57HkoykhrY5szDTGI8H09ifhjR3jsTa3hFv83e3okIml5bfr4DFvH3e4EcYDanzuuUEeOpa3Ij4VbkojEVBJYgNi8JSIeBHQgS-u3XyAxsYVhmGFh53Fv8zBnVL",
     "ttp": "01M05FGF9QG6GCXQ0R2K782BTR_.tt.2",
     "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "te3qxts8ryijmsvwffst",
     "funnel_store": "toalha",
     "address": {
@@ -26433,6 +26433,7 @@
     "external_id": "ttk_msvwi8rq_4b3de74f2c",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/7bf34070-6c26-4522-880c-25558821762a5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304C6A1",
     "created_at": "2026-08-16T14:29:26.727Z",
-    "paid_at": null
+    "paid_at": "2026-08-16T14:31:51.566Z",
+    "net_amount": 3499
   }
 ]
