@@ -28302,7 +28302,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -28349,13 +28349,181 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw1d48n_41ea274b8d",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/ab2cca59-34d7-4bec-a12c-ecf49a21da925204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304EF7F",
     "created_at": "2026-08-16T16:45:25.308Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_c48e9c51fb798ae32419207211af8f2d",
+    "tracking_code": "SOHXSD857JY4BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Rubenita Leal de Oliveira",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "98992298586",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuUBiWEDkHEcBJhLY-Ls0DOcOHULqoWrauXVBGYSgLT80JGOQlVoeTc-GmA8bKwH9ee8O0MqDGhMyJmqaUkepXqLXZNZd_Y6Q23aqAbIRbid0OCA1VYb9t_2NdMtDYQIDsBX2qjHCzzYjO_HinCLR26S17nv8afcyQgaX3IX09cRL0GazQzr-wb5eVU3YYpppL",
+    "ttp": "01M05Q42QMD2PEGP6GS120QF8X_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "th8mydlyg5wmsw19vhj",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65368-000",
+      "uf": "MA",
+      "cidade": "Araguanã",
+      "bairro": "Novo",
+      "rua": "Rua do Arame",
+      "numero": "37",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1gz30_bceba998e2",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/8d909903-e23b-42c8-abb2-c3a5071299085204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304123D",
+    "created_at": "2026-08-16T16:48:25.652Z",
+    "paid_at": "2026-08-16T16:49:17.742Z",
+    "net_amount": 3499,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T16:49:26.040Z"
+  },
+  {
+    "id": "psa_77ffb79623ad204243841ff2271055f3",
+    "tracking_code": "SOET3YY6JRW6BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Ivanilda Severina da Silva Aleixo",
+    "client_email": "ivanildaseverina1970@gmail.com",
+    "client_doc": "69410747449",
+    "client_doc_entered": "69410747449",
+    "doc_pix_fallback": false,
+    "client_phone": "13988193478",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CtoBZVdHVxG7MWfRuU971afWhVMAUJf6CJO_8FNNrzfyxa4c__8dB-7Htl997GdwT-XbVo9Nf6lOw83zwGghx8UeO12kPlDgLwbXS4zVs8a2FEcGaPXXzi_MEUUUec2UEXJsKKlwYxvKD3hfsIXoyauxdjw94_jwZEjrGRvt4DSkHfL4ntOSor6fjuccSbSPqW",
+    "ttp": "01M05QFBRSP0YRMVX20P06VX6X_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgp5yhlrzaismsw1egjz",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "11714-410",
+      "uf": "SP",
+      "cidade": "Praia Grande",
+      "bairro": "Ribeirópolis",
+      "rua": "Avenida Rocha Pombo",
+      "numero": "1450",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1ig4x_40b78ae020",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/a71d36c9-8b57-4048-ad02-15eea2d1d3ac5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304936B",
+    "created_at": "2026-08-16T16:49:34.019Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_7704ac823284cc6c20871e266ae0bd02",
+    "tracking_code": "SO8TG7PSM8QLBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Andressa Cristina Pereira",
+    "client_email": "andressatrabalhos6@gmail.com",
+    "client_doc": "04209152900",
+    "client_doc_entered": "04209152900",
+    "doc_pix_fallback": false,
+    "client_phone": "41995450723",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBJIEWWxxYb2utRXh1ABsyyU8QMJ6vLM5-cgSVlAv929Cv4kfJYkpXo5Zg-hoMZl02Tfx7HxZ-1afxsYZNfj37l6nIsPMh6aKZJiR4qLyJEWYFyyzyaDIDpLIH2jErcR9yr1RWkOTC92RuU8I4kbi6aP2BpOzpzu-0mKNfMbxXxo6xBLPdh2As0NJ55ZC7AM",
+    "ttp": "01M05QGY44QQ46FGTRR1DT7FJJ_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tf2zh98mhpthmsw1gr28",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "83260-000",
+      "uf": "PR",
+      "cidade": "Matinhos",
+      "bairro": "Balneário albatroz",
+      "rua": "João Pessoa",
+      "numero": "8",
+      "complemento": "CASA"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1jhbt_c6f9e191d1",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/db4df5bb-4a3c-4d72-8cd1-047ee9bb3cea5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630400F1",
+    "created_at": "2026-08-16T16:50:22.635Z",
     "paid_at": null
   }
 ]
