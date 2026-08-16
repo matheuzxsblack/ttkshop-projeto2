@@ -26701,9 +26701,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvy5hkz_5c8877fa67",
@@ -27108,7 +27108,7 @@
     "id": "psa_cd8c874dbf940bbc559d7aa11d56c2bd",
     "tracking_code": "SO7YK8CR6Q89BR",
     "amount": 3499,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Lidia Maria Machado",
     "client_email": "lidiamaria7507@gmail.com",
     "client_doc": "07441521602",
@@ -27123,7 +27123,7 @@
     "ttclid": "E_C_P_CuEBRA542wlChutUvMyTb48I2x3h2VpcFoHynGcq9BNmYy-eRQPeWmEZ70W-pqo9fSg4mJUTx_v0OS3j6cDbZ7_SYfxd77lqxZiMrSrCSOODzXT_wc-CicFkZ_lM0WYxK8qOGqO73koEFrA7akDdymB7SP1Wo3GNePcavN9mIY2dpeyZ44Kr6tYWaSdBxsw16V",
     "ttp": "01M05KAKARFYMJ75MAXJ5TWQYM_.tt.2",
     "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "t7lr6l2vaht6msvz1jud",
     "funnel_store": "toalha",
     "address": {
@@ -27154,13 +27154,129 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvz2tit_250778289c",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/13f7c19c-069b-45d5-aade-fa48845abeb05204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304E799",
     "created_at": "2026-08-16T15:41:26.554Z",
-    "paid_at": null
+    "paid_at": "2026-08-16T15:47:38.455Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_f1d1d98d6f96c3f359e7ed72207e14a0",
+    "tracking_code": "SOLJBDHQ45RYBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Fabiana Cássia de Araújo Rosa",
+    "client_email": "fabi_ca.rosa@yahoo.com.br",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "34999250593",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBd5692XbRTVtkWqEUTbE6KXwuyspS6xS4wOlIQ6OsrbG9tmlDiZqccT1VFiDYvXhEBX7riRt8o1Z9oXv1WNqUTD28JwMk4iPXLQ6li0H3IufZqNpT_04mP2FwdK77_YVNW8rkMTR_CWcFs0PJiWJ2QAna9t8jdRbkd2SPJgKTJ2bSCfnYcDxpLbZ8OP5nex",
+    "ttp": "01M05KT7YCN5TRJAG3JWNT6XJH_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t8e29ucu9qspmsvz5h2r",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38065-300",
+      "uf": "MG",
+      "cidade": "Uberaba",
+      "bairro": "Fabrício",
+      "rua": "Rua Vital de Negreiros",
+      "numero": "37",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvz6lqm_c74d79ce38",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/dbebc07f-5391-4d98-8e3f-e19cc8a355df5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63044D0C",
+    "created_at": "2026-08-16T15:44:22.235Z",
+    "paid_at": "2026-08-16T15:46:30.983Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T15:46:35.290Z"
+  },
+  {
+    "id": "psa_6b243f43b990468038043df2ab72f213",
+    "tracking_code": "SOCUCXHPP5M3BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Elaine Regina Maciel",
+    "client_email": "elainesamira2304@gmail.com",
+    "client_doc": "19481859894",
+    "client_doc_entered": "19481859894",
+    "doc_pix_fallback": false,
+    "client_phone": "11920173472",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBSRqn5eTBxb2bldu3GQGIu-Hz188faTr7yC5EWS9tQgWCeVb_uuePgBBqlLIWN8yavGPFlHhccIrmFdwMarhor8VsGJG7i68t5Z8sAUKm3YZRE998sXbRi1HzV5qfAt-JA6kynrlo3ZZ7waYTs93pBh7yVkb7b9Ej4F4RDcuzp33HMW1fudp3E3hsHUsXp6",
+    "ttp": "01M05KY6EW9GPTV22TTQ4DC4SR_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tjfef99hsu9msvz6zdd",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "03870-000",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Vila Rio Branco",
+      "rua": "Avenida São Miguel",
+      "numero": "4388",
+      "complemento": "Casa 1"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvz8xp1_c0761bc85f",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/eb55b90d-7fa1-4e25-8346-a26cc50ea0935204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63041C92",
+    "created_at": "2026-08-16T15:46:11.374Z",
+    "paid_at": "2026-08-16T15:47:23.573Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T15:47:36.047Z"
   }
 ]
