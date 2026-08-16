@@ -23419,7 +23419,9 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/1ba1fb95-7ee2-4d35-99a8-fb0cbe05278c5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304DE54",
     "created_at": "2026-08-16T11:35:14.552Z",
     "paid_at": "2026-08-16T11:37:05.378Z",
-    "net_amount": 3499
+    "net_amount": 3499,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T11:39:15.398Z"
   },
   {
     "id": "psa_0b4fc59d0f274c85e16c038707cd21bf",
@@ -23540,5 +23542,111 @@
     "created_at": "2026-08-16T11:37:41.516Z",
     "paid_at": "2026-08-16T11:37:41.516Z",
     "email_sent": true
+  },
+  {
+    "id": "psa_7dcc55f0454f22369b37ab840dc2f101",
+    "tracking_code": "SONFDJJFM9MMBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "María do Carmo dos reis Brito ferreira",
+    "client_email": "carminhaariella@gmail.com",
+    "client_doc": "49631500500",
+    "client_doc_entered": "49631500500",
+    "doc_pix_fallback": false,
+    "client_phone": "75981234589",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBTg-yOgCyFzN46ykm3TEjn9PMX4Ic9UmQ0U-ZnwfMnUSAAmcEZbHH8ckZGpMnw6CYNcDS3xGmj9dSJ27de0he3gYHQ4aTdAXiJ3SIP_FRnMF1UWVcXVHacT8rcuNQkWQF0ozei-jqhaZfXONxZhVeXFEosYBe1NS9V4z0aTVv-k81V7lCD8FOz7iNCkuAKq",
+    "ttp": "01M055KSE9RAAZEVNEN03EH6MA_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "ta5jrtskatumsvq90g2",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "48730-000",
+      "uf": "BA",
+      "cidade": "Conceição do Coité",
+      "bairro": "Serrote",
+      "rua": "Salgadalia conceição do coité",
+      "numero": "Sn",
+      "complemento": "Salgadalia"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvqe3kf_c70abe6a6a",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/d7b7bcda-2c97-4bd3-b65e-8dfa44aa4ec75204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304B837",
+    "created_at": "2026-08-16T11:38:15.264Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_f5013e49467e3ac06de48d725d596430",
+    "tracking_code": "SOQH66FU7AKEBR",
+    "amount": 6123,
+    "status": "pending",
+    "client_name": "María do Carmo dos reis Brito ferreira",
+    "client_email": "carminhaariella@gmail.com",
+    "client_doc": "49631500500",
+    "client_doc_entered": "49631500500",
+    "doc_pix_fallback": false,
+    "client_phone": "75981234589",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBTg-yOgCyFzN46ykm3TEjn9PMX4Ic9UmQ0U-ZnwfMnUSAAmcEZbHH8ckZGpMnw6CYNcDS3xGmj9dSJ27de0he3gYHQ4aTdAXiJ3SIP_FRnMF1UWVcXVHacT8rcuNQkWQF0ozei-jqhaZfXONxZhVeXFEosYBe1NS9V4z0aTVv-k81V7lCD8FOz7iNCkuAKq",
+    "ttp": "01M055KSE9RAAZEVNEN03EH6MA_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "ta5jrtskatumsvq90g2",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "48730-000",
+      "uf": "BA",
+      "cidade": "Conceição do Coité",
+      "bairro": "Serrote",
+      "rua": "Salgadalia conceição do coité",
+      "numero": "Sn",
+      "complemento": "Salgadalia"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvqhet5_25381cc823",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/2b6b4780-6457-4c3a-b92b-442ea054b4d95204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304C971",
+    "created_at": "2026-08-16T11:40:49.902Z",
+    "paid_at": null
   }
 ]
