@@ -26366,9 +26366,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvwbxac_6c20e7a0b0",
@@ -26435,5 +26435,52 @@
     "created_at": "2026-08-16T14:29:26.727Z",
     "paid_at": "2026-08-16T14:31:51.566Z",
     "net_amount": 3499
+  },
+  {
+    "id": "psa_6da5c3a45334861d7456dd255f120419",
+    "tracking_code": "SOVS8BWRCD45BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Tatiane Silva Martins rosa",
+    "client_email": "tatianesilvamartinsrosa1988@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "21965861613",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBLPB50pBdeAy1lKb81Bt9_iespSFYzbltiLgU7plduRqv_jBnKoY_M7saykdUquXuIb9gjMDFsCBUOuCYR-STyQ9gbmpDp-97WOn6MnPec7DanT41-pZkyjjZnIZYmfF9wvWQY9T9PKRwoT_J97ULGTzzmd0cIpa-RnzcafsS5DopJCNhOOq9q1jEW33Gwu",
+    "ttp": "01M05GYTT99GPQK6KG3RKKWY02_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tkde6gy033pemsvxc02o",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "23550-570",
+      "uf": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "Santa Cruz",
+      "rua": "Estrada Vítor Dumas 1168 lote15 quadra 14",
+      "numero": "15",
+      "complemento": "Do lado da igreja quadrangular"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvxej92_7d2a90dd47",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/f620ef44-89b4-40e3-92d2-574e520052b95204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63047FEF",
+    "created_at": "2026-08-16T14:54:33.364Z",
+    "paid_at": null
   }
 ]
