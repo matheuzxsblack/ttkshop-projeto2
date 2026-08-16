@@ -29803,9 +29803,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw4b2yh_e8156b3b5b",
@@ -30166,13 +30166,72 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw59252_713c94d495",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c53c929e-fb23-4bc2-82b7-c51780a2c3925204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304AD0A",
     "created_at": "2026-08-16T18:34:14.879Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_d92cd2efd10e00dcffcf2b3dea5ed7c9",
+    "tracking_code": "SOL5C8SNJDH5BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Ericarla pereira Pardinho de Oliveira",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "19997621671",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBR-FDqoCmyAM-d-oAqzXs-KOCjv3yZv0YA95o3I0fj3RvcxStp78j58pBZKfo-W3UnvrohgP0fO4bvhOWqnXcPepbHy4TdolVnkY5QQEmTclFhJPRUANwDWPVHDOT3KMg0kzyDEBsfk_d2mxkGkPxHJtyoOwaM0gSaOxqpTBNlza6yEyrG76Rl1VZnqgKMo",
+    "ttp": "01M05XQGC40MB2HVV51F9K9ZW0_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t76psi9om9o5msw5b0kf",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "39547-000",
+      "uf": "MG",
+      "cidade": "Montezuma",
+      "bairro": "Centro",
+      "rua": "Professora Maria Lúcia",
+      "numero": "73",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Palmeiras",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Flamengo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw5f8p3_bbc1803424",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/14a15bd2-61e3-4e9d-bb87-503f2715d9f75204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63042BFC",
+    "created_at": "2026-08-16T18:39:03.283Z",
     "paid_at": null
   }
 ]
