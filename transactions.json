@@ -27430,9 +27430,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvzgwxv_a45f9d5535",
@@ -27489,9 +27489,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvzj8yc_4478483f2a",
@@ -27939,6 +27939,65 @@
     "external_id": "ttk_msw08kzi_dbef483404",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/1431ab4e-9fc9-4ff5-b4c8-948b1c9f24c95204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304ED1F",
     "created_at": "2026-08-16T16:13:54.015Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_d6c4526bfb56b0300e1fd28e9c61469c",
+    "tracking_code": "SOP24VBNDLUTBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Lucia Andrea de Castro Moreira",
+    "client_email": "andreacantora beat@gnail.com",
+    "client_doc": "96892480730",
+    "client_doc_entered": "96892480730",
+    "doc_pix_fallback": false,
+    "client_phone": "21989130192",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuQBDMef_9b5WTDMT19K0cEz2N-F91AQjLFNVA6BBMoiC7_PPOVeQg_X9XMYVuEReipj4mKzYuX5LlikCR1BOdf-4j5eJsKfzsQFs0VlYGUOkrvla9Xegous4C6tRQgWfYr9wnirL7C2rKBkVE9eYQ5rgQK5i_j-HRO6YrqanfKQb45oD9eEnilkCsGjrg2sYw",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tf9e0mwuro3nmsw0han6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "24110-444",
+      "uf": "RJ",
+      "cidade": "Niterói",
+      "bairro": "Engenhoca",
+      "rua": "Travessa José Carreteiro",
+      "numero": "142",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw0lc4p_651067c490",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/bc0efe24-81ab-4fff-9434-c257ef9cb9c35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63040CCC",
+    "created_at": "2026-08-16T16:23:49.562Z",
     "paid_at": null
   }
 ]
