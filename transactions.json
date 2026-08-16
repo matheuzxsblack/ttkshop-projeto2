@@ -23811,9 +23811,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvr53u9_ab4c2a28b0",
@@ -24257,6 +24257,168 @@
     "external_id": "ttk_msvrxomx_ab8fa8fbb2",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/14a1c945-f678-4852-9cc9-fecf042a5fc45204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630423A3",
     "created_at": "2026-08-16T12:21:28.723Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_fda2c473d7d00ceb627936e2d141bc0f",
+    "tracking_code": "SO6VRYQRTNE3BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Marinalva Silva de Oliveira",
+    "client_email": "marineithion@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5561994347475",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBVB78hUch34l-3RcoyZAU-_31iKya8JmHAFMgN07ch8Z-LfOFF09wgvbPLM3jIdeaNlae4ok0pPOvrVzQaDsKrgBWt4PPiQVZG34fbsnly9psYlCixg7koIr2Y6hN-R2kgXWVNKKNDeYNS-3R3BbP23REakZ__6P-qPKOzd-JdLlrVWRKIIiFdwYDSU5w7_",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tztatl6xt5kemsvs5zjk",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "72871-065",
+      "uf": "GO",
+      "cidade": "Valparaíso de Goiás",
+      "bairro": "Jardim Céu Azul",
+      "rua": "Rua 65",
+      "numero": "09",
+      "complemento": "Quadra 99"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvs8xz1_5d03d19b02",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/18f185e2-ae47-461a-af13-10b5982b3bd15204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63044A83",
+    "created_at": "2026-08-16T12:30:14.487Z",
+    "paid_at": "2026-08-16T12:32:21.289Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_230a55562cf215029ac76d3f9191e5de",
+    "tracking_code": "SOKZCM7AZ98JBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Elisangela Maria da Silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "19971660897",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABXLgdEIkNHFDlUILTw7tr7x-HPWRkKeKT2rejTpYybR5MGNb-Ji-ejHgN7NZfCVQpc2lpgbFZI3tXWPrDSNav3wdU4Td00BpuMppl21vpamNLu-XWbnwpMRlFJ7BcZEoLHi3i0dn6OQRqOYErWi4k2b7r38LKUZGBmTcxCJLQzK7asHXmgjUOI-i1IzrZby",
+    "ttp": "01M058Q2PDY47WA17F1QZX1MEC_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tc7xsbbp71nemsvs6rud",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13537-208",
+      "uf": "SP",
+      "cidade": "Ipeúna",
+      "bairro": "Residencial Zilda Scaglia Dorta",
+      "rua": "Rua Dona Julia Androwick",
+      "numero": "1368",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvs9fdx_26853fcba4",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/d5ea9fec-1d0c-4bfa-baa5-dd83dbbf04c35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63047DC5",
+    "created_at": "2026-08-16T12:30:36.577Z",
+    "paid_at": "2026-08-16T12:31:25.232Z",
+    "net_amount": 3499,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T12:31:46.972Z"
+  },
+  {
+    "id": "psa_c8ccdeb2379e738fe96211988adeb303",
+    "tracking_code": "SOPPT3C4C26QBR",
+    "amount": 6283,
+    "status": "pending",
+    "client_name": "Leidynalva Ferreira de Lima",
+    "client_email": "nalvaleydi@gmail.com",
+    "client_doc": "34751937871",
+    "client_doc_entered": "34751937871",
+    "doc_pix_fallback": false,
+    "client_phone": "11976818068",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABa5RgshXVDkusToyje9E5qepHMumtz9Si4A6BKMlpBabcyb-xCxEAUeBLGkI0Uw1hA9cuyTq7TYyo7CKqnNSANcMQlwv7jHV-LwYvNjjFe8ps_yXS6vKpJGKGLrMPuhDZei0FbkkJmXHN4LX7NHlZzR45vt2SAydWr0BGwRJvrWZzWLUSZVZ7xSzyT2nvc8",
+    "ttp": "01M058A476HVJTQQG037AKDDWA_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tiyr92c5030smsvs9tl0",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18147-010",
+      "uf": "SP",
+      "cidade": "Araçariguama",
+      "bairro": "Ibaté Rural",
+      "rua": "Rodovia Livio Tagliasachi",
+      "numero": "54 Km",
+      "complemento": "Restaurante casarão"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      },
+      {
+        "variante": "Mais 4 toalhas cores aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvsdq54_d4a5967c4c",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/304f22e1-8630-4c3d-840c-467b3289c0c35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630404E8",
+    "created_at": "2026-08-16T12:33:57.453Z",
     "paid_at": null
   }
 ]
