@@ -29146,9 +29146,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw2nyeo_fb012330e6",
@@ -29387,5 +29387,124 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-16T17:46:07.503Z"
+  },
+  {
+    "id": "psa_592489a3a8761fcfd6fc1cbdfe2fe65a",
+    "tracking_code": "SOT3F6WUBGX8BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Lucinéia Martins da Silva trindade",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5591982104",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBGF_ReRdqnpy5iqZcxoOxXyq0HEApk1cQ9ewvRySfpd5jm_pzKWj7NdFLOMggI0Y21toFNAFzmj5-K2YrWhHIW4dGnq-sI3SrsUAgLP4yExXkeU3JuuVtwupphNuojzKN8gEzd6UbOqPG8nLORjcrAC6dDMrJ9xBBqHzabiT1MwDVLRO2jjkaIV6zXykg3Z",
+    "ttp": "01M05TVQT5Z0QK50CW8MFYS6SN_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tym1v1qtu7zomsw3ijng",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "67118-504",
+      "uf": "PA",
+      "cidade": "Ananindeua",
+      "bairro": "aguas lindas",
+      "rua": "travessa Paulo Cícero",
+      "numero": "06",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw3nerj_ed653b1448",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/265dabe3-69f9-4097-b100-c7e8f2f062105204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304329E",
+    "created_at": "2026-08-16T17:49:24.759Z",
+    "paid_at": "2026-08-16T17:50:59.088Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_3e52a026f71726b8af9d2cdec3306f7e",
+    "tracking_code": "SO29PAA8UGLCBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Maria das dores souza",
+    "client_email": "mariadoressouza3249@gmail.com",
+    "client_doc": "10049739859",
+    "client_doc_entered": "10049739859",
+    "doc_pix_fallback": false,
+    "client_phone": "17981581731",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBTl6vdH9bw8Syc90epHN3ctpkxTtG95I9pudOt55ksKKjTf1w7dfgVWg4aoTbHJ4g4NcA7E2qBYKoLxRBQXEuf-RD2pQ6LrIOlz9nz1fdVIWXbk38CKhys-QQFUrCgD-KQCtAP3Yxj1SF_JsR9Y0Fmq80D5Tk6Nfbe-dju6ARGrRB7BenD-rQs25JRkdcg9",
+    "ttp": "01M05V397Z2M1X05K3PH25CHF4_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "ttgqmzeai99msw3nqog",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "15010-310",
+      "uf": "SP",
+      "cidade": "Potirendaba",
+      "bairro": "Veneziano",
+      "rua": "Rua Francisco escarpelli",
+      "numero": "1295",
+      "complemento": "Hotel"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw3slfm_64f776ed74",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/5f414b8b-5331-45bc-986b-7dd2f124da655204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630444D9",
+    "created_at": "2026-08-16T17:53:27.084Z",
+    "paid_at": null
   }
 ]
