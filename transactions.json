@@ -22060,7 +22060,7 @@
     "id": "psa_fc567e9dae3b187378b708a79694d9be",
     "tracking_code": "SOU4QZ89LK8PBR",
     "amount": 3499,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Erilene Silva de Carvalho",
     "client_email": "serilene320@gmail.com",
     "client_doc": "19069549840",
@@ -22075,7 +22075,7 @@
     "ttclid": "E_C_P_CuEBlQSz1yJhqieVVdmLA8zk2y6YHhfLMTRwswG9nDbea3ycP5qt-jukrqug9BEHk4ENEBgLp713DViAYq6D5xoZpUAdvXDW3ncNszUOsZazhmjNipkhttpmVJl9mB5ugszcXwL9jtH2bNEDmKRNHBvgItKWmOPpIsM6dYEmmU0uFMs3T_8H24c_39WLCRl-Pa",
     "ttp": "01M03XHDAN5K0QTJXNZRMEQHAV_.tt.2",
     "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "t6c4p7sgms6msv1dhqo",
     "funnel_store": "toalha",
     "address": {
@@ -22113,6 +22113,7 @@
     "external_id": "ttk_msv1hesi_8fc5d5ee69",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/5609d4a0-e4a5-4047-9c7b-359c9604eff55204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304BF1F",
     "created_at": "2026-08-16T00:00:59.207Z",
-    "paid_at": null
+    "paid_at": "2026-08-16T00:05:55.801Z",
+    "net_amount": 3499
   }
 ]
