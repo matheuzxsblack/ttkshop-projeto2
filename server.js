@@ -4952,7 +4952,9 @@ function saveCampaignsConfig(cfg) {
 }
 
 function persistCampaignsConfigToGithub() {
-  return Promise.resolve({ ok: false, reason: "sync off (projeto2 nao sincroniza campanhas)" });
+  if (!shouldSyncTxGithub()) return Promise.resolve({ ok: false, reason: "sync off" });
+  var json = JSON.stringify(loadCampaignsConfig(), null, 2);
+  return githubUpsertFile("campaigns-config.json", json, "chore(campaigns): sync");
 }
 
 function genToken() {
