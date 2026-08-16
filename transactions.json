@@ -28146,9 +28146,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw16gev_89b4ca3a87",
@@ -28711,5 +28711,339 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-16T16:58:43.557Z"
+  },
+  {
+    "id": "psa_a3973f48349e8df687f2baa29f0689d2",
+    "tracking_code": "SOBT4SRNC2F8BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Jane Maura Nogueira Ramos da Silva",
+    "client_email": "janenogueira1968@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "21",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBjI0CqKyho5K7t5hZRgXzUl_ZU1KMWvlc-SlPPKoW1CON6QzYGhhAmJGLDi9xoHLIMs3MKDdSNZAVs-wzyanRmdOMuahspjoT4RyDSsyNT6eWOIqAsK3Oqb7kHyjJp23DS8oRh139hFu63X60jwmfdZRZ7Xc4KS_O-u9HjxO9U6UfzC5jfo-MSaOiIay8d0",
+    "ttp": "01M05R17H68KPFZJX4KF19MNKK_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t7393qgaxy9smsw1r0xw",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "23894-474",
+      "uf": "RJ",
+      "cidade": "Seropédica",
+      "bairro": "Boa Esperança",
+      "rua": "Rua João Alberto Simões Júnior",
+      "numero": "00",
+      "complemento": "Lote 25 quadra 5"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": true,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1zxhz_c7970a0f3a",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/38ff469b-2389-433c-bfd9-f8dd110400575204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63048D48",
+    "created_at": "2026-08-16T17:03:10.148Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_662425dfb549b3fb417fa85b0a5933cf",
+    "tracking_code": "SOXTXZ7DNZ46BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Daniela Costa Mota",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "85988284249",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABuzjMXkznqtlpigBQOc0Eo5TiqNnVDCsr8mDJV1STy8RbFjibfvOY5fWoQM41RJJPueQGqgeRC0sT1b_qocRw-gFZQF_eaTpthVGB5arO4TvHSD2p4uDlxZCJMaFE1nKF6MQf1vhzByfVjmdCO7xfT8E3CIbXqQjqqbJus7HHxq_uQdaPJnItZdTu51H6_6",
+    "ttp": "01M05RCA4E9GS32DMCZCN2AQ29_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tew4nfxs9ghlmsw1ysh6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "61946-400",
+      "uf": "CE",
+      "cidade": "Maranguape",
+      "bairro": "Lameirão",
+      "rua": "Rua Flor da Papoula",
+      "numero": "103",
+      "complemento": "A"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw20wyd_ba53373317",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/ac56dd14-e29d-4af2-832f-4f30e7aab0b05204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304FFE9",
+    "created_at": "2026-08-16T17:03:55.514Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_ef6fa82bbd6ce3e615fdf061746a60aa",
+    "tracking_code": "SO5XFGZLTPY7BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Luzia Aparecida Netto Augusto",
+    "client_email": "agustoluziaaparecidanettoagust@gmail.com",
+    "client_doc": "08031721688",
+    "client_doc_entered": "08031721688",
+    "doc_pix_fallback": false,
+    "client_phone": "32998138518",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBTwtSrHAbTW_fUXRCZSFanfMCeM83oaCY7hH7NNjTUCtwJksDGp96AMo6LCpgPEhB9YSbemmflpmyXbgbXE2HiY--vug_JnrK9WKbN1NUTD3min47IKYPmjuWIJyIpcNbuD1YMAThMExubdJwBfh3oK3sesQZ3eP3g-lvtYm9WOVmNwDDdUi70uDvDU9y8y",
+    "ttp": "01M05RAA6ZDJ1S3WZWEJKP55J7_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tsdd6l6ju6vcmsw1xdtn",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "36702-044",
+      "uf": "MG",
+      "cidade": "Leopoldina",
+      "bairro": "São Cristóvão",
+      "rua": "Rua Ercílio Almeida de Lima",
+      "numero": "245",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw22lvj_a12fd52036",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c3ff327b-4ffd-4627-bc50-beace4532dd05204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304E853",
+    "created_at": "2026-08-16T17:05:14.934Z",
+    "paid_at": "2026-08-16T17:06:58.240Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_382f49ee916aadda838fc08bc1bd892a",
+    "tracking_code": "SOKMH4BE649ABR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Daniela Costa Mota",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "85988284249",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABuzjMXkznqtlpigBQOc0Eo5TiqNnVDCsr8mDJV1STy8RbFjibfvOY5fWoQM41RJJPueQGqgeRC0sT1b_qocRw-gFZQF_eaTpthVGB5arO4TvHSD2p4uDlxZCJMaFE1nKF6MQf1vhzByfVjmdCO7xfT8E3CIbXqQjqqbJus7HHxq_uQdaPJnItZdTu51H6_6",
+    "ttp": "01M05RCA4E9GS32DMCZCN2AQ29_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tvh67x7ht9ekmsw22y19",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "61946-400",
+      "uf": "CE",
+      "cidade": "Maranguape",
+      "bairro": "Lameirão",
+      "rua": "Rua Flor da Papoula",
+      "numero": "103",
+      "complemento": "A"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw24qwg_889e569ab9",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/45e74b05-7a55-4841-b5fc-20d9131aa89d5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304DE06",
+    "created_at": "2026-08-16T17:06:54.402Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_dc8be602f257f1a2266fe280b3445b19",
+    "tracking_code": "SOS2V5862YZBBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Thais abelina da Silva Brandão",
+    "client_email": "thaisphyetro957@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "84986609843",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABTYI3NvaHzzpvfd0u9suV7p2iJ_thMOHRNfnMc8tg2j6CnHlo1osbL-4zPN2e1j719U4YPxpiFRjnhWq8epRXUFl-b6paqKbYep0Y5jMHSls0JhlhLgjiAB6rfR7JhTjBlOsC7xVe2e-0w5vMS_NqYkdvzpvuevAqmeJEe_rum8anYE26O1f_dZ3x0AKaw3",
+    "ttp": "01M05RN5CJRV7CXS37BP5XEX12_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t99e11651cbrmsw24yiv",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "59129-490",
+      "uf": "RN",
+      "cidade": "Natal",
+      "bairro": "Lagoa Azul",
+      "rua": "Rua Havana",
+      "numero": "407",
+      "complemento": "casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw28x1h_37c5e235eb",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/021870a8-2bd1-4fd0-839d-6f00476537845204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63047418",
+    "created_at": "2026-08-16T17:10:09.372Z",
+    "paid_at": "2026-08-16T17:13:19.369Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_e9db6d17e165bd04ba09c6073977ea49",
+    "tracking_code": "SODG6TM7XPVHBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Francineth Correia",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5598981665",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBUlWW8LNtWgkDH3pll4WnvneW51xlRULUOqLgs9LiBxsuSMhlL3XMGDErGzDEJrbPIHLExMZThNft9dXxUwv9Pt7-bWAzz-FocLcG4uz-RgygMnE27VV020omCxlE7WtYSKU-2lSyC482esKF8XtozevtrNtNkIUJLH9Am7IB9e7gNjq-SY1_AwawYZINSn",
+    "ttp": "01M05RD237YT9DFBZMCJ8ZPHSK_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t80nibzi9ocmsw1zaw7",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "60876-552",
+      "uf": "MA",
+      "cidade": "Coelho Neto",
+      "bairro": "Centro",
+      "rua": "Rua são José",
+      "numero": "215",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw2bbu0_f64d60d1f8",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/34ebf501-363a-4728-915d-01320822f0ca5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304DBB5",
+    "created_at": "2026-08-16T17:12:01.373Z",
+    "paid_at": null
   }
 ]
