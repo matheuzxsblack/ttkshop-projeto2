@@ -29981,9 +29981,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw4j081_2bf174bbc4",
@@ -30040,9 +30040,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw4mzb8_55fe488faf",
@@ -30232,6 +30232,160 @@
     "external_id": "ttk_msw5f8p3_bbc1803424",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/14a15bd2-61e3-4e9d-bb87-503f2715d9f75204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63042BFC",
     "created_at": "2026-08-16T18:39:03.283Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_3995cb7a4279d87dcd9c8b4ce8e9dda3",
+    "tracking_code": "SOH6LV8DHCDSBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Romilda Renata Ferreira",
+    "client_email": "cliente@email.com",
+    "client_doc": "93204795691",
+    "client_doc_entered": "93204795691",
+    "doc_pix_fallback": false,
+    "client_phone": "34999852346",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBjKWBiky2ysnEn5c9FBAEIspt44wqZHqFyWhkx0PNhQjmrLhSFbaz2RjgHSErsbPQKPPh9e60Ur_9wHkBV0OwGbRrFtZNXkI5ZGU1s-78b32__vCD-6MlNJrNawGz_6vNPIfHIt4RojrbNBIcRNVEJU1jf4CPSDL1-lN64JBu6uBEStbwg6_x8gZorLVTJ2",
+    "ttp": "01M05XVHXY6TX59V4GVZQCQSJ3_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "teqmyry88fecmsw5dtn2",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38747-000",
+      "uf": "MG",
+      "cidade": "Patrocínio",
+      "bairro": "Constantino",
+      "rua": "Rua Alírio de Melo",
+      "numero": "179",
+      "complemento": "Casa0"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw5kqmz_daee4bbf78",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/6cc846b2-d29d-4b2d-a2ba-18a9a4fd1fef5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630471E3",
+    "created_at": "2026-08-16T18:43:19.713Z",
+    "paid_at": "2026-08-16T18:45:50.227Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_1ed1c2cea2b947d981eeeda601ec4008",
+    "tracking_code": "SOQMNLREBHVUBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Elizete de Souza oliveira",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "30494270",
+    "doc_pix_fallback": true,
+    "client_phone": "31980161858",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBeAvGISpSIEmG97yanndp1HceNaYxBvWzpRz6GcXrZNuvoJHkziod_g6RUNHSMTpIwal6Y0zUygvzV5LI4tBxs_hgYqEB7J6KrSyJN8-cyIvQGKMTw1eGqv8UnEeUhPjp2Jy_rLnO9uhBbnZIBEohlC01GaETL5fw5LfPBzU2M2V2CAEPKd6cgYkHY90tCn",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t2idvrad9bhsmsw5q0hg",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "30494-270",
+      "uf": "MG",
+      "cidade": "Belo Horizonte",
+      "bairro": "Estoril",
+      "rua": "Avenida Barão Homem de Melo",
+      "numero": "4500",
+      "complemento": "Sala 1212"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw5rq4l_030a8e4860",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c5a5b7b6-c74d-431f-bcf1-3a8005044c4e5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630413C0",
+    "created_at": "2026-08-16T18:48:45.389Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_0768705b843e9abbd761296ab9a9392e",
+    "tracking_code": "SOLSKVND548YBR",
+    "amount": 4374,
+    "status": "pending",
+    "client_name": "Francisca Ivaneide Barbosa  de Castro",
+    "client_email": "ivaneidebarbosa35@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5592994132278",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABbYFTFHvLnHPshCntjR5MaCZaTKVPhfYxOZ_UPMnBwTQTYSqgqGaOK2GaDfRgJWd7uc_2hYHpHpUKjHhUd-6f7GIlA344YtOF04uFYeWxicHx8buyBXDWF94GaHYpNpseAWK-NoB29L8NDe7WkyT3JtTdrXnPDDHPy4G2lBwO9uzM2VpeJPQnnYoJAC9jPv",
+    "ttp": "01M05XV8EFDW1RWRFFF20J36PA_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tvxnw57hovnlmsw5j7uc",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "69018-660",
+      "uf": "AM",
+      "cidade": "Manaus",
+      "bairro": "Lago Azul",
+      "rua": "Rua Macacaúba",
+      "numero": "202",
+      "complemento": "Quadra 43 bloco 260 app.202"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw5tc2v_2aa4926ab4",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/3b9d1b9f-d4cc-44c1-8fc5-3a7de65e13fb5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63042980",
+    "created_at": "2026-08-16T18:50:00.407Z",
     "paid_at": null
   }
 ]
