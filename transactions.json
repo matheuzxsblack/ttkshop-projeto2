@@ -22307,5 +22307,64 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/27a32fc8-07c2-4cb5-adea-7d0342787f295204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63045037",
     "created_at": "2026-08-16T00:26:05.932Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_eb05a5fda4aa7ee6bef380f93d06c714",
+    "tracking_code": "SO4BA3M2PHS4BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Lucinete dos santos Moraes",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "34991291581",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABgt1aRC4JqCbiSy6Lhz-BzcN7BM6FrDAwIpupOpBb24Or0v5ZBdmLmCFikzV_ohGLLTtlPddeYhYoB-lRQct-A-OkIijB8VbX8pL8jxahHRkcg06kIpD5QtMy5oC3FOwOyKFkgfS9F6Z1FN9KRI9MrRdbxgFh489ZsHs88gvyvtM9mBgBpvvsmB39-RQVkq",
+    "ttp": "01M03ZH26DV013VBSQPDAKANY7_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tyhqjphe55wmsv2h2zw",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38407-531",
+      "uf": "MG",
+      "cidade": "Uberlândia",
+      "bairro": "Residencial Integração",
+      "rua": "Rua da Alegria",
+      "numero": "185",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msv2nneo_3380a359f9",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/12ee28ec-1175-47b0-97d5-40efbb468d115204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304D8A7",
+    "created_at": "2026-08-16T00:33:49.990Z",
+    "paid_at": null
   }
 ]
