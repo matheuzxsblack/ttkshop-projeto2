@@ -23253,5 +23253,261 @@
     "created_at": "2026-08-16T11:31:42.877Z",
     "paid_at": "2026-08-16T11:31:42.877Z",
     "email_sent": true
+  },
+  {
+    "id": "psa_e73c024b50e4ae62e9ce46bfceb61f93",
+    "tracking_code": "SOESZ3WWV57ZBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Maria altamire da conceiçào freire",
+    "client_email": "thamyrysfreire@gmail.com",
+    "client_doc": "09314079406",
+    "client_doc_entered": "09314079406",
+    "doc_pix_fallback": false,
+    "client_phone": "34996420259",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBUngtvX-l0z3d-goKziAOY0g366mV0Wqwh4YDolnxQBaP8sK_RFmgJuAVkEc5maCluiW6A7MJHYlufJsrlRZQ80B7bPRSx5-3H100uEiEsGMPVg1iFY2vqjEcLwinvN0JlZObKNdULa0RbRy48Q9osHlT0Hd0gXfyI--4gut-2xx1BYyxxBzb6Eq5cSLHpL",
+    "ttp": "01M0556FN1N6TWNP78CTQWCVDT_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tzyrz4jbdawmsvq4ctl",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38160-000",
+      "uf": "MG",
+      "cidade": "Nova Ponte",
+      "bairro": "São joão 2",
+      "rua": "Calimerio bernades ferreira",
+      "numero": "302",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvq83na_046945e001",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/a55968db-9242-4604-aa90-1ec8527425d95204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630470FC",
+    "created_at": "2026-08-16T11:33:35.448Z",
+    "paid_at": "2026-08-16T11:34:37.498Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_7b8e73d96fe4a1783a364294bd87f24f",
+    "tracking_code": "SOQ7NYJ6YVKEBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Silvania dos Santos Barbosa",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "96991231323",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABxHoaSUmWZ4PAeqTFflN-EFaKGfREhXmNUXlk04ENrH23pOCaa97L27NbsDSTS1cL7HRFcgd1eKX6zhsY9M2TOnEMu_EEBcG04PEyVhvXJPDvICE6PxtpRWoftfo8o1aa80_w7uPf305LclfzptMxF2VBeOnREWtSJgHL9rPGUGhCR3pAE-b3SFNgMH0NfA",
+    "ttp": "01M055JG040J2JSKYS4YJZ0JCQ_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tfjpvwp54m7msvq83tm",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "68904-327",
+      "uf": "AP",
+      "cidade": "Macapá",
+      "bairro": "Congós",
+      "rua": "Avenida Pompeu Cardoso",
+      "numero": "1389",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvq9ybn_d9f0ec8d06",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/90c6073c-4cdc-425f-93bc-d646757013815204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304D5B6",
+    "created_at": "2026-08-16T11:35:01.946Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_cfbbf034b5ad3e0696ecfe1e887e777b",
+    "tracking_code": "SO5SRCJ9GC83BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Lucicleide Gomes da Fonseca",
+    "client_email": "cleidebaiana66@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "66",
+    "doc_pix_fallback": true,
+    "client_phone": "11992566610",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABIGXkePHSbZd4AtiCHYmYkBUcAA2UQpyH2t-yLwos1xeL7VAImeznIYJAVgmruNyFQAJG0bzI0NZMCPdns9MgW-rJPThDIjJ8MnN0FlLFK2YAg-mHWgUAVvZBHLTGKJLLX-TSLPGRLvaT38KK00Z-nrvynABJe3HRujLGj24ScJwkEftppGCmEaZtLbkX35",
+    "ttp": "01M0556036YXFNTQRHSG67M0C5_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tkpaxm1m0iajmsvq70o8",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "08440-350",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Vila Chabilândia",
+      "rua": "Rua Igarapé Mirim",
+      "numero": "61",
+      "complemento": "A"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvqa846_619300d177",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/1ba1fb95-7ee2-4d35-99a8-fb0cbe05278c5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304DE54",
+    "created_at": "2026-08-16T11:35:14.552Z",
+    "paid_at": "2026-08-16T11:37:05.378Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_0b4fc59d0f274c85e16c038707cd21bf",
+    "tracking_code": "SON9U5PZMMWHBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Elisabete de pontes",
+    "client_email": "elisabetepontes4@gmail.com",
+    "client_doc": "26795534898",
+    "client_doc_entered": "26795534898",
+    "doc_pix_fallback": false,
+    "client_phone": "14997315713",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuIBck5HF-UXsQgyyXAK5pyHUZURglst-JTPL5LtvDEOc-k5TAMgz_yaDSgmC0AHujdaA-TsORVr3yG9SuXOVN1xwfN6d7jFE9LlZn5EqwIVTwlpkmDBRJO3PDNm7Le1tDMrKDqXG5ewmuXr3S25GT1lYl0a4l9t30J2_ZuznVAO8Jea2lSIiwLbdhQekKb4HL",
+    "ttp": "01M054NY0WNJQYH3J9JBHMJ72Y_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tzqbns132fskmsvqadqg",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "18640-210",
+      "uf": "SP",
+      "cidade": "Pardinho",
+      "bairro": "Conjunto Habitacional Oswaldo Corrêa",
+      "rua": "Rua Benedito Bernardo de Oliveira",
+      "numero": "5",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvqd4wd_772a006580",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/821c0ed5-3980-4f91-bfa3-450808ab1e935204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63045B8A",
+    "created_at": "2026-08-16T11:37:30.449Z",
+    "paid_at": null
+  },
+  {
+    "id": "manual-1786880256955-2b021c",
+    "tracking_code": "SOZ48H73GJ3UBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Teste",
+    "client_email": "suehta99@gmail.com",
+    "client_doc": "",
+    "client_phone": "",
+    "address": {
+      "cep": "",
+      "uf": "",
+      "cidade": "",
+      "bairro": "",
+      "rua": "",
+      "numero": "",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit Toalhas",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "manual": true,
+    "source": "manual-admin",
+    "created_at": "2026-08-16T11:37:36.955Z",
+    "paid_at": "2026-08-16T11:37:36.955Z"
   }
 ]
