@@ -23251,6 +23251,7 @@
     "manual": true,
     "source": "manual-admin",
     "created_at": "2026-08-16T11:31:42.877Z",
-    "paid_at": "2026-08-16T11:31:42.877Z"
+    "paid_at": "2026-08-16T11:31:42.877Z",
+    "email_sent": true
   }
 ]
