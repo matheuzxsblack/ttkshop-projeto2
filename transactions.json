@@ -22880,5 +22880,142 @@
     "source": "manual-admin",
     "created_at": "2026-08-16T11:06:35.635Z",
     "paid_at": "2026-08-16T11:06:35.635Z"
+  },
+  {
+    "id": "psa_28a62411603cd93b5cb4f2d476f5db0d",
+    "tracking_code": "SOQ4Y3NHNSPNBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Ezequias de Souza Cabral",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "67998691390",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBA_Ks3ddiVwGbYyaM9lGNqHD78OsUVRWsxp1pWIpPs_-K3080itc6nPxoSfp1P3L0a-xv4d_n1sTvCKoEfcuwVUkw1io1-uFY2HrjLZEMWDhPMn1QzkB-Qlt7TNReyYsB1wSjjLVD_rHmPqplfACZss5gTQJHhWwC4lNHlOGRE9_qpUW53oDhA5hxmIaLQq",
+    "ttp": "01M053YAYB2472N411SW34PNG5_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t68crop2wwlrmsvp8r27",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "79115-510",
+      "uf": "MS",
+      "cidade": "Campo Grande",
+      "bairro": "Vila Manoel Taveira",
+      "rua": "Rua Santa Clara",
+      "numero": "673",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvpaw1s_08ddd6c40a",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/87083173-4248-46a5-ac4e-e4bd257c93ad5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63045CFD",
+    "created_at": "2026-08-16T11:07:45.981Z",
+    "paid_at": "2026-08-16T11:08:27.104Z",
+    "net_amount": 3499
+  },
+  {
+    "id": "psa_6e07b38b0c5e4ecfc54dd7d9dd59da81",
+    "tracking_code": "SOZBNA6ZBHXJBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "teste",
+    "client_email": "viraliza365@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "11111111111",
+    "doc_pix_fallback": true,
+    "client_phone": "11111111111",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "th2kyg3zr0omsvpdz0w",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13299-272",
+      "uf": "SP",
+      "cidade": "Itupeva",
+      "bairro": "Monte Serrat",
+      "rua": "Estrada Municipal Benedito de Souza",
+      "numero": "32",
+      "complemento": "32"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvpecud_96706b6ddc",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/085c1846-4500-41c4-a3f7-eaf8cb6be4ca5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63049680",
+    "created_at": "2026-08-16T11:10:27.639Z",
+    "paid_at": null
+  },
+  {
+    "id": "manual-1786878631707-36853a",
+    "tracking_code": "SON6RTV2VUL2BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Suehta Teste",
+    "client_email": "mfstore157@gmail.com",
+    "client_doc": "",
+    "client_phone": "",
+    "address": {
+      "cep": "",
+      "uf": "",
+      "cidade": "",
+      "bairro": "",
+      "rua": "",
+      "numero": "",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 Toalhas Gigante",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "manual": true,
+    "source": "manual-admin",
+    "created_at": "2026-08-16T11:10:31.707Z",
+    "paid_at": "2026-08-16T11:10:31.707Z"
   }
 ]
