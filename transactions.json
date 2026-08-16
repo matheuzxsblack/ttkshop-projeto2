@@ -23742,5 +23742,35 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/6d256c54-a607-4cc8-8b3d-08c3949374595204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63044A41",
     "created_at": "2026-08-16T11:50:50.929Z",
     "paid_at": null
+  },
+  {
+    "id": "manual-1786881336794-92c867",
+    "tracking_code": "SO4UMSK8AYCBBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Suehta Teste",
+    "client_email": "suehta99@gmail.com",
+    "client_doc": "",
+    "client_phone": "",
+    "address": {
+      "cep": "",
+      "uf": "",
+      "cidade": "",
+      "bairro": "",
+      "rua": "",
+      "numero": "",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 Toalhas Gigante",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "manual": true,
+    "source": "manual-admin",
+    "created_at": "2026-08-16T11:55:36.794Z",
+    "paid_at": "2026-08-16T11:55:36.794Z"
   }
 ]
