@@ -29804,7 +29804,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -29930,6 +29930,65 @@
     "external_id": "ttk_msw4fjqt_93abfcb4bc",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/0902e42d-e472-4d8d-893d-31ad3f444a3a5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63043030",
     "created_at": "2026-08-16T18:11:17.482Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_92ec22d9446e56cc219c212bb3815792",
+    "tracking_code": "SO4JBP4FA6R9BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Erica Pires",
+    "client_email": "perfeitoamore2018@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5584988813",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABgIZ0QeXk8uGJNMTmyWyEzWdn1iYrvuMpzCBUD_wP9exbjLUWe_pikLN990s17CdkQX__xfMGDB3FTZzbf2f4HKAiH_xBRhNwr3hsbwqWkjmpe4RlqeZdH2RaAKoSQ8YbyP3T3GpJ1DfXZco7ysPCf8Zyt9Ph-B12xLNjf8Ygh5h16XSws87E-f6JDLelb_",
+    "ttp": "01M05W71N9RC1GNK03YV0JQYRB_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t1q9hh174tqimsw4erbp",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "59012-110",
+      "uf": "RN",
+      "cidade": "Natal",
+      "bairro": "Ribeira",
+      "rua": "Rua Teotônio Freire",
+      "numero": "75",
+      "complemento": "Condomínio Sun River, Apartamento 2002 Bloco B"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw4j081_2bf174bbc4",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/5ef55bd4-94d7-415e-879e-7391f5fb34805204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63045BDF",
+    "created_at": "2026-08-16T18:13:58.830Z",
     "paid_at": null
   }
 ]
