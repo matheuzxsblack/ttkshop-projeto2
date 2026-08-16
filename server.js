@@ -21,9 +21,8 @@ try {
 } catch (eDir) {
   console.log("[data] não criou DATA_DIR:", eDir.message);
 }
-const PIXZY_TOKEN =
-  process.env.PIXZY_TOKEN ||
-  "280|Hxjk6w8xqskHB98aGM2oGB0qDE4tf7Hem2kgjLm5a2ceb486";
+/* Pixzy removido do projeto2 (2026-08-16): usuario nao usa essa API aqui — saldo Pixzy nao entra no painel mesmo se houver env var no Render. */
+const PIXZY_TOKEN = "";
 const PIXZY_HOST = "app.pixzypay.com";
 
 const BUCKPAY_API_KEY = String(process.env.BUCKPAY_API_KEY || "").trim();
@@ -3666,48 +3665,69 @@ async function fetchBuckpayAccountBalance() {
 /** Painel: saldo geral (Pixzy + gateway ativo) e breakdown. */
 async function fetchAdminAccountDisplay() {
   var gw = paymentGatewayName();
-  var pixzyAcc = await fetchPixzyAccount();
-  var pixzyBal =
-    pixzyAcc.balance != null && !isNaN(pixzyAcc.balance) ? Math.round(Number(pixzyAcc.balance)) : 0;
   var localNetAll = sumPaidNetLocal();
+  
+  // Só busca saldo Pixzy se houver token configurado
+  var pixzyAcc = {};
+  var pixzyBal = 0;
+  if (PIXZY_TOKEN) {
+    pixzyAcc = await fetchPixzyAccount();
+    pixzyBal = pixzyAcc.balance != null && !isNaN(pixzyAcc.balance) ? Math.round(Number(pixzyAcc.balance)) : 0;
+  }
+  
   var out = Object.assign({}, pixzyAcc, {
     gateway_active: gw,
     local_paid_net: localNetAll,
     pixzy_balance: pixzyBal,
   });
 
+  // Se gateway ativo é pixzy (ou não tem gateway), usa só Pixzy
   if (!gw || gw === "pixzy") {
     out.balance = pixzyAcc.balance;
     out.balance_general = pixzyBal;
-    out.balance_note = pixzyAcc.estimated
-      ? "estimado pelas vendas no painel (API Pixzy indisponível)"
-      : "conta Pixzy";
+    out.balance_note = PIXZY_TOKEN
+      ? (pixzyAcc.estimated ? "estimado pelas vendas no painel (API Pixzy indisponível)" : "conta Pixzy")
+      : "PIXZY_TOKEN não configurado";
     return out;
   }
 
+  // Gateway ativo não é pixzy: busca saldo do gateway ativo
   var gwPanelNet = sumPaidNetForGateway(gw);
   var gwApi = null;
   if (gw === "buckpay") gwApi = await fetchBuckpayAccountBalance();
   if (gw === "purincash") gwApi = await fetchPurincashAccountBalance();
   if (gw === "sharpify") gwApi = await fetchSharpifyAccountBalance();
   var gwPart = gwApi && gwApi.balance != null ? Math.round(Number(gwApi.balance)) : gwPanelNet;
-  var general = pixzyBal + gwPart;
   var gwLabel = (PAYMENT_GATEWAY_META[gw] && PAYMENT_GATEWAY_META[gw].label) || gw;
 
+  // Só inclui Pixzy no total se houver token configurado
+  var general = PIXZY_TOKEN ? (pixzyBal + gwPart) : gwPart;
+  
   out.balance = general;
   out.balance_general = general;
   out.gateway_balance = gwPart;
   out.gateway_balance_panel = gwPanelNet;
   out.gateway_balance_from_api = !!(gwApi && gwApi.from_api);
-  out.balance_breakdown =
-    "Pixzy " +
-    (pixzyBal / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) +
-    " + " +
-    gwLabel +
-    " " +
-    (gwPart / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) +
-    (gwApi && gwApi.from_api ? " (API)" : " (vendas pagas no painel)");
-  out.balance_note = out.balance_breakdown + " · saque em cada gateway";
+  
+  if (PIXZY_TOKEN) {
+    out.balance_breakdown =
+      "Pixzy " +
+      (pixzyBal / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) +
+      " + " +
+      gwLabel +
+      " " +
+      (gwPart / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) +
+      (gwApi && gwApi.from_api ? " (API)" : " (vendas pagas no painel)");
+    out.balance_note = out.balance_breakdown + " · saque em cada gateway";
+  } else {
+    out.balance_breakdown =
+      gwLabel +
+      " " +
+      (gwPart / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) +
+      (gwApi && gwApi.from_api ? " (API)" : " (vendas pagas no painel)");
+    out.balance_note = out.balance_breakdown + " · Pixzy não configurado";
+  }
+  
   out.name = out.name || "Saldo geral";
   return out;
 }
