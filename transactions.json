@@ -27773,5 +27773,172 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/d0aee56a-62fa-42c6-bcd0-1677798fcdda5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304C892",
     "created_at": "2026-08-16T16:01:30.698Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_ca1f48b6e69e284f80bed6c36fe5e1f0",
+    "tracking_code": "SOWHYRDR264SBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Dulcileia Tavares",
+    "client_email": "dulcileiamtavares@gmail.com",
+    "client_doc": "82935416287",
+    "client_doc_entered": "82935416287",
+    "doc_pix_fallback": false,
+    "client_phone": "91998218053",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBEj7Eqo41-CZtoqt32axP_BBSDeZHECNAiMdJMbI4LipDRa5fFNFElIXR-LsTtfWLVxHcu3-MYeGiq3vtygSymlyMQAJT6tlwtwCRiGh6T5cU9OPMYalh-aZ09s_z54xmiIJx-ZyO8UkngiejC2U67WErM_je9uQd6GuXwXatSYAjBTqnp5AGYIArveudH-",
+    "ttp": "01M05N6B57PTCYH1P023PFC14R_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tki058ne8vqemsvzz5t7",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "66825-109",
+      "uf": "PA",
+      "cidade": "Belém",
+      "bairro": "Tapanã (Icoaraci)",
+      "rua": "Passagem Cristo Redentor",
+      "numero": "33",
+      "complemento": "3 rua da olaria passagem Cristo Redentor 33"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw04q4o_64bf1b11d7",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/96c09a8c-5fc1-4ab7-99e6-3c7f7840e8fd5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63042A3E",
+    "created_at": "2026-08-16T16:10:54.109Z",
+    "paid_at": "2026-08-16T16:12:25.834Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_c400a33848f8af4b4cfb03da09cd02f6",
+    "tracking_code": "SO6ZXG5GEJGMBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Dalva Ribeiro Dos Reis SALUSTIANO",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "44997719930",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBu8sVbpOk4wFCDdoPSC_T1S5ofqAJAkBKFNW7KoKMXKvwwz0A7eUUrFH5NRZvwBGb6Pw9PD0Oxysp0ThH9iIlsuYJETxAnBtV-S2Aa1FS2R9JebJ0lwa-yP674XmFFuiWlTCNGpfPO_4ae5q7jGcKh9tjFAa4wfw9WBQv01Ix1QsatkirJ_yAKl50R6TxTy",
+    "ttp": "01M05MNWBA7HY1AD003HRHPNA0_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t0qdkmbgnk2hhmsw04yof",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "87260-000",
+      "uf": "PR",
+      "cidade": "Araruna",
+      "bairro": "Jardim Centro",
+      "rua": "Rua João Pessoa",
+      "numero": "411",
+      "complemento": "Jardim Centro"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw07w7f_932f6da2b5",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/92273726-585c-4565-a415-e6a74e6780615204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63040568",
+    "created_at": "2026-08-16T16:13:22.309Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_8f0d90cedcbaae33f6fd615c3fcebb9f",
+    "tracking_code": "SOK4FTEFNGQPBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Patrícia Gonçalves",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5599659291",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuAB72qYsDZd3CYWvZq3krLskcPkEzPrEUAI7CyDMtE7sJ0wjx9PhoV9HmQR5_nuJBe2MYT0lzwzBoDP30MbrRPJJYTov3mub8wKoe_4NSdQa-2boKwF6U_mT3GqybSSd216u12s5NUT56uhiF2-ohFolFISaK5N8YVpWqAsxiENFlXImqxIATxwGAyo_5_31H",
+    "ttp": "01M05NGZJXHFD6ZK8NFV8DW4YG_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tros9hrymsfmsw06msq",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "29780-000",
+      "uf": "ES",
+      "cidade": "São Gabriel da Palha",
+      "bairro": "Cachoeira da onça",
+      "rua": "Joaquim Bussular",
+      "numero": "263",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw08kzi_dbef483404",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/1431ab4e-9fc9-4ff5-b4c8-948b1c9f24c95204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304ED1F",
+    "created_at": "2026-08-16T16:13:54.015Z",
+    "paid_at": null
   }
 ]
