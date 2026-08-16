@@ -27095,13 +27095,72 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvywg9a_049dd61730",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/8782b331-b583-4843-8fb7-2e4bae320d0a5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63046C95",
     "created_at": "2026-08-16T15:36:28.958Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_cd8c874dbf940bbc559d7aa11d56c2bd",
+    "tracking_code": "SO7YK8CR6Q89BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Lidia Maria Machado",
+    "client_email": "lidiamaria7507@gmail.com",
+    "client_doc": "07441521602",
+    "client_doc_entered": "07441521602",
+    "doc_pix_fallback": false,
+    "client_phone": "5534996617103",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBRA542wlChutUvMyTb48I2x3h2VpcFoHynGcq9BNmYy-eRQPeWmEZ70W-pqo9fSg4mJUTx_v0OS3j6cDbZ7_SYfxd77lqxZiMrSrCSOODzXT_wc-CicFkZ_lM0WYxK8qOGqO73koEFrA7akDdymB7SP1Wo3GNePcavN9mIY2dpeyZ44Kr6tYWaSdBxsw16V",
+    "ttp": "01M05KAKARFYMJ75MAXJ5TWQYM_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t7lr6l2vaht6msvz1jud",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "38755-000",
+      "uf": "MG",
+      "cidade": "Lagoa Grande",
+      "bairro": "Avenida",
+      "rua": "Avenida Israel Pinheiro",
+      "numero": "161",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvz2tit_250778289c",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/13f7c19c-069b-45d5-aade-fa48845abeb05204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304E799",
+    "created_at": "2026-08-16T15:41:26.554Z",
     "paid_at": null
   }
 ]
