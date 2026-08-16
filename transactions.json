@@ -23222,5 +23222,35 @@
     "source": "manual-admin",
     "created_at": "2026-08-16T11:31:38.909Z",
     "paid_at": "2026-08-16T11:31:38.909Z"
+  },
+  {
+    "id": "manual-1786879902877-c5d284",
+    "tracking_code": "SOKE48DADCHCBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Suehta Teste",
+    "client_email": "mfstore157@gmail.com",
+    "client_doc": "",
+    "client_phone": "",
+    "address": {
+      "cep": "",
+      "uf": "",
+      "cidade": "",
+      "bairro": "",
+      "rua": "",
+      "numero": "",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 Toalhas Gigante",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "manual": true,
+    "source": "manual-admin",
+    "created_at": "2026-08-16T11:31:42.877Z",
+    "paid_at": "2026-08-16T11:31:42.877Z"
   }
 ]
