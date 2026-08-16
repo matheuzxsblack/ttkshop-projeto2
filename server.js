@@ -750,6 +750,33 @@ function applyPixelsToStoreHtml(storeKey, pixelIds) {
 
 /* ---------- visitantes online (presença por ping — sem SSE fantasma) ---------- */
 var onlinePresence = new Map(); /* key -> { t, path, host } */
+var ONLINE_DISK_FILE = path.join(DATA_DIR, "online-presence.json");
+var ONLINE_DISK_SAVE_INTERVAL = 30000; /* salva a cada 30s */
+var _onlineDiskDirty = false;
+function saveOnlinePresenceToDisk() {
+  try {
+    var arr = [];
+    onlinePresence.forEach(function (info, key) { arr.push({ key: key, t: info.t, path: info.path, host: info.host, audience: info.audience }); });
+    fs.writeFileSync(ONLINE_DISK_FILE, JSON.stringify(arr));
+    _onlineDiskDirty = false;
+  } catch (eD) {}
+}
+function loadOnlinePresenceFromDisk() {
+  try {
+    if (!fs.existsSync(ONLINE_DISK_FILE)) return;
+    var arr = JSON.parse(fs.readFileSync(ONLINE_DISK_FILE, "utf8"));
+    if (!Array.isArray(arr)) return;
+    var now = Date.now();
+    arr.forEach(function (r) {
+      if (r && r.key && r.t && (now - r.t) < ONLINE_TTL_MS * 5) {
+        onlinePresence.set(r.key, { t: r.t, path: r.path || "", host: r.host || "", audience: r.audience || "store" });
+      }
+    });
+    console.log("[online] restauradas " + onlinePresence.size + " visitas do disco");
+  } catch (eL) {}
+}
+loadOnlinePresenceFromDisk();
+setInterval(function () { if (_onlineDiskDirty) saveOnlinePresenceToDisk(); }, ONLINE_DISK_SAVE_INTERVAL);
 var adminOnlineSSE = new Set(); /* res objects dos admins ouvindo o contador */
 var lastBroadcastCount = -1;
 var lastBroadcastPagesKey = "";
@@ -801,11 +828,11 @@ function touchOnlinePresence(req, urlObj) {
     } catch (eHost) {}
   }
   if (path.indexOf("/compra") === 0) audience = "cloaker";
-  onlinePresence.set(key, { t: Date.now(), path: path, host: host, audience: audience });
+  onlinePresence.set(key, { t: Date.now(), path: path, host: host, audience: audience }); _onlineDiskDirty = true;
 }
 
 function dropOnlinePresence(req, urlObj) {
-  onlinePresence.delete(onlinePresenceKey(req, urlObj));
+  onlinePresence.delete(onlinePresenceKey(req, urlObj)); _onlineDiskDirty = true;
 }
 
 function pruneOnlinePresence() {
@@ -2357,7 +2384,7 @@ const SITE_BASE = process.env.SITE_BASE || "https://ofertasgrandes.com";
 const STOREFRONT_VERCEL_BASE = String(
   process.env.STOREFRONT_BASE || "https://ofertaslindas.vercel.app"
 ).replace(/\/+$/, "");
-const CANONICAL_TRACKING_BASE = "https://ofertasdemulher.vercel.app";
+const CANONICAL_TRACKING_BASE = "https://ttkshop-projeto2.onrender.com";
 
 function isSecondaryHostBase(url) {
   var u = String(url || "").toLowerCase();
@@ -3070,28 +3097,37 @@ function storePublicPath(storeKey) {
   return "/";
 }
 
-function checkoutUrlFromTx(tx) {
+function checkoutUrlFromTx(tx, reqHost) {
+  /* Usa o dominio do request atual (quando disponivel) ou SITE_BASE como fallback.
+     Assim, se o dominio mudar, os links X1 acompanham automaticamente. */
+  var base = SITE_BASE;
+  if (reqHost) {
+    var rh = String(reqHost).toLowerCase().replace(/:\d+$/, "");
+    if (rh && rh !== "localhost" && rh !== "127.0.0.1" && rh.indexOf("onrender.com") === -1) {
+      base = "https://" + rh;
+    }
+  }
   var o = String((tx && tx.origem) || "").toLowerCase();
-  if (o.indexOf("toalha") !== -1) return SITE_BASE + "/toalha/";
-  if (o.indexOf("bobojaco") !== -1) return SITE_BASE + "/bobojaco/";
-  if (o.indexOf("teddy") !== -1) return SITE_BASE + "/teddy/";
-  if (o.indexOf("roupao") !== -1) return SITE_BASE + "/roupao/";
-  if (o.indexOf("jaqueta") !== -1) return SITE_BASE + "/";
-  if (o.indexOf("panela") !== -1 || o.indexOf("panelas") !== -1) return SITE_BASE + "/panela/";
-  return SITE_BASE + "/";
+  if (o.indexOf("toalha") !== -1) return base + "/toalha/";
+  if (o.indexOf("bobojaco") !== -1) return base + "/bobojaco/";
+  if (o.indexOf("teddy") !== -1) return base + "/teddy/";
+  if (o.indexOf("roupao") !== -1) return base + "/roupao/";
+  if (o.indexOf("jaqueta") !== -1) return base + "/";
+  if (o.indexOf("panela") !== -1 || o.indexOf("panelas") !== -1) return base + "/panela/";
+  return base + "/";
 }
 
 function moneyBrFromCents(cents) {
   return "R$ " + (Number(cents || 0) / 100).toFixed(2).replace(".", ",");
 }
 
-function reminderEmailHtml(tx, kind) {
+function reminderEmailHtml(tx, kind, reqHost) {
   var itens = (tx.items_detail || [])
     .map(function (it) {
       return escHtml(it.qtd + "x " + it.variante);
     })
     .join("<br>");
-  var link = checkoutUrlFromTx(tx);
+  var link = checkoutUrlFromTx(tx, reqHost);
   var valor = moneyBrFromCents(tx.amount);
   var is30 = kind === 30;
   var headline = is30
@@ -3122,6 +3158,7 @@ function reminderEmailHtml(tx, kind) {
 
 function sendReminderEmail(tx, kind, opts) {
   opts = opts || {};
+  /* reqHost ja vem em opts se quem chamou passou */
   if (!tx || tx.status !== "pending") {
     return Promise.reject(new Error("Pedido não está pendente."));
   }
@@ -3148,7 +3185,7 @@ function sendReminderEmail(tx, kind, opts) {
     tx.id &&
     String(tx.id).indexOf("ephemeral-") !== 0 &&
     tx.source !== "admin-reminder-ephemeral";
-  return sendEmail(tx.client_email, subject, reminderEmailHtml(tx, kind)).then(function () {
+  return sendEmail(tx.client_email, subject, reminderEmailHtml(tx, kind, opts && opts.reqHost)).then(function () {
     if (kind === 5) tx.reminder_5_sent = true;
     if (kind === 30) {
       tx.reminder_30_sent = true;
