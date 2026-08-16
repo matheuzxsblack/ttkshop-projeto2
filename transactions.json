@@ -29050,7 +29050,7 @@
     "id": "psa_b374e4ffafafd1c045b704643448cea9",
     "tracking_code": "SO4CAPPLGNXLBR",
     "amount": 3499,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Karina Ferreira Soares",
     "client_email": "Karinaferreirasoares90@gmail.com",
     "client_doc": "16473249044",
@@ -29065,7 +29065,7 @@
     "ttclid": "E_C_P_CuEBDYDIouGwamw3Ot0ppgwU8B7hOxMZEUea59UAyknQbU3ImKgY4jGKK9biGM8jp5PqgBb9E53d8oTNaqA3ibHTJnv5T8whMVtSOW70KuorAVgbyG-uoWHWpubT4ZZsT58MXlEoCrttT8zeZTsz5RWCeoVoiZ4lzTJqWaU1KRAM7j3rHITUDt9UUfIrmHVsC5",
     "ttp": "01M05S5VBSX6QY8JFWYVYR4B8A_.tt.2",
     "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "te2uuadlj0ermsw2ky1m",
     "funnel_store": "toalha",
     "address": {
@@ -29103,7 +29103,11 @@
     "external_id": "ttk_msw2ndxf_3ddbf5bdac",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/32841251-46d7-43f9-816f-2dd7b2810b755204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630471D5",
     "created_at": "2026-08-16T17:21:25.005Z",
-    "paid_at": null
+    "paid_at": "2026-08-16T17:23:57.370Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T17:24:23.438Z"
   },
   {
     "id": "psa_b23bb5170c2cf310cdc26b4cf17d4bbd",
@@ -29143,7 +29147,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -29151,5 +29155,68 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/7c6ef34b-84ac-4e53-b508-1dce438023465204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630427FA",
     "created_at": "2026-08-16T17:21:50.454Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_04d0261110c209a19238b679082d6d7a",
+    "tracking_code": "SOGQ7GKFT49ABR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Vera lucia ramos carvalho",
+    "client_email": "vera.ramos304@icloud.com",
+    "client_doc": "20011061812",
+    "client_doc_entered": "20011061812",
+    "doc_pix_fallback": false,
+    "client_phone": "14997603483",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuMBD1NLdpI8Ux7MffTYlj4LJS4KzGAIh6slLjJD3FGdrGvCd8-ptRCvMd5ZkGEiBF1Z0YTqNxZMCVhuqeS2lBESwHOye04WzKJj_xxTDal81v0GkDgNExVQfte0OZsnZqAjem3SDT2SyrPhy4IvPDoS8dg023-ARqEkYue7sGBztsqOTEXuLDvAE04NeSIrTt",
+    "ttp": "01M03X7A4BT4FKM0WN27KDR2WQ_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "txjpddzugy7msw2qc0s",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "17060-020",
+      "uf": "SP",
+      "cidade": "Bauru",
+      "bairro": "Vila Seabra",
+      "rua": "Rua Tomé de Souza",
+      "numero": "615",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw2t4x4_152ed9a0c6",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/e8f5ecba-52ed-44c9-9d54-bf03010435e65204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304581B",
+    "created_at": "2026-08-16T17:25:52.705Z",
+    "paid_at": "2026-08-16T17:26:53.772Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T17:27:23.382Z"
   }
 ]
