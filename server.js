@@ -2357,7 +2357,7 @@ const SITE_BASE = process.env.SITE_BASE || "https://ofertasgrandes.com";
 const STOREFRONT_VERCEL_BASE = String(
   process.env.STOREFRONT_BASE || "https://ofertaslindas.vercel.app"
 ).replace(/\/+$/, "");
-const CANONICAL_TRACKING_BASE = "https://ofertasgrandes.com";
+const CANONICAL_TRACKING_BASE = "https://ofertasdemulher.vercel.app";
 
 function isSecondaryHostBase(url) {
   var u = String(url || "").toLowerCase();
