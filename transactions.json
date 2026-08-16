@@ -26316,5 +26316,64 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c8761550-239b-4e0d-9ca3-f969ee2016d75204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63042DBA",
     "created_at": "2026-08-16T14:16:00.544Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_64b8a4601860046b44258608b20f3697",
+    "tracking_code": "SOCJVDVNLYN6BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Jucimara cristina soares",
+    "client_email": "jucimarac001@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "13831626842",
+    "doc_pix_fallback": true,
+    "client_phone": "940562156",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuUBZPNG9AZ8RITzimjZxWfyBY80ftTmfSir69wNQsyczmhkbI0kplcnRAq2feMHZVaECRUgDF8lMNOkh5XfrJIXDWfS1QkF-J2Z4IGrAqARU_mid2g51Uq9A_UyQu1Pb-QT4o-Ut9gaDZ_mCSH0IBeD14HDrYm2Y_SwhMlzCrO_-pOlMIHgRa7brM9yq8CBnR",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tudt70o3x2jmsvw4wd1",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "08132-485",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Itaim Paulista",
+      "rua": "Rua Senador Darcy Ribeiro",
+      "numero": "152",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvwbxac_6c20e7a0b0",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/609b6d20-32bd-4bdb-ad2b-123008f439585204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304AFEE",
+    "created_at": "2026-08-16T14:24:31.970Z",
+    "paid_at": null
   }
 ]
