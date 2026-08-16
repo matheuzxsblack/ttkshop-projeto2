@@ -22371,7 +22371,7 @@
     "id": "psa_da8bcf3510fe09ec32b17a71bb044208",
     "tracking_code": "SORXCMXGJMWDBR",
     "amount": 3499,
-    "status": "pending",
+    "status": "paid",
     "client_name": "Jocelise de Oliveira",
     "client_email": "cliente@email.com",
     "client_doc": "16473249044",
@@ -22386,7 +22386,7 @@
     "ttclid": "E_C_P_CuEBvfJ2d5EzusN6LQ9eDXjbeFZVQdj7-lPtarpsksovceDf7RjeKvbp8b3CRa9CGAH-nVHJ6gHEnJcJfMEJ4Oeg1LmNGXUaVh6pR5GfIkZOgtYed360wKAF6yiCdajfPrt6g8Jk1eSNYPpVO97OSGdPsWuE0fqJVasqp_dVi3GgDwvj7GnUoQ1vOczClppmyY",
     "ttp": "01M0415Y8P0G3PZXRX9MPZ4N3Y_.tt.2",
     "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
-    "pixel_purchase_sent": false,
+    "pixel_purchase_sent": true,
     "funnel_sid": "tel4cbj5nl68msv3i8ev",
     "funnel_store": "toalha",
     "address": {
@@ -22424,6 +22424,7 @@
     "external_id": "ttk_msv3rlfr_d89060db6a",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/1dd9b472-2e32-436c-bafa-db9f4e1dc4f05204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63046F6A",
     "created_at": "2026-08-16T01:04:53.697Z",
-    "paid_at": null
+    "paid_at": "2026-08-16T01:10:10.964Z",
+    "net_amount": 3499
   }
 ]
