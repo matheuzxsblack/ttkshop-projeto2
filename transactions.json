@@ -22714,5 +22714,94 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/ad893d63-6ec8-4147-98e1-bf76c2b4e75a5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304B4BA",
     "created_at": "2026-08-16T02:18:07.897Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_b9269bb42a21b926c8ec0b95141c41b5",
+    "tracking_code": "SO3BE6YG6H4EBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "teste",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "11111111111",
+    "doc_pix_fallback": true,
+    "client_phone": "11111111111",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "",
+    "ttp": "",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tcnyjzpezvbfmsvoe5uk",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "13299-272",
+      "uf": "SP",
+      "cidade": "Itupeva",
+      "bairro": "Monte Serrat",
+      "rua": "Estrada Municipal Benedito de Souza",
+      "numero": "32",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Cinza",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msvoef52_6838ef450f",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/24e005ee-4014-4bbb-9af7-4945b147f8895204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304AE26",
+    "created_at": "2026-08-16T10:42:30.918Z",
+    "paid_at": null
+  },
+  {
+    "id": "manual-1786877009194-5d20fc",
+    "tracking_code": "SO8YHW73E2E8BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Teste",
+    "client_email": "suehta99@gmail.com",
+    "client_doc": "",
+    "client_phone": "",
+    "address": {
+      "cep": "",
+      "uf": "",
+      "cidade": "",
+      "bairro": "",
+      "rua": "",
+      "numero": "",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit Toalhas",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "manual": true,
+    "source": "manual-admin",
+    "created_at": "2026-08-16T10:43:29.194Z",
+    "paid_at": "2026-08-16T10:43:29.194Z"
   }
 ]
