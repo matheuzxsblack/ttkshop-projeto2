@@ -29218,5 +29218,123 @@
     "email_sent": true,
     "pixel_purchase_ack": "browser",
     "pixel_purchase_ack_at": "2026-08-16T17:27:23.382Z"
+  },
+  {
+    "id": "psa_7db90d674d368b051dd511e0fc8d9b4a",
+    "tracking_code": "SO5PKCDD7QYWBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Elciene Maria Rodrigues Lima",
+    "client_email": "elcienemariarodrigueslima@gmail.com",
+    "client_doc": "00740743341",
+    "client_doc_entered": "00740743341",
+    "doc_pix_fallback": false,
+    "client_phone": "99984681921",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBhfZL9kG2xh5uy3ksnCN_7dPi_BjX-Sj8oKx_wENk-ikOc1CnFI3MBZYYm53TtB9veIZ-L3MScKtBI043b_C-PjbLK4GxXsqJffv28IRoQbth6kjp3_MFO4hSfzSkTdTPVeWtB5dBHdZY4w2N5pksZYSZkbhUK_7kgPWPLZP5CJv648EqiKr_rpBTsyl4yE",
+    "ttp": "01M05T5CB5Q1V6HT9BKVAPAJMF_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t58yr2amlxmpmsw35810",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65923-000",
+      "uf": "MA",
+      "cidade": "Amarante do Maranhão",
+      "bairro": "Industrial",
+      "rua": "Augusto viana",
+      "numero": "10",
+      "complemento": "Antes de bar do domingo"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 2
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw3b57l_ccc9c3bd9f",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/6b7805d6-bc17-427b-a3fb-6bf2a9433f415204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304C336",
+    "created_at": "2026-08-16T17:39:52.951Z",
+    "paid_at": "2026-08-16T17:40:45.233Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T17:40:50.176Z"
+  },
+  {
+    "id": "psa_f6c414d9b45dedaf2ab86150eb24e316",
+    "tracking_code": "SO27JRQ8DCC7BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Neilza Alves da Cruz de Oliveira",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "08748804454",
+    "doc_pix_fallback": true,
+    "client_phone": "27999594270",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEB3pwUju-qedUB8X-cB0kmRFMUmq5BITcmWub4PNUONh5EINFFjjS6nyPPqve68aOw3ITI1xX2y8ELzStEc7B4tUkLUE5Jm4l7Q_JtBQdfYtwLMsnkhVNCcrOBNz0cOFIHuCJezPETwzy6IJ_qMPbXbf5wPbmli_jjxNBKvLo-RwR9IuRIsKUxaTl1E1bFao",
+    "ttp": "01M05T0NZS95E9XJ3425WJRK6J_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "thvsufe0ss8rmsw2zkqh",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "29927-007",
+      "uf": "ES",
+      "cidade": "Sooretama",
+      "bairro": "Centro",
+      "rua": "Rua Silvio Martins de Lima",
+      "numero": "588",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw3d4sm_194cc09302",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/f0b38ea9-5226-4847-8eda-8f9652a1e9075204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304E008",
+    "created_at": "2026-08-16T17:41:25.410Z",
+    "paid_at": null
   }
 ]
