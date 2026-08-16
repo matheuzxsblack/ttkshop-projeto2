@@ -28047,5 +28047,113 @@
     "created_at": "2026-08-16T16:27:08.294Z",
     "paid_at": "2026-08-16T16:28:36.110Z",
     "net_amount": 6316
+  },
+  {
+    "id": "psa_89638a9b6ab13ea196950ef836374e6d",
+    "tracking_code": "SOVXDXLW5JH6BR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Maria janaina de Sousa",
+    "client_email": "mjanainadesousa@gmail.com",
+    "client_doc": "07861430618",
+    "client_doc_entered": "07861430618",
+    "doc_pix_fallback": false,
+    "client_phone": "5511977173019",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABKC-bNbL8Y4KX3cgLA_bqBw2tVkDOeEcN-BSr9FbU6dHxXfXmwPy8vLt7x9oJ5UWW0b3AhmJgFPy5MVhep44huajjB2j9ooVNYchH0-2BXatJNpuTOu9XD9ZuEnQrd8-p9JvLxGvkuLPg-va3YytxhjfbeC9rS_RbkuvKCSRNs6Sm1mJhe_GTYR7QFR75Tt",
+    "ttp": "01M05PRN4GDSV3WMPCX9XPQ9D6_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t48r74wmgyqmsw0ygoi",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "03818-000",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Parque Císper",
+      "rua": "Rua Pedra Lavrada",
+      "numero": "993",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw12g4r_880a5a75c7",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/8a577999-45cc-4e45-b6a5-817834bc4bff5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304BC76",
+    "created_at": "2026-08-16T16:37:08.485Z",
+    "paid_at": "2026-08-16T16:38:14.883Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_04683b65733e8a751987ad716289d738",
+    "tracking_code": "SO5AD9BDWNFSBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Maria Estela de Brito Abreu",
+    "client_email": "estelababreu@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5511982712182",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBKksOa5ASc8_bdwDfRXi6wVH6BUIhJ5p0barO1CfI0pkBgEcLhSCvzRE1gSaCliyX_afTemes_5Rt4r4VBhKGE9ZfbzdA6KH0F4R47VBTjXO4BVKTz6GBi0vurmhnJ_W8XR9xfY_ElHiJOTa5GMnJHFax9UxfY_vhsmM2og3K86vQVY8R2_STl4u0yHW4oo",
+    "ttp": "01M05P55AMTBHF478TFDR5CV6D_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tmigdtc9zarmsw14ie8",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "08235-620",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Parque Guarani",
+      "rua": "Rua Manuel Alves da Rocha",
+      "numero": "645",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw16gev_89b4ca3a87",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/d6d4e79a-a78e-43ad-a94f-200259436d765204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304930B",
+    "created_at": "2026-08-16T16:40:14.435Z",
+    "paid_at": null
   }
 ]
