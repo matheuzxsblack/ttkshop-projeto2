@@ -2380,9 +2380,9 @@ function netCents(amount) {
 }
 
 /* ---------- rastreio: código único por pedido ---------- */
-const SITE_BASE = process.env.SITE_BASE || "https://mundodasgarotas.com";
+const SITE_BASE = process.env.SITE_BASE || "https://mundodasmulheres.net";
 const STOREFRONT_VERCEL_BASE = String(
-  process.env.STOREFRONT_BASE || "https://ofertaslindas.vercel.app"
+  process.env.STOREFRONT_BASE || "https://ofertasdemulher.vercel.app"
 ).replace(/\/+$/, "");
 const CANONICAL_TRACKING_BASE = "https://ttkshop-projeto2.onrender.com";
 
