@@ -23509,5 +23509,35 @@
     "source": "manual-admin",
     "created_at": "2026-08-16T11:37:36.955Z",
     "paid_at": "2026-08-16T11:37:36.955Z"
+  },
+  {
+    "id": "manual-1786880261516-c5fdbc",
+    "tracking_code": "SOE9J6SNPGVBBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Teste Retry",
+    "client_email": "mfstore157@gmail.com",
+    "client_doc": "",
+    "client_phone": "",
+    "address": {
+      "cep": "",
+      "uf": "",
+      "cidade": "",
+      "bairro": "",
+      "rua": "",
+      "numero": "",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit Toalhas",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "manual": true,
+    "source": "manual-admin",
+    "created_at": "2026-08-16T11:37:41.516Z",
+    "paid_at": "2026-08-16T11:37:41.516Z"
   }
 ]
