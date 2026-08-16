@@ -30438,7 +30438,7 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
@@ -30446,5 +30446,62 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c1104d14-52e7-4fff-969d-a359d0b880025204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63048B8A",
     "created_at": "2026-08-16T19:02:29.847Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_b6834f65495dad0b05946e5c8e4749ab",
+    "tracking_code": "SOSBCQ8STHKFBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Ana Paula Pereira Paula Pereira",
+    "client_email": "anapaula161270@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "79988540919",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBfSN7IEeR_o_hr8jjcm23ZtLzkGwwiLcYBvp5B4T2dcDLvWB75dEslRTm5YGp3-x_YdtZUJ9tShD8-l7LpK6Qg1ZMfuxOTBk89MnNzSVkK954CmnbmD6U5VhoO7GHudbnLmgomy6xfh_JPwBGLGfAWGRfyVNPf6DC-XqFfPMZLqGofDbQ8PfamWH_nLN1hu",
+    "ttp": "01M05Z60XFGDXHRAW8TNJ30X52_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "toi0yw65l33kmsw6b8ph",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "49770-000",
+      "uf": "SE",
+      "cidade": "Maruim",
+      "bairro": "Centro",
+      "rua": "Corinto Pinto de Mendonça",
+      "numero": "12",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw6f8cl_4b62527515",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/e6dfe32c-6ac9-4597-97df-a1e062d661705204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63047FE5",
+    "created_at": "2026-08-16T19:07:01.919Z",
+    "paid_at": "2026-08-16T19:08:28.433Z",
+    "net_amount": 3499,
+    "email_sent": true
   }
 ]
