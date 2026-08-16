@@ -4,7 +4,7 @@
       "id": "cp_67493ba1",
       "name": "toalha",
       "slug": "toalha",
-      "token": "bd836bdd30",
+      "token": "83995993de",
       "tokenEnabled": true,
       "source": "tiktok",
       "domain": "*",
@@ -39,7 +39,7 @@
         "ttclidBypass": false
       },
       "createdAt": "2026-08-16T08:20:15.401Z",
-      "updatedAt": "2026-08-16T08:38:37.384Z"
+      "updatedAt": "2026-08-16T08:38:47.144Z"
     }
   ]
 }
