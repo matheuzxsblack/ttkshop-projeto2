@@ -29336,5 +29336,56 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/f0b38ea9-5226-4847-8eda-8f9652a1e9075204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304E008",
     "created_at": "2026-08-16T17:41:25.410Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_fcbe62db329d068a349481ac0d4208b9",
+    "tracking_code": "SONZ9ZPLGP6EBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Luciana Bezerra Vaz Tavares",
+    "client_email": "solelua2019@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "62992511956",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBJUT42YISFtFTVwofcTpaXL-uoHxjxAAC0JMtqsvcom8jd9W6wcnkkHif9Qmbpz7wMmjwjhZwsOPc5YZj62qC2ujOVZicXJOcf8hDz92IbTK-UW3WbwWU6nFb2cnxqqJDZgRNFHLtJPpmzb5n9TuHPCUSGVTzd6pey0-PoVGmXwGisBLBfRXJtDwI0DgjHB",
+    "ttp": "01M05TPE35EZ3T5NQ0JVVEEZYY_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "t3old7umfj11msw3eusm",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "74393-445",
+      "uf": "GO",
+      "cidade": "Goiânia",
+      "bairro": "Residencial Solar Bougainville",
+      "rua": "Rua SB 13",
+      "numero": "Sem número",
+      "complemento": "Qd 20 lt"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw3h4ki_5cf7e458ca",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/07898c9b-46dc-4af4-a920-cac4b10ddcc65204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63048CD0",
+    "created_at": "2026-08-16T17:44:33.272Z",
+    "paid_at": "2026-08-16T17:45:53.422Z",
+    "net_amount": 3499,
+    "email_sent": true,
+    "pixel_purchase_ack": "browser",
+    "pixel_purchase_ack_at": "2026-08-16T17:46:07.503Z"
   }
 ]
