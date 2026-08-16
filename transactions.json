@@ -29990,5 +29990,64 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/5ef55bd4-94d7-415e-879e-7391f5fb34805204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63045BDF",
     "created_at": "2026-08-16T18:13:58.830Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_ad9770b78edda13457b31d43e5d571a0",
+    "tracking_code": "SOEMBZA6PCM5BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Izabel Santos Leite",
+    "client_email": "izabel.santos.ISL@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "79981296852",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuAB0L1hEufTWWRAkqHYmZJKGCqjICCN2DjY12xa7j-oy97B6fSaxLbCgylYtbQNCswzxwgftkzwuujJSqP5RwQLbnKprfAIIgbxU8xBbDxQ1rnHumrpiHqZc0SjiXSMQLZRtXxOTKlL7EHLnLWY5t8KUsemjYALbbV_AwdceyOz5kLfRH8_O1ArTJP-eTJg-h",
+    "ttp": "01M05WH3GFX4EQ65BMD3DEJ4KC_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tzizs81dbh5msw4k15a",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "49045-190",
+      "uf": "SE",
+      "cidade": "Aracaju",
+      "bairro": "Luzia",
+      "rua": "Rua Doutor Márcio Rollemberg Leite",
+      "numero": "49",
+      "complemento": "A"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw4mzb8_55fe488faf",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/4e0901f2-9dca-4ac3-a246-870680f8fb935204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630465AF",
+    "created_at": "2026-08-16T18:17:04.761Z",
+    "paid_at": null
   }
 ]
