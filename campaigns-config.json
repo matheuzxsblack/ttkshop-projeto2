@@ -8,23 +8,25 @@
       "tokenEnabled": true,
       "source": "tiktok",
       "domain": "*",
-      "entryStore": "sabonete",
+      "entryStore": "toalha",
       "enabled": true,
       "safe": {
         "method": "redirect",
-        "url": ""
+        "url": "https://ofertasdemulher.vercel.app/"
       },
       "offer": {
         "method": "internal",
         "type": "single",
         "urls": [
-          "/sabonete/"
+          "/toalha"
         ]
       },
       "targeting": {
-        "device": "all",
-        "countryMode": "off",
-        "countries": []
+        "device": "mobile",
+        "countryMode": "allow",
+        "countries": [
+          "BR"
+        ]
       },
       "filters": {
         "botUa": true,
@@ -37,7 +39,7 @@
         "ttclidBypass": true
       },
       "createdAt": "2026-08-16T08:20:15.401Z",
-      "updatedAt": "2026-08-16T08:20:15.401Z"
+      "updatedAt": "2026-08-16T08:20:16.364Z"
     }
   ]
 }
