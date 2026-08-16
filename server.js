@@ -2572,7 +2572,17 @@ function resolveMailFrom(raw) {
   }
   return s;
 }
-const MAIL_FROM = resolveMailFrom(process.env.MAIL_FROM || MAIL_FROM_FALLBACK);
+const MAIL_FROM = (function () {
+  var raw = resolveMailFrom(process.env.MAIL_FROM || MAIL_FROM_FALLBACK);
+  /* Resend exige dominio verificado no from — forca o dominio do projeto mesmo se a env var estiver velha */
+  var addrM = raw.match(/([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+)/);
+  var nameM = raw.match(/^([^<]+)</);
+  var name = (nameM && nameM[1].trim()) || "Mundo das Mulheres";
+  var local = addrM ? addrM[1] : "pedidos";
+  var domFrom = addrM ? String(addrM[2]).toLowerCase() : "";
+  if (domFrom !== "mundodasmulheres.net") return name + " <" + local + "@mundodasmulheres.net>";
+  return raw;
+})();
 
 function isRealEmail(e) {
   var s = String(e || "").trim().toLowerCase();
