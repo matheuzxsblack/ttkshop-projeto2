@@ -28457,9 +28457,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw1ig4x_40b78ae020",
@@ -28516,9 +28516,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw1jhbt_c6f9e191d1",
@@ -29044,6 +29044,112 @@
     "external_id": "ttk_msw2bbu0_f64d60d1f8",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/34ebf501-363a-4728-915d-01320822f0ca5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304DBB5",
     "created_at": "2026-08-16T17:12:01.373Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_b374e4ffafafd1c045b704643448cea9",
+    "tracking_code": "SO4CAPPLGNXLBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Karina Ferreira Soares",
+    "client_email": "Karinaferreirasoares90@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11994628432",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBDYDIouGwamw3Ot0ppgwU8B7hOxMZEUea59UAyknQbU3ImKgY4jGKK9biGM8jp5PqgBb9E53d8oTNaqA3ibHTJnv5T8whMVtSOW70KuorAVgbyG-uoWHWpubT4ZZsT58MXlEoCrttT8zeZTsz5RWCeoVoiZ4lzTJqWaU1KRAM7j3rHITUDt9UUfIrmHVsC5",
+    "ttp": "01M05S5VBSX6QY8JFWYVYR4B8A_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "te2uuadlj0ermsw2ky1m",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "03254-290",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Vila São Nicolau",
+      "rua": "Travessa cachoeira da vitória  58ou67",
+      "numero": "67 ou58",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Rosa",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw2ndxf_3ddbf5bdac",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/32841251-46d7-43f9-816f-2dd7b2810b755204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630471D5",
+    "created_at": "2026-08-16T17:21:25.005Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_b23bb5170c2cf310cdc26b4cf17d4bbd",
+    "tracking_code": "SO2N4M75ZM4MBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Maria do Carmo neves",
+    "client_email": "mc0175191@gmail.com",
+    "client_doc": "07953288770",
+    "client_doc_entered": "07953288770",
+    "doc_pix_fallback": false,
+    "client_phone": "22988761663",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBzDyg34HQyhK3mqtO448cT38o5r7bRKQkDNsAULRnLe-NtfruAQ7pMTdN3tn44WOW5w1VPq-baPRT2JhNXm0UH8pL1A_khcC3_SHpj-GLjfYmv4stBdf8UaSkh1QM3t_jYG4Blo5VxFjPt_aAV1j6KC_GHwvdTNRgyx73Hxv0KNJf5WHVrBTRybXCAmJx-8",
+    "ttp": "01M05S4012CCPQMAYVWT02J2ZY_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t2ddej0icwxvmsw2kt7g",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "28660-000",
+      "uf": "RJ",
+      "cidade": "Bom Jardim",
+      "bairro": "Bem te vi",
+      "rua": "Thomas considera Neto",
+      "numero": "18",
+      "complemento": "Casa 2"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw2nyeo_fb012330e6",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/7c6ef34b-84ac-4e53-b508-1dce438023465204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630427FA",
+    "created_at": "2026-08-16T17:21:50.454Z",
     "paid_at": null
   }
 ]
