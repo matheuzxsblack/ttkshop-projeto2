@@ -30378,9 +30378,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw5tc2v_2aa4926ab4",
@@ -30761,13 +30761,188 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw6nnk5_748f6d2ba4",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/96f0a4a6-cd94-4302-b2ad-812b1b2964a65204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63046649",
     "created_at": "2026-08-16T19:13:34.872Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_3e1a7517cf8234c2255239d29df580dd",
+    "tracking_code": "SODRC7WEEWBWBR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Angela maria da silva",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "11983938507",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuAB1wgnBZ85cAHhbLybg6ZMT24xRSprVKjZHajNBiOGtEwRhWFA46IUWeiyOm7axTDlqaQPddfmjn3Yh_dgmA3kHguFdDnuraNLfcedJSW3zflmke6fVkdoCOvqhrGstWsMrKsccgHf9U_lbd8PtSeqEP6iK4Mk9x3ranHoC1OGM3b5zR3sa1NI6MrhY-Tk64",
+    "ttp": "01M05MS45HHV19GGCR3SARY7TR_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "t4k6b23bd4x4msw6pkog",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "07130-370",
+      "uf": "SP",
+      "cidade": "Guarulhos",
+      "bairro": "Jardim Testae",
+      "rua": "Rua Henrique José Testai",
+      "numero": "184",
+      "complemento": "Prox av faria lima"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw6s7s9_457f0c7c54",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/1ef39faa-70b6-4fa6-ba4f-15e3f12172185204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304ADB8",
+    "created_at": "2026-08-16T19:17:08.267Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_4a3b6cd8d41f408a3f73af48e2443c36",
+    "tracking_code": "SOUTN5WYJGSCBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Katlen Benarros",
+    "client_email": "benarroskatlen@gmail.com",
+    "client_doc": "61586730215",
+    "client_doc_entered": "61586730215",
+    "doc_pix_fallback": false,
+    "client_phone": "5592996043",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBthEgA4eF3x0Kqahwr4sRHcyk443Ni2YsHYUegyddT8zQTNqnoVKTcF4GcvpR3Y_QjaI-0mNAuquF9uG6wdIQivFYp3tPDrfbxhBvHA3ojeG165617Al6iSCfAtvo6blrNFKUNBpHqErO6eejafX4f7mMz9VTyH-nQQmXeiXYyNdB-N6pHHlW30tZvh7uLB",
+    "ttp": "01M06055XR1JC8WQHMVXTW3AQ5_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "ta8c6wobg3u7msw6tjx8",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "69040-150",
+      "uf": "AM",
+      "cidade": "Manaus",
+      "bairro": "Dom Pedro I",
+      "rua": "Rua Padre José Anchieta",
+      "numero": "648",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Verde Claro",
+        "qtd": 2
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Amarelo",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw6wqae_9ee61d0480",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/f528b2f1-0544-4537-9b55-a373e609bc0c5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***630450BE",
+    "created_at": "2026-08-16T19:20:38.829Z",
+    "paid_at": "2026-08-16T19:21:48.013Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_1360c4566ea5f9f2c6a4953d174cb278",
+    "tracking_code": "SOX327PSBJS4BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Marineide Santos Da Trindade",
+    "client_email": "marineidesantosdatrindade74@gmail.com",
+    "client_doc": "05534156546",
+    "client_doc_entered": "05534156546",
+    "doc_pix_fallback": false,
+    "client_phone": "18997666894",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBwlVZmyfcOF1eEFGvTYnsI31U2Bz4TvAfhZkYqVGN24iBIj8j2lWw7aC7pcSDty2VY0cv65uljFtVYzUNebqnUsE5JRzT8B16Gg6PsBLObv_GQZSA6_7-jVdYzKMH-JtjN1ld39r68zcu99MFs9qJeH1LgGpj_1k7dIQzUYH1_xR_WZfvvMp2fW4OwUGolb",
+    "ttp": "01M05Z80XFCGQGB4AVE5VHKXZS_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tgwgj11bv546msw6yj5k",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "46463-860",
+      "uf": "BA",
+      "cidade": "Palmas de Monte Alto",
+      "bairro": "Barrinha",
+      "rua": "Avenida Sebastião Laranjeiras",
+      "numero": "345",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Azul",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw70mc8_d47acbc660",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/a1a10b01-64a2-4768-a3b6-5901af4e2edf5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304AF03",
+    "created_at": "2026-08-16T19:23:40.209Z",
     "paid_at": null
   }
 ]
