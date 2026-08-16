@@ -28147,13 +28147,215 @@
       }
     ],
     "x1": false,
-    "reminder_5_sent": false,
+    "reminder_5_sent": true,
     "reminder_30_sent": false,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msw16gev_89b4ca3a87",
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/d6d4e79a-a78e-43ad-a94f-200259436d765204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304930B",
     "created_at": "2026-08-16T16:40:14.435Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_f45bf8377e19dc635e28d098ccc1e276",
+    "tracking_code": "SOQTSV8UE4Y7BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Layane Cristina de Lima",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "81989037238",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBAlD3I3Fu1E9WcYZpEC2PAw4CGlK-uhLDb-kOA3KnUUpgcdwg6QsDfgSMwy5Vr7yZCqX-TpIQ_Ke7wCM-jX-T_gQQMXGsXYkUleYGNTGYkuFlU2b2XWCU688Cp0FYWE9WfifSSwaRUq1_C9_f0G_kA9b2K3lIWhcx4304JCyPYsENawQ0RxyVvwqKcYztd6",
+    "ttp": "01M05Q1TVKBKH5NBR9ZYCRW1A3_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tc5bv3c4825msw14wig",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "53690-000",
+      "uf": "PE",
+      "cidade": "Araçoiaba",
+      "bairro": "Centro",
+      "rua": "Avenida duque caxias",
+      "numero": "10",
+      "complemento": "Frigorífico"
+    },
+    "items_detail": [
+      {
+        "variante": "Toalha cor Vermelho",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Laranja",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Verde Escuro",
+        "qtd": 1
+      },
+      {
+        "variante": "Toalha cor Bordô",
+        "qtd": 1
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw19hc6_7b70549834",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/662b3bca-9041-4cda-8f1a-285f4874033a5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63043072",
+    "created_at": "2026-08-16T16:42:36.068Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_21277c94ddbff0df434b021d4fe0c7b4",
+    "tracking_code": "SOFRET93FGYPBR",
+    "amount": 3499,
+    "status": "paid",
+    "client_name": "Iolan Ferreira",
+    "client_email": "ferreiraiolan2@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "987875793",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBilCIbBOWk8Tk8QDhINb6G89ZKqpe3R8xhH1UiWrGPpyCP5lZYnwF8MhJLgrxt1HwoNumIdzgymQ90Vv-UlPBNNiMsxu02Na3iII4sEpnuQFNv2q90lnVE6WPdXAI5lOC1ihIqNgHIeukqUOFu6wnwhGHkAUfxUBVQ7x0grZL3lWqcTb-F6m-sap_RTJpIa",
+    "ttp": "01M05PWW7F9QV0R55C283RTBZK_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tuv5e97su4nmsw11gh6",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65008-528",
+      "uf": "MA",
+      "cidade": "São Luís Maranhão",
+      "bairro": "Vila bacanga",
+      "rua": "Rua João Paulo II",
+      "numero": "Casa 19",
+      "complemento": ""
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1aoaw_48896251f2",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/c4bd81ac-60b8-4548-8475-19027f5aa1bd5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304DB15",
+    "created_at": "2026-08-16T16:43:31.229Z",
+    "paid_at": "2026-08-16T16:45:45.334Z",
+    "net_amount": 3499,
+    "email_sent": true
+  },
+  {
+    "id": "psa_9f4767e82541b2c1e3e5308788ea8897",
+    "tracking_code": "SOYRXYA93L52BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Maria Estela de Brito Abreu",
+    "client_email": "estelababreu@gmail.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "5511982712182",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuABu95j6Ed2VCqw9dH1Qv8Bngtucf0fY5P4XF_K25HjC6s_mmz5SEfpz5xVpaJNzQNX7Sf2Ip1MrarumIKWALDN9t-geC80u3W60QUUuD8mqCau0kNJsl3_pI-ZFjJaJI7O6VxdKhKz527DeHSi3VgDcp5UHEGh0JxgfQezG1VRxNP28jzQSx4vB-4IedXLUH",
+    "ttp": "01M05P55AMTBHF478TFDR5CV6D_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "td0v2bpworrmmsw1ajmw",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "08235-620",
+      "uf": "SP",
+      "cidade": "São Paulo",
+      "bairro": "Parque Guarani",
+      "rua": "Rua Manuel Alves da Rocha",
+      "numero": "645",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1cab6_1c793106f9",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/4a11b48d-f0d1-47ce-8496-08975592c35a5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63047CFC",
+    "created_at": "2026-08-16T16:44:46.422Z",
+    "paid_at": null
+  },
+  {
+    "id": "psa_697132bd7426d4c824ee6769e4891991",
+    "tracking_code": "SO48L9Y95ZM3BR",
+    "amount": 3499,
+    "status": "pending",
+    "client_name": "Luzanira do nascimento Sousa",
+    "client_email": "luzaniranascimentosouza6@gmail.com",
+    "client_doc": "52872041320",
+    "client_doc_entered": "52872041320",
+    "doc_pix_fallback": false,
+    "client_phone": "9898555060",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBHekrZAIoRzMr62Pls7vOphLT1glY-5GH2B05SAgg-ZUJx_R33MKU4xXcQ20OrQ3WtM6Uu0a0Uil3rBdzv1yo9GSz7lO8l4jPmZ5y6fmo0wHWUhwRkAoIUoPCGqZxsigLtElEzNLSYmA3L98w64xxFVD8O-NL5x1RKpUmGIFBZCxi5W6gbBOuPr6iSlRI7J",
+    "ttp": "01M05Q6QFAN6H11JHDAE668950_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": false,
+    "funnel_sid": "tv8xb4eiwjzbmsw185da",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "65280-000",
+      "uf": "MA",
+      "cidade": "Cândido Mendes",
+      "bairro": "Cidade nova",
+      "rua": "Rua João neponuceno",
+      "numero": "480",
+      "complemento": "Casa"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 4
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw1d48n_41ea274b8d",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/ab2cca59-34d7-4bec-a12c-ecf49a21da925204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304EF7F",
+    "created_at": "2026-08-16T16:45:25.308Z",
     "paid_at": null
   }
 ]
