@@ -27608,9 +27608,9 @@
         "qtd": 1
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvzpksm_416ace5f7f",
@@ -27764,9 +27764,9 @@
         "qtd": 4
       }
     ],
-    "x1": false,
+    "x1": true,
     "reminder_5_sent": true,
-    "reminder_30_sent": false,
+    "reminder_30_sent": true,
     "source": "purincash",
     "gateway": "purincash",
     "external_id": "ttk_msvzsndt_dc734f5d4c",
@@ -27999,5 +27999,53 @@
     "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/bc0efe24-81ab-4fff-9434-c257ef9cb9c35204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***63040CCC",
     "created_at": "2026-08-16T16:23:49.562Z",
     "paid_at": null
+  },
+  {
+    "id": "psa_05e4677e28c2ff1d18c754c454458b2e",
+    "tracking_code": "SOVBHGU76SXWBR",
+    "amount": 6316,
+    "status": "paid",
+    "client_name": "Ana Rosa lara marelli",
+    "client_email": "cliente@email.com",
+    "client_doc": "16473249044",
+    "client_doc_entered": "",
+    "doc_pix_fallback": true,
+    "client_phone": "43991515518",
+    "origem": "toalha-ttkshop",
+    "utm_source": "",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_content": "",
+    "ttclid": "E_C_P_CuEBR1GswYzJEB7FbjHlt3jCQWjesvaLd2WIB1W9-4j8MfLaDASEDZvlIN6VqXkbXwQ8sRIBbFYBLkMGhVYNNRip_hvlLb6-b9CQ-lER8Z7NvbJXXpY6SnBJFVVjjNX2-vCOzc99EJqQCfmfNlwPsetrtGYMMyqbMYhBUDKtYXiDtAlu2v0OTDzJbKwCpDGiou",
+    "ttp": "01M05P1A0RBA0T04E5TQ30ZTVZ_.tt.2",
+    "attribution_pixel_id": "D9QG2SJC77U7MOU0SF40",
+    "pixel_purchase_sent": true,
+    "funnel_sid": "tlaihferu3smsw0jp2n",
+    "funnel_store": "toalha",
+    "address": {
+      "cep": "86300-174",
+      "uf": "PR",
+      "cidade": "Cornelio procopio Paraná",
+      "bairro": "Conjuntos José Benedito catarino",
+      "rua": "Mercedes Rodrigues",
+      "numero": "178",
+      "complemento": "Perto do cadeiao"
+    },
+    "items_detail": [
+      {
+        "variante": "Kit 4 toalhas aleatórias",
+        "qtd": 8
+      }
+    ],
+    "x1": false,
+    "reminder_5_sent": false,
+    "reminder_30_sent": false,
+    "source": "purincash",
+    "gateway": "purincash",
+    "external_id": "ttk_msw0plk1_1e73a90792",
+    "br_code": "00020126870014br.gov.bcb.pix2565pix.basspago.com.br/qr/v3/at/e1780b23-c7c2-4ba3-945c-12cb71a15dce5204000053039865802BR5923PAYSYNC_PAGAMENTOS_LTDA6006MACEIO62070503***6304743A",
+    "created_at": "2026-08-16T16:27:08.294Z",
+    "paid_at": "2026-08-16T16:28:36.110Z",
+    "net_amount": 6316
   }
 ]
