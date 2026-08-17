@@ -1979,6 +1979,41 @@ function mergeTxLists(a, b) {
   });
 }
 
+function githubGetFileRaw(repoPath) {
+  return new Promise(function (resolve) {
+    var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
+    var branch = process.env.GITHUB_BRANCH || "main";
+    if (!token) return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
+    var rawPath = "/" + repo + "/" + branch + "/" + String(repoPath || "").replace(/^\//, "");
+    var req = https.request(
+      {
+        hostname: "raw.githubusercontent.com",
+        path: rawPath,
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+          "User-Agent": "ttkshop-panelas",
+        },
+      },
+      function (res) {
+        var chunks = [];
+        res.on("data", function (c) { chunks.push(c); });
+        res.on("end", function () {
+          var text = Buffer.concat(chunks).toString("utf8");
+          if (res.statusCode === 404) return resolve({ ok: true, missing: true, text: "[]", sha: null });
+          if (res.statusCode !== 200) {
+            return resolve({ ok: false, reason: "raw HTTP " + res.statusCode });
+          }
+          resolve({ ok: true, text: text, sha: null });
+        });
+      }
+    );
+    req.on("error", function (e) { resolve({ ok: false, reason: e.message }); });
+    req.end();
+  });
+}
+
 function githubGetFile(repoPath) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
@@ -2013,6 +2048,12 @@ function githubGetFile(repoPath) {
           }
           if (res.statusCode === 404) return resolve({ ok: true, missing: true, text: "[]", sha: null });
           if (res.statusCode !== 200 || !json.content) {
+            /* Arquivo >1MB: Contents API não retorna content. Fallback para raw. */
+            if (json.size && json.size > 900000) {
+              console.log("[github] Contents API sem content (" + (json.size||"?") + " bytes), fallback raw.githubusercontent.com");
+              githubGetFileRaw(repoPath).then(resolve);
+              return;
+            }
             return resolve({ ok: false, reason: json.message || "GET HTTP " + res.statusCode });
           }
           try {
@@ -2077,7 +2118,7 @@ async function syncTxToGithubMerged() {
         return !isTxTombstoned(t);
       });
       try {
-        fs.writeFileSync(DATA_FILE, JSON.stringify(TX, null, 2));
+        fs.writeFileSync(DATA_FILE, JSON.stringify(TX));
       } catch (eDisk0) {}
       return { ok: false, reason: "local vazio; restaurou do remoto sem push" };
     }
@@ -2103,7 +2144,7 @@ async function syncTxToGithubMerged() {
       return !isTxTombstoned(t);
     });
     try {
-      fs.writeFileSync(DATA_FILE, JSON.stringify(TX, null, 2));
+      fs.writeFileSync(DATA_FILE, JSON.stringify(TX));
     } catch (eDisk) {}
     if (TX.length !== before) {
       console.log(
@@ -2113,7 +2154,7 @@ async function syncTxToGithubMerged() {
 
     var r = await githubUpsertFile(
       "transactions.json",
-      JSON.stringify(TX, null, 2),
+      JSON.stringify(TX),
       "chore(tx): sync transactions (" + TX.length + ")"
     );
     if (r && r.ok) console.log("[data] GitHub sync OK — " + TX.length + " tx");
@@ -2155,7 +2196,7 @@ function loadStore() {
 }
 function saveStore() {
   try {
-    var json = JSON.stringify(TX, null, 2);
+    var json = JSON.stringify(TX);
     fs.writeFileSync(DATA_FILE, json);
     try {
       if (DATA_FILE_BOOTSTRAP !== DATA_FILE) fs.writeFileSync(DATA_FILE_BOOTSTRAP, json);
@@ -2232,7 +2273,7 @@ console.log(
     if (TX.length !== before) {
       console.log("[data] boot merge GitHub: " + before + " → " + TX.length + " tx");
       try {
-        fs.writeFileSync(DATA_FILE, JSON.stringify(TX, null, 2));
+        fs.writeFileSync(DATA_FILE, JSON.stringify(TX));
       } catch (e) {}
     } else {
       console.log("[data] boot merge GitHub: " + TX.length + " tx (sem mudança)");
