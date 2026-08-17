@@ -7284,10 +7284,61 @@ var server = http.createServer(async function (req, res) {
         amount: txRm.amount,
         x1: linkedExisting ? !!txRm.x1 : kindRm === 30,
         linked_existing: linkedExisting,
-        stub: false,
       });
     } catch (e) {
       return sendJson(res, 400, { error: "Requisição inválida." });
+    }
+  }
+
+  /* ---------- admin: reenviar todos os e-mails de compra e X1 de ontem e hoje ---------- */
+  if (req.method === "POST" && pathname === "/api/admin/resend-recent-emails") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var allTx = loadStore();
+      var now = Date.now();
+      var MAX_AGE_MS = 48 * 60 * 60 * 1000;
+      var recent = allTx.filter(function (t) {
+        if (!t) return false;
+        var created = new Date(t.paid_at || t.created_at).getTime();
+        if (isNaN(created)) return false;
+        var age = now - created;
+        return age >= 0 && age <= MAX_AGE_MS;
+      });
+
+      var paidSent = 0;
+      var paidFail = 0;
+      var x1Sent = 0;
+      var x1Fail = 0;
+
+      for (var i = 0; i < recent.length; i++) {
+        var tx = recent[i];
+        if (!isRealEmail(tx.client_email)) continue;
+
+        if (tx.status === "paid") {
+          try {
+            await sendOrderEmailNow(tx);
+            paidSent++;
+          } catch (ePaid) {
+            paidFail++;
+          }
+        } else if (tx.status === "pending") {
+          try {
+            await sendReminderEmail(tx, 5, { force: true, reqHost: req.headers.host });
+            x1Sent++;
+          } catch (eX1) {
+            x1Fail++;
+          }
+        }
+      }
+
+      return sendJson(res, 200, {
+        ok: true,
+        total_recent: recent.length,
+        paid_emails: { sent: paidSent, failed: paidFail },
+        x1_emails: { sent: x1Sent, failed: x1Fail }
+      });
+    } catch (eResend) {
+      return sendJson(res, 500, { error: eResend.message || "Falha ao reenviar e-mails." });
     }
   }
 

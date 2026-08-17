@@ -1,7 +1,6 @@
 node_modules/
 .env
 .DS_Store
-transactions.json
 ad-spend.json
 # pixel-config.json é versionado (só IDs; tokens podem ser recolocados no admin)
 .vercel

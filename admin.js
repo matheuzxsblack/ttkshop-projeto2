@@ -880,6 +880,33 @@
           });
       }
 
+      var emBtnResendAll = document.getElementById("btn-em-resend-all");
+      if (emBtnResendAll) {
+        emBtnResendAll.addEventListener("click", function () {
+          emBtnResendAll.disabled = true;
+          emStatus("Reenviando e-mails de vendas e X1 dos últimos 2 dias…");
+          fetch("/api/admin/resend-recent-emails", {
+            method: "POST",
+            headers: authHeaders({ "Content-Type": "application/json" }),
+          })
+            .then(function (r) { return r.json(); })
+            .then(function (j) {
+              emBtnResendAll.disabled = false;
+              if (j.ok) {
+                var msg = "Sucesso! Reenviados " + j.paid_emails.sent + " e-mails de compras e " + j.x1_emails.sent + " e-mails de X1/lembrete (ontem/hoje).";
+                emStatus(msg, "ok");
+                adminToast(msg);
+              } else {
+                emStatus(j.error || "Falha ao reenviar e-mails.", "err");
+              }
+            })
+            .catch(function (err) {
+              emBtnResendAll.disabled = false;
+              emStatus("Erro ao comunicar com o servidor: " + (err.message || err), "err");
+            });
+        });
+      }
+
       emBtn.addEventListener("click", function () {
         var email = emVal("em-email").toLowerCase();
         if (!emValidEmail(email)) {
