@@ -769,18 +769,26 @@ try {
     : "";
 } catch (eH) {}
 function rememberStorefrontHost(rawHost) {
-  var s = String(rawHost || "").trim().toLowerCase().replace(/:\d+$/, "");
+  var s = String(rawHost || "").trim().toLowerCase();
+  s = s.replace(/^https?:\/\//, "").split("/")[0].replace(/:\d+$/, "");
   if (!s || s === "localhost" || s === "127.0.0.1") return;
-  if (s.indexOf("onrender.com") !== -1) return;
-  if (!/^[a-z0-9.-]+$/.test(s)) return;
+  if (s.indexOf("onrender.com") !== -1 || s.indexOf("resend.com") !== -1 || s.indexOf("resend.dev") !== -1 || s.indexOf("github.com") !== -1) return;
+  if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(s)) return;
   if (s === LAST_STOREFRONT_HOST) return;
   LAST_STOREFRONT_HOST = s;
   try { fs.writeFileSync(LAST_STOREFRONT_HOST_FILE, s); } catch (eW) {}
   console.log("[storefront] dominio atual detectado: " + s);
 }
 function storefrontBaseAuto() {
-  if (LAST_STOREFRONT_HOST) return "https://" + LAST_STOREFRONT_HOST;
-  return STOREFRONT_VERCEL_BASE;
+  if (LAST_STOREFRONT_HOST) {
+    var h = String(LAST_STOREFRONT_HOST).trim().toLowerCase().replace(/^https?:\/\//, "").split("/")[0].replace(/:\d+$/, "");
+    if (h && h.indexOf("onrender.com") === -1 && h.indexOf("resend.com") === -1 && h.indexOf("resend.dev") === -1 && h.indexOf("github.com") === -1) {
+      return "https://" + h;
+    }
+  }
+  var base = STOREFRONT_VERCEL_BASE || "https://ofertasdemulher.vercel.app";
+  if (!/^https?:\/\//i.test(base)) base = "https://" + base;
+  return base.replace(/\/+$/, "");
 }
 var ONLINE_DISK_FILE = path.join(DATA_DIR, "online-presence.json");
 var ONLINE_DISK_SAVE_INTERVAL = 30000; /* salva a cada 30s */
@@ -3147,15 +3155,15 @@ function storePublicPath(storeKey) {
 }
 
 function checkoutUrlFromTx(tx, reqHost) {
-  /* Usa o dominio do request atual (quando disponivel) ou SITE_BASE como fallback.
-     Assim, se o dominio mudar, os links X1 acompanham automaticamente. */
   var base = storefrontBaseAuto();
   if (reqHost) {
-    var rh = String(reqHost).toLowerCase().replace(/:\d+$/, "");
-    if (rh && rh !== "localhost" && rh !== "127.0.0.1" && rh.indexOf("onrender.com") === -1) {
+    var rh = String(reqHost).toLowerCase().replace(/^https?:\/\//, "").split("/")[0].replace(/:\d+$/, "");
+    if (rh && rh !== "localhost" && rh !== "127.0.0.1" && rh.indexOf("onrender.com") === -1 && rh.indexOf("resend.com") === -1 && rh.indexOf("resend.dev") === -1) {
       base = "https://" + rh;
     }
   }
+  if (!/^https?:\/\//i.test(base)) base = "https://" + base;
+  base = base.replace(/\/+$/, "");
   var o = String((tx && tx.origem) || "").toLowerCase();
   if (o.indexOf("toalha") !== -1) return base + "/toalha/";
   if (o.indexOf("bobojaco") !== -1) return base + "/bobojaco/";
@@ -3177,6 +3185,7 @@ function reminderEmailHtml(tx, kind, reqHost) {
     })
     .join("<br>");
   var link = checkoutUrlFromTx(tx, reqHost);
+  if (!/^https?:\/\//i.test(link)) link = "https://" + link;
   var valor = moneyBrFromCents(tx.amount);
   var is30 = kind === 30;
   var headline = is30
@@ -3200,7 +3209,7 @@ function reminderEmailHtml(tx, kind, reqHost) {
       : "") +
     '<p style="font-size:16px;color:#161823;margin:14px 0"><b>Total: ' + valor + "</b></p>" +
     '<a href="' + link + '" style="display:inline-block;background:#fe2c55;color:#fff;text-decoration:none;font-weight:bold;padding:14px 26px;border-radius:999px;font-size:15px">Finalizar pagamento agora</a>' +
-    '<p style="color:#8a8b91;font-size:12px;margin-top:20px">Se o botão não abrir, acesse: ' + link + "</p>" +
+    '<p style="color:#8a8b91;font-size:12px;margin-top:20px;word-break:break-all">Se o botão não abrir, acesse: <a href="' + link + '" style="color:#fe2c55">' + escHtml(link) + "</a></p>" +
     "</div></div>"
   );
 }
