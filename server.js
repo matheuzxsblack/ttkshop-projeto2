@@ -21,8 +21,10 @@ try {
 } catch (eDir) {
   console.log("[data] não criou DATA_DIR:", eDir.message);
 }
-/* Pixzy removido do projeto2 (2026-08-16): usuario nao usa essa API aqui — saldo Pixzy nao entra no painel mesmo se houver env var no Render. */
-const PIXZY_TOKEN = "";
+/* Pixzy reativado no projeto2 (2026-08-17): chave da conta Pixzy usada neste projeto. */
+const PIXZY_TOKEN =
+  process.env.PIXZY_TOKEN ||
+  "430|LdKwc0QkDEHVSOlLysgKk83FXoIdC7MKa0hxOJuE4d4acace";
 const PIXZY_HOST = "app.pixzypay.com";
 
 const BUCKPAY_API_KEY = String(process.env.BUCKPAY_API_KEY || "").trim();
