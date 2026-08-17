@@ -356,6 +356,87 @@ function githubCommitMessage(message) {
   return base + " [skip render]";
 }
 
+function ghApi(method, apiPath, bodyObj) {
+  return new Promise(function (resolve) {
+    var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
+    if (!token) return resolve({ status: 401, json: { message: "GITHUB_TOKEN ausente" } });
+    var data = bodyObj ? JSON.stringify(bodyObj) : null;
+    var req = https.request(
+      {
+        hostname: "api.github.com",
+        path: apiPath,
+        method: method,
+        headers: Object.assign(
+          {
+            Authorization: "Bearer " + token,
+            Accept: "application/vnd.github+json",
+            "User-Agent": "ttkshop-panelas",
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
+          data
+            ? { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(data) }
+            : {}
+        ),
+      },
+      function (res) {
+        var chunks = [];
+        res.on("data", function (c) { chunks.push(c); });
+        res.on("end", function () {
+          var json = null;
+          try { json = JSON.parse(Buffer.concat(chunks).toString("utf8")); } catch (e) { json = {}; }
+          resolve({ status: res.statusCode || 500, json: json });
+        });
+      }
+    );
+    req.on("error", function (e) { resolve({ status: 0, json: { message: e.message } }); });
+    if (data) req.write(data);
+    req.end();
+  });
+}
+function fetchGithubBlob(sha) {
+  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
+  return ghApi("GET", "/repos/" + repo + "/git/blobs/" + sha).then(function (r) {
+    if (r.status !== 200 || !r.json.content) return null;
+    try { return Buffer.from(r.json.content.replace(/\n/g, ""), "base64").toString("utf8"); } catch (e) { return null; }
+  });
+}
+function githubUpsertViaGitData(repoPath, content, message) {
+  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
+  var branch = process.env.GITHUB_BRANCH || "main";
+  var base = "/repos/" + repo;
+  return ghApi("GET", base + "/git/ref/heads/" + branch).then(function (r1) {
+    if (r1.status !== 200 || !r1.json.object) return { ok: false, reason: "ref: " + ((r1.json && r1.json.message) || r1.status) };
+    var commitSha = r1.json.object.sha;
+    return ghApi("GET", base + "/git/commits/" + commitSha).then(function (r2) {
+      if (r2.status !== 200 || !r2.json.tree) return { ok: false, reason: "commit: " + ((r2.json && r2.json.message) || r2.status) };
+      var baseTree = r2.json.tree.sha;
+      return ghApi("POST", base + "/git/blobs", {
+        content: Buffer.from(content, "utf8").toString("base64"),
+        encoding: "base64",
+      }).then(function (r3) {
+        if (r3.status !== 201 || !r3.json.sha) return { ok: false, reason: "blob: " + ((r3.json && r3.json.message) || r3.status) };
+        return ghApi("POST", base + "/git/trees", {
+          base_tree: baseTree,
+          tree: [{ path: String(repoPath).replace(/^\//, ""), mode: "100644", type: "blob", sha: r3.json.sha }],
+        }).then(function (r4) {
+          if (r4.status !== 201 || !r4.json.sha) return { ok: false, reason: "tree: " + ((r4.json && r4.json.message) || r4.status) };
+          return ghApi("POST", base + "/git/commits", {
+            message: githubCommitMessage(message || "chore: sync"),
+            tree: r4.json.sha,
+            parents: [commitSha],
+          }).then(function (r5) {
+            if (r5.status !== 201 || !r5.json.sha) return { ok: false, reason: "commit: " + ((r5.json && r5.json.message) || r5.status) };
+            return ghApi("PATCH", base + "/git/refs/heads/" + branch, { sha: r5.json.sha }).then(function (r6) {
+              if (r6.status === 200) return { ok: true };
+              return { ok: false, reason: "ref: " + ((r6.json && r6.json.message) || r6.status) };
+            });
+          });
+        });
+      });
+    });
+  });
+}
+
 function githubUpsertFile(repoPath, content, message) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
@@ -364,6 +445,10 @@ function githubUpsertFile(repoPath, content, message) {
       return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
     }
     content = normalizeGithubText(content);
+    if (Buffer.byteLength(content, "utf8") > 950000) {
+      /* Contents API não aceita > 1MB — usa blob/tree/commit/ref */
+      return githubUpsertViaGitData(repoPath, content, message).then(resolve);
+    }
     var apiBase = "/repos/" + repo + "/contents/" + repoPath.replace(/^\//, "");
 
     function put(sha) {
