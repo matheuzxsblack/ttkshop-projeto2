@@ -11,7 +11,7 @@
           if (fromCfg) return fromCfg;
           if (/\.vercel\.app$/.test(h)) return "https://ttkshop-projeto2.onrender.com";
         } catch (e) {}
-        return "";
+        return "https://ttkshop-projeto2.onrender.com";
       })();
       var _fetch = window.fetch.bind(window);
       window.fetch = function (input, init) {

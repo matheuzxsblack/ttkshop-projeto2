@@ -2076,6 +2076,7 @@ function githubGetFileRaw(repoPath) {
         hostname: "raw.githubusercontent.com",
         path: rawPath,
         method: "GET",
+        timeout: 8000,
         headers: {
           Authorization: "Bearer " + token,
           "User-Agent": "ttkshop-panelas",
@@ -2094,6 +2095,7 @@ function githubGetFileRaw(repoPath) {
         });
       }
     );
+    req.on("timeout", function () { req.destroy(new Error("GitHub raw timeout")); });
     req.on("error", function (e) { resolve({ ok: false, reason: e.message }); });
     req.end();
   });
@@ -2111,6 +2113,7 @@ function githubGetFile(repoPath) {
         hostname: "api.github.com",
         path: apiBase + "?ref=" + encodeURIComponent(process.env.GITHUB_BRANCH || "main"),
         method: "GET",
+        timeout: 8000,
         headers: {
           Authorization: "Bearer " + token,
           Accept: "application/vnd.github+json",
@@ -2150,6 +2153,7 @@ function githubGetFile(repoPath) {
         });
       }
     );
+    req.on("timeout", function () { req.destroy(new Error("GitHub API timeout")); });
     req.on("error", function (e) {
       resolve({ ok: false, reason: e.message });
     });
@@ -2331,7 +2335,7 @@ console.log(
 );
 
 /* no boot em produção: puxa vendas do GitHub (disco do Render é efêmero) */
-(async function bootMergeTxFromGithub() {
+async function bootMergeTxFromGithub() {
   if (!shouldSyncTxGithub()) {
     console.log("[data] boot merge OFF — defina GITHUB_TOKEN + RENDER/GITHUB_TX_SYNC no Render");
     return;
@@ -2366,10 +2370,10 @@ console.log(
   } catch (e) {
     console.log("[data] boot merge falhou:", e.message || e);
   }
-})();
+}
 
 /* checkout modes: mesmo problema do painel — disco efêmero; puxa do GitHub */
-(async function bootMergeCheckoutFromGithub() {
+async function bootMergeCheckoutFromGithub() {
   if (!shouldSyncTxGithub()) return;
   try {
     var remote = await githubGetFile("checkout-config.json");
@@ -2387,9 +2391,9 @@ console.log(
   } catch (eCk) {
     console.log("[checkout] boot merge falhou:", eCk.message || eCk);
   }
-})();
+}
 
-(async function bootMergePaymentGatewayFromGithub() {
+async function bootMergePaymentGatewayFromGithub() {
   if (!shouldSyncTxGithub()) return;
   try {
     var remoteGw = await githubGetFile("payment-gateway-config.json");
@@ -2407,9 +2411,9 @@ console.log(
   } catch (eGw) {
     console.log("[gateway] boot merge falhou:", eGw.message || eGw);
   }
-})();
+}
 
-(async function bootMergeCampaignsFromGithub() {
+async function bootMergeCampaignsFromGithub() {
   if (!shouldSyncTxGithub()) return;
   try {
     var remote = await githubGetFile("campaigns-config.json");
@@ -2434,9 +2438,9 @@ console.log(
   } catch (eCmp) {
     console.log("[campaigns] boot merge falhou:", eCmp.message || eCmp);
   }
-})();
+}
 
-(async function bootMergeFunnelFromGithub() {
+async function bootMergeFunnelFromGithub() {
   if (!shouldSyncTxGithub()) return;
   try {
     var remoteFn = await githubGetFile("funnel-analytics.json");
@@ -2456,9 +2460,9 @@ console.log(
   } catch (eFn) {
     console.log("[funnel] boot merge falhou:", eFn.message || eFn);
   }
-})();
+}
 
-(async function bootMergeCloakerFromGithub() {
+async function bootMergeCloakerFromGithub() {
   if (!shouldSyncTxGithub()) return;
   try {
     var remoteCl = await githubGetFile("cloaker-config.json");
@@ -2476,10 +2480,10 @@ console.log(
   } catch (eCl) {
     console.log("[cloaker] boot merge falhou:", eCl.message || eCl);
   }
-})();
+}
 
 /* pixels: tokens no GitHub — disco efêmero perdia o 2º pixel após redeploy */
-(async function bootMergePixelConfigFromGithub() {
+async function bootMergePixelConfigFromGithub() {
   if (!shouldSyncTxGithub()) return;
   try {
     var remote = await githubGetFile("pixel-config.json");
@@ -2503,7 +2507,16 @@ console.log(
   } catch (ePx) {
     console.log("[pixel] boot merge falhou:", ePx.message || ePx);
   }
-})();
+}
+
+/* Executa boot merges de forma escalonada para liberar a thread e o health check imediatamente */
+setTimeout(bootMergeTxFromGithub, 1000);
+setTimeout(bootMergeCheckoutFromGithub, 2500);
+setTimeout(bootMergePaymentGatewayFromGithub, 4000);
+setTimeout(bootMergeCampaignsFromGithub, 5500);
+setTimeout(bootMergeFunnelFromGithub, 7000);
+setTimeout(bootMergeCloakerFromGithub, 8500);
+setTimeout(bootMergePixelConfigFromGithub, 10000);
 
 /* remove lixo / testes que não devem aparecer no painel */
 (function purgeJunkTx() {
@@ -5533,8 +5546,32 @@ function withParams(urlStr, paramsObj) {
 
 
 var server = http.createServer(async function (req, res) {
-  var url = new URL(req.url || "/", "http://" + (req.headers.host || "localhost"));
+  var url;
+  try {
+    url = new URL(req.url || "/", "http://" + (req.headers.host || "localhost"));
+  } catch (eUrl) {
+    res.writeHead(400);
+    return res.end("Bad Request");
+  }
   var pathname = url.pathname;
+
+  /* ---------- HEALTH CHECK (Render / Uptime monitors) — Responde IMEDIATAMENTE ---------- */
+  if (pathname === "/api/health" || pathname === "/health" || pathname === "/api/health/" || pathname === "/health/") {
+    if (req.method === "GET" || req.method === "HEAD") {
+      res.writeHead(200, {
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+        "Connection": "close",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+      });
+      return res.end(JSON.stringify({ status: "ok", uptime: process.uptime() }));
+    }
+    if (req.method === "OPTIONS") {
+      res.writeHead(204, corsHeaders());
+      return res.end();
+    }
+  }
 
   var legacyCloakTopic = {
     "/bbj": "casaco",
@@ -9355,12 +9392,19 @@ server.listen(PORT, "0.0.0.0", function () {
        hiberna após ~15 min sem tráfego, então isso o mantém acordado 24h */
     var pingMod = PUBLIC_BASE.startsWith("https") ? https : http;
     var keepAlivePing = function () {
-      pingMod.get(PUBLIC_BASE + "/api/health", function (r) {
-        r.resume(); /* descarta o body */
-        console.log("[keep-alive] ping ok — " + new Date().toLocaleTimeString("pt-BR"));
-      }).on("error", function (e) {
-        console.log("[keep-alive] ping falhou: " + e.message);
-      });
+      try {
+        var pingUrl = PUBLIC_BASE.replace(/\/+$/, "") + "/api/health";
+        var pingReq = pingMod.get(pingUrl, { timeout: 5000 }, function (r) {
+          r.resume(); /* descarta o body */
+          console.log("[keep-alive] ping ok — " + new Date().toLocaleTimeString("pt-BR"));
+        });
+        pingReq.on("timeout", function () { pingReq.destroy(); });
+        pingReq.on("error", function (e) {
+          console.log("[keep-alive] ping falhou: " + e.message);
+        });
+      } catch (eKp) {
+        console.log("[keep-alive] erro: " + eKp.message);
+      }
     };
     setTimeout(keepAlivePing, 30 * 1000); /* primeiro ping logo após subir */
     setInterval(keepAlivePing, KEEP_ALIVE_MS);

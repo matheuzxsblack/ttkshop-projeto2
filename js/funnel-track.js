@@ -8,11 +8,10 @@
       if (typeof window.TTK_API_BASE === "string" && window.TTK_API_BASE) return window.TTK_API_BASE;
       var h = String(location.hostname || "").toLowerCase();
       if (h === "localhost" || h === "127.0.0.1") return "";
-      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return "";
-      if (/\.vercel\.app$/.test(h)) return renderApiUrl();
-      if (h.indexOf("onrender.com") !== -1 && h.indexOf("ttkshop") !== -1) return "";
+      if (h.endsWith(".onrender.com")) return "";
+      if (typeof window.TTK_RENDER_API === "string" && window.TTK_RENDER_API) return window.TTK_RENDER_API.replace(/\/+$/, "");
     } catch (e) {}
-    return "";
+    return renderApiUrl();
   }
 
   function detectStore() {

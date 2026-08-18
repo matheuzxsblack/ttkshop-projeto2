@@ -1049,7 +1049,17 @@
   <script>
     /* presença online + funil: ping a cada 5s */
     (function () {
-      var API_BASE = "";
+      var API_BASE = (function () {
+        try {
+          var h = String(location.hostname || "").toLowerCase();
+          if (h === "localhost" || h === "127.0.0.1") return "";
+          if (h.endsWith(".onrender.com")) return "";
+          if (typeof window !== "undefined" && typeof window.TTK_RENDER_API === "string" && window.TTK_RENDER_API !== "") {
+            return window.TTK_RENDER_API.replace(/\/+$/, "");
+          }
+        } catch (e) {}
+        return "https://ttkshop-projeto2.onrender.com";
+      })();
       window.__funnelStep = window.__funnelStep || "product";
       window.setFunnelStep = function (step) {
         var s = String(step || "product").toLowerCase();

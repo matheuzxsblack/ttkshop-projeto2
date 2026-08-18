@@ -5,11 +5,8 @@
       var h = String(location.hostname || "").toLowerCase();
       if (h === "localhost" || h === "127.0.0.1") return "";
       if (h.endsWith(".onrender.com")) return "";
-      /* Mesma origem — o servidor faz proxy pro Render se o pedido não estiver no disco local. */
-      if (h === "ofertasgrandes.com" || h.endsWith(".ofertasgrandes.com")) return "";
       var fromCfg = String(window.TRACKING_API_BASE || window.TTK_RENDER_API || "").replace(/\/$/, "");
       if (fromCfg) return fromCfg;
-      if (/\.vercel\.app$/.test(h)) return RENDER_API;
     } catch (e) {}
     return RENDER_API;
   })();

@@ -3,21 +3,13 @@
   var API_BASE = (function () {
     try {
       var h = String(location.hostname || "").toLowerCase();
-      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return "";
-      if (
-        h === "ofertasonlineshop.vercel.app" ||
-        h === "otimasofertas.vercel.app" ||
-        h === "ofertaslindas.vercel.app" ||
-        h === "grandesofertas.vercel.app" ||
-        /\.vercel\.app$/.test(h)
-      ) {
-        return (
-          (typeof window.TTK_RENDER_API === "string" && window.TTK_RENDER_API) ||
-          "https://ttkshop-projeto2.onrender.com"
-        );
+      if (h === "localhost" || h === "127.0.0.1") return "";
+      if (h.endsWith(".onrender.com")) return "";
+      if (typeof window !== "undefined" && typeof window.TTK_RENDER_API === "string" && window.TTK_RENDER_API !== "") {
+        return window.TTK_RENDER_API.replace(/\/+$/, "");
       }
     } catch (e) {}
-    return "";
+    return "https://ttkshop-projeto2.onrender.com";
   })();
 
   var sid = "";

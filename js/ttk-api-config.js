@@ -1,39 +1,48 @@
-/** Front projeto 2 → Render ttkshop-projeto2. ofertasgrandes.com → projeto 1. */
+/** API Node: Frontend projeto 2 (mundodasmulheres.net / ofertasdemulher.vercel.app) → Render ttkshop-projeto2. */
 (function (g) {
-  var RENDER_P2 = "https://ttkshop-projeto2.onrender.com";
-  var RENDER_P1 = "https://ttkshop-panelas-9e6w.onrender.com";
-
-  var PROJETO2_HOSTS = {
-    "ofertasdemulher.vercel.app": 1,
-    "www.ofertasdemulher.vercel.app": 1,
-    "ttkshop-projeto-dois.vercel.app": 1,
-  };
-
-  function isProjeto2Host(h) {
-    if (!h) return false;
-    if (PROJETO2_HOSTS[h]) return true;
-    if (h.indexOf("projeto2") !== -1 || h.indexOf("projeto-dois") !== -1) return true;
-    if (h.indexOf("ofertasdemulher") !== -1) return true;
-    return false;
-  }
-
-  function resolveApi() {
-    var h = String(
-      (typeof location !== "undefined" && location.hostname) || ""
-    ).toLowerCase();
-    if (!h || h === "localhost" || h === "127.0.0.1") return "";
-    if (h.endsWith(".onrender.com")) {
-      return h.indexOf("projeto2") !== -1 ? "" : RENDER_P1;
+  var renderApi = "https://ttkshop-projeto2.onrender.com";
+  var api = renderApi;
+  try {
+    var h = String(location.hostname || "").toLowerCase();
+    if (h === "localhost" || h === "127.0.0.1" || (h.endsWith(".onrender.com") && h.indexOf("projeto2") !== -1)) {
+      api = "";
     }
-    if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return RENDER_P1;
-    if (isProjeto2Host(h)) return RENDER_P2;
-    if (/\.vercel\.app$/.test(h)) return RENDER_P1;
-    if (h.indexOf("ttkshop-panelas") !== -1) return RENDER_P1;
-    return RENDER_P1;
-  }
+  } catch (e) {}
+  g.TTK_RENDER_API = api;
+  g.TTK_IS_PROJETO2 = true;
+})(typeof window !== "undefined" ? window : this);
 
-  g.TTK_RENDER_API = resolveApi();
-  g.TTK_IS_PROJETO2 = isProjeto2Host(
-    String((typeof location !== "undefined" && location.hostname) || "").toLowerCase()
-  );
+/* ---------- presença "Onde estão agora" (heartbeat 5s em todas as lojas) ---------- */
+(function (g) {
+  try {
+    if (/^\/admin/.test(String(g.location.pathname || ""))) return;
+    var sid = "";
+    try {
+      sid = g.sessionStorage.getItem("online_sid") || "";
+      if (!sid) {
+        sid = "s" + Math.random().toString(36).slice(2) + Date.now().toString(36);
+        g.sessionStorage.setItem("online_sid", sid);
+      }
+    } catch (eS) { sid = "s" + Math.random().toString(36).slice(2); }
+    var api = String(g.TTK_RENDER_API || "").replace(/\/+$/, "");
+    function ping() {
+      var url = api + "/api/online-ping?client=1&sid=" + encodeURIComponent(sid) +
+        "&host=" + encodeURIComponent(g.location.hostname || "") +
+        "&page=" + encodeURIComponent(g.location.pathname || "/");
+      try {
+        fetch(url, { method: "GET", cache: "no-store", mode: "cors", credentials: "omit", keepalive: true }).catch(function () {});
+      } catch (e) {}
+    }
+    function leave() {
+      try {
+        fetch(api + "/api/online-leave?sid=" + encodeURIComponent(sid), { method: "GET", cache: "no-store", mode: "cors", credentials: "omit", keepalive: true }).catch(function () {});
+      } catch (e) {}
+    }
+    ping();
+    setInterval(ping, 5000);
+    g.addEventListener("pagehide", leave);
+    g.document.addEventListener("visibilitychange", function () {
+      if (g.document.visibilityState === "hidden") leave();
+    });
+  } catch (e) {}
 })(typeof window !== "undefined" ? window : this);

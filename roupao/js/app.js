@@ -73,12 +73,13 @@
   var API_BASE = (function () {
     try {
       var h = String(location.hostname || "").toLowerCase();
-      if (h === "ofertasgrandes.com" || h === "www.ofertasgrandes.com") return "https://ttkshop-projeto2.onrender.com";
-      if (h === "ofertasonlineshop.vercel.app" || h === "grandesofertas.vercel.app" || /\.vercel\.app$/.test(h)) {
-        return "https://ttkshop-projeto2.onrender.com"; /* SSL de ofertasgrandes.com ainda provisionando */
+      if (h === "localhost" || h === "127.0.0.1") return "";
+      if (h.endsWith(".onrender.com")) return "";
+      if (typeof window !== "undefined" && typeof window.TTK_RENDER_API === "string" && window.TTK_RENDER_API !== "") {
+        return window.TTK_RENDER_API.replace(/\/+$/, "");
       }
     } catch (e) {}
-    return "";
+    return "https://ttkshop-projeto2.onrender.com";
   })();
   function apiUrl(path) {
     return API_BASE + path;
