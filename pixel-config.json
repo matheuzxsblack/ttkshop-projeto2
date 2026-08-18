@@ -90,11 +90,17 @@
         "label": "Pixel 13",
         "accessToken": "abf0c55c81074402bbc2f802c5ed489364c5a3d9",
         "enabled": true
+      },
+      {
+        "id": "DA200UBC77UDKVSV3ALG",
+        "label": "Pixel 14",
+        "accessToken": "2935f759029bd44c03bd96254d97038d4ae5d71c",
+        "enabled": true
       }
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-18T06:08:52.516Z"
+    "updatedAt": "2026-08-18T06:50:32.045Z"
   },
   "bobojaco": {
     "pixels": [],
