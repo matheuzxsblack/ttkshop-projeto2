@@ -78,11 +78,17 @@
         "label": "Pixel 11",
         "accessToken": "76cd0dfc31cac48a012ee38391ef6365e2bb4a06",
         "enabled": true
+      },
+      {
+        "id": "DA1ULF3C77UDBOEDO5N0",
+        "label": "Pixel 12",
+        "accessToken": "66194939ceb2ff8537d60f76d70da44a78edd022",
+        "enabled": true
       }
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-17T21:56:11.952Z"
+    "updatedAt": "2026-08-18T05:17:17.997Z"
   },
   "bobojaco": {
     "pixels": [],
