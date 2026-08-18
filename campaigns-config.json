@@ -22,7 +22,7 @@
         ]
       },
       "targeting": {
-        "device": "none",
+        "device": "mobile",
         "countryMode": "allow",
         "countries": [
           "BR"
@@ -36,10 +36,10 @@
         "datacenterIp": true,
         "proxy": true,
         "tor": false,
-        "ttclidBypass": false
+        "ttclidBypass": true
       },
       "createdAt": "2026-08-18T07:25:30.039Z",
-      "updatedAt": "2026-08-18T07:26:09.933Z"
+      "updatedAt": "2026-08-18T10:38:19.394Z"
     }
   ]
 }
