@@ -205,6 +205,7 @@ const PIXEL_CONFIG_BOOTSTRAP = path.join(ROOT, "pixel-config.json");
 const STORE_PATHS = {
   panelas: { label: "Panela", dir: "panela", index: "index.html" },
   jaqueta: { label: "Jaqueta", dir: "jaqueta", index: "index.html" },
+  conjunto: { label: "Conjunto Alfaiataria", dir: "conjunto", index: "index.html" },
   bobojaco: { label: "Bobojaco", dir: "bobojaco", index: "index.html" },
   teddy: { label: "Casaquinho Teddy", dir: "teddy", index: "index.html" },
   roupao: { label: "Roupão Microfibra Plush", dir: "roupao", index: "index.html" },
@@ -216,7 +217,7 @@ const CHECKOUT_CONFIG_FILE = path.join(DATA_DIR, "checkout-config.json");
 const CHECKOUT_CONFIG_BOOTSTRAP = path.join(ROOT, "checkout-config.json");
 const CHECKOUT_MODES = ["tiktok", "simple"];
 /* lojas que já têm o checkout simples implementado no front */
-const SIMPLE_CHECKOUT_STORES = ["jaqueta", "bobojaco", "teddy", "roupao", "panelas", "toalha"];
+const SIMPLE_CHECKOUT_STORES = ["jaqueta", "conjunto", "bobojaco", "teddy", "roupao", "panelas", "toalha"];
 
 /* ---------- cloaker por loja (URLs /n7*, + vitrine padrão) ---------- */
 const CLOAKER_CONFIG_FILE = path.join(DATA_DIR, "cloaker-config.json");
@@ -2901,6 +2902,7 @@ function storeKeyFromTx(tx) {
   if (!tx) return "";
   var o = String(tx.origem || "").toLowerCase();
   if (o.indexOf("simular") !== -1) return "";
+  if (o.indexOf("conjunto") !== -1 || o.indexOf("alfaiataria") !== -1) return "conjunto";
   if (o.indexOf("toalha") !== -1) return "toalha";
   if (o.indexOf("bobojaco") !== -1) return "bobojaco";
   if (o.indexOf("teddy") !== -1) return "teddy";
@@ -2919,6 +2921,7 @@ function storeKeyFromTx(tx) {
       return String((it && it.variante) || "").toLowerCase();
     })
     .join(" ");
+  if (items.indexOf("conjunto") !== -1 || items.indexOf("alfaiataria") !== -1 || items.indexOf("blazer") !== -1 || items.indexOf("pantalona") !== -1) return "conjunto";
   if (items.indexOf("toalha") !== -1) return "toalha";
   if (items.indexOf("roup") !== -1) return "roupao";
   if (items.indexOf("jaqueta") !== -1 || items.indexOf("casaco") !== -1) return "jaqueta";
@@ -3285,6 +3288,7 @@ const REMINDER_30_MS = 30 * 60 * 1000;
 function storePublicPath(storeKey) {
   var k = String(storeKey || "").toLowerCase();
   if (k === "jaqueta") return "/"; /* anúncio usa a raiz; /jaqueta/ também funciona */
+  if (k === "conjunto") return "/conjunto/";
   if (k === "bobojaco") return "/bobojaco/";
   if (k === "teddy") return "/teddy/";
   if (k === "roupao") return "/roupao/";
@@ -3304,6 +3308,7 @@ function checkoutUrlFromTx(tx, reqHost) {
   if (!/^https?:\/\//i.test(base)) base = "https://" + base;
   base = base.replace(/\/+$/, "");
   var o = String((tx && tx.origem) || "").toLowerCase();
+  if (o.indexOf("conjunto") !== -1 || o.indexOf("alfaiataria") !== -1) return base + "/conjunto/";
   if (o.indexOf("toalha") !== -1) return base + "/toalha/";
   if (o.indexOf("bobojaco") !== -1) return base + "/bobojaco/";
   if (o.indexOf("teddy") !== -1) return base + "/teddy/";
