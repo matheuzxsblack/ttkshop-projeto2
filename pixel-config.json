@@ -8,12 +8,6 @@
   "jaqueta": {
     "pixels": [
       {
-        "id": "D9H8UP3C77U5O97QPF1G",
-        "label": "Pixel 2",
-        "accessToken": "aa06ad85941a7b4c79958ab4223e552c8fa9cd99",
-        "enabled": true
-      },
-      {
         "id": "D9H9P0JC77U5O97QPFGG",
         "label": "Pixel 3",
         "accessToken": "0414cfcafe366b6e3c2de5f6fad1207728106793",
@@ -40,7 +34,7 @@
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-07-24T00:40:16.879Z"
+    "updatedAt": "2026-08-19T12:26:05.885Z"
   },
   "toalha": {
     "pixels": [],
@@ -76,6 +70,6 @@
     "pixels": [],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:26:00.482Z"
+    "updatedAt": "2026-08-19T12:26:00.700Z"
   }
 }
