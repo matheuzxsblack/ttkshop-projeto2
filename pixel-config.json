@@ -233,11 +233,17 @@
         "label": "Principal",
         "accessToken": "3a4f83b972ebb4df7c41775bc0b18c60e03ecfb8",
         "enabled": true
+      },
+      {
+        "id": "DA2N3E3C77UBOQBAVKTG",
+        "label": "Pixel 2",
+        "accessToken": "a05ac9871aa1dfb804b3b4dd3e3ff197b296f48f",
+        "enabled": true
       }
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-13T04:38:30.076Z"
+    "updatedAt": "2026-08-19T09:17:16.282Z"
   },
   "conjunto": {
     "pixels": [],
