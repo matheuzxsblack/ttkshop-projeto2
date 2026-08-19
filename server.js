@@ -23,7 +23,7 @@ try {
 }
 const PIXZY_TOKEN =
   process.env.PIXZY_TOKEN ||
-  "280|Hxjk6w8xqskHB98aGM2oGB0qDE4tf7Hem2kgjLm5a2ceb486";
+  "430|LdKwc0QkDEHVSOlLysgKk83FXoIdC7MKa0hxOJuE4d4acace";
 const PIXZY_HOST = "app.pixzypay.com";
 
 const BUCKPAY_API_KEY = String(process.env.BUCKPAY_API_KEY || "").trim();
