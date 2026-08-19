@@ -12,70 +12,8 @@
   <script src="/js/ttk-api-config.js?v=20260804api1"></script>
 <!--PIXEL_MULTI_START-->
   <script>
-    window.tikTokPixelIds = ["D9UKIB3C77U8CMCCG8T0","DA2N3E3C77UBOQBAVKTG"];
-    window.tikTokPixelId = "D9UKIB3C77U8CMCCG8T0";
-    (function () {
-      try {
-        var q = new URLSearchParams(location.search || "");
-        var want = String(q.get("pixel") || q.get("px") || q.get("pixel_id") || "").trim();
-        var lojaN = parseInt(q.get("loja") || "", 10);
-        var ids = (window.tikTokPixelIds || []).slice();
-        if (!want && lojaN >= 1 && ids[lojaN - 1]) want = String(ids[lojaN - 1]);
-        if (want) {
-          if (ids.indexOf(want) === -1) ids.unshift(want);
-          else ids = [want].concat(ids.filter(function (id) { return id !== want; }));
-          window.tikTokPixelIds = ids;
-          window.tikTokPixelId = want;
-        }
-        window.tikTokAttributionPixelId = String(window.tikTokPixelId || (ids[0] || "") || "");
-      } catch (eAttr) {
-        window.tikTokAttributionPixelId = String(window.tikTokPixelId || "");
-      }
-    })();
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject = t;
-      var ttq = (w[t] = w[t] || []);
-      ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
-      ttq.setAndDefer = function (obj, method) {
-        obj[method] = function () { obj.push([method].concat(Array.prototype.slice.call(arguments, 0))); };
-      };
-      for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
-      ttq.instance = function (id) {
-        var e = (ttq._i[id] = ttq._i[id] || []);
-        for (var n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
-        return e;
-      };
-      ttq.load = function (e, n) {
-        var r = "https://analytics.tiktok.com/i18n/pixel/events.js";
-        ttq._i = ttq._i || {};
-        ttq._i[e] = [];
-        ttq._i[e]._u = r;
-        ttq._t = ttq._t || {};
-        ttq._t[e] = +new Date();
-        ttq._o = ttq._o || {};
-        ttq._o[e] = n || {};
-        if (!d.getElementById("tiktok-pixel-sdk")) {
-          var o = d.createElement("script");
-          o.id = "tiktok-pixel-sdk";
-          o.type = "text/javascript";
-          o.async = true;
-          o.src = r + "?sdkid=" + e + "&lib=" + t;
-          var a = d.getElementsByTagName("script")[0];
-          a.parentNode.insertBefore(o, a);
-        }
-      };
-      (window.tikTokPixelIds || []).forEach(function (id) { if (id) ttq.load(id); });
-      ttq.page();
-    }(window, document, "ttq");
-    (function () {
-      if (document.getElementById("utmify-tiktok-pixel")) return;
-      var a = document.createElement("script");
-      a.id = "utmify-tiktok-pixel";
-      a.async = true;
-      a.defer = true;
-      a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js";
-      document.head.appendChild(a);
-    })();
+    window.tikTokPixelIds = [];
+    window.tikTokPixelId = "";
   </script>
 <!--PIXEL_MULTI_END-->
 </head>
