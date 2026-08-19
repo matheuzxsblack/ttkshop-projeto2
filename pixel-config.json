@@ -45,42 +45,6 @@
   "toalha": {
     "pixels": [
       {
-        "id": "D9UHLVJC77U9J4MANGO0",
-        "label": "Pixel 6",
-        "accessToken": "9e711950750eb6197d914f18e6edc5233a542621",
-        "enabled": true
-      },
-      {
-        "id": "D9UIFBRC77UDTFS1RF50",
-        "label": "Pixel 7",
-        "accessToken": "dfbcf9a5daae36981ec413452d3a981288d49e29",
-        "enabled": true
-      },
-      {
-        "id": "D9UJNFJC77U9J4MANJNG",
-        "label": "Pixel 8",
-        "accessToken": "99f8fb540443157539697f7cdd84be5f1b3f94a9",
-        "enabled": true
-      },
-      {
-        "id": "D9UJTNJC77UDTFS1RHG0",
-        "label": "Pixel 9",
-        "accessToken": "29ddd03f058b82aa7cad33f59e4df7f5de04901b",
-        "enabled": true
-      },
-      {
-        "id": "DA00E7RC77UDVMNGC2TG",
-        "label": "Pixel 10",
-        "accessToken": "5452259993d90671ee6e10f90acc6bd1936bedfb",
-        "enabled": true
-      },
-      {
-        "id": "DA011I3C77UDVMNGC390",
-        "label": "Pixel 11",
-        "accessToken": "3b3444561de7081548b5bbf52577b2e9d79e2dfe",
-        "enabled": true
-      },
-      {
         "id": "DA0FLO3C77U990VDI4TG",
         "label": "Pixel 12",
         "accessToken": "aab63c58e23b5a7f8b3cf337697a3d6f1f147537",
@@ -119,7 +83,7 @@
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:22:32.269Z"
+    "updatedAt": "2026-08-19T12:22:33.366Z"
   },
   "bobojaco": {
     "pixels": [
