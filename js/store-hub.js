@@ -16,12 +16,14 @@
     if (window.TTK_STORE) return String(window.TTK_STORE).trim().toLowerCase();
     try {
       var p = String(location.pathname || "").toLowerCase();
+      if (p.indexOf("/conjunto") === 0) return "conjunto";
       if (p.indexOf("/panela") === 0 || p.indexOf("/panelas") === 0) return "panelas";
       if (p.indexOf("/toalha") === 0) return "toalha";
       if (p.indexOf("/bobojaco") === 0) return "bobojaco";
       if (p.indexOf("/teddy") === 0) return "teddy";
       if (p.indexOf("/roupao") === 0) return "roupao";
       if (p.indexOf("/jaqueta") === 0) return "jaqueta";
+      if (p.indexOf("/sabonete") === 0) return "sabonete";
     } catch (e) {}
     return "jaqueta";
   }

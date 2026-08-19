@@ -21,10 +21,9 @@ try {
 } catch (eDir) {
   console.log("[data] não criou DATA_DIR:", eDir.message);
 }
-/* Pixzy reativado no projeto2 (2026-08-17): chave da conta Pixzy usada neste projeto. */
 const PIXZY_TOKEN =
   process.env.PIXZY_TOKEN ||
-  "430|LdKwc0QkDEHVSOlLysgKk83FXoIdC7MKa0hxOJuE4d4acace";
+  "280|Hxjk6w8xqskHB98aGM2oGB0qDE4tf7Hem2kgjLm5a2ceb486";
 const PIXZY_HOST = "app.pixzypay.com";
 
 const BUCKPAY_API_KEY = String(process.env.BUCKPAY_API_KEY || "").trim();
@@ -56,13 +55,18 @@ const SHARPIFY_CLIENT_SECRET = String(process.env.SHARPIFY_CLIENT_SECRET || "").
 const SHARPIFY_HOST = "api.sharpify.com.br";
 const SHARPIFY_GATEWAY_METHOD = String(process.env.SHARPIFY_GATEWAY_METHOD || "PIX").trim();
 
-const PAYMENT_GATEWAY_IDS = ["sharpify", "purincash", "blackcat", "ironpay", "buckpay", "pixzy"];
+const VENO_API_KEY = String(process.env.VENO_API_KEY || "").trim();
+const VENO_HOST = "beta.venopayments.com";
+const VENO_API_PREFIX = "/api/v1";
+
+const PAYMENT_GATEWAY_IDS = ["sharpify", "purincash", "blackcat", "ironpay", "buckpay", "venopay", "pixzy"];
 const PAYMENT_GATEWAY_META = {
   sharpify: { label: "Sharpify" },
   purincash: { label: "PurinCash" },
   blackcat: { label: "BlackCat" },
   ironpay: { label: "Iron Pay" },
   buckpay: { label: "BuckPay" },
+  venopay: { label: "Veno Pay" },
   pixzy: { label: "Pixzy" },
 };
 const PAYMENT_GATEWAY_CONFIG_FILE = path.join(DATA_DIR, "payment-gateway-config.json");
@@ -75,6 +79,7 @@ function gatewayCredentialsConfigured(id) {
   if (g === "blackcat") return !!BLACKCAT_API_KEY;
   if (g === "ironpay") return !!IRONPAY_API_TOKEN;
   if (g === "buckpay") return !!BUCKPAY_API_KEY;
+  if (g === "venopay") return !!VENO_API_KEY;
   if (g === "pixzy") return !!PIXZY_TOKEN;
   return false;
 }
@@ -148,8 +153,8 @@ function paymentGatewayName() {
   if (BLACKCAT_API_KEY) return "blackcat";
   if (IRONPAY_API_TOKEN) return "ironpay";
   if (BUCKPAY_API_KEY) return "buckpay";
-  if (PIXZY_TOKEN) return "pixzy";
-  return "ironpay";
+  if (VENO_API_KEY) return "venopay";
+  return "pixzy";
 }
 
 function paymentGatewayOptionsForAdmin() {
@@ -160,8 +165,6 @@ function paymentGatewayOptionsForAdmin() {
       label: meta.label,
       configured: gatewayCredentialsConfigured(id),
     };
-  }).filter(function (o) {
-    return o.configured;
   });
 }
 
@@ -185,9 +188,13 @@ function paymentUsesBuckPay() {
   return paymentGatewayName() === "buckpay";
 }
 
+function paymentUsesVenoPay() {
+  return paymentGatewayName() === "venopay";
+}
+
 /* ---------- admin ---------- */
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
-const ADMIN_PASS = process.env.ADMIN_PASS || "Ma@303030";
+const ADMIN_PASS = process.env.ADMIN_PASS || "TTKshop!2026#9xKz";
 /* Alias opcional — mesmo painel completo (não é login separado) */
 const PIXEL_ADMIN_USER = process.env.PIXEL_ADMIN_USER || "linuxfodaooo";
 const PIXEL_ADMIN_PASS = process.env.PIXEL_ADMIN_PASS || "PixelLab!2026#Chuteira";
@@ -210,6 +217,7 @@ const STORE_PATHS = {
   teddy: { label: "Casaquinho Teddy", dir: "teddy", index: "index.html" },
   roupao: { label: "Roupão Microfibra Plush", dir: "roupao", index: "index.html" },
   toalha: { label: "Toalhas Gigante", dir: "toalha", index: "index.html" },
+  sabonete: { label: "Kit Sabonete", dir: "sabonete", index: "index.html" },
 };
 
 /* ---------- modo de checkout por loja (tiktok = original | simple = simplificado) ---------- */
@@ -217,7 +225,7 @@ const CHECKOUT_CONFIG_FILE = path.join(DATA_DIR, "checkout-config.json");
 const CHECKOUT_CONFIG_BOOTSTRAP = path.join(ROOT, "checkout-config.json");
 const CHECKOUT_MODES = ["tiktok", "simple"];
 /* lojas que já têm o checkout simples implementado no front */
-const SIMPLE_CHECKOUT_STORES = ["jaqueta", "conjunto", "bobojaco", "teddy", "roupao", "panelas", "toalha"];
+const SIMPLE_CHECKOUT_STORES = ["jaqueta", "conjunto", "bobojaco", "teddy", "roupao", "panelas", "toalha", "sabonete"];
 
 /* ---------- cloaker por loja (URLs /n7*, + vitrine padrão) ---------- */
 const CLOAKER_CONFIG_FILE = path.join(DATA_DIR, "cloaker-config.json");
@@ -274,6 +282,396 @@ function persistCloakerConfigToGithub() {
 function getCloakerEnabled(storeKey) {
   var cfgC = loadCloakerConfig();
   return !!cfgC[storeKey];
+}
+
+/* ---------- Cloaker Pro: campanhas (server-side) ---------- */
+const CAMPAIGNS_CONFIG_FILE = path.join(DATA_DIR, "campaigns-config.json");
+const CAMPAIGNS_CONFIG_BOOTSTRAP = path.join(ROOT, "campaigns-config.json");
+const CAMPAIGNS_STATS_FILE = path.join(DATA_DIR, "campaigns-stats.json");
+
+function loadCampaignsConfig() {
+  try {
+    if (fs.existsSync(CAMPAIGNS_CONFIG_FILE)) {
+      var raw = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_FILE, "utf8"));
+      if (raw && typeof raw === "object") return raw;
+    }
+  } catch (e) {}
+  try {
+    if (CAMPAIGNS_CONFIG_BOOTSTRAP !== CAMPAIGNS_CONFIG_FILE && fs.existsSync(CAMPAIGNS_CONFIG_BOOTSTRAP)) {
+      var boot = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_BOOTSTRAP, "utf8"));
+      if (boot && typeof boot === "object") return boot;
+    }
+  } catch (e2) {}
+  return { campaigns: [] };
+}
+
+function saveCampaignsConfig(cfg) {
+  var json = JSON.stringify(cfg, null, 2);
+  fs.writeFileSync(CAMPAIGNS_CONFIG_FILE, json);
+  try {
+    if (CAMPAIGNS_CONFIG_BOOTSTRAP !== CAMPAIGNS_CONFIG_FILE) {
+      fs.writeFileSync(CAMPAIGNS_CONFIG_BOOTSTRAP, json);
+    }
+  } catch (eM) {}
+}
+
+function persistCampaignsConfigToGithub() {
+  if (!shouldSyncTxGithub()) return Promise.resolve({ ok: false, reason: "sync off" });
+  var json = JSON.stringify(loadCampaignsConfig(), null, 2);
+  return githubUpsertFile("campaigns-config.json", json, "chore(campaigns): sync");
+}
+
+function genToken() {
+  return crypto.randomBytes(5).toString("hex");
+}
+
+function slugify(name, existingSlugs) {
+  var base = String(name || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-+/g, "-");
+  if (!base) base = "campaign";
+  var slug = base;
+  var n = 2;
+  existingSlugs = existingSlugs || [];
+  while (existingSlugs.indexOf(slug) !== -1) {
+    slug = base + "-" + n;
+    n++;
+  }
+  return slug;
+}
+
+function defaultCampaign(body) {
+  var b = body || {};
+  return {
+    id: "cp_" + crypto.randomBytes(4).toString("hex"),
+    name: String(b.name || "Nova campanha").trim(),
+    slug: "",
+    token: genToken(),
+    tokenEnabled: true,
+    source: "tiktok",
+    domain: "*",
+    entryStore: "sabonete",
+    enabled: true,
+    safe: { method: "redirect", url: "" },
+    offer: { method: "internal", type: "single", urls: ["/sabonete/"] },
+    targeting: { device: "all", countryMode: "off", countries: [] },
+    filters: {
+      botUa: true,
+      automation: true,
+      softwareGl: true,
+      desktopLike: true,
+      datacenterIp: true,
+      proxy: true,
+      tor: false,
+      ttclidBypass: true
+    },
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  };
+}
+
+/* ---------- Campaign stats ---------- */
+var campStatsCache = null;
+var campStatsSaveTimer = null;
+var campStatsDirty = false;
+
+function todayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function loadCampStats() {
+  if (campStatsCache) return campStatsCache;
+  try {
+    if (fs.existsSync(CAMPAIGNS_STATS_FILE)) {
+      var raw = JSON.parse(fs.readFileSync(CAMPAIGNS_STATS_FILE, "utf8"));
+      if (raw && typeof raw === "object") {
+        campStatsCache = raw;
+        return raw;
+      }
+    }
+  } catch (e) {}
+  campStatsCache = {};
+  return campStatsCache;
+}
+
+function recordCampEvent(campId, kind) {
+  var cache = loadCampStats();
+  var day = todayKey();
+  if (!cache[day]) cache[day] = {};
+  if (!cache[day][campId]) cache[day][campId] = { requests: 0, offer: 0, safe: 0, bots: 0 };
+  cache[day][campId].requests++;
+  if (kind === "offer" || kind === "safe" || kind === "bots") {
+    cache[day][campId][kind]++;
+  }
+  campStatsDirty = true;
+  if (campStatsSaveTimer) clearTimeout(campStatsSaveTimer);
+  campStatsSaveTimer = setTimeout(function() {
+    if (campStatsDirty) {
+      try {
+        fs.writeFileSync(CAMPAIGNS_STATS_FILE, JSON.stringify(cache, null, 2));
+        campStatsDirty = false;
+      } catch (e) {}
+    }
+  }, 2000);
+}
+
+/* ---------- IP Intel ---------- */
+var ipIntelCache = new Map();
+
+var CAMP_LOG_FILE = path.join(DATA_DIR, "campaigns-log.json");
+var campLogCache = null;
+var campLogSaveT = null;
+function loadCampLog() {
+  if (campLogCache) return campLogCache;
+  try {
+    if (fs.existsSync(CAMP_LOG_FILE)) {
+      var rawL = JSON.parse(fs.readFileSync(CAMP_LOG_FILE, "utf8"));
+      if (Array.isArray(rawL)) { campLogCache = rawL; return campLogCache; }
+    }
+  } catch (e) {}
+  campLogCache = [];
+  return campLogCache;
+}
+function saveCampLog() {
+  try { fs.writeFileSync(CAMP_LOG_FILE, JSON.stringify(loadCampLog())); } catch (e) {}
+}
+function recordCampAccess(entry) {
+  var log = loadCampLog();
+  log.unshift(entry);
+  if (log.length > 300) log.length = 300;
+  campLogCache = log;
+  if (campLogSaveT) clearTimeout(campLogSaveT);
+  campLogSaveT = setTimeout(saveCampLog, 2000);
+}
+function clientIpOf(req) {
+  var xff = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  var ip = xff || String(req.socket.remoteAddress || "");
+  return ip.replace(/^::ffff:/, "");
+}
+function fetchIpIntel(ip) {
+  return new Promise(function(resolve) {
+    var cached = ipIntelCache.get(ip);
+    if (cached && Date.now() - cached.t < 1800000) {
+      return resolve(cached.data);
+    }
+    var req = http.get("http://ip-api.com/json/" + ip + "?fields=status,proxy,hosting,as,org,countryCode,mobile", function(res) {
+      var data = "";
+      res.on("data", function(chunk) { data += chunk; });
+      res.on("end", function() {
+        try {
+          var parsed = JSON.parse(data);
+          ipIntelCache.set(ip, { t: Date.now(), data: parsed });
+          resolve(parsed);
+        } catch (e) {
+          resolve(null);
+        }
+      });
+    });
+    req.on("error", function() { resolve(null); });
+    req.setTimeout(2500, function() {
+      req.destroy();
+      resolve(null);
+    });
+    setTimeout(function() {
+      req.destroy();
+      resolve(null);
+    }, 3000);
+  });
+}
+
+/* ---------- Server-side bot detection ---------- */
+function serverBotUa(u) {
+  return /headlesschrome|phantomjs|selenium|webdriver|puppeteer|playwright|slurp|crawl|spider|facebookexternalhit|whatsapp|telegrambot|preview|lighthouse|pagespeed|gptbot|claudebot|anthropic|bytespider|petalbot|semrush|ahrefs|bingbot|googlebot|yandexbot|applebot|curl\/|python-requests|go-http-client|wget|tiktokbot|adsbot/i.test(u);
+}
+
+function serverAutomationUa(u) {
+  return /headless|webdriver|phantom|nightmare|selenium|puppeteer|playwright|httrack|scrapy/i.test(u);
+}
+
+function serverDesktopUa(u) {
+  return !/android|iphone|ipad|ipod|mobile|silk|kindle/i.test(u);
+}
+
+var TOR_ASNS = ["as13329", "as207446", "as396522"];
+var DC_ASNS = [
+  "as136907", "as55990", "as9808", "as132203", "as138699", "as396986",
+  "as16509", "as14618", "as15169", "as8075", "as14061", "as20473",
+  "as45090", "as31898", "as54113"
+];
+var DC_ORGS = [
+  "amazon", "google cloud", "microsoft azure", "digitalocean", "vultr", "linode",
+  "ovh", "hetzner", "m247", "datacamp"
+];
+
+async function decideCampaign(campaign, req, url) {
+  var clientIp = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim().replace(/:.*$/, "");
+  var ua = String(req.headers["user-agent"] || "").toLowerCase();
+  var hasTtclid = url.searchParams && url.searchParams.get("ttclid") && url.searchParams.get("ttclid").trim();
+
+  var botLike = false;
+  var outcome = "offer";
+  var reason = "";
+
+  if (campaign.filters.botUa && serverBotUa(ua)) {
+    botLike = true;
+    outcome = "safe";
+    reason = "bot-ua";
+  } else if (campaign.filters.automation && serverAutomationUa(ua)) {
+    botLike = true;
+    outcome = "safe";
+    reason = "automation";
+  }
+
+  /* Dispositivo "Nenhum" = nao deixa entrar dispositivo algum (todo trafego vai pra safe page) */
+  if (!botLike && campaign.targeting && campaign.targeting.device === "none") {
+    outcome = "safe";
+    reason = "device";
+  }
+  if (hasTtclid && campaign.filters.ttclidBypass && !botLike) {
+    // skip remaining filters
+  } else if (!botLike) {
+    if (campaign.filters.desktopLike) {
+      if (campaign.targeting.device === "mobile" && serverDesktopUa(ua)) {
+        outcome = "safe";
+        reason = "device";
+      } else if (campaign.targeting.device === "desktop" && !serverDesktopUa(ua)) {
+        outcome = "safe";
+        reason = "device";
+      }
+    }
+
+    if (outcome === "offer") {
+      var intel = await fetchIpIntel(clientIp);
+      if (intel) {
+        if (campaign.filters.proxy && intel.proxy === true) {
+          botLike = true;
+          outcome = "safe";
+          reason = "proxy";
+        } else if (campaign.filters.tor) {
+          var asn = String(intel.as || "").toLowerCase();
+          var org = String(intel.org || "").toLowerCase();
+          if (TOR_ASNS.some(function(a) { return asn.indexOf(a) !== -1; }) || org.indexOf("tor exit") !== -1) {
+            botLike = true;
+            outcome = "safe";
+            reason = "tor";
+          }
+        } else if (campaign.filters.datacenterIp) {
+          var asn2 = String(intel.as || "").toLowerCase();
+          var org2 = String(intel.org || "").toLowerCase();
+          if (intel.hosting === true || DC_ASNS.some(function(a) { return asn2.indexOf(a) !== -1; }) || DC_ORGS.some(function(o) { return org2.indexOf(o) !== -1; })) {
+            botLike = true;
+            outcome = "safe";
+            reason = "datacenter";
+          }
+        }
+
+        if (outcome === "offer" && campaign.targeting.countryMode !== "off") {
+          var cc = String(intel.countryCode || "").toUpperCase();
+          var countries = (campaign.targeting.countries || []).map(function(c) { return String(c).toUpperCase().trim(); });
+          if (campaign.targeting.countryMode === "allow" && countries.indexOf(cc) === -1) {
+            outcome = "safe";
+            reason = "country";
+          } else if (campaign.targeting.countryMode === "block" && countries.indexOf(cc) !== -1) {
+            outcome = "safe";
+            reason = "country";
+          }
+        }
+      }
+    }
+  }
+
+  var offerUrl = null;
+  if (outcome === "offer") {
+    if (campaign.offer.type === "ab" && campaign.offer.urls.length > 1) {
+      var hash = (clientIp + ua).split("").reduce(function(a, b) { return ((a << 5) - a + b.charCodeAt(0)) | 0; }, 0);
+      var idx = Math.abs(hash) % campaign.offer.urls.length;
+      offerUrl = campaign.offer.urls[idx];
+    } else {
+      offerUrl = campaign.offer.urls[0] || "/";
+    }
+    if (campaign.offer.method === "redirect" && campaign.tokenEnabled) {
+      offerUrl = offerUrl + (offerUrl.indexOf("?") !== -1 ? "&" : "?") + "tk=" + encodeURIComponent(campaign.token);
+      if (url.searchParams) {
+        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ttclid"].forEach(function(p) {
+          var v = url.searchParams.get(p);
+          if (v) offerUrl = offerUrl + "&" + p + "=" + encodeURIComponent(v);
+        });
+      }
+    }
+  }
+
+  return { outcome: outcome, reason: reason, botLike: botLike, offerUrl: offerUrl };
+}
+
+/* ---------- Delivery helpers ---------- */
+function serveInternalStore(res, storeKey, pathname, req) {
+  var dir = STORE_PATHS[storeKey] ? STORE_PATHS[storeKey].dir : storeKey;
+  var file = path.join(ROOT, dir, "index.html");
+  try {
+    var html = fs.readFileSync(file, "utf8");
+    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
+    res.end(html);
+  } catch (e) {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("Not found");
+  }
+}
+
+function proxyHtml(res, targetUrl, req, fallbackRedirect) {
+  var parsed;
+  try {
+    parsed = new URL(targetUrl);
+  } catch (e) {
+    res.writeHead(302, { Location: fallbackRedirect || targetUrl });
+    return res.end();
+  }
+  var lib = parsed.protocol === "https:" ? https : http;
+  var req2 = lib.get(targetUrl, {
+    headers: {
+      "user-agent": req.headers["user-agent"] || "Mozilla/5.0",
+      "accept-language": "pt-BR,pt;q=0.9"
+    }
+  }, function(resp) {
+    var chunks = [];
+    resp.on("data", function(c) { chunks.push(c); });
+    resp.on("end", function() {
+      var body = Buffer.concat(chunks).toString("utf8");
+      var ct = resp.headers["content-type"] || "text/html";
+      if (ct.indexOf("text/html") !== -1) {
+        var origin = parsed.origin;
+        if (body.indexOf("<head>") !== -1) {
+          body = body.replace(/<head>/i, "<head><base href=\"" + origin + "/\">");
+        } else {
+          body = "<base href=\"" + origin + "/\">" + body;
+        }
+      }
+      res.writeHead(resp.statusCode || 200, { "Content-Type": ct, "Cache-Control": "no-store" });
+      res.end(body);
+    });
+  });
+  req2.on("error", function() {
+    res.writeHead(302, { Location: fallbackRedirect || targetUrl });
+    res.end();
+  });
+  req2.setTimeout(4000, function() {
+    req2.destroy();
+    res.writeHead(302, { Location: fallbackRedirect || targetUrl });
+    res.end();
+  });
+}
+
+function withParams(urlStr, paramsObj) {
+  var u = urlStr;
+  var sep = u.indexOf("?") !== -1 ? "&" : "?";
+  var parts = [];
+  Object.keys(paramsObj || {}).forEach(function(k) {
+    if (paramsObj[k]) parts.push(k + "=" + encodeURIComponent(paramsObj[k]));
+  });
+  return parts.length ? u + sep + parts.join("&") : u;
 }
 
 function loadCheckoutConfig() {
@@ -357,91 +755,10 @@ function githubCommitMessage(message) {
   return base + " [skip render]";
 }
 
-function ghApi(method, apiPath, bodyObj) {
-  return new Promise(function (resolve) {
-    var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    if (!token) return resolve({ status: 401, json: { message: "GITHUB_TOKEN ausente" } });
-    var data = bodyObj ? JSON.stringify(bodyObj) : null;
-    var req = https.request(
-      {
-        hostname: "api.github.com",
-        path: apiPath,
-        method: method,
-        headers: Object.assign(
-          {
-            Authorization: "Bearer " + token,
-            Accept: "application/vnd.github+json",
-            "User-Agent": "ttkshop-panelas",
-            "X-GitHub-Api-Version": "2022-11-28",
-          },
-          data
-            ? { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(data) }
-            : {}
-        ),
-      },
-      function (res) {
-        var chunks = [];
-        res.on("data", function (c) { chunks.push(c); });
-        res.on("end", function () {
-          var json = null;
-          try { json = JSON.parse(Buffer.concat(chunks).toString("utf8")); } catch (e) { json = {}; }
-          resolve({ status: res.statusCode || 500, json: json });
-        });
-      }
-    );
-    req.on("error", function (e) { resolve({ status: 0, json: { message: e.message } }); });
-    if (data) req.write(data);
-    req.end();
-  });
-}
-function fetchGithubBlob(sha) {
-  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
-  return ghApi("GET", "/repos/" + repo + "/git/blobs/" + sha).then(function (r) {
-    if (r.status !== 200 || !r.json.content) return null;
-    try { return Buffer.from(r.json.content.replace(/\n/g, ""), "base64").toString("utf8"); } catch (e) { return null; }
-  });
-}
-function githubUpsertViaGitData(repoPath, content, message) {
-  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
-  var branch = process.env.GITHUB_BRANCH || "main";
-  var base = "/repos/" + repo;
-  return ghApi("GET", base + "/git/ref/heads/" + branch).then(function (r1) {
-    if (r1.status !== 200 || !r1.json.object) return { ok: false, reason: "ref: " + ((r1.json && r1.json.message) || r1.status) };
-    var commitSha = r1.json.object.sha;
-    return ghApi("GET", base + "/git/commits/" + commitSha).then(function (r2) {
-      if (r2.status !== 200 || !r2.json.tree) return { ok: false, reason: "commit: " + ((r2.json && r2.json.message) || r2.status) };
-      var baseTree = r2.json.tree.sha;
-      return ghApi("POST", base + "/git/blobs", {
-        content: Buffer.from(content, "utf8").toString("base64"),
-        encoding: "base64",
-      }).then(function (r3) {
-        if (r3.status !== 201 || !r3.json.sha) return { ok: false, reason: "blob: " + ((r3.json && r3.json.message) || r3.status) };
-        return ghApi("POST", base + "/git/trees", {
-          base_tree: baseTree,
-          tree: [{ path: String(repoPath).replace(/^\//, ""), mode: "100644", type: "blob", sha: r3.json.sha }],
-        }).then(function (r4) {
-          if (r4.status !== 201 || !r4.json.sha) return { ok: false, reason: "tree: " + ((r4.json && r4.json.message) || r4.status) };
-          return ghApi("POST", base + "/git/commits", {
-            message: githubCommitMessage(message || "chore: sync"),
-            tree: r4.json.sha,
-            parents: [commitSha],
-          }).then(function (r5) {
-            if (r5.status !== 201 || !r5.json.sha) return { ok: false, reason: "commit: " + ((r5.json && r5.json.message) || r5.status) };
-            return ghApi("PATCH", base + "/git/refs/heads/" + branch, { sha: r5.json.sha }).then(function (r6) {
-              if (r6.status === 200) return { ok: true };
-              return { ok: false, reason: "ref: " + ((r6.json && r6.json.message) || r6.status) };
-            });
-          });
-        });
-      });
-    });
-  });
-}
-
 function githubUpsertFile(repoPath, content, message) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
     if (!token) {
       return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
     }
@@ -872,7 +1189,7 @@ function storefrontBaseAuto() {
       return "https://" + h;
     }
   }
-  var base = STOREFRONT_VERCEL_BASE || "https://ofertasdemulher.vercel.app";
+  var base = STOREFRONT_VERCEL_BASE || "https://ofertasgrandes.vercel.app";
   if (!/^https?:\/\//i.test(base)) base = "https://" + base;
   return base.replace(/\/+$/, "");
 }
@@ -1241,6 +1558,8 @@ function touchFunnelSession(store, sid, patch) {
       last: now,
       home: false,
       product: false,
+      variant: false,
+      cart: false,
       checkout: false,
       pix: false,
       success: false,
@@ -1287,6 +1606,8 @@ function recordFunnelEvent(req, urlObj) {
     patch.product = true;
     if (productId) patch.product_id = productId;
   }
+  if (ev === "variant") patch.variant = true;
+  if (ev === "cart") patch.cart = true;
   if (ev === "checkout") patch.checkout = true;
   if (ev === "pix") patch.pix = true;
   if (ev === "success") {
@@ -1329,6 +1650,8 @@ function emptyFunnelAgg() {
     sessions: 0,
     home: 0,
     product: 0,
+    variant: 0,
+    cart: 0,
     checkout: 0,
     pix: 0,
     success: 0,
@@ -1354,6 +1677,8 @@ function funnelAggFromSessions(sessions, cutoff, storeFilter) {
     agg.sessions += 1;
     if (s.home) agg.home += 1;
     if (s.product) agg.product += 1;
+    if (s.variant) agg.variant += 1;
+    if (s.cart) agg.cart += 1;
     if (s.checkout) agg.checkout += 1;
     if (s.pix) agg.pix += 1;
     if (s.success) agg.success += 1;
@@ -1907,7 +2232,7 @@ const PUBLIC_BASE = (process.env.PUBLIC_BASE || process.env.RENDER_EXTERNAL_URL 
 const TRACKING_UPSTREAM_API = String(
   process.env.TRACKING_UPSTREAM_API ||
     process.env.TTK_UPSTREAM_API ||
-    "https://ttkshop-projeto2.onrender.com"
+    "https://ttkshop-panelas-9e6w.onrender.com"
 ).replace(/\/+$/, "");
 
 /** Outros backends (projeto 2, etc.) — rastreio no ofertasgrandes.com acha TX em qualquer um. */
@@ -2065,47 +2390,93 @@ function mergeTxLists(a, b) {
   });
 }
 
-function githubGetFileRaw(repoPath) {
+/* ---------- GitHub Git Data API (arquivos > 1MB que o Contents API não retorna) ---------- */
+function ghApi(method, apiPath, bodyObj) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
-    var branch = process.env.GITHUB_BRANCH || "main";
-    if (!token) return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
-    var rawPath = "/" + repo + "/" + branch + "/" + String(repoPath || "").replace(/^\//, "");
+    if (!token) return resolve({ status: 401, json: { message: "GITHUB_TOKEN ausente" } });
+    var data = bodyObj ? JSON.stringify(bodyObj) : null;
     var req = https.request(
       {
-        hostname: "raw.githubusercontent.com",
-        path: rawPath,
-        method: "GET",
+        hostname: "api.github.com",
+        path: apiPath,
+        method: method,
         timeout: 8000,
-        headers: {
-          Authorization: "Bearer " + token,
-          "User-Agent": "ttkshop-panelas",
-        },
+        headers: Object.assign(
+          {
+            Authorization: "Bearer " + token,
+            Accept: "application/vnd.github+json",
+            "User-Agent": "ttkshop-panelas",
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
+          data
+            ? { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(data) }
+            : {}
+        ),
       },
       function (res) {
         var chunks = [];
         res.on("data", function (c) { chunks.push(c); });
         res.on("end", function () {
-          var text = Buffer.concat(chunks).toString("utf8");
-          if (res.statusCode === 404) return resolve({ ok: true, missing: true, text: "[]", sha: null });
-          if (res.statusCode !== 200) {
-            return resolve({ ok: false, reason: "raw HTTP " + res.statusCode });
-          }
-          resolve({ ok: true, text: text, sha: null });
+          var json = null;
+          try { json = JSON.parse(Buffer.concat(chunks).toString("utf8")); } catch (e) { json = {}; }
+          resolve({ status: res.statusCode || 500, json: json });
         });
       }
     );
-    req.on("timeout", function () { req.destroy(new Error("GitHub raw timeout")); });
-    req.on("error", function (e) { resolve({ ok: false, reason: e.message }); });
+    req.on("timeout", function () { req.destroy(new Error("GitHub API timeout")); });
+    req.on("error", function (e) { resolve({ status: 0, json: { message: e.message } }); });
+    if (data) req.write(data);
     req.end();
   });
 }
-
+function fetchGithubBlob(sha) {
+  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
+  return ghApi("GET", "/repos/" + repo + "/git/blobs/" + sha).then(function (r) {
+    if (r.status !== 200 || !r.json.content) return null;
+    try { return Buffer.from(r.json.content.replace(/\n/g, ""), "base64").toString("utf8"); } catch (e) { return null; }
+  });
+}
+function githubUpsertViaGitData(repoPath, content, message) {
+  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
+  var branch = process.env.GITHUB_BRANCH || "main";
+  var base = "/repos/" + repo;
+  return ghApi("GET", base + "/git/ref/heads/" + branch).then(function (r1) {
+    if (r1.status !== 200 || !r1.json.object) return { ok: false, reason: "ref: " + ((r1.json && r1.json.message) || r1.status) };
+    var commitSha = r1.json.object.sha;
+    return ghApi("GET", base + "/git/commits/" + commitSha).then(function (r2) {
+      if (r2.status !== 200 || !r2.json.tree) return { ok: false, reason: "commit: " + ((r2.json && r2.json.message) || r2.status) };
+      var baseTree = r2.json.tree.sha;
+      return ghApi("POST", base + "/git/blobs", {
+        content: Buffer.from(content, "utf8").toString("base64"),
+        encoding: "base64",
+      }).then(function (r3) {
+        if (r3.status !== 201 || !r3.json.sha) return { ok: false, reason: "blob: " + ((r3.json && r3.json.message) || r3.status) };
+        return ghApi("POST", base + "/git/trees", {
+          base_tree: baseTree,
+          tree: [{ path: String(repoPath).replace(/^\//, ""), mode: "100644", type: "blob", sha: r3.json.sha }],
+        }).then(function (r4) {
+          if (r4.status !== 201 || !r4.json.sha) return { ok: false, reason: "tree: " + ((r4.json && r4.json.message) || r4.status) };
+          return ghApi("POST", base + "/git/commits", {
+            message: githubCommitMessage(message || "chore: sync"),
+            tree: r4.json.sha,
+            parents: [commitSha],
+          }).then(function (r5) {
+            if (r5.status !== 201 || !r5.json.sha) return { ok: false, reason: "commit: " + ((r5.json && r5.json.message) || r5.status) };
+            return ghApi("PATCH", base + "/git/refs/heads/" + branch, { sha: r5.json.sha }).then(function (r6) {
+              if (r6.status === 200) return { ok: true };
+              return { ok: false, reason: "ref: " + ((r6.json && r6.json.message) || r6.status) };
+            });
+          });
+        });
+      });
+    });
+  });
+}
 function githubGetFile(repoPath) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
     if (!token) return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
     var apiBase =
       "/repos/" + repo + "/contents/" + String(repoPath || "").replace(/^\//, "");
@@ -2136,14 +2507,16 @@ function githubGetFile(repoPath) {
             json = {};
           }
           if (res.statusCode === 404) return resolve({ ok: true, missing: true, text: "[]", sha: null });
-          if (res.statusCode !== 200 || !json.content) {
-            /* Arquivo >1MB: Contents API não retorna content. Fallback para raw. */
-            if (json.size && json.size > 900000) {
-              console.log("[github] Contents API sem content (" + (json.size||"?") + " bytes), fallback raw.githubusercontent.com");
-              githubGetFileRaw(repoPath).then(resolve);
-              return;
-            }
+          if (res.statusCode !== 200) {
             return resolve({ ok: false, reason: json.message || "GET HTTP " + res.statusCode });
+          }
+          if (!json.content) {
+            /* arquivo > 1MB: Contents API omite content — lê via Git Data (blobs) */
+            if (!json.sha) return resolve({ ok: false, reason: "sem content/sha" });
+            return fetchGithubBlob(json.sha).then(function (txt) {
+              if (txt != null) resolve({ ok: true, text: txt, sha: json.sha });
+              else resolve({ ok: false, reason: "blob falhou" });
+            });
           }
           try {
             var text = Buffer.from(json.content.replace(/\n/g, ""), "base64").toString("utf8");
@@ -2426,7 +2799,7 @@ async function bootMergeCampaignsFromGithub() {
     var remoteObj = JSON.parse(remote.text || "{}");
     if (!remoteObj || typeof remoteObj !== "object" || !Array.isArray(remoteObj.campaigns)) return;
     var localCfg = loadCampaignsConfig();
-    /* local vence em ids existentes; remoto devolve campanhas que o local perdeu (acaba wipe em deploy) */
+    /* local vence em ids ja existentes; remoto acrescenta campanhas que o local nao tem (acaba wipe em deploy) */
     var localIds = {};
     (localCfg.campaigns || []).forEach(function (c) { if (c && c.id) localIds[c.id] = c; });
     var merged = (localCfg.campaigns || []).slice();
@@ -2560,11 +2933,11 @@ function netCents(amount) {
 }
 
 /* ---------- rastreio: código único por pedido ---------- */
-const SITE_BASE = process.env.SITE_BASE || "https://mundodasmulheres.net";
+const SITE_BASE = process.env.SITE_BASE || "https://mundodasgarotas.com";
 const STOREFRONT_VERCEL_BASE = String(
-  process.env.STOREFRONT_BASE || "https://ofertasdemulher.vercel.app"
+  process.env.STOREFRONT_BASE || "https://ttkshop-panelas-9e6w.onrender.com"
 ).replace(/\/+$/, "");
-const CANONICAL_TRACKING_BASE = "https://ttkshop-projeto2.onrender.com";
+const CANONICAL_TRACKING_BASE = "https://ttkshop-panelas-9e6w.onrender.com";
 
 function isSecondaryHostBase(url) {
   var u = String(url || "").toLowerCase();
@@ -2690,7 +3063,7 @@ function trackingEvents(tx) {
   var events = [
     {
       status: "PAGAMENTO CONFIRMADO — PEDIDO REGISTRADO",
-      detail: "Ofertas Online confirmou o pagamento. Encomenda aguardando separação no centro logístico.",
+      detail: "Ofertas De Mulher confirmou o pagamento. Encomenda aguardando separação no centro logístico.",
       at: new Date(base).toISOString(),
       reached: true,
     },
@@ -2712,7 +3085,7 @@ function trackingEvents(tx) {
 
 /* ---------- e-mail automático (Resend API — https, sem dependências) ---------- */
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
-const MAIL_FROM_FALLBACK = "Mundo das Mulheres <noreply@mundodasmulheres.net>";
+const MAIL_FROM_FALLBACK = "Mundo das Garotas <noreply@mundodasgarotas.com>";
 function resolveMailFrom(raw) {
   var s = String(raw || "").trim();
   var emailMatch = s.match(/[\w.+-]+@([\w.-]+\.[A-Za-z]{2,})/);
@@ -2735,10 +3108,10 @@ const MAIL_FROM = (function () {
   /* Resend exige dominio verificado no from — forca o dominio do projeto mesmo se a env var estiver velha */
   var addrM = raw.match(/([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+)/);
   var nameM = raw.match(/^([^<]+)</);
-  var name = (nameM && nameM[1].trim()) || "Mundo das Mulheres";
+  var name = (nameM && nameM[1].trim()) || "Mundo das Garotas";
   var local = addrM ? addrM[1] : "pedidos";
   var domFrom = addrM ? String(addrM[2]).toLowerCase() : "";
-  if (domFrom !== "mundodasmulheres.net") return name + " <" + local + "@mundodasmulheres.net>";
+  if (domFrom !== "mundodasgarotas.com") return name + " <" + local + "@mundodasgarotas.com>";
   return raw;
 })();
 
@@ -2829,7 +3202,7 @@ function orderEmailHtml(tx) {
   return (
     '<div style="font-family:Arial,Helvetica,sans-serif;background:#f5f5f6;padding:24px">' +
     '<div style="max-width:520px;margin:0 auto;background:#fff;border-radius:14px;padding:28px">' +
-    '<h1 style="margin:0 0 4px;font-size:22px;color:#161823">Ofertas Online</h1>' +
+    '<h1 style="margin:0 0 4px;font-size:22px;color:#161823">Ofertas De Mulher</h1>' +
     '<p style="margin:0 0 20px;color:#fe2c55;font-weight:bold;font-size:13px">PEDIDO CONFIRMADO ✔</p>' +
     '<p style="color:#161823;font-size:14px">Olá, <b>' + escHtml(tx.client_name) + "</b>! Recebemos o seu pagamento em " + escHtml(quando) + ".</p>" +
     '<h3 style="font-size:14px;color:#8a8b91;margin:22px 0 6px">O QUE VOCÊ COMPROU</h3>' +
@@ -2866,7 +3239,7 @@ async function sendOrderEmailNow(tx) {
   }
   await sendEmail(
     tx.client_email,
-    "Pedido confirmado! Seu código de rastreio — Ofertas Online",
+    "Pedido confirmado! Seu código de rastreio — Ofertas De Mulher",
     orderEmailHtml(tx)
   );
   tx.email_sent = true;
@@ -2965,6 +3338,18 @@ function lojaForPixelId(pixelId) {
   return null;
 }
 
+function pixelIdForLoja(lojaNum, storeKey) {
+  var n = parseInt(String(lojaNum || ""), 10);
+  if (!n || n < 1) return "";
+  var list = listPixelLojas();
+  for (var i = 0; i < list.length; i++) {
+    if (list[i].loja === n) {
+      if (!storeKey || list[i].store === storeKey) return list[i].pixel_id;
+    }
+  }
+  return "";
+}
+
 function txAttributionPixelId(tx) {
   if (!tx) return "";
   return String(
@@ -2987,6 +3372,29 @@ function productLabelFromTx(tx) {
   return STORE_PATHS[storeKeyFromTx(tx)] ? STORE_PATHS[storeKeyFromTx(tx)].label : "Produto";
 }
 
+function canonicalProductInfo(tx) {
+  var key = storeKeyFromTx(tx);
+  var defaultTitles = {
+    conjunto: "Conjunto Feminino Alfaiataria",
+    jaqueta: "Jaqueta Puffer Feminina",
+    roupao: "Roupão Microfibra Plush",
+    panelas: "Jogo de Panelas Cerâmica 13 Peças",
+    toalha: "Kit 4 Toalhas de Banho Gigante",
+    teddy: "Casaquinho Teddy Sherpa",
+    bobojaco: "Jaqueta Bobojaco Cotêle",
+    sabonete: "Kit Sabonete Granado",
+  };
+  var title = defaultTitles[key] || (STORE_PATHS[key] ? STORE_PATHS[key].label : "");
+  if (!title) {
+    var raw = productLabelFromTx(tx);
+    title = raw && raw !== "Produto" ? raw : "Produto Geral";
+  }
+  return {
+    store: key || "outros",
+    title: title,
+  };
+}
+
 function unitsFromTx(tx) {
   var items = (tx && tx.items_detail) || [];
   if (!items.length) return 1;
@@ -2997,7 +3405,7 @@ function unitsFromTx(tx) {
   return n;
 }
 
-function buildPerformanceReport() {
+function buildPerformanceReport(filterOpt) {
   var lojas = listPixelLojas();
   var byPixel = {};
   lojas.forEach(function (L) {
@@ -3009,6 +3417,7 @@ function buildPerformanceReport() {
       store: L.store,
       pedidos: 0,
       pagos: 0,
+      pendentes: 0,
       unidades: 0,
       receita: 0,
       products: {},
@@ -3022,50 +3431,129 @@ function buildPerformanceReport() {
     store: "",
     pedidos: 0,
     pagos: 0,
+    pendentes: 0,
     unidades: 0,
     receita: 0,
     products: {},
   };
 
+  var fromMs = 0;
+  var toMs = Infinity;
+  var now = Date.now();
+  var today0 = typeof startOfDay === "function" ? startOfDay(new Date()) : new Date().setHours(0,0,0,0);
+  var DAY = 24 * 3600 * 1000;
+
+  if (filterOpt) {
+    var f = String(filterOpt.days || filterOpt || "").trim().toLowerCase();
+    if (f === "1" || f === "hoje" || f === "today") {
+      fromMs = today0;
+      toMs = now + 1;
+    } else if (f === "ontem" || f === "yesterday") {
+      fromMs = today0 - DAY;
+      toMs = today0;
+    } else if (f === "7" || f === "d7") {
+      fromMs = today0 - 6 * DAY;
+      toMs = now + 1;
+    } else if (f === "30" || f === "d30") {
+      fromMs = today0 - 29 * DAY;
+      toMs = now + 1;
+    } else if (filterOpt.from && filterOpt.to) {
+      var fMs = typeof startOfDayInTz === "function" ? startOfDayInTz(filterOpt.from, ADMIN_TZ) : new Date(filterOpt.from).getTime();
+      var tMs = (typeof startOfDayInTz === "function" ? startOfDayInTz(filterOpt.to, ADMIN_TZ) : new Date(filterOpt.to).getTime()) + DAY;
+      if (!isNaN(fMs) && !isNaN(tMs) && tMs > fMs) {
+        fromMs = fMs;
+        toMs = tMs;
+      }
+    }
+  }
+
   var productRank = {};
   var log = [];
-  var totals = { pedidos: 0, pagos: 0, unidades: 0, receita: 0 };
+  var totals = { pedidos: 0, pagos: 0, pendentes: 0, unidades: 0, receita: 0 };
 
   pixzyTxList().forEach(function (t) {
+    var ts = new Date(t.created_at || t.paid_at || 0).getTime();
+    if (!isNaN(ts) && (ts < fromMs || ts >= toMs)) return;
+
     totals.pedidos += 1;
     var pid = txAttributionPixelId(t);
-    /* vendas antigas sem pixel: se só existe 1 loja de pixel, conta nela */
     if (!pid && lojas.length === 1) pid = lojas[0].pixel_id;
     var bucket = pid && byPixel[pid] ? byPixel[pid] : unassigned;
     bucket.pedidos += 1;
-    if (String(t.status || "").toLowerCase() !== "paid") return;
-    totals.pagos += 1;
+
+    var prodInfo = canonicalProductInfo(t);
+    var prod = prodInfo.title;
     var units = unitsFromTx(t);
     var amount = Math.round(Number(t.amount) || 0);
-    totals.unidades += units;
-    totals.receita += amount;
-    bucket.pagos += 1;
-    bucket.unidades += units;
-    bucket.receita += amount;
-    var prod = productLabelFromTx(t);
-    if (!bucket.products[prod]) bucket.products[prod] = { produto: prod, vendas: 0, unidades: 0, receita: 0 };
-    bucket.products[prod].vendas += 1;
-    bucket.products[prod].unidades += units;
-    bucket.products[prod].receita += amount;
-    if (!productRank[prod]) productRank[prod] = { produto: prod, vendas: 0, unidades: 0, receita: 0 };
-    productRank[prod].vendas += 1;
-    productRank[prod].unidades += units;
-    productRank[prod].receita += amount;
-    var lojaMeta = lojaForPixelId(pid);
-    log.push({
-      at: t.paid_at || t.created_at,
-      pixel_id: pid || "",
-      loja_name: lojaMeta ? lojaMeta.name : bucket.name,
-      produto: prod,
-      amount: amount,
-      client_name: t.client_name || "",
-      id: t.id,
-    });
+
+    if (!bucket.products[prod]) {
+      bucket.products[prod] = {
+        produto: prod,
+        store: prodInfo.store,
+        vendas: 0,
+        pagos: 0,
+        pendentes: 0,
+        pedidos: 0,
+        unidades: 0,
+        receita: 0,
+        receita_pendente: 0,
+      };
+    }
+    bucket.products[prod].pedidos += 1;
+
+    if (!productRank[prod]) {
+      productRank[prod] = {
+        produto: prod,
+        store: prodInfo.store,
+        vendas: 0,
+        pagos: 0,
+        pendentes: 0,
+        pedidos: 0,
+        unidades: 0,
+        receita: 0,
+        receita_pendente: 0,
+      };
+    }
+    productRank[prod].pedidos += 1;
+
+    var isPaid = String(t.status || "").toLowerCase() === "paid";
+    if (isPaid) {
+      totals.pagos += 1;
+      totals.unidades += units;
+      totals.receita += amount;
+      bucket.pagos += 1;
+      bucket.unidades += units;
+      bucket.receita += amount;
+
+      bucket.products[prod].vendas += 1;
+      bucket.products[prod].pagos += 1;
+      bucket.products[prod].unidades += units;
+      bucket.products[prod].receita += amount;
+
+      productRank[prod].vendas += 1;
+      productRank[prod].pagos += 1;
+      productRank[prod].unidades += units;
+      productRank[prod].receita += amount;
+
+      var lojaMeta = lojaForPixelId(pid);
+      log.push({
+        at: t.paid_at || t.created_at,
+        pixel_id: pid || "",
+        loja_name: lojaMeta ? lojaMeta.name : bucket.name,
+        produto: prod,
+        amount: amount,
+        client_name: t.client_name || "",
+        id: t.id,
+      });
+    } else if (String(t.status || "").toLowerCase() === "pending") {
+      totals.pendentes += 1;
+      bucket.pendentes += 1;
+      bucket.products[prod].pendentes += 1;
+      bucket.products[prod].receita_pendente += amount;
+
+      productRank[prod].pendentes += 1;
+      productRank[prod].receita_pendente += amount;
+    }
   });
 
   var stores = Object.keys(byPixel)
@@ -3081,19 +3569,26 @@ function buildPerformanceReport() {
     s.conversao = s.pedidos > 0 ? Math.round((s.pagos / s.pedidos) * 1000) / 10 : 0;
     s.products = Object.keys(s.products)
       .map(function (k) {
-        return s.products[k];
+        var p = s.products[k];
+        p.conversao = p.pedidos > 0 ? Math.round((p.pagos / p.pedidos) * 1000) / 10 : 0;
+        return p;
       })
       .sort(function (a, b) {
+        if (b.pagos !== a.pagos) return b.pagos - a.pagos;
         return b.receita - a.receita;
       });
   });
 
   var ranking = Object.keys(productRank)
     .map(function (k) {
-      return productRank[k];
+      var p = productRank[k];
+      p.conversao = p.pedidos > 0 ? Math.round((p.pagos / p.pedidos) * 1000) / 10 : 0;
+      return p;
     })
     .sort(function (a, b) {
-      return b.receita - a.receita;
+      if (b.pagos !== a.pagos) return b.pagos - a.pagos;
+      if (b.receita !== a.receita) return b.receita - a.receita;
+      return b.pendentes - a.pendentes;
     });
 
   log.sort(function (a, b) {
@@ -3268,7 +3763,7 @@ function maybeSendOrderEmail(tx) {
   }
   sendEmail(
     tx.client_email,
-    "Pedido confirmado! Seu código de rastreio — Ofertas Online",
+    "Pedido confirmado! Seu código de rastreio — Ofertas De Mulher",
     orderEmailHtml(tx)
   )
     .then(function () {
@@ -3341,7 +3836,7 @@ function reminderEmailHtml(tx, kind, reqHost) {
   return (
     '<div style="font-family:Arial,Helvetica,sans-serif;background:#f5f5f6;padding:24px">' +
     '<div style="max-width:520px;margin:0 auto;background:#fff;border-radius:14px;padding:28px">' +
-    '<h1 style="margin:0 0 4px;font-size:22px;color:#161823">Ofertas Online</h1>' +
+    '<h1 style="margin:0 0 4px;font-size:22px;color:#161823">Ofertas De Mulher</h1>' +
     '<p style="margin:0 0 18px;color:#fe2c55;font-weight:bold;font-size:13px">' +
     (is30 ? "OFERTA EXPIRANDO" : "PAGAMENTO PENDENTE") +
     "</p>" +
@@ -3380,8 +3875,8 @@ function sendReminderEmail(tx, kind, opts) {
   }
   var subject =
     kind === 30
-      ? "Última chance: complete seu pedido — Ofertas Online"
-      : "Seu Pix ainda está aguardando pagamento — Ofertas Online";
+      ? "Última chance: complete seu pedido — Ofertas De Mulher"
+      : "Seu Pix ainda está aguardando pagamento — Ofertas De Mulher";
   var persist =
     tx &&
     tx.id &&
@@ -3901,72 +4396,85 @@ async function fetchBuckpayAccountBalance() {
   return null;
 }
 
-/** Painel: saldo geral (Pixzy + gateway ativo) e breakdown. */
+/* breakdown por gateway — soma líquido pago de cada um (todas as portas de pagamento) */
+function buildGatewayBreakdown() {
+  var keys = ["pixzy", "buckpay", "purincash", "sharpify", "ironpay", "blackcat", "veno"];
+  var parts = [];
+  for (var i = 0; i < keys.length; i++) {
+    var v = 0;
+    try { v = sumPaidNetForGateway(keys[i]); } catch (eGb) {}
+    if (v > 0) {
+      parts.push(
+        keys[i] + " " + (v / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+      );
+    }
+  }
+  return parts.length
+    ? parts.join(" + ")
+    : "somatório líquido das vendas pagas no painel";
+}
+
+/** Painel: saldo geral = saldos reais das APIs dos gateways (+ Pixzy). */
 async function fetchAdminAccountDisplay() {
   var gw = paymentGatewayName();
+  var pixzyAcc = await fetchPixzyAccount();
+  var pixzyBal =
+    pixzyAcc.balance != null && !isNaN(pixzyAcc.balance) ? Math.round(Number(pixzyAcc.balance)) : 0;
   var localNetAll = sumPaidNetLocal();
-  
-  // Só busca saldo Pixzy se houver token configurado
-  var pixzyAcc = {};
-  var pixzyBal = 0;
-  if (PIXZY_TOKEN) {
-    pixzyAcc = await fetchPixzyAccount();
-    pixzyBal = pixzyAcc.balance != null && !isNaN(pixzyAcc.balance) ? Math.round(Number(pixzyAcc.balance)) : 0;
+
+  /* saldo real (API) em todos os gateways que tem endpoint de saldo */
+  var jobs = [];
+  if (typeof fetchBuckpayAccountBalance === "function") jobs.push(["buckpay", fetchBuckpayAccountBalance()]);
+  if (typeof fetchPurincashAccountBalance === "function") jobs.push(["purincash", fetchPurincashAccountBalance()]);
+  if (typeof fetchSharpifyAccountBalance === "function") jobs.push(["sharpify", fetchSharpifyAccountBalance()]);
+  var apiBal = {};
+  for (var i = 0; i < jobs.length; i++) {
+    try {
+      var rb = await jobs[i][1];
+      if (rb && rb.balance != null && !isNaN(rb.balance)) {
+        apiBal[jobs[i][0]] = Math.round(Number(rb.balance));
+      }
+    } catch (eAb) {}
   }
-  
+  var apiParts = [];
+  var apiSum = 0;
+  Object.keys(apiBal).forEach(function (k) {
+    apiSum += apiBal[k];
+    apiParts.push(
+      k + " " + (apiBal[k] / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) + " (API)"
+    );
+  });
+  var anyApi = apiParts.length > 0;
+
   var out = Object.assign({}, pixzyAcc, {
     gateway_active: gw,
     local_paid_net: localNetAll,
     pixzy_balance: pixzyBal,
+    gateway_balances: apiBal,
   });
 
-  // Se gateway ativo é pixzy (ou não tem gateway), usa só Pixzy
-  if (!gw || gw === "pixzy") {
-    out.balance = pixzyAcc.balance;
-    out.balance_general = pixzyBal;
-    out.balance_note = PIXZY_TOKEN
-      ? (pixzyAcc.estimated ? "estimado pelas vendas no painel (API Pixzy indisponível)" : "conta Pixzy")
-      : "PIXZY_TOKEN não configurado";
-    return out;
+  var general, note;
+  if (anyApi || pixzyBal > 0) {
+    general = pixzyBal + apiSum;
+    var parts = [];
+    if (pixzyBal > 0) {
+      parts.push("pixzy " + (pixzyBal / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }));
+    }
+    parts = parts.concat(apiParts);
+    note = (parts.length ? parts.join(" + ") : "R$ 0,00") + " · saque em cada gateway";
+  } else {
+    /* APIs de saldo mudas: estima só pelo gateway ativo (nao soma tudo) */
+    var gwPanelNet = sumPaidNetForGateway(gw);
+    var gwLabel = (PAYMENT_GATEWAY_META[gw] && PAYMENT_GATEWAY_META[gw].label) || gw;
+    general = gwPanelNet;
+    out.gateway_balance_panel = gwPanelNet;
+    note = "estimado pelas vendas pagas no painel (" + gwLabel + ") · APIs de saldo indisponíveis agora";
   }
-
-  // Gateway ativo não é pixzy: busca saldo do gateway ativo
-  var gwPanelNet = sumPaidNetForGateway(gw);
-  var gwApi = null;
-  if (gw === "buckpay") gwApi = await fetchBuckpayAccountBalance();
-  if (gw === "purincash") gwApi = await fetchPurincashAccountBalance();
-  if (gw === "sharpify") gwApi = await fetchSharpifyAccountBalance();
-  var gwPart = gwApi && gwApi.balance != null ? Math.round(Number(gwApi.balance)) : gwPanelNet;
-  var gwLabel = (PAYMENT_GATEWAY_META[gw] && PAYMENT_GATEWAY_META[gw].label) || gw;
-
-  // Só inclui Pixzy no total se houver token configurado
-  var general = PIXZY_TOKEN ? (pixzyBal + gwPart) : gwPart;
-  
   out.balance = general;
   out.balance_general = general;
-  out.gateway_balance = gwPart;
-  out.gateway_balance_panel = gwPanelNet;
-  out.gateway_balance_from_api = !!(gwApi && gwApi.from_api);
-  
-  if (PIXZY_TOKEN) {
-    out.balance_breakdown =
-      "Pixzy " +
-      (pixzyBal / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) +
-      " + " +
-      gwLabel +
-      " " +
-      (gwPart / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) +
-      (gwApi && gwApi.from_api ? " (API)" : " (vendas pagas no painel)");
-    out.balance_note = out.balance_breakdown + " · saque em cada gateway";
-  } else {
-    out.balance_breakdown =
-      gwLabel +
-      " " +
-      (gwPart / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) +
-      (gwApi && gwApi.from_api ? " (API)" : " (vendas pagas no painel)");
-    out.balance_note = out.balance_breakdown + " · Pixzy não configurado";
-  }
-  
+  out.gateway_balance = apiBal[gw] != null ? apiBal[gw] : null;
+  out.balance_breakdown = note;
+  out.balance_note = note;
   out.name = out.name || "Saldo geral";
   return out;
 }
@@ -4144,20 +4652,65 @@ function calcPeriod(fromMs, toMs) {
     net: 0,
     pending_count: 0,
     pending_value: 0,
+    ranking: [],
   };
+  var prodMap = {};
   pixzyTxList().forEach(function (t) {
-    var ts = new Date(t.created_at).getTime();
+    var ts = new Date(t.created_at || t.paid_at || 0).getTime();
     if (isNaN(ts) || ts < fromMs || ts >= toMs) return;
     out.generated++;
+
+    var info = canonicalProductInfo(t);
+    var pKey = info.title;
+    if (!prodMap[pKey]) {
+      prodMap[pKey] = {
+        produto: info.title,
+        store: info.store,
+        pagos: 0,
+        pendentes: 0,
+        pedidos: 0,
+        unidades_pagas: 0,
+        unidades_pendentes: 0,
+        unidades: 0,
+        receita: 0,
+        receita_pendente: 0,
+      };
+    }
+    var pItem = prodMap[pKey];
+    var units = unitsFromTx(t);
+    var amount = Math.round(Number(t.amount) || 0);
+
+    pItem.pedidos++;
+
     if (t.status === "paid") {
       out.paid_count++;
-      out.gross += t.amount;
+      out.gross += amount;
       out.net += txNet(t);
+      pItem.pagos++;
+      pItem.unidades_pagas += units;
+      pItem.unidades += units;
+      pItem.receita += amount;
     } else if (t.status === "pending") {
       out.pending_count++;
-      out.pending_value += t.amount;
+      out.pending_value += amount;
+      pItem.pendentes++;
+      pItem.unidades_pendentes += units;
+      pItem.receita_pendente += amount;
     }
   });
+
+  out.ranking = Object.keys(prodMap)
+    .map(function (k) {
+      var item = prodMap[k];
+      item.conversao = item.pedidos > 0 ? Math.round((item.pagos / item.pedidos) * 1000) / 10 : 0;
+      return item;
+    })
+    .sort(function (a, b) {
+      if (b.pagos !== a.pagos) return b.pagos - a.pagos;
+      if (b.receita !== a.receita) return b.receita - a.receita;
+      return b.pendentes - a.pendentes;
+    });
+
   return out;
 }
 
@@ -5025,6 +5578,66 @@ function findTxByGatewayId(id) {
   );
 }
 
+
+function venoRequest(method, apiPath, payload) {
+  return new Promise(function (resolve, reject) {
+    if (!VENO_API_KEY) {
+      return resolve({ status: 503, json: { error: "Veno Pay não configurado." } });
+    }
+    var data = payload ? JSON.stringify(payload) : null;
+    var req = https.request(
+      {
+        hostname: VENO_HOST,
+        path: VENO_API_PREFIX + apiPath,
+        method: method,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + VENO_API_KEY,
+          "User-Agent": "ttkshop-panelas/1.0",
+          ...(data ? { "Content-Length": Buffer.byteLength(data) } : {}),
+        },
+      },
+      function (resp) {
+        var buf = "";
+        resp.on("data", function (c) { buf += c; });
+        resp.on("end", function () {
+          var json = null;
+          try { json = buf ? JSON.parse(buf) : null; } catch (e) { json = { raw: buf }; }
+          resolve({ status: resp.statusCode || 500, json: json });
+        });
+      }
+    );
+    req.on("error", reject);
+    if (data) req.write(data);
+    req.end();
+  });
+}
+
+function venoStatusNorm(raw) {
+  var s = String(raw || "").toLowerCase();
+  if (s === "paid" || s === "captured") return "paid";
+  if (s === "pending" || s === "authorized") return "pending";
+  if (s === "expired" || s === "cancelled" || s === "denied") return "refused";
+  if (s === "refunded" || s === "chargeback") return "refunded";
+  if (s === "disputed") return "pending";
+  return s || "pending";
+}
+
+function venoBrCode(data) {
+  if (!data || typeof data !== "object") return "";
+  return String(data.pix_copy_paste || data.qr_code || "").trim();
+}
+
+function venoErrorText(json, status) {
+  if (!json) return "";
+  if (typeof json.error === "string" && json.error) return json.error;
+  if (typeof json.message === "string" && json.message) return json.message;
+  if (status === 401) return "Veno Pay: API Key inválida.";
+  if (status === 429) return "Veno Pay: rate limit excedido. Tente novamente em 1 min.";
+  return "Erro Veno Pay (HTTP " + status + ")";
+}
+
 function pixzyRequest(method, apiPath, payload) {
   return new Promise(function (resolve, reject) {
     var isCreate = method === "POST" && String(apiPath || "").indexOf("/transactions") === 0;
@@ -5131,7 +5744,7 @@ function serveStatic(req, res, pathname) {
 
 
 /* preços oficiais da loja toalha (centavos)
-   Kit: R$ 30,77 / 4 toalhas · desconto R$ 6,82 a cada 8 · extra R$ 27,84 (mais 4 aleatórias) */
+   Kit: R$ 34,99 / 4 toalhas · desconto R$ 6,82 a cada 8 · extra R$ 27,84 (mais 4 aleatórias) */
 var TOALHA_KIT_CENTS = 3499;
 var TOALHA_DISC_8_CENTS = 682;
 var TOALHA_EXTRA_CENTS = 2784;
@@ -5158,397 +5771,6 @@ function isPlausibleToalhaAmount(cents) {
   }
   return false;
 }
-
-/* ---------- Cloaker Pro (backend proprio do projeto2, campanhas independentes do panelas) ---------- */
-const CAMPAIGNS_CONFIG_FILE = path.join(DATA_DIR, "campaigns-config.json");
-const CAMPAIGNS_CONFIG_BOOTSTRAP = path.join(ROOT, "campaigns-config.json");
-const CAMPAIGNS_STATS_FILE = path.join(DATA_DIR, "campaigns-stats.json");
-
-function loadCampaignsConfig() {
-  try {
-    if (fs.existsSync(CAMPAIGNS_CONFIG_FILE)) {
-      var raw = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_FILE, "utf8"));
-      if (raw && typeof raw === "object") return raw;
-    }
-  } catch (e) {}
-  try {
-    if (CAMPAIGNS_CONFIG_BOOTSTRAP !== CAMPAIGNS_CONFIG_FILE && fs.existsSync(CAMPAIGNS_CONFIG_BOOTSTRAP)) {
-      var boot = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_BOOTSTRAP, "utf8"));
-      if (boot && typeof boot === "object") return boot;
-    }
-  } catch (e2) {}
-  return { campaigns: [] };
-}
-
-function saveCampaignsConfig(cfg) {
-  var json = JSON.stringify(cfg, null, 2);
-  fs.writeFileSync(CAMPAIGNS_CONFIG_FILE, json);
-  try {
-    if (CAMPAIGNS_CONFIG_BOOTSTRAP !== CAMPAIGNS_CONFIG_FILE) {
-      fs.writeFileSync(CAMPAIGNS_CONFIG_BOOTSTRAP, json);
-    }
-  } catch (eM) {}
-}
-
-function persistCampaignsConfigToGithub() {
-  if (!shouldSyncTxGithub()) return Promise.resolve({ ok: false, reason: "sync off" });
-  var json = JSON.stringify(loadCampaignsConfig(), null, 2);
-  return githubUpsertFile("campaigns-config.json", json, "chore(campaigns): sync");
-}
-
-function genToken() {
-  return crypto.randomBytes(5).toString("hex");
-}
-
-function slugify(name, existingSlugs) {
-  var base = String(name || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-+/g, "-");
-  if (!base) base = "campaign";
-  var slug = base;
-  var n = 2;
-  existingSlugs = existingSlugs || [];
-  while (existingSlugs.indexOf(slug) !== -1) {
-    slug = base + "-" + n;
-    n++;
-  }
-  return slug;
-}
-
-function defaultCampaign(body) {
-  var b = body || {};
-  return {
-    id: "cp_" + crypto.randomBytes(4).toString("hex"),
-    name: String(b.name || "Nova campanha").trim(),
-    slug: "",
-    token: genToken(),
-    tokenEnabled: true,
-    source: "tiktok",
-    domain: "*",
-    entryStore: "sabonete",
-    enabled: true,
-    safe: { method: "redirect", url: "" },
-    offer: { method: "internal", type: "single", urls: ["/sabonete/"] },
-    targeting: { device: "all", countryMode: "off", countries: [] },
-    filters: {
-      botUa: true,
-      automation: true,
-      softwareGl: true,
-      desktopLike: true,
-      datacenterIp: true,
-      proxy: true,
-      tor: false,
-      ttclidBypass: true
-    },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  };
-}
-
-/* ---------- Campaign stats ---------- */
-var campStatsCache = null;
-var campStatsSaveTimer = null;
-var campStatsDirty = false;
-
-function todayKey() {
-  return new Date().toISOString().slice(0, 10);
-}
-
-function loadCampStats() {
-  if (campStatsCache) return campStatsCache;
-  try {
-    if (fs.existsSync(CAMPAIGNS_STATS_FILE)) {
-      var raw = JSON.parse(fs.readFileSync(CAMPAIGNS_STATS_FILE, "utf8"));
-      if (raw && typeof raw === "object") {
-        campStatsCache = raw;
-        return raw;
-      }
-    }
-  } catch (e) {}
-  campStatsCache = {};
-  return campStatsCache;
-}
-
-function recordCampEvent(campId, kind) {
-  var cache = loadCampStats();
-  var day = todayKey();
-  if (!cache[day]) cache[day] = {};
-  if (!cache[day][campId]) cache[day][campId] = { requests: 0, offer: 0, safe: 0, bots: 0 };
-  cache[day][campId].requests++;
-  if (kind === "offer" || kind === "safe" || kind === "bots") {
-    cache[day][campId][kind]++;
-  }
-  campStatsDirty = true;
-  if (campStatsSaveTimer) clearTimeout(campStatsSaveTimer);
-  campStatsSaveTimer = setTimeout(function() {
-    if (campStatsDirty) {
-      try {
-        fs.writeFileSync(CAMPAIGNS_STATS_FILE, JSON.stringify(cache, null, 2));
-        campStatsDirty = false;
-      } catch (e) {}
-    }
-  }, 2000);
-}
-
-/* ---------- IP Intel ---------- */
-var ipIntelCache = new Map();
-
-var CAMP_LOG_FILE = path.join(DATA_DIR, "campaigns-log.json");
-var campLogCache = null;
-var campLogSaveT = null;
-function loadCampLog() {
-  if (campLogCache) return campLogCache;
-  try {
-    if (fs.existsSync(CAMP_LOG_FILE)) {
-      var rawL = JSON.parse(fs.readFileSync(CAMP_LOG_FILE, "utf8"));
-      if (Array.isArray(rawL)) { campLogCache = rawL; return campLogCache; }
-    }
-  } catch (e) {}
-  campLogCache = [];
-  return campLogCache;
-}
-function saveCampLog() {
-  try { fs.writeFileSync(CAMP_LOG_FILE, JSON.stringify(loadCampLog())); } catch (e) {}
-}
-function recordCampAccess(entry) {
-  var log = loadCampLog();
-  log.unshift(entry);
-  if (log.length > 300) log.length = 300;
-  campLogCache = log;
-  if (campLogSaveT) clearTimeout(campLogSaveT);
-  campLogSaveT = setTimeout(saveCampLog, 2000);
-}
-function clientIpOf(req) {
-  var xff = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim();
-  var ip = xff || String(req.socket.remoteAddress || "");
-  return ip.replace(/^::ffff:/, "");
-}
-function fetchIpIntel(ip) {
-  return new Promise(function(resolve) {
-    var cached = ipIntelCache.get(ip);
-    if (cached && Date.now() - cached.t < 1800000) {
-      return resolve(cached.data);
-    }
-    var req = http.get("http://ip-api.com/json/" + ip + "?fields=status,proxy,hosting,as,org,countryCode,mobile", function(res) {
-      var data = "";
-      res.on("data", function(chunk) { data += chunk; });
-      res.on("end", function() {
-        try {
-          var parsed = JSON.parse(data);
-          ipIntelCache.set(ip, { t: Date.now(), data: parsed });
-          resolve(parsed);
-        } catch (e) {
-          resolve(null);
-        }
-      });
-    });
-    req.on("error", function() { resolve(null); });
-    req.setTimeout(2500, function() {
-      req.destroy();
-      resolve(null);
-    });
-    setTimeout(function() {
-      req.destroy();
-      resolve(null);
-    }, 3000);
-  });
-}
-
-/* ---------- Server-side bot detection ---------- */
-function serverBotUa(u) {
-  return /headlesschrome|phantomjs|selenium|webdriver|puppeteer|playwright|slurp|crawl|spider|facebookexternalhit|whatsapp|telegrambot|preview|lighthouse|pagespeed|gptbot|claudebot|anthropic|bytespider|petalbot|semrush|ahrefs|bingbot|googlebot|yandexbot|applebot|curl\/|python-requests|go-http-client|wget|tiktokbot|adsbot/i.test(u);
-}
-
-function serverAutomationUa(u) {
-  return /headless|webdriver|phantom|nightmare|selenium|puppeteer|playwright|httrack|scrapy/i.test(u);
-}
-
-function serverDesktopUa(u) {
-  return !/android|iphone|ipad|ipod|mobile|silk|kindle/i.test(u);
-}
-
-var TOR_ASNS = ["as13329", "as207446", "as396522"];
-var DC_ASNS = [
-  "as136907", "as55990", "as9808", "as132203", "as138699", "as396986",
-  "as16509", "as14618", "as15169", "as8075", "as14061", "as20473",
-  "as45090", "as31898", "as54113"
-];
-var DC_ORGS = [
-  "amazon", "google cloud", "microsoft azure", "digitalocean", "vultr", "linode",
-  "ovh", "hetzner", "m247", "datacamp"
-];
-
-async function decideCampaign(campaign, req, url) {
-  var clientIp = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim().replace(/:.*$/, "");
-  var ua = String(req.headers["user-agent"] || "").toLowerCase();
-  var hasTtclid = url.searchParams && url.searchParams.get("ttclid") && url.searchParams.get("ttclid").trim();
-
-  var botLike = false;
-  var outcome = "offer";
-  var reason = "";
-
-  if (campaign.filters.botUa && serverBotUa(ua)) {
-    botLike = true;
-    outcome = "safe";
-    reason = "bot-ua";
-  } else if (campaign.filters.automation && serverAutomationUa(ua)) {
-    botLike = true;
-    outcome = "safe";
-    reason = "automation";
-  }
-
-  /* Dispositivo "Nenhum" = nao deixa entrar dispositivo algum (todo trafego vai pra safe page) */
-  if (!botLike && campaign.targeting && campaign.targeting.device === "none") {
-    outcome = "safe";
-    reason = "device";
-  }
-  if (hasTtclid && campaign.filters.ttclidBypass && !botLike) {
-    // skip remaining filters
-  } else if (!botLike) {
-    if (campaign.filters.desktopLike) {
-      if (campaign.targeting.device === "mobile" && serverDesktopUa(ua)) {
-        outcome = "safe";
-        reason = "device";
-      } else if (campaign.targeting.device === "desktop" && !serverDesktopUa(ua)) {
-        outcome = "safe";
-        reason = "device";
-      }
-    }
-
-    if (outcome === "offer") {
-      var intel = await fetchIpIntel(clientIp);
-      if (intel) {
-        if (campaign.filters.proxy && intel.proxy === true) {
-          botLike = true;
-          outcome = "safe";
-          reason = "proxy";
-        } else if (campaign.filters.tor) {
-          var asn = String(intel.as || "").toLowerCase();
-          var org = String(intel.org || "").toLowerCase();
-          if (TOR_ASNS.some(function(a) { return asn.indexOf(a) !== -1; }) || org.indexOf("tor exit") !== -1) {
-            botLike = true;
-            outcome = "safe";
-            reason = "tor";
-          }
-        } else if (campaign.filters.datacenterIp) {
-          var asn2 = String(intel.as || "").toLowerCase();
-          var org2 = String(intel.org || "").toLowerCase();
-          if (intel.hosting === true || DC_ASNS.some(function(a) { return asn2.indexOf(a) !== -1; }) || DC_ORGS.some(function(o) { return org2.indexOf(o) !== -1; })) {
-            botLike = true;
-            outcome = "safe";
-            reason = "datacenter";
-          }
-        }
-
-        if (outcome === "offer" && campaign.targeting.countryMode !== "off") {
-          var cc = String(intel.countryCode || "").toUpperCase();
-          var countries = (campaign.targeting.countries || []).map(function(c) { return String(c).toUpperCase().trim(); });
-          if (campaign.targeting.countryMode === "allow" && countries.indexOf(cc) === -1) {
-            outcome = "safe";
-            reason = "country";
-          } else if (campaign.targeting.countryMode === "block" && countries.indexOf(cc) !== -1) {
-            outcome = "safe";
-            reason = "country";
-          }
-        }
-      }
-    }
-  }
-
-  var offerUrl = null;
-  if (outcome === "offer") {
-    if (campaign.offer.type === "ab" && campaign.offer.urls.length > 1) {
-      var hash = (clientIp + ua).split("").reduce(function(a, b) { return ((a << 5) - a + b.charCodeAt(0)) | 0; }, 0);
-      var idx = Math.abs(hash) % campaign.offer.urls.length;
-      offerUrl = campaign.offer.urls[idx];
-    } else {
-      offerUrl = campaign.offer.urls[0] || "/";
-    }
-    if (campaign.offer.method === "redirect" && campaign.tokenEnabled) {
-      offerUrl = offerUrl + (offerUrl.indexOf("?") !== -1 ? "&" : "?") + "tk=" + encodeURIComponent(campaign.token);
-      if (url.searchParams) {
-        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ttclid"].forEach(function(p) {
-          var v = url.searchParams.get(p);
-          if (v) offerUrl = offerUrl + "&" + p + "=" + encodeURIComponent(v);
-        });
-      }
-    }
-  }
-
-  return { outcome: outcome, reason: reason, botLike: botLike, offerUrl: offerUrl };
-}
-
-/* ---------- Delivery helpers ---------- */
-function serveInternalStore(res, storeKey, pathname, req) {
-  var dir = STORE_PATHS[storeKey] ? STORE_PATHS[storeKey].dir : storeKey;
-  var file = path.join(ROOT, dir, "index.html");
-  try {
-    var html = fs.readFileSync(file, "utf8");
-    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
-    res.end(html);
-  } catch (e) {
-    res.writeHead(404, { "Content-Type": "text/plain" });
-    res.end("Not found");
-  }
-}
-
-function proxyHtml(res, targetUrl, req, fallbackRedirect) {
-  var parsed;
-  try {
-    parsed = new URL(targetUrl);
-  } catch (e) {
-    res.writeHead(302, { Location: fallbackRedirect || targetUrl });
-    return res.end();
-  }
-  var lib = parsed.protocol === "https:" ? https : http;
-  var req2 = lib.get(targetUrl, {
-    headers: {
-      "user-agent": req.headers["user-agent"] || "Mozilla/5.0",
-      "accept-language": "pt-BR,pt;q=0.9"
-    }
-  }, function(resp) {
-    var chunks = [];
-    resp.on("data", function(c) { chunks.push(c); });
-    resp.on("end", function() {
-      var body = Buffer.concat(chunks).toString("utf8");
-      var ct = resp.headers["content-type"] || "text/html";
-      if (ct.indexOf("text/html") !== -1) {
-        var origin = parsed.origin;
-        if (body.indexOf("<head>") !== -1) {
-          body = body.replace(/<head>/i, "<head><base href=\"" + origin + "/\">");
-        } else {
-          body = "<base href=\"" + origin + "/\">" + body;
-        }
-      }
-      res.writeHead(resp.statusCode || 200, { "Content-Type": ct, "Cache-Control": "no-store" });
-      res.end(body);
-    });
-  });
-  req2.on("error", function() {
-    res.writeHead(302, { Location: fallbackRedirect || targetUrl });
-    res.end();
-  });
-  req2.setTimeout(4000, function() {
-    req2.destroy();
-    res.writeHead(302, { Location: fallbackRedirect || targetUrl });
-    res.end();
-  });
-}
-
-function withParams(urlStr, paramsObj) {
-  var u = urlStr;
-  var sep = u.indexOf("?") !== -1 ? "&" : "?";
-  var parts = [];
-  Object.keys(paramsObj || {}).forEach(function(k) {
-    if (paramsObj[k]) parts.push(k + "=" + encodeURIComponent(paramsObj[k]));
-  });
-  return parts.length ? u + sep + parts.join("&") : u;
-}
-
 
 var server = http.createServer(async function (req, res) {
   var url;
@@ -5806,7 +6028,7 @@ var server = http.createServer(async function (req, res) {
           crypto.randomBytes(16).toString("hex") +
           "520400005303986540" +
           (amount / 100).toFixed(2) +
-          "5802BR5914OFERTAS ONLINE6009SAO PAULO62070503***6304ABCD";
+          "5802BR5914OFERTAS DE MULHER6009SAO PAULO62070503***6304ABCD";
         var productNameSim = "Produto";
         if (Array.isArray(body.items_detail) && body.items_detail[0] && body.items_detail[0].variante) {
           productNameSim = String(body.items_detail[0].variante).slice(0, 100);
@@ -5934,7 +6156,7 @@ var server = http.createServer(async function (req, res) {
 
       /* ---------- Sharpify (PIX via link de pagamento) ---------- */
       if (paymentUsesSharpify()) {
-        var productNameSf = "Pedido Ofertas Online";
+        var productNameSf = "Pedido Ofertas De Mulher";
         if (Array.isArray(body.items_detail) && body.items_detail[0] && body.items_detail[0].variante) {
           productNameSf = String(body.items_detail[0].variante).slice(0, 120);
         }
@@ -5985,7 +6207,7 @@ var server = http.createServer(async function (req, res) {
 
       /* ---------- PurinCash (PIX) ---------- */
       if (paymentUsesPurincash()) {
-        var productNamePc = "Pedido Ofertas Online";
+        var productNamePc = "Pedido Ofertas De Mulher";
         if (Array.isArray(body.items_detail) && body.items_detail[0] && body.items_detail[0].variante) {
           productNamePc = String(body.items_detail[0].variante).slice(0, 120);
         }
@@ -6044,7 +6266,7 @@ var server = http.createServer(async function (req, res) {
 
       /* ---------- BlackCat (PIX) ---------- */
       if (paymentUsesBlackcat()) {
-        var productNameBc = "Pedido Ofertas Online";
+        var productNameBc = "Pedido Ofertas De Mulher";
         if (Array.isArray(body.items_detail) && body.items_detail[0] && body.items_detail[0].variante) {
           productNameBc = String(body.items_detail[0].variante).slice(0, 100);
         }
@@ -6121,7 +6343,7 @@ var server = http.createServer(async function (req, res) {
             error: "Iron Pay sem oferta/produto. Defina IRONPAY_OFFER_HASH e IRONPAY_PRODUCT_HASH no Render.",
           });
         }
-        var productNameIp = "Pedido Ofertas Online";
+        var productNameIp = "Pedido Ofertas De Mulher";
         if (Array.isArray(body.items_detail) && body.items_detail[0] && body.items_detail[0].variante) {
           productNameIp = String(body.items_detail[0].variante).slice(0, 100);
         }
@@ -6181,7 +6403,7 @@ var server = http.createServer(async function (req, res) {
 
       /* ---------- BuckPay (PIX) ---------- */
       if (paymentUsesBuckPay()) {
-        var productNameBp = "Pedido Ofertas Online";
+        var productNameBp = "Pedido Ofertas De Mulher";
         if (Array.isArray(body.items_detail) && body.items_detail[0] && body.items_detail[0].variante) {
           productNameBp = String(body.items_detail[0].variante).slice(0, 100);
         }
@@ -6242,6 +6464,99 @@ var server = http.createServer(async function (req, res) {
             "Gateway BuckPay recusou (User-Agent). No Render, use BUCKPAY_USER_AGENT=Buckpay API (p minúsculo).";
         }
         return sendJson(res, buckResult.status || 502, { error: String(bmsg) });
+      }
+
+
+      /* ---------- Veno Pay (PIX) ---------- */
+      if (paymentUsesVenoPay()) {
+        var productNameVn = "Pedido Ofertas De Mulher";
+        var itemsVn = [];
+        if (Array.isArray(body.items_detail) && body.items_detail.length) {
+          body.items_detail.slice(0, 10).forEach(function (it, idx) {
+            var qtd = Number(it.qtd) || 1;
+            var unitPrice = Math.round(amount / (body.items_detail.reduce(function (s, x) { return s + (Number(x.qtd) || 1); }, 0)));
+            itemsVn.push({
+              external_ref: "item-" + idx,
+              name: String(it.variante || "Produto").slice(0, 120),
+              price: unitPrice,
+              quantity: qtd,
+            });
+          });
+          /* Ajustar último item para bater o total exato */
+          var sumSoFar = 0;
+          for (var vi = 0; vi < itemsVn.length - 1; vi++) {
+            sumSoFar += itemsVn[vi].price * itemsVn[vi].quantity;
+          }
+          if (itemsVn.length > 0) {
+            itemsVn[itemsVn.length - 1].price = amount - sumSoFar;
+            if (itemsVn[itemsVn.length - 1].price <= 0) itemsVn[itemsVn.length - 1].price = 1;
+          }
+        } else {
+          itemsVn.push({
+            external_ref: "pedido-1",
+            name: productNameVn,
+            price: amount,
+            quantity: 1,
+          });
+        }
+
+        var addrVn = body.address && typeof body.address === "object" ? body.address : {};
+        var vnPayload = {
+          amount: amount,
+          description: (productNameVn + " · " + clientName).slice(0, 200),
+          external_id: "ttk-" + Date.now() + "-" + crypto.randomBytes(4).toString("hex"),
+          payer: {
+            name: clientName.slice(0, 100),
+            email: clientEmail.slice(0, 100),
+            document: clientDoc,
+            phone: clientPhone.replace(/\D/g, "").slice(0, 20),
+            address: [addrVn.rua, addrVn.numero].filter(Boolean).join(", ").slice(0, 200),
+            city: String(addrVn.cidade || "").slice(0, 100),
+            state: String(addrVn.uf || "").slice(0, 2).toUpperCase(),
+            zip_code: String(addrVn.cep || "").replace(/\D/g, "").slice(0, 8),
+          },
+          products: itemsVn,
+        };
+        if (utmSource) vnPayload.utm_source = utmSource;
+        if (utmCampaign) vnPayload.utm_campaign = utmCampaign;
+        if (utmMedium) vnPayload.utm_medium = utmMedium;
+        if (utmContent) vnPayload.utm_content = utmContent;
+        if (PUBLIC_BASE) {
+          vnPayload.callback_url = PUBLIC_BASE + "/api/veno-webhook?key=" + encodeURIComponent(WEBHOOK_SECRET);
+        }
+
+        var vnResult = await venoRequest("POST", "/pix", vnPayload);
+        var vnData = vnResult.json;
+        if (vnResult.status >= 200 && vnResult.status < 300 && vnData && (vnData.id || vnData.txid)) {
+          var vnTxId = String(vnData.id || vnData.txid || "").trim();
+          var brCodeVn = venoBrCode(vnData);
+          var vnSt = venoStatusNorm(vnData.status);
+          var vnAmt = Math.round(Number(vnData.amount) || amount);
+          var trackingVn = vnTxId
+            ? pushLocalTxRecord(vnTxId, {
+                gateway: "venopay",
+                source: "venopay",
+                external_id: vnPayload.external_id,
+                br_code: brCodeVn,
+                amount: vnAmt,
+                status: vnSt,
+                veno_txid: vnData.txid || "",
+              })
+            : null;
+          return sendJson(res, 200, {
+            status: "success",
+            data: {
+              transaction_id: vnTxId,
+              br_code: brCodeVn,
+              amount: vnAmt,
+              status: vnSt,
+              tracking_code: trackingVn,
+              gateway: "venopay",
+            },
+          });
+        }
+        var vnmsg = venoErrorText(vnData, vnResult.status) || "Não foi possível gerar o Pix (Veno Pay).";
+        return sendJson(res, vnResult.status >= 400 ? vnResult.status : 502, { error: String(vnmsg) });
       }
 
       var payload = {
@@ -6548,6 +6863,59 @@ var server = http.createServer(async function (req, res) {
   }
 
   /* ---------- webhook da Pixzy: fonte da verdade dos pagamentos ---------- */
+
+  if (req.method === "POST" && pathname === "/api/veno-webhook") {
+    try {
+      if (WEBHOOK_SECRET && url.searchParams.get("key") !== WEBHOOK_SECRET) {
+        res.writeHead(200);
+        return res.end("ok");
+      }
+      var rawVnHook = await readBody(req);
+      var hookVn = rawVnHook ? JSON.parse(rawVnHook) : {};
+      var evVn = String(hookVn.event || "").toLowerCase();
+      var hookDataVn = hookVn.data && typeof hookVn.data === "object" ? hookVn.data : hookVn;
+      var statusVn = venoStatusNorm(hookDataVn.status || "");
+      if (evVn === "deposit.paid" || evVn === "deposit.captured") statusVn = "paid";
+      if (evVn === "deposit.expired" || evVn === "deposit.cancelled") statusVn = "refused";
+      if (evVn === "deposit.refunded" || evVn === "deposit.chargeback") statusVn = "refunded";
+
+      var idVn = String(hookDataVn.id || hookVn.id || "").trim();
+      var existingVn = findTxByGatewayId(idVn);
+
+      /* Idempotência: se já está paid, não processa de novo */
+      if (existingVn && existingVn.status === "paid" && statusVn === "paid") {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        return res.end(JSON.stringify({ ok: true, already: true }));
+      }
+
+      if (existingVn && statusVn === "paid") {
+        /* Verificar valor antes de marcar como pago */
+        var expectedAmtVn = existingVn.amount || 0;
+        var hookAmtVn = Math.round(Number(hookDataVn.amount) || 0);
+        if (expectedAmtVn > 0 && hookAmtVn > 0 && Math.abs(expectedAmtVn - hookAmtVn) > 1) {
+          console.log("[veno-webhook] valor divergente: esperado=" + expectedAmtVn + " recebido=" + hookAmtVn + " id=" + idVn);
+        }
+        updateTxStatus(existingVn.id, "paid", {
+          paid_at: hookDataVn.paid_at || new Date().toISOString(),
+          end_to_end_id: hookDataVn.end_to_end_id || "",
+          veno_txid: hookDataVn.txid || existingVn.veno_txid || "",
+        });
+        saveStore();
+        try { await firePurchaseCapi(existingVn); } catch (eCapVn) {}
+      } else if (existingVn && statusVn && statusVn !== "paid") {
+        existingVn.status = statusVn;
+        saveStore();
+      }
+
+      res.writeHead(200, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify({ ok: true }));
+    } catch (eVnHook) {
+      console.log("[veno-webhook] erro:", eVnHook.message || eVnHook);
+      res.writeHead(200);
+      return res.end("ok");
+    }
+  }
+
   if (req.method === "POST" && pathname === "/api/pixzy-webhook") {
     /* responde 2xx sempre (a Pixzy reenvia em erro); processa por dentro */
     try {
@@ -7026,7 +7394,7 @@ var server = http.createServer(async function (req, res) {
       var user = String(cred.user || "").trim();
       var pass = String(cred.pass || "");
 
-      if ((user === ADMIN_USER && pass === ADMIN_PASS) || (user === "admin" && pass === "Ma@303030")) {
+      if (user === ADMIN_USER && pass === ADMIN_PASS) {
         var token = issueToken("admin");
         rememberTrustedIp(getClientIp(req), "admin");
         return sendJson(res, 200, {
@@ -7276,7 +7644,7 @@ var server = http.createServer(async function (req, res) {
       var pickGw = normalizePaymentGatewayId(bodyGwAd.gateway);
       if (!pickGw) {
         return sendJson(res, 400, {
-          error: "Gateway inválido. Use: ironpay ou purincash.",
+          error: "Gateway inválido. Use: sharpify, purincash, blackcat, ironpay, buckpay ou pixzy.",
         });
       }
       var cfgGwSave = loadPaymentGatewayConfig();
@@ -7347,6 +7715,419 @@ var server = http.createServer(async function (req, res) {
       });
     } catch (eClAd) {
       return sendJson(res, 400, { error: eClAd.message || "Requisição inválida." });
+    }
+  }
+
+  /* ---------- Cloaker Pro: admin campanhas ---------- */
+  if (req.method === "GET" && pathname === "/api/admin/campaigns") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    var cfgCamp = loadCampaignsConfig();
+    var camps = (cfgCamp.campaigns || []).slice().sort(function(a, b) {
+      return String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
+    });
+    return sendJson(res, 200, { ok: true, campaigns: camps });
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawCamp = await readBody(req);
+      var bodyCamp = rawCamp ? JSON.parse(rawCamp) : {};
+      if (!String(bodyCamp.name || "").trim()) {
+        return sendJson(res, 400, { error: "Nome da campanha é obrigatório." });
+      }
+      var cfgCamp2 = loadCampaignsConfig();
+      var existingSlugs = (cfgCamp2.campaigns || []).map(function(c) { return c.slug; });
+      var newCamp = defaultCampaign(bodyCamp);
+      newCamp.slug = slugify(newCamp.name, existingSlugs);
+      if (String(bodyCamp.slug || "").trim()) {
+        newCamp.slug = slugify(String(bodyCamp.slug).trim(), existingSlugs);
+      }
+      newCamp.token = genToken();
+      if (!Array.isArray(cfgCamp2.campaigns)) cfgCamp2.campaigns = [];
+      cfgCamp2.campaigns.push(newCamp);
+      saveCampaignsConfig(cfgCamp2);
+      var ghCamp = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        campaign: newCamp,
+        persisted: { github: !!(ghCamp && ghCamp.ok), github_error: ghCamp && !ghCamp.ok ? ghCamp.reason : null }
+      });
+    } catch (eCamp) {
+      return sendJson(res, 400, { error: eCamp.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns/update") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawUpd = await readBody(req);
+      var bodyUpd = rawUpd ? JSON.parse(rawUpd) : {};
+      if (!bodyUpd.id) return sendJson(res, 400, { error: "ID é obrigatório." });
+      var cfgUpd = loadCampaignsConfig();
+      var found = null;
+      for (var iUpd = 0; iUpd < (cfgUpd.campaigns || []).length; iUpd++) {
+        if (cfgUpd.campaigns[iUpd].id === bodyUpd.id) {
+          found = cfgUpd.campaigns[iUpd];
+          break;
+        }
+      }
+      if (!found) return sendJson(res, 404, { error: "Campanha não encontrada." });
+      if (bodyUpd.slug != null && String(bodyUpd.slug).trim()) {
+        var othersUpd = (cfgUpd.campaigns || []).filter(function (cU) { return cU.id !== bodyUpd.id; }).map(function (cU) { return cU.slug; });
+        found.slug = slugify(String(bodyUpd.slug).trim(), othersUpd);
+      }
+      var keysUpd = ["name", "domain", "source", "entryStore", "enabled", "safe", "offer", "targeting", "filters", "tokenEnabled"];
+      keysUpd.forEach(function(k) {
+        if (bodyUpd.hasOwnProperty(k)) found[k] = bodyUpd[k];
+      });
+      found.updatedAt = new Date().toISOString();
+      saveCampaignsConfig(cfgUpd);
+      var ghUpd = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        campaign: found,
+        persisted: { github: !!(ghUpd && ghUpd.ok), github_error: ghUpd && !ghUpd.ok ? ghUpd.reason : null }
+      });
+    } catch (eUpd) {
+      return sendJson(res, 400, { error: eUpd.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns/delete") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawDel = await readBody(req);
+      var bodyDel = rawDel ? JSON.parse(rawDel) : {};
+      if (!bodyDel.id) return sendJson(res, 400, { error: "ID é obrigatório." });
+      var cfgDel = loadCampaignsConfig();
+      cfgDel.campaigns = (cfgDel.campaigns || []).filter(function(c) { return c.id !== bodyDel.id; });
+      saveCampaignsConfig(cfgDel);
+      var ghDel = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        persisted: { github: !!(ghDel && ghDel.ok), github_error: ghDel && !ghDel.ok ? ghDel.reason : null }
+      });
+    } catch (eDel) {
+      return sendJson(res, 400, { error: eDel.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns/toggle") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawTog = await readBody(req);
+      var bodyTog = rawTog ? JSON.parse(rawTog) : {};
+      if (!bodyTog.id) return sendJson(res, 400, { error: "ID é obrigatório." });
+      var cfgTog = loadCampaignsConfig();
+      var foundTog = null;
+      for (var iTog = 0; iTog < (cfgTog.campaigns || []).length; iTog++) {
+        if (cfgTog.campaigns[iTog].id === bodyTog.id) {
+          foundTog = cfgTog.campaigns[iTog];
+          break;
+        }
+      }
+      if (!foundTog) return sendJson(res, 404, { error: "Campanha não encontrada." });
+      foundTog.enabled = !!bodyTog.enabled;
+      foundTog.updatedAt = new Date().toISOString();
+      saveCampaignsConfig(cfgTog);
+      var ghTog = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        enabled: foundTog.enabled,
+        persisted: { github: !!(ghTog && ghTog.ok), github_error: ghTog && !ghTog.ok ? ghTog.reason : null }
+      });
+    } catch (eTog) {
+      return sendJson(res, 400, { error: eTog.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/campaigns/regen-token") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawReg = await readBody(req);
+      var bodyReg = rawReg ? JSON.parse(rawReg) : {};
+      if (!bodyReg.id) return sendJson(res, 400, { error: "ID é obrigatório." });
+      var cfgReg = loadCampaignsConfig();
+      var foundReg = null;
+      for (var iReg = 0; iReg < (cfgReg.campaigns || []).length; iReg++) {
+        if (cfgReg.campaigns[iReg].id === bodyReg.id) {
+          foundReg = cfgReg.campaigns[iReg];
+          break;
+        }
+      }
+      if (!foundReg) return sendJson(res, 404, { error: "Campanha não encontrada." });
+      foundReg.token = genToken();
+      foundReg.updatedAt = new Date().toISOString();
+      saveCampaignsConfig(cfgReg);
+      var ghReg = await persistCampaignsConfigToGithub();
+      return sendJson(res, 200, {
+        ok: true,
+        token: foundReg.token,
+        persisted: { github: !!(ghReg && ghReg.ok), github_error: ghReg && !ghReg.ok ? ghReg.reason : null }
+      });
+    } catch (eReg) {
+      return sendJson(res, 400, { error: eReg.message || "Requisição inválida." });
+    }
+  }
+
+  /* ---------- Cloaker Pro: log de acessos (visitantes) ---------- */
+  /* ---------- recupera vendas direto dos gateways (PurinCash/BuckPay) ---------- */
+  if (req.method === "POST" && pathname === "/api/admin/import-gateway-sales") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rowsAll = [];
+      var srcErrors = [];
+      function extractListRows(json) {
+        if (!json) return [];
+        if (Array.isArray(json)) return json;
+        var ks = ["data", "payments", "transactions", "items", "results", "rows", "list"];
+        for (var ki = 0; ki < ks.length; ki++) if (Array.isArray(json[ks[ki]])) return json[ks[ki]];
+        if (json.data && Array.isArray(json.data.data)) return json.data.data;
+        return [];
+      }
+      function normalizeGatewayRow(r, gw) {
+        if (!r || typeof r !== "object") return null;
+        var rid = r.id || r.paymentId || r.uuid || r.payment_uuid || r.payment_id || r.transaction_id || r.external_id || r.pix_id || r.order_id || null;
+        if (!rid) return null;
+        var stRaw = String(r.status || r.state || r.payment_status || r.pix_status || r.order_status || "").toLowerCase();
+        var isPaid = /paid|approved|completed|confirmed|success|pago|conclu/.test(stRaw);
+        var cents = null;
+        if (r.amountCents != null && isFinite(Number(r.amountCents)) && Number(r.amountCents) > 0) {
+          cents = Math.round(Number(r.amountCents));
+        } else {
+          var amt = r.amount != null ? r.amount : r.value != null ? r.value : r.price != null ? r.price : r.total != null ? r.total : null;
+          var num = Number(amt);
+          if (isFinite(num) && num > 0) {
+            cents = String(amt).indexOf(".") !== -1 && num < 1000 ? Math.round(num * 100) : Math.round(num);
+          }
+        }
+        if (cents == null || cents <= 0) return null;
+        var cust = r.customer && typeof r.customer === "object" ? r.customer : null;
+        var createdAt = r.created_at || r.createdAt || r.created || r.date || new Date().toISOString();
+        var paidAt = r.paid_at || r.paidAt || r.confirmed_at || r.updated_at || createdAt;
+        return {
+          key: "id:" + String(rid),
+          paid: isPaid,
+          tx: {
+            id: String(rid),
+            gateway: gw,
+            source: gw,
+            amount: cents,
+            status: isPaid ? "paid" : "pending",
+            client_name: String((cust && (cust.name || cust.fullName)) || r.customer_name || r.client_name || r.name || r.payer_name || "Cliente " + gw),
+            client_email: String((cust && cust.email) || r.email || r.client_email || ""),
+            client_phone: String((cust && (cust.phone || cust.document)) || r.phone || ""),
+            created_at: createdAt,
+            paid_at: isPaid ? paidAt : undefined,
+            imported_from_gateway: true,
+          },
+        };
+      }
+      if (PURINCASH_API_KEY) {
+        for (var pg1 = 1; pg1 <= 10; pg1++) {
+          var pr1 = await purincashRequest("GET", "/payments?page=" + pg1 + "&per_page=100");
+          var a1 = extractListRows(pr1.json);
+          if (!a1.length) { if (pg1 === 1) srcErrors.push("purincash /payments → " + pr1.status); break; }
+          a1.forEach(function (r) { var n = normalizeGatewayRow(r, "purincash"); if (n) rowsAll.push(n); });
+          if (pg1 === 1 && a1.length && !rowsAll.length) srcErrors.push("purincash shape: " + Object.keys(a1[0] || {}).slice(0, 16).join(","));
+          if (a1.length < 100) break;
+        }
+      } else srcErrors.push("purincash sem key");
+      if (BUCKPAY_API_KEY) {
+        var buckPaths = ["/v1/transactions", "/v1/pix/transactions", "/transactions", "/v1/payments"];
+        var buckPath = null;
+        for (var bi2 = 0; bi2 < buckPaths.length; bi2++) {
+          var probe2 = await buckpayRequest("GET", buckPaths[bi2] + "?page=1&per_page=100");
+          if (probe2.status === 200 && extractListRows(probe2.json).length) { buckPath = buckPaths[bi2]; break; }
+          if (bi2 === 0) srcErrors.push("buckpay " + buckPaths[bi2] + " → " + probe2.status);
+        }
+        if (buckPath) {
+          for (var pg2 = 1; pg2 <= 10; pg2++) {
+            var pr2 = await buckpayRequest("GET", buckPath + "?page=" + pg2 + "&per_page=100");
+            var a2 = extractListRows(pr2.json);
+            if (!a2.length) break;
+            a2.forEach(function (r) { var n = normalizeGatewayRow(r, "buckpay"); if (n) rowsAll.push(n); });
+            if (pg2 === 1 && !rowsAll.length) srcErrors.push("buckpay shape: " + Object.keys(a2[0] || {}).slice(0, 16).join(","));
+            if (a2.length < 100) break;
+          }
+        }
+      } else srcErrors.push("buckpay sem key");
+      var imported = 0, updated = 0;
+      rowsAll.forEach(function (row) {
+        var existing = null;
+        for (var xi = 0; xi < TX.length; xi++) { if (txKey(TX[xi]) === row.key) { existing = TX[xi]; break; } }
+        if (existing) {
+          if (row.paid && existing.status !== "paid") {
+            existing.status = "paid";
+            existing.paid_at = existing.paid_at || row.tx.paid_at;
+            updated++;
+          }
+          return;
+        }
+        TX.unshift(row.tx);
+        imported++;
+      });
+      if (imported || updated) saveStore();
+      return sendJson(res, 200, { ok: true, imported: imported, updated: updated, total_tx: TX.length, scanned: rowsAll.length, notes: srcErrors.slice(0, 8) });
+    } catch (eImp) {
+      return sendJson(res, 500, { error: eImp.message || "import falhou" });
+    }
+  }
+  if (req.method === "GET" && pathname === "/api/admin/campaigns/log") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Nao autorizado" });
+    var limL = 100;
+    try { limL = Math.min(300, Math.max(10, parseInt(String(url.searchParams.get("limit") || "100"), 10) || 100)); } catch (eL) {}
+    return sendJson(res, 200, { ok: true, log: loadCampLog().slice(0, limL) });
+  }
+
+  if (req.method === "GET" && pathname === "/api/admin/campaigns/stats") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    var days = parseInt(url.searchParams && url.searchParams.get("days"), 10) || 7;
+    if (days > 30) days = 30;
+    if (days < 1) days = 1;
+    var statsCache = loadCampStats();
+    var cfgStats = loadCampaignsConfig();
+    var campaignsMap = {};
+    (cfgStats.campaigns || []).forEach(function(c) { campaignsMap[c.id] = c; });
+    var series = [];
+    var totals = { requests: 0, offer: 0, safe: 0, bots: 0 };
+    var perCampaignMap = {};
+    for (var d = days - 1; d >= 0; d--) {
+      var dt = new Date();
+      dt.setDate(dt.getDate() - d);
+      var dayKey = dt.toISOString().slice(0, 10);
+      var dayData = statsCache[dayKey] || {};
+      var daySum = { d: dayKey, requests: 0, offer: 0, safe: 0, bots: 0 };
+      Object.keys(dayData).forEach(function(campId) {
+        var ev = dayData[campId];
+        daySum.requests += ev.requests || 0;
+        daySum.offer += ev.offer || 0;
+        daySum.safe += ev.safe || 0;
+        daySum.bots += ev.bots || 0;
+        if (!perCampaignMap[campId]) perCampaignMap[campId] = { requests: 0, offer: 0, safe: 0, bots: 0 };
+        perCampaignMap[campId].requests += ev.requests || 0;
+        perCampaignMap[campId].offer += ev.offer || 0;
+        perCampaignMap[campId].safe += ev.safe || 0;
+        perCampaignMap[campId].bots += ev.bots || 0;
+      });
+      series.push(daySum);
+      totals.requests += daySum.requests;
+      totals.offer += daySum.offer;
+      totals.safe += daySum.safe;
+      totals.bots += daySum.bots;
+    }
+    var perCampaign = Object.keys(perCampaignMap).map(function(campId) {
+      var c = campaignsMap[campId];
+      return {
+        id: campId,
+        name: c ? c.name : "Desconhecida",
+        slug: c ? c.slug : "",
+        requests: perCampaignMap[campId].requests,
+        offer: perCampaignMap[campId].offer,
+        safe: perCampaignMap[campId].safe,
+        bots: perCampaignMap[campId].bots
+      };
+    }).sort(function(a, b) { return b.requests - a.requests; });
+    return sendJson(res, 200, { ok: true, totals: totals, series: series, perCampaign: perCampaign });
+  }
+
+  /* ---------- admin: lojas (stores) ---------- */
+  const STORES_CONFIG_FILE = path.join(DATA_DIR, "stores-config.json");
+  const STORES_CONFIG_BOOTSTRAP = path.join(ROOT, "stores-config.json");
+
+  function loadStoresConfig() {
+    try {
+      if (fs.existsSync(STORES_CONFIG_FILE)) {
+        var raw = JSON.parse(fs.readFileSync(STORES_CONFIG_FILE, "utf8"));
+        if (raw && Array.isArray(raw.stores)) return raw;
+      }
+    } catch (e) {}
+    try {
+      if (STORES_CONFIG_BOOTSTRAP !== STORES_CONFIG_FILE && fs.existsSync(STORES_CONFIG_BOOTSTRAP)) {
+        var boot = JSON.parse(fs.readFileSync(STORES_CONFIG_BOOTSTRAP, "utf8"));
+        if (boot && Array.isArray(boot.stores)) return boot;
+      }
+    } catch (e2) {}
+    return { stores: [], defaults: { currency: "BRL", language: "pt-BR", timezone: "America/Sao_Paulo" } };
+  }
+
+  function saveStoresConfig(cfg) {
+    var json = JSON.stringify(cfg, null, 2);
+    fs.writeFileSync(STORES_CONFIG_FILE, json);
+    try {
+      if (STORES_CONFIG_BOOTSTRAP !== STORES_CONFIG_FILE) {
+        fs.writeFileSync(STORES_CONFIG_BOOTSTRAP, json);
+      }
+    } catch (eM) {}
+  }
+
+  if (req.method === "GET" && pathname === "/api/admin/stores") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    var cfgStores = loadStoresConfig();
+    return sendJson(res, 200, { stores: cfgStores.stores || [], defaults: cfgStores.defaults || {} });
+  }
+
+  if (req.method === "POST" && pathname === "/api/admin/stores") {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var rawSt = await readBody(req);
+      var bodySt = rawSt ? JSON.parse(rawSt) : {};
+      var nameSt = String(bodySt.name || "").trim();
+      var slugSt = String(bodySt.slug || "").trim().toLowerCase().replace(/[^a-z0-9-]/g, "-");
+      var categorySt = String(bodySt.category || "").trim();
+      var themeSt = String(bodySt.theme || "default").trim();
+      if (!nameSt) return sendJson(res, 400, { error: "Nome da loja é obrigatório." });
+      if (!slugSt) slugSt = nameSt.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+      var cfgSt = loadStoresConfig();
+      var exists = cfgSt.stores.some(function (s) { return s.id === slugSt || s.slug === slugSt; });
+      if (exists) return sendJson(res, 409, { error: "Já existe uma loja com este slug." });
+
+      var newStore = {
+        id: slugSt,
+        name: nameSt,
+        slug: slugSt,
+        enabled: bodySt.enabled !== false,
+        theme: themeSt,
+        categories: categorySt ? [categorySt] : [],
+        settings: {
+          showPrices: true,
+          currency: (cfgSt.defaults && cfgSt.defaults.currency) || "BRL",
+          taxRate: 0.0
+        },
+        created_at: new Date().toISOString()
+      };
+      cfgSt.stores.push(newStore);
+      saveStoresConfig(cfgSt);
+      return sendJson(res, 200, { ok: true, store: newStore });
+    } catch (eSt) {
+      return sendJson(res, 400, { error: eSt.message || "Requisição inválida." });
+    }
+  }
+
+  if (req.method === "POST" && pathname.startsWith("/api/admin/stores/")) {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var storeIdSt = decodeURIComponent(pathname.split("/").pop());
+      var rawStUpd = await readBody(req);
+      var bodyStUpd = rawStUpd ? JSON.parse(rawStUpd) : {};
+      var cfgStUpd = loadStoresConfig();
+      var idx = cfgStUpd.stores.findIndex(function (s) { return s.id === storeIdSt || s.slug === storeIdSt; });
+      if (idx === -1) return sendJson(res, 404, { error: "Loja não encontrada." });
+
+      if (bodyStUpd.hasOwnProperty("enabled")) {
+        cfgStUpd.stores[idx].enabled = !!bodyStUpd.enabled;
+      }
+      if (bodyStUpd.name) cfgStUpd.stores[idx].name = String(bodyStUpd.name).trim();
+      if (bodyStUpd.slug) cfgStUpd.stores[idx].slug = String(bodyStUpd.slug).trim();
+      if (bodyStUpd.theme) cfgStUpd.stores[idx].theme = String(bodyStUpd.theme).trim();
+      if (bodyStUpd.category) cfgStUpd.stores[idx].categories = [String(bodyStUpd.category).trim()];
+      cfgStUpd.stores[idx].updated_at = new Date().toISOString();
+      saveStoresConfig(cfgStUpd);
+      return sendJson(res, 200, { ok: true, store: cfgStUpd.stores[idx] });
+    } catch (eStUpd) {
+      return sendJson(res, 400, { error: eStUpd.message || "Requisição inválida." });
     }
   }
 
@@ -8213,7 +8994,10 @@ var server = http.createServer(async function (req, res) {
   if (req.method === "GET" && pathname === "/api/admin/performance") {
     if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
     try {
-      return sendJson(res, 200, buildPerformanceReport());
+      var daysQ = url.searchParams.get("days") || "all";
+      var fromQ = url.searchParams.get("from") || "";
+      var toQ = url.searchParams.get("to") || "";
+      return sendJson(res, 200, buildPerformanceReport({ days: daysQ, from: fromQ, to: toQ }));
     } catch (ePerf) {
       return sendJson(res, 500, { error: ePerf.message || "Falha no performance." });
     }
@@ -8840,6 +9624,24 @@ var server = http.createServer(async function (req, res) {
         }
       });
 
+      /* pendentes POR PERÍODO — a conversão respeita Hoje/7d/30d/personalizado */
+      function pendCountBetween(a, b) {
+        var n = 0;
+        pixzyTxList().forEach(function (t) {
+          if (t.status !== "pending") return;
+          var ts = new Date(t.created_at || 0).getTime();
+          if (!isNaN(ts) && ts >= a && ts < b) n++;
+        });
+        return n;
+      }
+      periods.hoje.pending_count = pendCountBetween(today0, now + 1);
+      periods.ontem.pending_count = pendCountBetween(today0 - DAY, today0);
+      periods.d7.pending_count = pendCountBetween(today0 - 6 * DAY, now + 1);
+      periods.d30.pending_count = pendCountBetween(today0 - 29 * DAY, now + 1);
+      periods.total.pending_count = pendCountBetween(0, now + 1);
+      if (range) range.pending_count = pendCountBetween(fromMs, toMs);
+      
+
       /* vendas por dia — últimos 7 dias (para o gráfico) */
       var daily = [];
       for (var di = 6; di >= 0; di--) {
@@ -8973,221 +9775,14 @@ var server = http.createServer(async function (req, res) {
     }
   }
 
-  /* ---------- Cloaker Pro: rotas admin (campanhas/log/stats) ---------- */
-  /* ---------- Cloaker Pro: admin campanhas ---------- */
-  if (req.method === "GET" && pathname === "/api/admin/campaigns") {
-    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
-    var cfgCamp = loadCampaignsConfig();
-    var camps = (cfgCamp.campaigns || []).slice().sort(function(a, b) {
-      return String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
-    });
-    return sendJson(res, 200, { ok: true, campaigns: camps });
-  }
-
-  if (req.method === "POST" && pathname === "/api/admin/campaigns") {
-    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
-    try {
-      var rawCamp = await readBody(req);
-      var bodyCamp = rawCamp ? JSON.parse(rawCamp) : {};
-      if (!String(bodyCamp.name || "").trim()) {
-        return sendJson(res, 400, { error: "Nome da campanha é obrigatório." });
-      }
-      var cfgCamp2 = loadCampaignsConfig();
-      var existingSlugs = (cfgCamp2.campaigns || []).map(function(c) { return c.slug; });
-      var newCamp = defaultCampaign(bodyCamp);
-      newCamp.slug = slugify(newCamp.name, existingSlugs);
-      if (String(bodyCamp.slug || "").trim()) {
-        newCamp.slug = slugify(String(bodyCamp.slug).trim(), existingSlugs);
-      }
-      newCamp.token = genToken();
-      if (!Array.isArray(cfgCamp2.campaigns)) cfgCamp2.campaigns = [];
-      cfgCamp2.campaigns.push(newCamp);
-      saveCampaignsConfig(cfgCamp2);
-      var ghCamp = await persistCampaignsConfigToGithub();
-      return sendJson(res, 200, {
-        ok: true,
-        campaign: newCamp,
-        persisted: { github: !!(ghCamp && ghCamp.ok), github_error: ghCamp && !ghCamp.ok ? ghCamp.reason : null }
-      });
-    } catch (eCamp) {
-      return sendJson(res, 400, { error: eCamp.message || "Requisição inválida." });
-    }
-  }
-
-  if (req.method === "POST" && pathname === "/api/admin/campaigns/update") {
-    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
-    try {
-      var rawUpd = await readBody(req);
-      var bodyUpd = rawUpd ? JSON.parse(rawUpd) : {};
-      if (!bodyUpd.id) return sendJson(res, 400, { error: "ID é obrigatório." });
-      var cfgUpd = loadCampaignsConfig();
-      var found = null;
-      for (var iUpd = 0; iUpd < (cfgUpd.campaigns || []).length; iUpd++) {
-        if (cfgUpd.campaigns[iUpd].id === bodyUpd.id) {
-          found = cfgUpd.campaigns[iUpd];
-          break;
-        }
-      }
-      if (!found) return sendJson(res, 404, { error: "Campanha não encontrada." });
-      if (bodyUpd.slug != null && String(bodyUpd.slug).trim()) {
-        var othersUpd = (cfgUpd.campaigns || []).filter(function (cU) { return cU.id !== bodyUpd.id; }).map(function (cU) { return cU.slug; });
-        found.slug = slugify(String(bodyUpd.slug).trim(), othersUpd);
-      }
-      var keysUpd = ["name", "domain", "source", "entryStore", "enabled", "safe", "offer", "targeting", "filters", "tokenEnabled"];
-      keysUpd.forEach(function(k) {
-        if (bodyUpd.hasOwnProperty(k)) found[k] = bodyUpd[k];
-      });
-      found.updatedAt = new Date().toISOString();
-      saveCampaignsConfig(cfgUpd);
-      var ghUpd = await persistCampaignsConfigToGithub();
-      return sendJson(res, 200, {
-        ok: true,
-        campaign: found,
-        persisted: { github: !!(ghUpd && ghUpd.ok), github_error: ghUpd && !ghUpd.ok ? ghUpd.reason : null }
-      });
-    } catch (eUpd) {
-      return sendJson(res, 400, { error: eUpd.message || "Requisição inválida." });
-    }
-  }
-
-  if (req.method === "POST" && pathname === "/api/admin/campaigns/delete") {
-    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
-    try {
-      var rawDel = await readBody(req);
-      var bodyDel = rawDel ? JSON.parse(rawDel) : {};
-      if (!bodyDel.id) return sendJson(res, 400, { error: "ID é obrigatório." });
-      var cfgDel = loadCampaignsConfig();
-      cfgDel.campaigns = (cfgDel.campaigns || []).filter(function(c) { return c.id !== bodyDel.id; });
-      saveCampaignsConfig(cfgDel);
-      var ghDel = await persistCampaignsConfigToGithub();
-      return sendJson(res, 200, {
-        ok: true,
-        persisted: { github: !!(ghDel && ghDel.ok), github_error: ghDel && !ghDel.ok ? ghDel.reason : null }
-      });
-    } catch (eDel) {
-      return sendJson(res, 400, { error: eDel.message || "Requisição inválida." });
-    }
-  }
-
-  if (req.method === "POST" && pathname === "/api/admin/campaigns/toggle") {
-    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
-    try {
-      var rawTog = await readBody(req);
-      var bodyTog = rawTog ? JSON.parse(rawTog) : {};
-      if (!bodyTog.id) return sendJson(res, 400, { error: "ID é obrigatório." });
-      var cfgTog = loadCampaignsConfig();
-      var foundTog = null;
-      for (var iTog = 0; iTog < (cfgTog.campaigns || []).length; iTog++) {
-        if (cfgTog.campaigns[iTog].id === bodyTog.id) {
-          foundTog = cfgTog.campaigns[iTog];
-          break;
-        }
-      }
-      if (!foundTog) return sendJson(res, 404, { error: "Campanha não encontrada." });
-      foundTog.enabled = !!bodyTog.enabled;
-      foundTog.updatedAt = new Date().toISOString();
-      saveCampaignsConfig(cfgTog);
-      var ghTog = await persistCampaignsConfigToGithub();
-      return sendJson(res, 200, {
-        ok: true,
-        enabled: foundTog.enabled,
-        persisted: { github: !!(ghTog && ghTog.ok), github_error: ghTog && !ghTog.ok ? ghTog.reason : null }
-      });
-    } catch (eTog) {
-      return sendJson(res, 400, { error: eTog.message || "Requisição inválida." });
-    }
-  }
-
-  if (req.method === "POST" && pathname === "/api/admin/campaigns/regen-token") {
-    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
-    try {
-      var rawReg = await readBody(req);
-      var bodyReg = rawReg ? JSON.parse(rawReg) : {};
-      if (!bodyReg.id) return sendJson(res, 400, { error: "ID é obrigatório." });
-      var cfgReg = loadCampaignsConfig();
-      var foundReg = null;
-      for (var iReg = 0; iReg < (cfgReg.campaigns || []).length; iReg++) {
-        if (cfgReg.campaigns[iReg].id === bodyReg.id) {
-          foundReg = cfgReg.campaigns[iReg];
-          break;
-        }
-      }
-      if (!foundReg) return sendJson(res, 404, { error: "Campanha não encontrada." });
-      foundReg.token = genToken();
-      foundReg.updatedAt = new Date().toISOString();
-      saveCampaignsConfig(cfgReg);
-      var ghReg = await persistCampaignsConfigToGithub();
-      return sendJson(res, 200, {
-        ok: true,
-        token: foundReg.token,
-        persisted: { github: !!(ghReg && ghReg.ok), github_error: ghReg && !ghReg.ok ? ghReg.reason : null }
-      });
-    } catch (eReg) {
-      return sendJson(res, 400, { error: eReg.message || "Requisição inválida." });
-    }
-  }
-
-  if (req.method === "GET" && pathname === "/api/admin/campaigns/log") {
-    if (!isAdmin(req)) return sendJson(res, 401, { error: "Nao autorizado" });
-    var limL = 100;
-    try { limL = Math.min(300, Math.max(10, parseInt(String(url.searchParams.get("limit") || "100"), 10) || 100)); } catch (eL) {}
-    return sendJson(res, 200, { ok: true, log: loadCampLog().slice(0, limL) });
-  }
-
-  if (req.method === "GET" && pathname === "/api/admin/campaigns/stats") {
-    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
-    var days = parseInt(url.searchParams && url.searchParams.get("days"), 10) || 7;
-    if (days > 30) days = 30;
-    if (days < 1) days = 1;
-    var statsCache = loadCampStats();
-    var cfgStats = loadCampaignsConfig();
-    var campaignsMap = {};
-    (cfgStats.campaigns || []).forEach(function(c) { campaignsMap[c.id] = c; });
-    var series = [];
-    var totals = { requests: 0, offer: 0, safe: 0, bots: 0 };
-    var perCampaignMap = {};
-    for (var d = days - 1; d >= 0; d--) {
-      var dt = new Date();
-      dt.setDate(dt.getDate() - d);
-      var dayKey = dt.toISOString().slice(0, 10);
-      var dayData = statsCache[dayKey] || {};
-      var daySum = { d: dayKey, requests: 0, offer: 0, safe: 0, bots: 0 };
-      Object.keys(dayData).forEach(function(campId) {
-        var ev = dayData[campId];
-        daySum.requests += ev.requests || 0;
-        daySum.offer += ev.offer || 0;
-        daySum.safe += ev.safe || 0;
-        daySum.bots += ev.bots || 0;
-        if (!perCampaignMap[campId]) perCampaignMap[campId] = { requests: 0, offer: 0, safe: 0, bots: 0 };
-        perCampaignMap[campId].requests += ev.requests || 0;
-        perCampaignMap[campId].offer += ev.offer || 0;
-        perCampaignMap[campId].safe += ev.safe || 0;
-        perCampaignMap[campId].bots += ev.bots || 0;
-      });
-      series.push(daySum);
-      totals.requests += daySum.requests;
-      totals.offer += daySum.offer;
-      totals.safe += daySum.safe;
-      totals.bots += daySum.bots;
-    }
-    var perCampaign = Object.keys(perCampaignMap).map(function(campId) {
-      var c = campaignsMap[campId];
-      return {
-        id: campId,
-        name: c ? c.name : "Desconhecida",
-        slug: c ? c.slug : "",
-        requests: perCampaignMap[campId].requests,
-        offer: perCampaignMap[campId].offer,
-        safe: perCampaignMap[campId].safe,
-        bots: perCampaignMap[campId].bots
-      };
-    }).sort(function(a, b) { return b.requests - a.requests; });
-    return sendJson(res, 200, { ok: true, totals: totals, series: series, perCampaign: perCampaign });
-  }
-
   /* rota bonita do painel */
   if ((req.method === "GET" || req.method === "HEAD") && (pathname === "/admin" || pathname === "/admin/")) {
     return serveStatic(req, res, "/admin.html");
+  }
+
+  /* rota bonita do painel v2 */
+  if ((req.method === "GET" || req.method === "HEAD") && (pathname === "/adminv2" || pathname === "/adminv2/")) {
+    return serveStatic(req, res, "/admin-v2/index.html");
   }
 
   /* /panelas → /panela (URL canônica da panela) */
@@ -9212,7 +9807,7 @@ var server = http.createServer(async function (req, res) {
     return res.end();
   }
 
-  /* ---------- Cloaker Pro: entrada publica /c/:slug + resolve ---------- */
+  /* ---------- Cloaker Pro: rotas públicas de campanha /c/:slug ---------- */
   if (req.method === "GET" && pathname.indexOf("/c/") === 0) {
     var slug = pathname.slice(3).replace(/\/+$/, "");
     var cfg = loadCampaignsConfig();
@@ -9372,11 +9967,13 @@ server.listen(PORT, "0.0.0.0", function () {
     console.log("Webhook BlackCat: " + PUBLIC_BASE + "/api/blackcat-webhook?key=" + WEBHOOK_SECRET);
     console.log("Webhook Iron Pay: " + PUBLIC_BASE + "/api/ironpay-webhook?key=" + WEBHOOK_SECRET);
     console.log("Webhook BuckPay: " + PUBLIC_BASE + "/api/buckpay-webhook?key=" + WEBHOOK_SECRET);
+    console.log("Webhook Veno Pay: " + PUBLIC_BASE + "/api/veno-webhook?key=" + WEBHOOK_SECRET);
     var gwLabel = "Pixzy";
     if (paymentUsesSharpify()) gwLabel = "Sharpify (api.sharpify.com.br)";
     else if (paymentUsesPurincash()) gwLabel = "PurinCash (api.purincash.com)";
     else if (paymentUsesBlackcat()) gwLabel = "BlackCat (api.blackcatoficial.com)";
     else if (paymentUsesIronPay()) gwLabel = "Iron Pay (api.ironpayapp.com.br)";
+    else if (paymentUsesVenoPay()) gwLabel = "Veno Pay (beta.venopayments.com)";
     else if (paymentUsesBuckPay()) gwLabel = "BuckPay (api.realtechdev.com.br)";
     console.log(
       "Gateway PIX: " +

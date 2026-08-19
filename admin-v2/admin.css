@@ -1522,3 +1522,60 @@ tr:last-child td {
   vertical-align: top;
   white-space: normal;
 }
+
+/* Products ranking list */
+.products-list { display: flex; flex-direction: column; gap: 10px; }
+.product-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 16px;
+  background: var(--card-2); border-radius: var(--radius);
+  border: 1px solid var(--line);
+  transition: transform 0.15s, border-color 0.15s;
+}
+.product-row:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+.product-rank {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--coral-dim); color: var(--coral);
+  border-radius: 999px; font-size: 12px; font-weight: 800;
+  flex-shrink: 0;
+}
+.product-rank.rank-1 { background: rgba(234, 179, 8, 0.2); color: #eab308; box-shadow: 0 0 10px rgba(234, 179, 8, 0.3); }
+.product-rank.rank-2 { background: rgba(203, 213, 225, 0.2); color: #cbd5e1; }
+.product-rank.rank-3 { background: rgba(180, 83, 9, 0.2); color: #f59e0b; }
+.product-info-wrap { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.product-name { font-size: 13.5px; color: var(--text); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.product-meta-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 11.5px; }
+.badge-paid {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 999px;
+  background: var(--green-dim); color: var(--green); font-weight: 700;
+}
+.badge-pend {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 999px;
+  background: var(--orange-dim); color: var(--orange); font-weight: 700;
+}
+.badge-conv {
+  display: inline-flex; align-items: center;
+  padding: 2px 8px; border-radius: 999px;
+  background: var(--cyan-dim); color: var(--cyan); font-weight: 600;
+}
+.product-money { text-align: right; flex-shrink: 0; }
+.product-revenue { font-size: 15px; font-weight: 800; color: var(--green); font-variant-numeric: tabular-nums; }
+.product-pending-rev { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.prod-period-pills {
+  display: inline-flex; gap: 4px; background: var(--card-2);
+  padding: 3px; border-radius: 999px; border: 1px solid var(--line);
+}
+.prod-period-pills button {
+  padding: 4px 10px; font-size: 11px; font-weight: 600;
+  border-radius: 999px; border: none; background: transparent;
+  color: var(--muted); cursor: pointer; transition: all 0.15s;
+}
+.prod-period-pills button:hover { color: var(--text); }
+.prod-period-pills button.active {
+  background: var(--coral); color: #fff;
+  box-shadow: 0 2px 8px var(--coral-dim);
+}

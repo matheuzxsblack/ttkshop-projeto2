@@ -150,6 +150,22 @@
             <div class="chart" id="chart"></div>
           </div>
           <div class="panel">
+            <div class="panel-h">
+              <div>
+                <h2>Produtos Mais Vendidos</h2>
+                <span id="top-products-sub">vendas pagas e pendentes por período</span>
+              </div>
+              <div class="prod-period-pills" id="prod-period-pills">
+                <button class="btn btn-ghost btn-sm active" type="button" data-prod-period="hoje">Hoje</button>
+                <button class="btn btn-ghost btn-sm" type="button" data-prod-period="ontem">Ontem</button>
+                <button class="btn btn-ghost btn-sm" type="button" data-prod-period="d7">7 dias</button>
+                <button class="btn btn-ghost btn-sm" type="button" data-prod-period="d30">30 dias</button>
+                <button class="btn btn-ghost btn-sm" type="button" data-prod-period="total">Total</button>
+              </div>
+            </div>
+            <div class="products-list" id="top-products"></div>
+          </div>
+          <div class="panel">
             <div class="panel-h"><h2>Por período</h2><span>bruto / líquido</span></div>
             <div class="grid-cards" id="periods-grid"></div>
           </div>
@@ -431,13 +447,25 @@
             <div class="stat"><div class="l">Receita</div><div class="n" id="perf-receita">—</div></div>
           </div>
           <div class="panel">
-            <div class="panel-h"><h2>Ranking de produtos</h2><span>só pagos</span></div>
+            <div class="panel-h">
+              <div>
+                <h2>Ranking de produtos</h2>
+                <span>detalhamento completo por dia / período</span>
+              </div>
+              <div class="prod-period-pills" id="perf-period-pills">
+                <button class="btn btn-ghost btn-sm" type="button" data-perf-days="1">Hoje</button>
+                <button class="btn btn-ghost btn-sm" type="button" data-perf-days="ontem">Ontem</button>
+                <button class="btn btn-ghost btn-sm active" type="button" data-perf-days="7">7 dias</button>
+                <button class="btn btn-ghost btn-sm" type="button" data-perf-days="30">30 dias</button>
+                <button class="btn btn-ghost btn-sm" type="button" data-perf-days="all">Total</button>
+              </div>
+            </div>
             <div class="tbl-wrap">
               <table>
-                <thead><tr><th>#</th><th>Produto</th><th>Vendas</th><th>Receita</th></tr></thead>
+                <thead><tr><th>#</th><th>Produto</th><th>Pagos (vendas)</th><th>Pendentes</th><th>Total gerado</th><th>Conversão</th><th>Receita</th></tr></thead>
                 <tbody id="perf-rank-body"></tbody>
               </table>
-              <div class="empty" id="perf-rank-empty" hidden>Sem vendas pagas ainda.</div>
+              <div class="empty" id="perf-rank-empty" hidden>Sem vendas neste período.</div>
             </div>
           </div>
           <div class="panel">

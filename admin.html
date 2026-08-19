@@ -6,8 +6,8 @@
   <meta name="robots" content="noindex, nofollow" />
   <title>Admin v2 — Ofertas De Mulher</title>
   <link rel="icon" href="/images/favicon.png?v=20260812ofertasdemulher" />
-  <link rel="stylesheet" href="admin.css?v=20260815host1" />
-  <link rel="stylesheet" href="admin-cloaker-pro.css?v=20260815host1" />
+  <link rel="stylesheet" href="admin.css?v=20260814pv1" />
+  <link rel="stylesheet" href="admin-cloaker-pro.css?v=20260814ck10" />
 </head>
 <body>
   <!-- LOGIN -->
@@ -211,8 +211,17 @@
 
           <div class="stat-card">
             <div class="stat-header">
-              <h3>Produtos Mais Vendidos</h3>
-              <span class="stat-sub">top 5 por quantidade</span>
+              <div>
+                <h3>Produtos Mais Vendidos</h3>
+                <span class="stat-sub" id="top-products-sub">vendas pagas e pendentes por período</span>
+              </div>
+              <div class="prod-period-pills" id="prod-period-pills">
+                <button class="btn-ghost active" type="button" data-prod-period="hoje">Hoje</button>
+                <button class="btn-ghost" type="button" data-prod-period="ontem">Ontem</button>
+                <button class="btn-ghost" type="button" data-prod-period="d7">7 dias</button>
+                <button class="btn-ghost" type="button" data-prod-period="d30">30 dias</button>
+                <button class="btn-ghost" type="button" data-prod-period="total">Total</button>
+              </div>
             </div>
             <div class="products-list" id="top-products"></div>
           </div>
@@ -616,15 +625,24 @@
 
           <div class="stat-card">
             <div class="stat-header">
-              <h3>Ranking de produtos</h3>
-              <span class="stat-sub">só pagos</span>
+              <div>
+                <h3>Ranking de produtos</h3>
+                <span class="stat-sub">detalhamento completo por dia / período</span>
+              </div>
+              <div class="prod-period-pills" id="perf-period-pills">
+                <button class="btn-ghost" type="button" data-perf-days="1">Hoje</button>
+                <button class="btn-ghost" type="button" data-perf-days="ontem">Ontem</button>
+                <button class="btn-ghost active" type="button" data-perf-days="7">7 dias</button>
+                <button class="btn-ghost" type="button" data-perf-days="30">30 dias</button>
+                <button class="btn-ghost" type="button" data-perf-days="all">Total</button>
+              </div>
             </div>
             <div class="tbl-wrap">
               <table>
-                <thead><tr><th>#</th><th>Produto</th><th>Vendas</th><th>Receita</th></tr></thead>
+                <thead><tr><th>#</th><th>Produto</th><th>Pagos (vendas)</th><th>Pendentes</th><th>Total gerado</th><th>Conversão</th><th>Receita</th></tr></thead>
                 <tbody id="perf-rank-body"></tbody>
               </table>
-              <div class="empty" id="perf-rank-empty" hidden>Sem vendas pagas ainda.</div>
+              <div class="empty" id="perf-rank-empty" hidden>Sem vendas neste período.</div>
             </div>
           </div>
 
@@ -771,7 +789,7 @@
   </div>
 
   <script src="/js/ttk-api-config.js?v=20260731render1"></script>
-  <script src="admin.js?v=20260815host1"></script>
-  <script src="admin-cloaker-pro.js?v=20260815host1" defer></script>
+  <script src="admin.js?v=20260814pv1"></script>
+  <script src="admin-cloaker-pro.js?v=20260814ck10" defer></script>
 </body>
 </html>

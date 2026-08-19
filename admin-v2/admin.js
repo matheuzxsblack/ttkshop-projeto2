@@ -1796,8 +1796,10 @@
       }
 
       /* ---------- Performance ---------- */
-      function loadPerformance() {
-        fetch("/api/admin/performance", { headers: authHeaders() })
+      var currentPerfDays = "7";
+      function loadPerformance(days) {
+        if (days) currentPerfDays = days;
+        fetch("/api/admin/performance?days=" + encodeURIComponent(currentPerfDays), { headers: authHeaders() })
           .then(function (r) {
             return r.json().then(function (j) {
               return { ok: r.ok, j: j };
@@ -1827,16 +1829,20 @@
                 if (rankEmpty) rankEmpty.hidden = true;
                 rankBody.innerHTML = ranking
                   .map(function (p, i) {
+                    var pagos = p.pagos != null ? p.pagos : (p.vendas || 0);
+                    var pendentes = p.pendentes || 0;
+                    var pedidos = p.pedidos || (pagos + pendentes);
+                    var conv = (p.conversao || 0).toFixed(1) + "%";
                     return (
-                      "<tr><td>" +
-                      (i + 1) +
-                      "</td><td>" +
-                      esc(p.produto) +
-                      "</td><td>" +
-                      p.vendas +
-                      "</td><td>" +
-                      money(p.receita) +
-                      "</td></tr>"
+                      "<tr>" +
+                      "<td><b>" + (i + 1) + "</b></td>" +
+                      "<td><b>" + esc(p.produto) + "</b></td>" +
+                      '<td><span class="badge-paid"><b>' + pagos + "</b> pagos</span></td>" +
+                      '<td><span class="badge-pend"><b>' + pendentes + "</b> pendentes</span></td>" +
+                      "<td>" + pedidos + " gerados</td>" +
+                      '<td><span class="badge-conv">' + conv + "</span></td>" +
+                      "<td><b style='color:var(--green)'>" + money(p.receita || 0) + "</b></td>" +
+                      "</tr>"
                     );
                   })
                   .join("");
@@ -2479,6 +2485,87 @@
           });
       }
 
+      var currentProdPeriod = "hoje";
+      var lastStatsPayload = null;
+
+      function renderTopProducts(ranking, periodLabel) {
+        var topEl = document.getElementById("top-products");
+        if (!topEl) return;
+        var subEl = document.getElementById("top-products-sub");
+        if (subEl && periodLabel) {
+          subEl.textContent = "vendas pagas e pendentes (" + periodLabel + ")";
+        }
+        if (!ranking || !ranking.length) {
+          topEl.innerHTML = '<div class="empty">Nenhuma venda ou pedido gerado neste período.</div>';
+          return;
+        }
+        topEl.innerHTML = ranking.slice(0, 10).map(function (p, i) {
+          var rankClass = i === 0 ? "rank-1" : (i === 1 ? "rank-2" : (i === 2 ? "rank-3" : ""));
+          var pagos = p.pagos != null ? p.pagos : (p.vendas || 0);
+          var pendentes = p.pendentes || 0;
+          var receita = money(p.receita || 0);
+          var conv = (p.conversao || 0).toFixed(1) + "% conv.";
+          var pendRev = p.receita_pendente ? money(p.receita_pendente) + " pend." : "";
+          return (
+            '<div class="product-row">' +
+            '<div class="product-rank ' + rankClass + '">' + (i + 1) + '</div>' +
+            '<div class="product-info-wrap">' +
+            '<div class="product-name">' + esc(p.produto) + '</div>' +
+            '<div class="product-meta-row">' +
+            '<span class="badge-paid"><b>' + pagos + '</b> ' + (pagos === 1 ? 'venda paga' : 'vendas pagas') + '</span>' +
+            '<span class="badge-pend"><b>' + pendentes + '</b> ' + (pendentes === 1 ? 'pendente' : 'pendentes') + '</span>' +
+            '<span class="badge-conv">' + conv + '</span>' +
+            '</div>' +
+            '</div>' +
+            '<div class="product-money">' +
+            '<div class="product-revenue">' + receita + '</div>' +
+            (pendRev ? '<div class="product-pending-rev">' + pendRev + '</div>' : '') +
+            '</div>' +
+            '</div>'
+          );
+        }).join('');
+      }
+
+      function updateTopProductsFromCache() {
+        if (!lastStatsPayload || !lastStatsPayload.periods) return;
+        var p = lastStatsPayload.periods[currentProdPeriod];
+        if (currentProdPeriod === "range" && lastStatsPayload.range) {
+          p = lastStatsPayload.range;
+        }
+        var labels = {
+          hoje: "Hoje",
+          ontem: "Ontem",
+          d7: "Últimos 7 dias",
+          d30: "Últimos 30 dias",
+          total: "Total",
+        };
+        var lbl = labels[currentProdPeriod] || currentProdPeriod;
+        renderTopProducts(p ? p.ranking : [], lbl);
+      }
+
+      var prodPills = document.getElementById("prod-period-pills");
+      if (prodPills) {
+        prodPills.addEventListener("click", function (e) {
+          var btn = e.target.closest("[data-prod-period]");
+          if (!btn) return;
+          prodPills.querySelectorAll("button").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          currentProdPeriod = btn.getAttribute("data-prod-period");
+          updateTopProductsFromCache();
+        });
+      }
+
+      var perfPills = document.getElementById("perf-period-pills");
+      if (perfPills) {
+        perfPills.addEventListener("click", function (e) {
+          var btn = e.target.closest("[data-perf-days]");
+          if (!btn) return;
+          perfPills.querySelectorAll("button").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          loadPerformance(btn.getAttribute("data-perf-days"));
+        });
+      }
+
       function loadStats() {
         var qs = "";
         if (lastRange) qs = "?from=" + lastRange.from + "&to=" + lastRange.to;
@@ -2560,6 +2647,10 @@
 
             /* som + aviso quando cair um pagamento */
             checkNewPaid(d.recent_preview || d.recent || []);
+
+            /* Produtos Mais Vendidos */
+            lastStatsPayload = d;
+            updateTopProductsFromCache();
 
             document.getElementById("periods-grid").innerHTML =
               periodCard("Hoje", d.periods.hoje) +
