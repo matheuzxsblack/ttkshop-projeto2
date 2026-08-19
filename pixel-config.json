@@ -49,17 +49,10 @@
     "updatedAt": "2026-08-19T12:22:35.417Z"
   },
   "bobojaco": {
-    "pixels": [
-      {
-        "id": "D9MK4IRC77U26FTDMBN0",
-        "label": "Pixel 2",
-        "accessToken": "cee098a95bf21ca9d260ec8a7b3afe936e02aec1",
-        "enabled": true
-      }
-    ],
+    "pixels": [],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:25:57.588Z"
+    "updatedAt": "2026-08-19T12:25:57.907Z"
   },
   "roupao": {
     "pixels": [],
@@ -80,16 +73,9 @@
     "updatedAt": "2026-08-19T12:25:56.274Z"
   },
   "conjunto": {
-    "pixels": [
-      {
-        "id": "DA2N4LBC77UDVMNGDKIG",
-        "label": "Principal",
-        "accessToken": "3e4a551f409ddbcd910dbc022282cc923c8d458d",
-        "enabled": true
-      }
-    ],
+    "pixels": [],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T09:17:34.880Z"
+    "updatedAt": "2026-08-19T12:26:00.482Z"
   }
 }
