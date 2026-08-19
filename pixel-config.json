@@ -43,23 +43,10 @@
     "updatedAt": "2026-07-24T00:40:16.879Z"
   },
   "toalha": {
-    "pixels": [
-      {
-        "id": "DA1VB9RC77U9RA6QLQTG",
-        "label": "Pixel 16",
-        "accessToken": "a9fdfb69cba74e097e46bf791d3345ea5b05e0ca",
-        "enabled": true
-      },
-      {
-        "id": "DA1VVPRC77U9RA6QLRG0",
-        "label": "Pixel 17",
-        "accessToken": "c59e2a0f9597562ff8837d0fc729a9374a7c9e88",
-        "enabled": true
-      }
-    ],
+    "pixels": [],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:22:34.908Z"
+    "updatedAt": "2026-08-19T12:22:35.417Z"
   },
   "bobojaco": {
     "pixels": [
@@ -108,12 +95,6 @@
   "sabonete": {
     "pixels": [
       {
-        "id": "D9UKIB3C77U8CMCCG8T0",
-        "label": "Principal",
-        "accessToken": "3a4f83b972ebb4df7c41775bc0b18c60e03ecfb8",
-        "enabled": true
-      },
-      {
         "id": "DA2N3E3C77UBOQBAVKTG",
         "label": "Pixel 2",
         "accessToken": "a05ac9871aa1dfb804b3b4dd3e3ff197b296f48f",
@@ -122,7 +103,7 @@
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T09:17:16.282Z"
+    "updatedAt": "2026-08-19T12:22:37.416Z"
   },
   "conjunto": {
     "pixels": [
