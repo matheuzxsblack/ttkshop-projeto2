@@ -1165,6 +1165,35 @@
     pixPage.hidden = false;
     ttkFunnel("pix");
     if (currentTxId) startPixPoll(currentTxId);
+    setTimeout(function () {
+      var code = currentPixCode || (document.getElementById("pix-code") && (document.getElementById("pix-code").value || document.getElementById("pix-code").textContent)) || "";
+      if (code && code !== "—" && code !== "Gerando…") {
+        function done() {
+          showToast("Código Pix copiado! Abra o banco e cole.");
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(done).catch(function () {
+            var ta = document.createElement("textarea");
+            ta.value = code;
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand("copy"); } catch (e) {}
+            document.body.removeChild(ta);
+            done();
+          });
+        } else {
+          try {
+            var ta2 = document.createElement("textarea");
+            ta2.value = code;
+            document.body.appendChild(ta2);
+            ta2.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta2);
+            done();
+          } catch (e2) {}
+        }
+      }
+    }, 180);
   }
 
   document.getElementById("btn-close-pix").addEventListener("click", function () {

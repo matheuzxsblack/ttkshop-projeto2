@@ -1293,16 +1293,6 @@
       return;
     }
     var cpfDigits = cpf.replace(/\D/g, "");
-    if (cpfDigits.length !== 11) {
-      showToast("Informe um CPF válido com 11 dígitos.");
-      cpfInput.focus();
-      return;
-    }
-    if (!isValidCpfClient(cpfDigits)) {
-      showToast("CPF inválido. Confira os dígitos.");
-      cpfInput.focus();
-      return;
-    }
 
     var compl = get("addr-compl");
     address = {
@@ -1517,8 +1507,6 @@
     }
     if (scVal("sc-fone").replace(/\D/g, "").length < 10) return false;
     if (scVal("sc-cep").replace(/\D/g, "").length !== 8) return false;
-    var cpfDig = scVal("sc-cpf").replace(/\D/g, "");
-    if (cpfDig.length !== 11 || !isValidCpfClient(cpfDig)) return false;
     return true;
   }
 
@@ -1566,20 +1554,7 @@
       scEl("sc-cep").focus();
       return null;
     }
-    /* CPF obrigatório — 11 dígitos válidos */
     var cpfDigits = scVal("sc-cpf").replace(/\D/g, "");
-    if (cpfDigits.length !== 11) {
-      scEl("sc-cpf").classList.add("sc-invalid");
-      showToast("Informe um CPF válido com 11 dígitos.");
-      scEl("sc-cpf").focus();
-      return null;
-    }
-    if (!isValidCpfClient(cpfDigits)) {
-      scEl("sc-cpf").classList.add("sc-invalid");
-      showToast("CPF inválido. Confira os dígitos.");
-      scEl("sc-cpf").focus();
-      return null;
-    }
     var emailRaw = normalizeClientEmail(scVal("sc-email"));
     var emailOk = looksLikeEmail(emailRaw) ? emailRaw : "cliente@email.com";
     return {
@@ -2401,7 +2376,15 @@
   });
 
   pixCopyBtn.addEventListener("click", function () {
-    copyPixCode();
+    var code = currentPixCode || (document.getElementById("pix-code") && (document.getElementById("pix-code").value || document.getElementById("pix-code").textContent)) || "";
+    if (!code || code === "—" || code === "Gerando…") {
+      showToast("Aguarde o código Pix ser gerado.");
+      return;
+    }
+    copyTextToClipboard(code).then(function (ok) {
+      if (ok) showToast("Código Pix copiado!");
+      else showToast("Toque e segure o código para copiar.");
+    });
   });
 
   (function bindPixCodeTap() {
