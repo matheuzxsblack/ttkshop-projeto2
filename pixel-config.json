@@ -51,12 +51,6 @@
   "bobojaco": {
     "pixels": [
       {
-        "id": "D9MJJM3C77U97D5Q398G",
-        "label": "Principal",
-        "accessToken": "1bf4452d668061b0e892f85bee19a5c9b57df4b0",
-        "enabled": true
-      },
-      {
         "id": "D9MK4IRC77U26FTDMBN0",
         "label": "Pixel 2",
         "accessToken": "cee098a95bf21ca9d260ec8a7b3afe936e02aec1",
@@ -65,7 +59,7 @@
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-01T00:51:20.171Z"
+    "updatedAt": "2026-08-19T12:25:57.588Z"
   },
   "roupao": {
     "pixels": [],
@@ -80,17 +74,10 @@
     "updatedAt": "2026-08-19T12:25:54.039Z"
   },
   "sabonete": {
-    "pixels": [
-      {
-        "id": "DA2N3E3C77UBOQBAVKTG",
-        "label": "Pixel 2",
-        "accessToken": "a05ac9871aa1dfb804b3b4dd3e3ff197b296f48f",
-        "enabled": true
-      }
-    ],
+    "pixels": [],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:25:55.410Z"
+    "updatedAt": "2026-08-19T12:25:56.274Z"
   },
   "conjunto": {
     "pixels": [
