@@ -347,7 +347,7 @@
   var cartItemsEl = document.getElementById("cart-items");
   var cartItems = []; /* { label, img, qty, price, extra } */
   var editingIndex = null; /* item do carrinho em troca de variante */
-  var PRICE = 34.99;
+  var PRICE = 44.12;
   var OLD_PRICE = 109.9;
   var EXTRA_PRICE = 29.87;
   var EXTRA_IMGS = [
@@ -1334,7 +1334,7 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.assign({
         amount: cents,
-        origem: SIMULATE_MODE ? "simular" : "jaqueta-ttkshop",
+        origem: SIMULATE_MODE ? "simular" : "conjunto-ttkshop",
         simulate: SIMULATE_MODE ? true : false,
         attribution_pixel_id: attrPixel,
         utm_source: utm.utm_source || (SIMULATE_MODE ? "simular" : ""),
@@ -1358,7 +1358,7 @@
           complemento: address.compl || "",
         },
         items_detail: cartItems.map(function (it) {
-          return { variante: "Jaqueta " + it.label, qtd: it.qty };
+          return { variante: "Conjunto Alfaiataria " + it.label, qtd: it.qty };
         }),
       }, typeof window.ttkFunnelPixMeta === "function" ? window.ttkFunnelPixMeta() : {})),
     }).then(function (r) {
@@ -1436,7 +1436,7 @@
   }
 
   function sucItemHtml(item) {
-    var title = item.extra ? "Cor surpresa — Jaqueta Puffer Premium" : "Jaqueta Feminina Puffer Forrada Impermeável Inverno";
+    var title = item.extra ? "Cor surpresa — Conjunto Alfaiataria" : "Conjunto Feminino Alfaiataria Blusa Blazer e Calça Pantalona";
     return (
       '<div class="suc-item">' +
       '<img src="' + item.img + '" alt="Produto" />' +
@@ -1532,9 +1532,9 @@
       purchasePixelFired = true;
       var contents = (order.items || []).map(function (it, i) {
         return {
-          content_id: "jaqueta-" + String(it.label || i).replace(/\s+/g, "-").toLowerCase(),
+          content_id: "conjunto-" + String(it.label || i).replace(/\s+/g, "-").toLowerCase(),
           content_type: "product",
-          content_name: it.extra ? "Cor surpresa — Jaqueta" : "Jaqueta " + (it.label || ""),
+          content_name: it.extra ? "Cor surpresa — Conjunto" : "Conjunto Alfaiataria " + (it.label || ""),
           quantity: Number(it.qty) || 1,
           price: Number(it.price) || 0,
         };
@@ -1543,7 +1543,7 @@
       var payload = {
         contents: contents.length
           ? contents
-          : [{ content_id: "jaqueta", content_type: "product", content_name: "Jaqueta", quantity: 1, price: value }],
+          : [{ content_id: "conjunto", content_type: "product", content_name: "Conjunto Alfaiataria", quantity: 1, price: value }],
         content_type: "product",
         currency: "BRL",
         value: value,
