@@ -40,6 +40,45 @@
       },
       "createdAt": "2026-08-18T07:25:30.039Z",
       "updatedAt": "2026-08-18T10:38:19.394Z"
+    },
+    {
+      "id": "cp_92286fed",
+      "name": "roupao",
+      "slug": "roupao",
+      "token": "66901da59d",
+      "tokenEnabled": true,
+      "source": "tiktok",
+      "domain": "*",
+      "entryStore": "sabonete",
+      "enabled": true,
+      "safe": {
+        "method": "redirect",
+        "url": ""
+      },
+      "offer": {
+        "method": "internal",
+        "type": "single",
+        "urls": [
+          "/sabonete/"
+        ]
+      },
+      "targeting": {
+        "device": "all",
+        "countryMode": "off",
+        "countries": []
+      },
+      "filters": {
+        "botUa": true,
+        "automation": true,
+        "softwareGl": true,
+        "desktopLike": true,
+        "datacenterIp": true,
+        "proxy": true,
+        "tor": false,
+        "ttclidBypass": true
+      },
+      "createdAt": "2026-08-19T08:54:17.382Z",
+      "updatedAt": "2026-08-19T08:54:17.382Z"
     }
   ]
 }
