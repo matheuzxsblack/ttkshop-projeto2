@@ -74,23 +74,10 @@
     "updatedAt": "2026-08-19T12:22:29.879Z"
   },
   "teddy": {
-    "pixels": [
-      {
-        "id": "D9MJL4RC77U97D5Q39BG",
-        "label": "Principal",
-        "accessToken": "89d1c70bd14bc370dcd6b135c9d1e0d67db18743",
-        "enabled": true
-      },
-      {
-        "id": "D9MK50RC77U26FTDMBO0",
-        "label": "Pixel 2",
-        "accessToken": "3add95af42d4aaec8cdf25e735539c46b98077ae",
-        "enabled": true
-      }
-    ],
+    "pixels": [],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-01T00:51:07.499Z"
+    "updatedAt": "2026-08-19T12:25:53.495Z"
   },
   "sabonete": {
     "pixels": [
