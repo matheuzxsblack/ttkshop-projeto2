@@ -23,17 +23,15 @@ services:
       - key: GITHUB_BRANCH
         value: main
       - key: SITE_BASE
-        value: https://mundodasmulheres.net
+        value: https://mundodasgarotas.com
       - key: TRACKING_SITE_BASE
-        value: https://mundodasmulheres.net
+        value: https://mundodasgarotas.com
       - key: STOREFRONT_BASE
-        value: https://ofertasdemulher.vercel.app
+        value: https://mundodasgarotas.com
+      - key: PUBLIC_BASE
+        value: https://ttkshop-projeto2.onrender.com
       - key: PAYMENT_GATEWAY
-        value: ironpay
-      - key: IRONPAY_PRODUCT_HASH
-        value: f0fcpf7c43
-      - key: IRONPAY_OFFER_HASH
-        value: fvsvs
+        value: purincash
       - key: ADMIN_USER
         value: admin
       - key: IRONPAY_API_TOKEN

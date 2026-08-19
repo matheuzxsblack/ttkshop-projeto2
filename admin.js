@@ -7,11 +7,12 @@
           var h = String(location.hostname || "").toLowerCase();
           if (h === "localhost" || h === "127.0.0.1") return "";
           if (h.endsWith(".onrender.com")) return "";
+          if (h === "mundodasgarotas.com" || h.indexOf("mundodasgarotas") !== -1) return "";
           var fromCfg = String((window.TTK_RENDER_API || "")).replace(/\/$/, "");
           if (fromCfg) return fromCfg;
-          if (/\.vercel\.app$/.test(h)) return "https://ttkshop-panelas-9e6w.onrender.com";
+          if (/\.vercel\.app$/.test(h)) return "https://ttkshop-projeto2.onrender.com";
         } catch (e) {}
-        return "https://ttkshop-panelas-9e6w.onrender.com";
+        return "https://ttkshop-projeto2.onrender.com";
       })();
       var _fetch = window.fetch.bind(window);
       window.fetch = function (input, init) {

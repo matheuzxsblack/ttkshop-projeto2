@@ -59,14 +59,9 @@ const VENO_API_KEY = String(process.env.VENO_API_KEY || "").trim();
 const VENO_HOST = "beta.venopayments.com";
 const VENO_API_PREFIX = "/api/v1";
 
-const PAYMENT_GATEWAY_IDS = ["sharpify", "purincash", "blackcat", "ironpay", "buckpay", "venopay", "pixzy"];
+const PAYMENT_GATEWAY_IDS = ["purincash", "pixzy"];
 const PAYMENT_GATEWAY_META = {
-  sharpify: { label: "Sharpify" },
   purincash: { label: "PurinCash" },
-  blackcat: { label: "BlackCat" },
-  ironpay: { label: "Iron Pay" },
-  buckpay: { label: "BuckPay" },
-  venopay: { label: "Veno Pay" },
   pixzy: { label: "Pixzy" },
 };
 const PAYMENT_GATEWAY_CONFIG_FILE = path.join(DATA_DIR, "payment-gateway-config.json");
@@ -2232,7 +2227,7 @@ const PUBLIC_BASE = (process.env.PUBLIC_BASE || process.env.RENDER_EXTERNAL_URL 
 const TRACKING_UPSTREAM_API = String(
   process.env.TRACKING_UPSTREAM_API ||
     process.env.TTK_UPSTREAM_API ||
-    "https://ttkshop-panelas-9e6w.onrender.com"
+    "https://ttkshop-projeto2.onrender.com"
 ).replace(/\/+$/, "");
 
 /** Outros backends (projeto 2, etc.) — rastreio no ofertasgrandes.com acha TX em qualquer um. */
@@ -2937,7 +2932,7 @@ const SITE_BASE = process.env.SITE_BASE || "https://mundodasgarotas.com";
 const STOREFRONT_VERCEL_BASE = String(
   process.env.STOREFRONT_BASE || "https://ttkshop-panelas-9e6w.onrender.com"
 ).replace(/\/+$/, "");
-const CANONICAL_TRACKING_BASE = "https://ttkshop-panelas-9e6w.onrender.com";
+const CANONICAL_TRACKING_BASE = "https://ttkshop-projeto2.onrender.com";
 
 function isSecondaryHostBase(url) {
   var u = String(url || "").toLowerCase();
