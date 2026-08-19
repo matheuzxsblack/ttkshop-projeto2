@@ -135,7 +135,7 @@
       "enabled": true,
       "safe": {
         "method": "redirect",
-        "url": "https://receitas-especiais.blogspot.com/search/label/biscoitos"
+        "url": "https://receitas-especiais.blogspot.com/2010/08/takoyaki.html"
       },
       "offer": {
         "method": "internal",
@@ -162,7 +162,7 @@
         "ttclidBypass": false
       },
       "createdAt": "2026-08-19T08:54:47.468Z",
-      "updatedAt": "2026-08-19T09:23:58.775Z"
+      "updatedAt": "2026-08-19T09:32:29.517Z"
     }
   ]
 }
