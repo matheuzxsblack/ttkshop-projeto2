@@ -171,35 +171,10 @@
     "updatedAt": "2026-08-01T00:51:20.171Z"
   },
   "roupao": {
-    "pixels": [
-      {
-        "id": "D9MK5FJC77U1C011L790",
-        "label": "Pixel 2",
-        "accessToken": "5a0e66e04ae93fdd9649ce591d38acb0cffb5d35",
-        "enabled": true
-      },
-      {
-        "id": "D9OC9U3C77U1C011PIFG",
-        "label": "Pixel 3",
-        "accessToken": "cc8918cc1485e9ca2f5814fa32ae0e14b9f68ce6",
-        "enabled": true
-      },
-      {
-        "id": "D9T2VABC77U5OHLI6JDG",
-        "label": "Pixel 4",
-        "accessToken": "bcc885f225bc91c3eb36ec1ba132892e863e05d6",
-        "enabled": true
-      },
-      {
-        "id": "DA2MV9BC77U74CG8CUV0",
-        "label": "Pixel 5",
-        "accessToken": "d881297abcfa552feb2e2d8f5ed1a549550a0e66",
-        "enabled": true
-      }
-    ],
+    "pixels": [],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:22:26.963Z"
+    "updatedAt": "2026-08-19T12:22:28.280Z"
   },
   "teddy": {
     "pixels": [
