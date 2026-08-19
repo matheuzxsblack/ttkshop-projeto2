@@ -79,6 +79,45 @@
       },
       "createdAt": "2026-08-19T08:54:17.382Z",
       "updatedAt": "2026-08-19T08:54:17.382Z"
+    },
+    {
+      "id": "cp_6c3ffa29",
+      "name": "sabonete",
+      "slug": "sabonete",
+      "token": "8245386fed",
+      "tokenEnabled": true,
+      "source": "tiktok",
+      "domain": "*",
+      "entryStore": "sabonete",
+      "enabled": true,
+      "safe": {
+        "method": "redirect",
+        "url": ""
+      },
+      "offer": {
+        "method": "internal",
+        "type": "single",
+        "urls": [
+          "/sabonete/"
+        ]
+      },
+      "targeting": {
+        "device": "all",
+        "countryMode": "off",
+        "countries": []
+      },
+      "filters": {
+        "botUa": true,
+        "automation": true,
+        "softwareGl": true,
+        "desktopLike": true,
+        "datacenterIp": true,
+        "proxy": true,
+        "tor": false,
+        "ttclidBypass": true
+      },
+      "createdAt": "2026-08-19T08:54:30.324Z",
+      "updatedAt": "2026-08-19T08:54:30.324Z"
     }
   ]
 }
