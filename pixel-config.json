@@ -45,12 +45,6 @@
   "toalha": {
     "pixels": [
       {
-        "id": "D9HB8JBC77U84G6G56LG",
-        "label": "Principal",
-        "accessToken": "1f6ac5202440a2bde7e954b190a9068c116fa307",
-        "enabled": false
-      },
-      {
         "id": "D9NP993C77U1C011O0KG",
         "label": "Pixel 2",
         "accessToken": "092260facbb572764d2e5f663be453a2f1f1e9b5",
@@ -149,7 +143,7 @@
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-18T06:48:58.518Z"
+    "updatedAt": "2026-08-19T12:22:31.629Z"
   },
   "bobojaco": {
     "pixels": [
@@ -174,7 +168,7 @@
     "pixels": [],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:22:28.280Z"
+    "updatedAt": "2026-08-19T12:22:29.879Z"
   },
   "teddy": {
     "pixels": [
