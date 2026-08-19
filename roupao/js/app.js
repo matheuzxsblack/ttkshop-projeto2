@@ -79,7 +79,7 @@
         return window.TTK_RENDER_API.replace(/\/+$/, "");
       }
     } catch (e) {}
-    return "https://ttkshop-projeto2.onrender.com";
+    return "https://ttkshop-panelas-9e6w.onrender.com";
   })();
   function apiUrl(path) {
     return API_BASE + path;
@@ -347,7 +347,7 @@
   var cartItemsEl = document.getElementById("cart-items");
   var cartItems = []; /* { label, img, qty, price, extra } */
   var editingIndex = null; /* item do carrinho em troca de variante */
-  var PRICE = 29.68;
+  var PRICE = 34.91;
   var OLD_PRICE = 86.50;
   var EXTRA_PRICE = 21.10;
   var EXTRA_IMGS = [
@@ -417,7 +417,7 @@
       : '<button class="cart-variant" type="button" data-vi="' + i + '"><span>' + item.label + "</span> " + CHEV_DOWN_SVG + "</button>";
     var oldRow = item.extra
       ? ""
-      : '<p class="cart-old-row"><span class="price-old">R$ 109,90</span> <span class="cart-off">-68%</span></p>';
+      : '<p class="cart-old-row"><span class="price-old">R$ 86,50</span> <span class="cart-off">-60%</span></p>';
     return (
       '<div class="cart-item">' +
       '<span class="cart-check checked" aria-hidden="true"></span>' +
@@ -685,7 +685,7 @@
   function coItemHtml(item, i) {
     var oldRow = item.extra
       ? ""
-      : '<p class="co-item-old"><span class="price-old">R$ 109,90</span> <span class="cart-off">-68%</span></p>';
+      : '<p class="co-item-old"><span class="price-old">R$ 86,50</span> <span class="cart-off">-60%</span></p>';
     return (
       '<div class="co-item">' +
       '<img class="co-item-img" src="' + item.img + '" alt="Produto" />' +
@@ -992,7 +992,7 @@
     var title = item.extra ? "Cor surpresa — Roupão Plush" : "Roupão Microfibra Plush";
     var oldRow = item.extra
       ? ""
-      : '<span class="sc-item-old">R$ 109,90</span> <span class="sc-item-off">-68%</span>';
+      : '<span class="sc-item-old">R$ 86,50</span> <span class="sc-item-off">-60%</span>';
     return (
       '<div class="sc-item">' +
       '<img class="sc-item-img" src="' + item.img + '" alt="Produto" />' +

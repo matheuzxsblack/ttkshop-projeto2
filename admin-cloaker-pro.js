@@ -477,7 +477,8 @@
       { val: 'roupao', label: 'Roupão plush' },
       { val: 'teddy', label: 'Casaquinho Teddy' },
       { val: 'sabonete', label: 'Kit Sabonete' },
-      { val: 'panelas', label: 'Panelas' }
+      { val: 'panelas', label: 'Panelas' },
+      { val: 'conjunto', label: 'Conjunto Alfaiataria' }
     ];
     stores.forEach(function (s) {
       html += '<option value="' + s.val + '"' + (c.entryStore === s.val ? ' selected' : '') + '>' + s.label + '</option>';

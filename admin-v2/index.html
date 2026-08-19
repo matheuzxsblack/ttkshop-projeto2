@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin v2 — Ofertas De Mulher</title>
+  <link rel="icon" href="/images/favicon.png?v=20260812ofertasdemulher" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <!-- LOGIN -->
+  <div class="login-screen" id="login-screen">
+    <form class="login-card" id="login-form">
+      <div class="brand">Ofertas De Mulher</div>
+      <p class="login-sub">Painel administrativo v2</p>
+      <label for="login-user">Usuário</label>
+      <input type="text" id="login-user" autocomplete="username" required />
+      <label for="login-pass">Senha</label>
+      <input type="password" id="login-pass" autocomplete="current-password" required />
+      <button class="btn-login" type="submit" id="btn-login">Entrar</button>
+      <p class="login-err" id="login-err"></p>
+      <p class="login-hint">Acesse com seu usuário e senha de admin.</p>
+    </form>
+  </div>
+
+  <!-- APP SHELL -->
+  <div class="app" id="panel">
+    <div class="side-backdrop" id="side-backdrop"></div>
+    <aside class="sidebar">
+      <div class="side-brand">Ofertas De Mulher<small>ADMIN v2</small></div>
+      <nav class="side-nav" id="side-nav">
+        <button class="side-link active" type="button" data-page="overview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 13h7V4H4v9zm0 7h7v-5H4v5zm9 0h7V11h-7v9zm0-16v5h7V4h-7z" fill="currentColor"/></svg>
+          Visão geral
+        </button>
+        <button class="side-link" type="button" data-page="funnel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 19V5h2v14H4zm5 0V9h2v10H9zm5 0V3h2v16h-2zm5 0v-8h2v8h-2z" fill="currentColor"/></svg>
+          Funil / Logs
+        </button>
+        <button class="side-link" type="button" data-page="sales">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h12v2H3v-2z" fill="currentColor"/></svg>
+          Vendas Pixzy
+        </button>
+        <button class="side-link" type="button" data-page="stores" id="nav-stores">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 10V7a1 1 0 011-1h14a1 1 0 011 1v3M4 10h16v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8z" stroke="currentColor" stroke-width="2"/><path d="M9 10V6M15 10V6" stroke="currentColor" stroke-width="2"/></svg>
+          Lojas
+        </button>
+        <button class="side-link" type="button" data-page="emails">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1zm8 6l8-5H4l8 5z" fill="currentColor"/></svg>
+          E-mails
+        </button>
+        <button class="side-link" type="button" data-page="checkout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 4h10l1 4H6l1-4zm-1 6h12l-1.2 9H6.8L6 10zm3 2v5h2v-5H9zm4 0v5h2v-5h-2z" fill="currentColor"/></svg>
+          Checkout
+        </button>
+        <button class="side-link" type="button" data-page="gateway">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v2H4V7zm0 5h10v2H4v-2zm0 5h16v2H4v-2z" fill="currentColor"/><rect x="16" y="14" width="4" height="4" rx="1" fill="currentColor"/></svg>
+          Gateway PIX
+        </button>
+        <button class="side-link" type="button" data-page="pixels" id="nav-pixels">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+          Pixels
+        </button>
+        <button class="side-link" type="button" data-page="roi">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          ROI
+        </button>
+        <button class="side-link" type="button" data-page="performance">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 19V9h4v10H4zm6 0V5h4v14h-4zm6 0v-7h4v7h-4z" fill="currentColor"/></svg>
+          Performance
+        </button>
+        <button class="side-link" type="button" data-page="reconcile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h11M4 12h16M4 17h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          Reconciliação
+        </button>
+      </nav>
+      <div class="side-foot">
+        <div class="who" id="who"></div>
+        <button class="btn-top" type="button" id="btn-logout" style="width:100%">Sair</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="top">
+        <button class="btn-menu" type="button" id="btn-menu" aria-label="Menu">☰</button>
+        <h1 id="page-title">Visão geral</h1>
+        <span class="spacer"></span>
+        <span class="updated" id="updated"></span>
+        <button class="btn-top" type="button" id="btn-csv">CSV</button>
+      </header>
+
+      <div class="content">
+        <!-- OVERVIEW -->
+        <section class="page active" id="page-overview">
+          <p class="page-desc">Saldo geral soma Pixzy (legado) + vendas pagas no gateway PIX ativo.</p>
+          <div class="stats" id="overview-stats">
+            <div class="stat online stat-clickable" id="c-online-stat">
+              <div class="l"><span class="pulse"></span> Online agora</div>
+              <div class="n" id="c-online">—</div>
+              <div class="h">visitantes no site</div>
+            </div>
+            <div class="stat saldo">
+              <div class="l" id="c-saldo-label">Saldo Pixzy</div>
+              <div class="n" id="c-saldo">—</div>
+              <div class="h" id="c-saldo-h">disponível na conta</div>
+            </div>
+            <div class="stat pend">
+              <div class="l">Pendentes</div>
+              <div class="n" id="c-pend-val">—</div>
+              <div class="h" id="c-pend-qtd">aguardando pagamento</div>
+            </div>
+            <div class="stat brt">
+              <div class="l">Bruto total</div>
+              <div class="n" id="c-bruto">—</div>
+              <div class="h" id="c-bruto-s">vendas aprovadas</div>
+            </div>
+            <div class="stat liq">
+              <div class="l">Líquido total</div>
+              <div class="n" id="c-liq">—</div>
+              <div class="h">após taxas</div>
+            </div>
+            <div class="stat">
+              <div class="l">Conversão</div>
+              <div class="n" id="c-conv">—</div>
+              <div class="h">pagos / gerados</div>
+            </div>
+            <div class="stat">
+              <div class="l">Ticket médio</div>
+              <div class="n" id="c-ticket">—</div>
+              <div class="h">por venda paga</div>
+            </div>
+          </div>
+          <div class="panel" id="online-pages-panel">
+            <div class="panel-h">
+              <h2>Onde estão agora</h2>
+              <span id="online-split-counts">—</span>
+            </div>
+            <p class="online-split-h">Loja (destino certo)</p>
+            <ul class="online-pages-list" id="online-pages-store">
+              <li class="op-empty">Ninguém na vitrine</li>
+            </ul>
+            <p class="online-split-h">Cloaker (/compra)</p>
+            <ul class="online-pages-list" id="online-pages-cloaker">
+              <li class="op-empty">Ninguém no cloaker</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Últimos 7 dias</h2><span>vendas aprovadas</span></div>
+            <div class="chart" id="chart"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Por período</h2><span>bruto / líquido</span></div>
+            <div class="grid-cards" id="periods-grid"></div>
+          </div>
+          <div class="panel" id="range-result-panel" hidden>
+            <div class="panel-h"><h2>Filtro personalizado</h2><button class="btn btn-ghost btn-sm" type="button" id="btn-range-clear-2">Limpar</button></div>
+            <div id="range-result" style="padding:8px 0;font-size:14px"></div>
+          </div>
+        </section>
+
+        <!-- FUNNEL -->
+        <section class="page" id="page-funnel">
+          <p class="page-desc">Visitas reais por loja. Sessões únicas — não inclui bots.</p>
+          <div class="filters" style="margin-bottom:12px">
+            <div>
+              <label>Loja</label>
+              <select id="funnel-store">
+                <option value="all" selected>Todas as lojas</option>
+              </select>
+            </div>
+            <div>
+              <label>Período</label>
+              <select id="funnel-days">
+                <option value="1">Hoje (24h rolling)</option>
+                <option value="7" selected>Últimos 7 dias</option>
+                <option value="30">Últimos 30 dias</option>
+              </select>
+            </div>
+            <div style="align-self:flex-end">
+              <button class="btn-top" type="button" id="btn-funnel-refresh">Atualizar</button>
+            </div>
+          </div>
+          <div class="stats" id="funnel-stats">
+            <div class="stat"><div class="l">Sessões</div><div class="n" id="fn-sessions">—</div></div>
+            <div class="stat"><div class="l">Viram produto</div><div class="n" id="fn-product">—</div><div class="h stat-clickable" id="fn-product-stat" style="cursor:pointer;text-decoration:underline">ver quem</div></div>
+            <div class="stat"><div class="l">Foram ao checkout</div><div class="n" id="fn-checkout">—</div></div>
+            <div class="stat"><div class="l">Geraram Pix</div><div class="n" id="fn-pix">—</div></div>
+            <div class="stat"><div class="l">Pagaram</div><div class="n" id="fn-success">—</div></div>
+            <div class="stat"><div class="l">Só saíram</div><div class="n" id="fn-bounce">—</div></div>
+            <div class="stat"><div class="l">Só produto</div><div class="n" id="fn-product-only">—</div></div>
+            <div class="stat"><div class="l">Abandono checkout</div><div class="n" id="fn-co-abandon">—</div></div>
+            <div class="stat"><div class="l">Abandono Pix</div><div class="n" id="fn-pix-abandon">—</div></div>
+            <div class="stat"><div class="l">Cloak hit</div><div class="n" id="fn-cloak-hit">—</div></div>
+            <div class="stat"><div class="l">Cloak pass</div><div class="n" id="fn-cloak-pass">—</div></div>
+          </div>
+          <div class="panel" id="funnel-product-visitors-panel" hidden>
+            <div class="panel-h"><h2>Quem viu produto</h2><span>últimas sessões</span></div>
+            <div style="overflow:auto;max-height:480px">
+              <table class="sales-table">
+                <thead><tr><th>Última atividade</th><th>Loja</th><th>Host</th><th>Produto / loja</th><th>Resultado</th></tr></thead>
+                <tbody id="funnel-product-visitors-body"><tr><td colspan="5">Clique em «ver quem» acima</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel" id="funnel-by-store-panel">
+            <div class="panel-h"><h2>Por loja</h2><span>totais no período</span></div>
+            <table class="sales-table">
+              <thead><tr><th>Loja</th><th>Visitas</th><th>Produto</th><th>Checkout</th><th>Pagou</th><th>Só saiu</th></tr></thead>
+              <tbody id="funnel-by-store-body"><tr><td colspan="6">—</td></tr></tbody>
+            </table>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Resumo por resultado</h2></div>
+            <table class="sales-table">
+              <thead><tr><th>Resultado</th><th>Quantidade</th><th>% das visitas</th></tr></thead>
+              <tbody id="funnel-outcome-body"><tr><td colspan="3">Carregando…</td></tr></tbody>
+            </table>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Por domínio</h2></div>
+            <table class="sales-table">
+              <thead><tr><th>Host</th><th>Visitas</th><th>Produto</th><th>Checkout</th><th>Pagou</th></tr></thead>
+              <tbody id="funnel-host-body"><tr><td colspan="5">Carregando…</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SALES -->
+        <section class="page" id="page-sales">
+          <p class="page-desc">Lista completa no servidor — pendentes não são cortados.</p>
+          <div class="panel">
+            <div class="panel-h"><h2>Filtrar</h2></div>
+            <div class="range" style="align-items:flex-end;flex-wrap:wrap;gap:10px">
+              <div>
+                <label for="tx-filter-status">Status</label>
+                <select id="tx-filter-status" style="min-width:160px">
+                  <option value="pending">Pendentes</option>
+                  <option value="paid">Pagos</option>
+                  <option value="all">Todos</option>
+                </select>
+              </div>
+              <div style="flex:1;min-width:180px">
+                <label for="tx-search">Buscar</label>
+                <input type="search" id="tx-search" placeholder="nome, e-mail, telefone, ID…" autocomplete="off" />
+              </div>
+              <div><label for="dt-from">De</label><input type="date" id="dt-from" /></div>
+              <div><label for="dt-to">Até</label><input type="date" id="dt-to" /></div>
+              <button class="btn btn-primary" type="button" id="btn-tx-apply">Aplicar</button>
+              <button class="btn btn-ghost" type="button" id="btn-range-clear">Limpar</button>
+              <button class="btn btn-ghost" type="button" id="btn-tx-reload">Atualizar</button>
+              <div id="range-result" style="color:var(--muted);font-size:13px;flex:1 1 100%"></div>
+            </div>
+          </div>
+          <div class="panel" style="padding:0;overflow:hidden">
+            <div class="panel-h" style="padding:16px 16px 0"><h2>Vendas</h2><span id="tx-list-meta">—</span></div>
+            <div class="tbl-wrap" style="border:0;border-radius:0;max-height:70vh;overflow:auto">
+              <table id="tx-table">
+                <thead><tr><th>Data</th><th>Cliente</th><th>Valor</th><th>Líquido</th><th>Status</th><th>GW</th><th>X1</th><th></th></tr></thead>
+                <tbody id="tx-body"></tbody>
+              </table>
+              <div class="empty" id="tx-empty" hidden>Nenhuma venda neste filtro.</div>
+            </div>
+            <div style="padding:12px 16px;text-align:center">
+              <button class="btn btn-ghost" type="button" id="btn-tx-more" hidden>Carregar mais</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- STORES -->
+        <section class="page" id="page-stores">
+          <p class="page-desc">Gerencie suas lojas. Crie novas, edite configurações e gerencie produtos.</p>
+          <div class="panel">
+            <div class="panel-h">
+              <h2>Minhas lojas</h2>
+              <button class="btn btn-accent" type="button" id="btn-create-store">+ Criar loja</button>
+            </div>
+            <div class="stores-grid" id="stores-grid">
+              <div class="empty">Carregando lojas…</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EMAILS -->
+        <section class="page" id="page-emails">
+          <p class="page-desc">O sistema já envia sozinho. Use esta página só se algo falhar.</p>
+          <div class="panel">
+            <div class="panel-h"><h2>O que já roda sozinho</h2><span>não precisa clicar em nada</span></div>
+            <ul class="auto-list">
+              <li><b>Cliente pagou o Pix</b> → e-mail de confirmação + código de rastreio</li>
+              <li><b>Gerou Pix e não pagou</b> → lembrete automático em <b>5 minutos</b></li>
+              <li><b>Ainda não pagou</b> → segundo lembrete em <b>30 minutos</b> (marca X1)</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Só se der erro</h2><span>reenvio manual (opcional)</span></div>
+            <p class="manual-note">Se o e-mail automático não chegou, digite o e-mail do cliente e reenvie na mão.</p>
+            <label for="em-email">E-mail do cliente</label>
+            <input type="email" id="em-email" placeholder="cliente@gmail.com" autocomplete="off" />
+            <div class="actions">
+              <button class="btn btn-accent" type="button" id="btn-em-send">Reenviar e-mail do pedido</button>
+              <button class="btn btn-ghost" type="button" id="btn-em-remind-5">Reenviar lembrete 5 min</button>
+              <button class="btn btn-ghost" type="button" id="btn-em-remind-30">Reenviar lembrete 30 min</button>
+            </div>
+            <p class="pixel-status" id="em-status"></p>
+            <div id="em-manual" hidden>
+              <p class="pixel-status" style="color:var(--orange);margin-top:14px">Sem compra neste e-mail — preencha os dados:</p>
+              <div class="em-grid">
+                <div><label>Nome</label><input type="text" id="em-nome" /></div>
+                <div><label>CPF</label><input type="text" id="em-cpf" /></div>
+                <div><label>Telefone</label><input type="text" id="em-fone" /></div>
+                <div><label>Produto</label><input type="text" id="em-produto" /></div>
+                <div><label>Qtd</label><input type="text" id="em-qtd" value="1" /></div>
+                <div><label>Valor (R$)</label><input type="text" id="em-valor" /></div>
+                <div><label>CEP</label><input type="text" id="em-cep" /></div>
+                <div><label>Rua</label><input type="text" id="em-rua" /></div>
+                <div><label>Número</label><input type="text" id="em-numero" /></div>
+                <div><label>Complemento</label><input type="text" id="em-compl" /></div>
+                <div><label>Bairro</label><input type="text" id="em-bairro" /></div>
+                <div><label>Cidade</label><input type="text" id="em-cidade" /></div>
+                <div><label>UF</label><input type="text" id="em-uf" /></div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-accent" type="button" id="btn-em-send-manual">Enviar com esses dados</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- GATEWAY PIX -->
+        <section class="page" id="page-gateway">
+          <p class="page-desc">Escolha qual gateway gera o Pix nas lojas. Vale na hora — não precisa redeploy.</p>
+          <div class="panel">
+            <div class="panel-h"><h2>Gateway ativo</h2><span id="gw-active-badge">—</span></div>
+            <div class="gw-grid" id="gw-options"></div>
+            <p class="pixel-status" id="gw-status"></p>
+          </div>
+        </section>
+
+        <!-- CHECKOUT -->
+        <section class="page" id="page-checkout">
+          <p class="page-desc">Troque o checkout da loja (completo multi-etapas ou simplificado).</p>
+          <div class="panel">
+            <div class="panel-h"><h2>Modo de checkout</h2></div>
+            <div class="ck-list" id="ck-list"></div>
+            <p class="pixel-status" id="ck-status"></p>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Cloaker</h2><span>/n7* — bot / PC / IA</span></div>
+            <div class="ck-list" id="cloak-list"></div>
+            <p class="pixel-status" id="cloak-status"></p>
+          </div>
+        </section>
+
+        <!-- PIXELS -->
+        <section class="page" id="page-pixels">
+          <div id="pixel-section">
+            <p class="page-desc">Pixels Ofertas De Mulher por loja</p>
+            <div class="panel">
+              <label for="px-store">Loja</label>
+              <select id="px-store"></select>
+              <div class="px-list" id="px-list"></div>
+              <div class="pixel-actions">
+                <button class="btn-save-pixel" type="button" id="btn-px-add">+ Pixel</button>
+                <button class="btn-save-pixel" type="button" id="btn-px-save">Salvar</button>
+                <button class="btn-pixel" type="button" id="btn-px-fire">Disparar eventos</button>
+                <button class="btn-pixel" type="button" id="btn-px-warm">🔥 Aquecer Purchase</button>
+              </div>
+              <div style="margin-top:12px;display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
+                <div style="flex:1;min-width:200px">
+                  <label for="px-fire-target" style="margin:0 0 6px;font-size:13px;color:var(--muted)">Qual pixel disparar</label>
+                  <select id="px-fire-target" style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card-2);color:var(--text)">
+                    <option value="">Todos os pixels ativos</option>
+                  </select>
+                </div>
+                <div style="width:120px">
+                  <label for="px-warm-n" style="margin:0 0 6px;font-size:13px;color:var(--muted)">Qtd aquecimento</label>
+                  <input type="number" id="px-warm-n" value="1000" min="1" max="50000" style="width:100%" />
+                </div>
+              </div>
+              <div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+                <div style="flex:1;min-width:200px">
+                  <label for="px-test-code" style="margin:0 0 6px;font-size:13px;color:var(--muted)">Test Event Code (opcional)</label>
+                  <input type="text" id="px-test-code" placeholder="Ex.: TEST12345" style="width:100%" />
+                </div>
+                <label style="display:inline-flex;align-items:center;gap:6px;margin:0;font-size:13px;white-space:nowrap">
+                  <input type="checkbox" id="px-test-enabled" /> Ativar Test Event Code neste pixel
+                </label>
+              </div>
+              <p class="pixel-status" id="px-meta"></p>
+              <p style="margin-top:8px"><a id="px-pago-link" href="#" target="_blank" style="font-size:13px">Abrir /pago/ (Purchase na hora) →</a></p>
+              <div class="pixel-log" id="px-log">Adicione pixels, salve e dispare.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ROI -->
+        <section class="page" id="page-roi">
+          <p class="page-desc">Coloque quanto gastou de anúncio em cada loja por dia.</p>
+          <div class="roi-filters" id="roi-filters">
+            <button class="btn btn-ghost" type="button" data-roi-days="1">Hoje</button>
+            <button class="btn btn-ghost active" type="button" data-roi-days="7">7 dias</button>
+            <button class="btn btn-ghost" type="button" data-roi-days="30">30 dias</button>
+          </div>
+          <div class="stats" id="roi-summary">
+            <div class="stat"><div class="l">Gasto total</div><div class="n" id="roi-sum-spend">—</div></div>
+            <div class="stat"><div class="l">Receita líquida</div><div class="n" id="roi-sum-rev">—</div></div>
+            <div class="stat"><div class="l">Lucro</div><div class="n" id="roi-sum-profit">—</div></div>
+            <div class="stat"><div class="l">ROI</div><div class="n" id="roi-sum-roi">—</div></div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>ROI por loja / dia</h2><span>receita líquida − gasto</span></div>
+            <div class="tbl-wrap">
+              <table>
+                <thead><tr><th>Data</th><th>Loja</th><th>Receita</th><th>Gasto (R$)</th><th>Lucro</th><th>ROI</th><th></th></tr></thead>
+                <tbody id="roi-body"></tbody>
+              </table>
+              <div class="empty" id="roi-empty" hidden>Nenhum dado neste período.</div>
+            </div>
+            <p class="pixel-status" id="roi-status"></p>
+          </div>
+        </section>
+
+        <!-- PERFORMANCE -->
+        <section class="page" id="page-performance">
+          <p class="page-desc">Unidades e produtos vendidos em cada loja de pixel.</p>
+          <div class="stats" id="perf-summary">
+            <div class="stat"><div class="l">Pedidos</div><div class="n" id="perf-pedidos">—</div></div>
+            <div class="stat"><div class="l">Pagos</div><div class="n" id="perf-pagos">—</div></div>
+            <div class="stat"><div class="l">Unidades</div><div class="n" id="perf-unidades">—</div></div>
+            <div class="stat"><div class="l">Receita</div><div class="n" id="perf-receita">—</div></div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Ranking de produtos</h2><span>só pagos</span></div>
+            <div class="tbl-wrap">
+              <table>
+                <thead><tr><th>#</th><th>Produto</th><th>Vendas</th><th>Receita</th></tr></thead>
+                <tbody id="perf-rank-body"></tbody>
+              </table>
+              <div class="empty" id="perf-rank-empty" hidden>Sem vendas pagas ainda.</div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Vendas por loja</h2></div>
+            <div class="tbl-wrap">
+              <table>
+                <thead><tr><th>Loja</th><th>Pedidos</th><th>Pagos</th><th>Unidades</th><th>Conversão</th><th>Receita</th></tr></thead>
+                <tbody id="perf-store-body"></tbody>
+              </table>
+              <div class="empty" id="perf-store-empty" hidden>Sem dados.</div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Produtos por loja</h2></div>
+            <div id="perf-by-store-products"></div>
+            <div class="empty" id="perf-by-store-empty" hidden>Sem produtos vendidos.</div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Últimas vendas</h2><span>últimas 300 pagas</span></div>
+            <div class="tbl-wrap">
+              <table>
+                <thead><tr><th>Horário</th><th>Loja / Pixel</th><th>Produto</th><th>Valor</th></tr></thead>
+                <tbody id="perf-log-body"></tbody>
+              </table>
+              <div class="empty" id="perf-log-empty" hidden>Sem vendas recentes.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RECONCILE -->
+        <section class="page" id="page-reconcile">
+          <p class="page-desc">Compara pedidos pagos na loja com Purchase enviado via Events API.</p>
+          <div class="panel">
+            <div class="panel-h"><h2>Checar PIX pagos</h2></div>
+            <div class="actions" style="margin-top:0">
+              <button class="btn btn-accent" type="button" id="btn-rc-check">Checar PIX agora</button>
+              <button class="btn btn-ghost" type="button" id="btn-rc-resend">Reenviar Purchase faltantes</button>
+              <button class="btn btn-ghost" type="button" id="btn-rc-refresh">Atualizar</button>
+            </div>
+            <p class="pixel-status" id="rc-status"></p>
+          </div>
+          <div class="stats" style="margin-top:14px">
+            <div class="stat"><div class="l">Pagos</div><div class="n" id="rc-paid">—</div></div>
+            <div class="stat"><div class="l">Purchase enviado</div><div class="n" id="rc-tracked">—</div></div>
+            <div class="stat rc-ok" id="rc-delta-card"><div class="l">Faltando (Δ)</div><div class="n" id="rc-delta">—</div></div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Por origem / campanha</h2></div>
+            <div class="tbl-wrap">
+              <table>
+                <thead><tr><th>Origem</th><th>Campanha</th><th>Pagos</th><th>Enviados</th><th>Δ</th></tr></thead>
+                <tbody id="rc-origin-body"></tbody>
+              </table>
+              <div class="empty" id="rc-origin-empty" hidden>Sem dados de origem.</div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Pedidos sem Purchase</h2><span>até 50</span></div>
+            <div class="tbl-wrap">
+              <table>
+                <thead><tr><th>Data</th><th>Cliente</th><th>Valor</th><th>Rastreio</th><th>Origem</th></tr></thead>
+                <tbody id="rc-miss-body"></tbody>
+              </table>
+              <div class="empty" id="rc-miss-empty" hidden>Nada faltando — tudo conciliado.</div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Histórico de checagens</h2></div>
+            <div id="rc-hist"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="tx-modal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="modal-title">Detalhes da venda</h3>
+        <button class="modal-close" type="button" id="modal-close">✕</button>
+      </div>
+      <div id="modal-body"></div>
+      <button class="copy-addr" type="button" id="btn-copy-envio">Copiar dados de envio</button>
+    </div>
+  </div>
+
+  <!-- STORE MODAL -->
+  <div class="modal-overlay" id="store-modal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="store-modal-title">Criar loja</h3>
+        <button class="modal-close" type="button" id="store-modal-close">✕</button>
+      </div>
+      <div id="store-modal-body">
+        <label>Nome da loja</label>
+        <input type="text" id="store-name" placeholder="Ex.: Panelas Premium" />
+        <label style="margin-top:12px">Slug (URL)</label>
+        <input type="text" id="store-slug" placeholder="ex.: panelas-premium" />
+        <label style="margin-top:12px">Categoria principal</label>
+        <input type="text" id="store-category" placeholder="ex.: panelas" />
+        <label style="margin-top:12px">Tema</label>
+        <select id="store-theme">
+          <option value="default">Default</option>
+          <option value="dark">Dark</option>
+          <option value="minimal">Minimal</option>
+        </select>
+      </div>
+      <div class="actions" style="margin-top:16px">
+        <button class="btn btn-accent" type="button" id="btn-store-save">Salvar</button>
+        <button class="btn btn-ghost" type="button" id="btn-store-cancel">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/ttk-api-config.js?v=20260731render1"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

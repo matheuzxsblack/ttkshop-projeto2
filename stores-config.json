@@ -1,0 +1,117 @@
+{
+  "stores": [
+    {
+      "id": "panelas",
+      "name": "Panelas",
+      "slug": "panelas",
+      "enabled": true,
+      "theme": "default",
+      "categories": [
+        "panelas",
+        "aquecer",
+        "bobojaco"
+      ],
+      "settings": {
+        "showPrices": true,
+        "currency": "BRL",
+        "taxRate": 0
+      }
+    },
+    {
+      "id": "roupao",
+      "name": "Roupão",
+      "slug": "roupao",
+      "enabled": true,
+      "theme": "default",
+      "categories": [
+        "roupao"
+      ],
+      "settings": {
+        "showPrices": true,
+        "currency": "BRL",
+        "taxRate": 0
+      }
+    },
+    {
+      "id": "jaqueta",
+      "name": "Jaqueta",
+      "slug": "jaqueta",
+      "enabled": true,
+      "theme": "default",
+      "categories": [
+        "jaqueta"
+      ],
+      "settings": {
+        "showPrices": true,
+        "currency": "BRL",
+        "taxRate": 0
+      }
+    },
+    {
+      "id": "conjunto",
+      "name": "Conjunto Alfaiataria",
+      "slug": "conjunto",
+      "enabled": true,
+      "theme": "default",
+      "categories": [
+        "conjunto"
+      ],
+      "settings": {
+        "showPrices": true,
+        "currency": "BRL",
+        "taxRate": 0
+      }
+    },
+    {
+      "id": "toalha",
+      "name": "Toalha",
+      "slug": "toalha",
+      "enabled": true,
+      "theme": "default",
+      "categories": [
+        "toalha"
+      ],
+      "settings": {
+        "showPrices": true,
+        "currency": "BRL",
+        "taxRate": 0
+      }
+    },
+    {
+      "id": "teddy",
+      "name": "Teddy",
+      "slug": "teddy",
+      "enabled": true,
+      "theme": "default",
+      "categories": [
+        "teddy"
+      ],
+      "settings": {
+        "showPrices": true,
+        "currency": "BRL",
+        "taxRate": 0
+      }
+    },
+    {
+      "id": "wow",
+      "name": "wow",
+      "slug": "wow",
+      "enabled": true,
+      "theme": "minimal",
+      "categories": [
+        "wow"
+      ],
+      "settings": {
+        "showPrices": true,
+        "currency": "BRL",
+        "taxRate": 0
+      },
+      "created_at": "2026-08-12T00:20:46.737Z"
+    }
+  ],
+  "defaults": {
+    "currency": "BRL",
+    "language": "pt-BR",
+    "timezone": "America/Sao_Paulo"
+  }
+}

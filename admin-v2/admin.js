@@ -87,15 +87,13 @@
           overview: "Visão geral",
           funnel: "Funil / Logs",
           sales: "Vendas PIX",
-          stores: "Lojas",
-          emails: "E-mails",
+          emails: "E-mails (backup)",
           checkout: "Checkout",
           gateway: "Gateway PIX",
           pixels: "Pixels",
-          roi: "ROI",
           performance: "Performance",
-          reconcile: "Reconciliação",
-          cloakerpro: "Cloaker Pro",
+          roi: "ROI",
+          reconcile: "Reconciliação Purchase",
         };
         var el = document.getElementById("page-title");
         if (el) el.textContent = titles[name] || "Admin";
@@ -105,6 +103,7 @@
         if (name === "performance") loadPerformance();
         if (name === "checkout") {
           loadCheckoutModes();
+          loadCloakerModes();
         }
         if (name === "gateway") loadPaymentGatewayAdmin();
         if (name === "funnel") {
@@ -264,78 +263,35 @@
 
       function renderFunnelByStore(d) {
         var panel = document.getElementById("funnel-by-store-panel");
-        if (!panel) return;
+        var tbody = document.getElementById("funnel-by-store-body");
+        if (!panel || !tbody) return;
         var isAll = !d || d.store === "all";
         panel.hidden = !isAll;
         if (!isAll) return;
         var list = (d && d.by_store) || [];
         if (!list.length) {
-          panel.innerHTML = '<div style="padding:10px 4px;color:var(--muted);font-size:13px">Sem visitas no período</div>';
+          tbody.innerHTML = "<tr><td colspan=\"6\">Sem visitas no período</td></tr>";
           return;
         }
-        panel.innerHTML = list
+        tbody.innerHTML = list
           .map(function (row) {
-            var n = row.sessions != null ? row.sessions : 0;
             return (
-              '<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:10px 4px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;flex-wrap:wrap">' +
-              '<span style="color:var(--text);font-weight:600">' + escapeHtml(row.label || row.key || "—") + "</span>" +
-              '<span style="color:var(--muted)"><b style="color:var(--ok)">' + String(n) + "</b> visitante(s) · " + String(row.product != null ? row.product : 0) + " viram produto · " + String(row.success != null ? row.success : 0) + " pagaram</span></div>"
+              "<tr><td>" +
+              escapeHtml(row.label || row.key) +
+              "</td><td>" +
+              String(row.sessions || 0) +
+              "</td><td>" +
+              String(row.product || 0) +
+              "</td><td>" +
+              String(row.checkout || 0) +
+              "</td><td>" +
+              String(row.success || 0) +
+              "</td><td>" +
+              String(row.bounce || 0) +
+              "</td></tr>"
             );
           })
           .join("");
-      }
-
-      /* ---------- Funil novo: etapas com barras (Pago = gateway TX status paid, floor via funnelTxFloorAgg no server) ---------- */
-      function renderFunnelSteps(st) {
-        var box = document.getElementById("funnel-steps");
-        if (!box) return;
-        var steps = [
-          { label: "Produto", sub: "entrada de tráfego", v: st.product, g: ["#38bdf8", "#2563eb"] },
-          { label: "Escolhendo variante", sub: null, v: st.variant != null ? st.variant : st.product, g: ["#8b5cf6", "#6d28d9"] },
-          { label: "Adicionou ao carrinho", sub: null, v: st.cart != null ? st.cart : st.checkout, g: ["#fbbf24", "#d97706"] },
-          { label: "Checkout", sub: null, v: st.checkout, g: ["#ec4899", "#be185d"] },
-          { label: "Tela Pix", sub: null, v: st.pix, g: ["#34d399", "#059669"] },
-          { label: "Pago (gateway)", sub: null, v: st.success, g: ["#2dd4bf", "#0d9488"] },
-        ];
-        var first = Number(steps[0].v) || 0;
-        var prev = null;
-        box.innerHTML = steps
-          .map(function (s2, i) {
-            var v = Number(s2.v) || 0;
-            var pctFirst = first > 0 ? Math.max(2, Math.round((v / first) * 100)) : 2;
-            var pctPrev = i === 0 ? 100 : prev > 0 ? Math.round((v / prev) * 100) : 0;
-            prev = v;
-            var sub = s2.sub != null ? s2.sub : pctPrev + "% da etapa anterior";
-            return (
-              '<div class="fstep">' +
-              '<div class="fstep-top">' +
-              '<div class="fstep-label"><b>' + s2.label + "</b><span>" + sub + "</span></div>" +
-              '<div class="fstep-value">' + String(v) + "</div>" +
-              "</div>" +
-              '<div class="fstep-track"><div class="fstep-fill" style="width:0%;background:linear-gradient(90deg,' + s2.g[0] + "," + s2.g[1] + ')" data-w="' + pctFirst + '"></div></div>' +
-              "</div>"
-            );
-          })
-          .join("");
-        setTimeout(function () {
-          box.querySelectorAll(".fstep-fill").forEach(function (f) {
-            f.style.width = f.getAttribute("data-w") + "%";
-          });
-        }, 30);
-      }
-
-      function renderFunnelStrip(st) {
-        var el = document.getElementById("funnel-strip");
-        if (!el) return;
-        var p = Number(st.product) || 0;
-        var c = Number(st.checkout) || 0;
-        var g = Number(st.pix) || 0;
-        var v = Number(st.success) || 0;
-        var x = p > 0 ? Math.round((c / p) * 100) : 0;
-        var y = p > 0 ? Math.round((g / p) * 100) : 0;
-        var z = g > 0 ? Math.round((v / g) * 100) : 0;
-        el.innerHTML =
-          "<b>" + p + "</b> viram o produto · <b>" + c + "</b> no checkout (" + x + "%) · <b>" + g + "</b> geraram Pix (" + y + "%) · <b>" + v + "</b> pagaram · conversão Pix→pago " + z + "%";
       }
 
       function loadFunnel() {
@@ -379,8 +335,6 @@
             set("fn-pix-abandon", st.pix_abandon);
             set("fn-cloak-hit", st.cloak_hit);
             set("fn-cloak-pass", st.cloak_pass);
-            renderFunnelSteps(st);
-            renderFunnelStrip(st);
             renderFunnelByStore(d);
             renderFunnelOutcomeSummary(st);
             renderFunnelHostSummary(st);
@@ -473,6 +427,7 @@
         applyPixelVisibility();
         loadStats();
         loadCheckoutModes();
+        loadCloakerModes();
         loadPixelConfig();
         clearInterval(refreshTimer);
         refreshTimer = setInterval(function () {
@@ -760,7 +715,6 @@
       }
 
       function loadCloakerModes() {
-        if (!document.getElementById("cloak-list")) return;
         fetchJson("/api/admin/cloaker-mode", { headers: authHeaders() })
           .then(function (res) {
             if (!res.ok) {
@@ -776,7 +730,7 @@
           });
       }
 
-      (document.getElementById("cloak-list") || { addEventListener: function () {} }).addEventListener("click", function (e) {
+      document.getElementById("cloak-list").addEventListener("click", function (e) {
         var btn = e.target.closest(".ck-btn");
         if (!btn || btn.classList.contains("active")) return;
         var row = btn.closest(".ck-row");
@@ -1043,7 +997,6 @@
               return;
             }
             pixelStoreCache = res.j.stores || {};
-            /* Popular o dropdown de lojas */
             var sel = document.getElementById("px-store");
             if (sel) {
               var prevVal = sel.value;
@@ -1054,7 +1007,6 @@
                 var count = (info.pixels || []).length;
                 return '<option value="' + k + '">' + label + " (" + count + " pixel" + (count !== 1 ? "s" : "") + ")</option>";
               }).join("");
-              /* Restaurar seleção anterior se ainda existir */
               if (prevVal && pixelStoreCache[prevVal]) sel.value = prevVal;
               else if (keys.length) sel.value = keys[0];
             }
@@ -1731,20 +1683,6 @@
         });
       }
 
-      var btnRangeClear2 = document.getElementById("btn-range-clear-2");
-      if (btnRangeClear2) {
-        btnRangeClear2.addEventListener("click", function () {
-          lastRange = null;
-          var lab2 = document.getElementById("custom-range-label");
-          if (lab2) lab2.textContent = "Personalizado";
-          var rrp2 = document.getElementById("range-result-panel");
-          if (rrp2) rrp2.hidden = true;
-          var rrOv2 = document.getElementById("range-result-ov");
-          if (rrOv2) rrOv2.textContent = "Nenhum filtro de data ativo.";
-          loadStats();
-          loadTransactions(true);
-        });
-      }
       var btnRangeClear = document.getElementById("btn-range-clear");
       if (btnRangeClear) {
         btnRangeClear.addEventListener("click", function () {
@@ -1759,42 +1697,13 @@
 
       function periodCard(title, p) {
         return (
-          '<div class="period-card">' +
-          "<h4>" + title + "</h4>" +
-          '<div class="p-gross">' + money(p.gross) + "</div>" +
-          '<div class="p-net">Líquido ' + money(p.net) + "</div>" +
-          '<div class="p-meta"><b style="color:var(--green)">' + p.paid_count + " pago" + (p.paid_count === 1 ? "" : "s") + "</b>" +
+          '<div class="mini">' +
+          '<div class="k">' + title + "</div>" +
+          '<div class="v">' + money(p.gross) + "</div>" +
+          '<div class="s">Líquido ' + money(p.net) + "</div>" +
+          '<div class="s"><b style="color:var(--green)">' + p.paid_count + " pago" + (p.paid_count === 1 ? "" : "s") + "</b>" +
           ' · <b style="color:var(--orange)">' + p.pending_count + " pendente" + (p.pending_count === 1 ? "" : "s") + "</b>" +
           "</div></div>"
-        );
-      }
-
-      /* ---------- chips coloridos por gateway ---------- */
-      var GW_COLORS = {
-        purincash: "#34d399",
-        ironpay: "#9ca3af",
-        buckpay: "#a78bfa",
-        pixzy: "#7dd3fc",
-        sharpify: "#2563eb",
-        veno: "#fb923c",
-        blackcat: "#16a34a",
-      };
-      function gwChip(gwRaw) {
-        var g = String(gwRaw || "—").toLowerCase().trim();
-        var c = GW_COLORS[g];
-        var bg, bd;
-        if (c) { bg = c + "22"; bd = c + "55"; }
-        else {
-          var h = 0;
-          for (var i = 0; i < g.length; i++) h = (h * 31 + g.charCodeAt(i)) % 360;
-          c = "hsl(" + h + " 70% 62%)";
-          bg = "hsl(" + h + " 70% 62% / .15)";
-          bd = "hsl(" + h + " 70% 62% / .4)";
-        }
-        return (
-          '<span class="gw-chip" style="color:' + c + ";background:" + bg + ";border:1px solid " + bd + '">' +
-          escapeHtml(g.slice(0, 12)) +
-          "</span>"
         );
       }
 
@@ -2446,9 +2355,9 @@
             esc(t.id) +
             '">MARCAR X1</button>';
         }
-        var gwFull = t.gateway || t.source || "—";
+        var gw = (t.gateway || t.source || "—").slice(0, 8);
         return (
-          '<tr class="txrow tx-' + esc(String(t.status || "other")) + '" data-tx-id="' +
+          '<tr data-tx-id="' +
           esc(t.id) +
           '">' +
           "<td>" +
@@ -2466,7 +2375,9 @@
           "<td>" +
           statusBadge(t.status) +
           "</td>" +
-          "<td>" + gwChip(gwFull) + "</td>" +
+          "<td><code style=\"font-size:11px\">" +
+          esc(gw) +
+          "</code></td>" +
           "<td>" +
           x1cell +
           "</td>" +
@@ -2588,13 +2499,16 @@
             }
             var acc = d.account || {};
             document.getElementById("who").textContent = acc.name ? "· " + acc.name : "";
-
-            /* Saldo disponível (c-saldo) */
-            var displayBal = acc.balance_general != null ? acc.balance_general : acc.balance;
-            var saldoEl = document.getElementById("c-saldo");
-            if (saldoEl) {
-              countUp(saldoEl, displayBal != null ? money(displayBal) : "—");
+            var gwActive = d.payment_gateway || acc.gateway_active || "pixzy";
+            var saldoLabel = document.getElementById("c-saldo-label");
+            if (saldoLabel) {
+              saldoLabel.textContent =
+                gwActive !== "pixzy" ? "Saldo geral" : "Saldo Pixzy";
             }
+            var displayBal =
+              acc.balance_general != null ? acc.balance_general : acc.balance;
+            document.getElementById("c-saldo").textContent =
+              displayBal != null ? money(displayBal) : "—";
             var saldoH = document.getElementById("c-saldo-h");
             if (saldoH) {
               if (acc.balance_breakdown) {
@@ -2602,128 +2516,51 @@
               } else if (acc.balance_note) {
                 saldoH.textContent = acc.balance_note;
               } else if (acc.estimated) {
-                saldoH.textContent = "estimado (API falhou — NÃO é o saldo real)";
+                saldoH.textContent =
+                  "estimado (API Pixzy falhou — NÃO é o saldo real)";
               } else if (acc.cached) {
                 saldoH.textContent = "disponível na conta (cache)";
               } else {
-                saldoH.textContent = "disponível na conta";
+                saldoH.textContent = "disponível na conta Pixzy";
+              }
+              if (d.gateway_stats && gwActive && d.gateway_stats[gwActive]) {
+                var gs = d.gateway_stats[gwActive];
+                var gsTxt =
+                  gs.paid + " paga(s) · " + gs.pending + " pendente(s) · líq. painel " + money(gs.net);
+                if (gs.paid === 0 && gs.pending > 0) {
+                  gsTxt += " — em Reconciliação, clique «Checar PIX pagos»";
+                }
+                saldoH.textContent = (saldoH.textContent ? saldoH.textContent + " · " : "") + gsTxt;
               }
             }
 
             if (!d.periods || !d.pending_now) {
-              document.getElementById("updated").textContent = "Resposta incompleta — atualize";
+              document.getElementById("updated").textContent = "Resposta incompleta — atualize ou use /admin no Render";
               return;
             }
 
-            /* Faturamento (c-bruto) - gradient card */
-            var tot = ((lastRange && d.range) ? d.range : d.periods.total);
-            var brutoEl = document.getElementById("c-bruto");
-            if (brutoEl) {
-              countUp(brutoEl, money(tot.gross));
-            }
-            var brutoPill = document.getElementById("c-bruto-pill");
-            if (brutoPill) {
-              brutoPill.textContent = "↑ " + tot.paid_count + " aprovadas no período";
-            }
+            document.getElementById("c-pend-val").textContent = money(d.pending_now.value);
+            document.getElementById("c-pend-qtd").textContent =
+              d.pending_now.count + " aguardando pagamento";
 
-            /* Vendas (c-sales-count + c-pend-qtd) */
-            var salesCountEl = document.getElementById("c-sales-count");
-            if (salesCountEl) {
-              countUp(salesCountEl, String(tot.paid_count));
-            }
-            var pendForTot = tot.pending_count != null ? tot.pending_count : d.pending_now.count;
-            var pendQtdEl = document.getElementById("c-pend-qtd");
-            if (pendQtdEl) {
-              pendQtdEl.textContent = pendForTot + " pendentes no período";
-            }
+            document.getElementById("c-bruto").textContent = money(d.periods.total.gross);
+            document.getElementById("c-bruto-s").textContent =
+              d.periods.total.paid_count + " vendas aprovadas · " + d.periods.total.generated + " geradas";
+            document.getElementById("c-liq").textContent = money(d.periods.total.net);
 
-            /* Ticket Médio (c-ticket) */
-            var ticketEl = document.getElementById("c-ticket");
-            if (ticketEl) {
-              var ticketVal = tot.paid_count > 0 ? money(Math.round(tot.gross / tot.paid_count)) : "—";
-              countUp(ticketEl, ticketVal);
-            }
+            /* conversão e ticket médio */
+            var tot = d.periods.total;
+            document.getElementById("c-conv").textContent =
+              tot.generated > 0 ? Math.round((tot.paid_count / tot.generated) * 100) + "%" : "—";
+            document.getElementById("c-ticket").textContent =
+              tot.paid_count > 0 ? money(Math.round(tot.gross / tot.paid_count)) : "—";
 
-            /* Clientes (c-customers) - buscar transações pagas e contar distintos */
-            fetch("/api/admin/transactions?status=paid&limit=500", {
-              headers: authHeaders(),
-            })
-              .then(function (r) { return r.json(); })
-              .then(function (txData) {
-                var txs = txData.transactions || txData.list || [];
-                var uniqueClients = {};
-                txs.forEach(function (tx) {
-                  var key = tx.client_name || tx.client_phone || tx.client_email || tx.id;
-                  if (key) uniqueClients[key] = true;
-                });
-                var clientsEl = document.getElementById("c-customers");
-                if (clientsEl) {
-                  countUp(clientsEl, String(Object.keys(uniqueClients).length));
-                }
-
-                /* Produtos Mais Vendidos (top-products) */
-                var productMap = {};
-                txs.forEach(function (tx) {
-                  var items = tx.items || tx.items_detail || [];
-                  items.forEach(function (it) {
-                    var name = it.variante || it.name || it.produto || "Produto";
-                    var qty = Number(it.qtd || it.quantity || 1);
-                    productMap[name] = (productMap[name] || 0) + qty;
-                  });
-                });
-                var topProducts = Object.entries(productMap)
-                  .sort(function (a, b) { return b[1] - a[1]; })
-                  .slice(0, 5);
-                var topEl = document.getElementById("top-products");
-                if (topEl) {
-                  if (!topProducts.length) {
-                    topEl.innerHTML = '<div class="empty">Sem vendas no período</div>';
-                  } else {
-                    topEl.innerHTML = topProducts
-                      .map(function (p, i) {
-                        return (
-                          '<div class="product-row">' +
-                          '<div class="product-rank">' + (i + 1) + '</div>' +
-                          '<div class="product-name">' + escapeHtml(p[0]) + '</div>' +
-                          '<div class="product-qty">' + p[1] + ' un</div>' +
-                          '</div>'
-                        );
-                      })
-                      .join('');
-                  }
-                }
-              })
-              .catch(function () {});
-
-            /* Performance bar chart (chart) */
+            /* gráfico últimos 7 dias */
             renderChart(d.daily || []);
-
-            /* Aprovação donut (donut-fill, donut-text) */
-            var paidCount = tot.paid_count;
-            var pendCount = tot.pending_count != null ? tot.pending_count : d.pending_now.count;
-            var totalTx = paidCount + pendCount;
-            var approvalPct = totalTx > 0 ? Math.round((paidCount / totalTx) * 100) : 0;
-            var donutFill = document.getElementById("donut-fill");
-            if (donutFill) {
-              var circumference = 314.16;
-              var offset = circumference - (approvalPct / 100) * circumference;
-              donutFill.style.strokeDashoffset = offset;
-            }
-            var donutText = document.getElementById("donut-text");
-            if (donutText) {
-              donutText.textContent = approvalPct + "%";
-            }
-
-            /* Métodos de Pagamento PIX (pm-pix-count) */
-            var pmPixCount = document.getElementById("pm-pix-count");
-            if (pmPixCount) {
-              pmPixCount.textContent = paidCount;
-            }
 
             /* som + aviso quando cair um pagamento */
             checkNewPaid(d.recent_preview || d.recent || []);
 
-            /* Períodos (periods-grid) */
             document.getElementById("periods-grid").innerHTML =
               periodCard("Hoje", d.periods.hoje) +
               periodCard("Ontem", d.periods.ontem) +
@@ -2731,10 +2568,7 @@
               periodCard("Últimos 30 dias", d.periods.d30) +
               periodCard("Total", d.periods.total);
 
-            /* Filtro personalizado (range-result) */
             if (d.range) {
-              var rangePanel = document.getElementById("range-result-panel");
-              if (rangePanel) rangePanel.hidden = false;
               document.getElementById("range-result").innerHTML =
                 "<b style='color:var(--text)'>" + money(d.range.gross) + "</b> bruto · " +
                 "<b style='color:var(--green)'>" + money(d.range.net) + "</b> líquido · " +
@@ -2752,55 +2586,35 @@
           });
       }
 
-      function countUp(el, targetText) {
-        el.textContent = targetText;
-      }
-
-      function escapeHtml(s) {
-        return String(s || "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;");
-      }
-
       /* ---------- gráfico 7 dias ---------- */
       var WEEKDAYS = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
 
       function renderChart(daily) {
-        var box = document.getElementById("chart");
-        if (!box) return;
-        var W = 300, H = 84, PAD = 6;
         var max = 0;
-        daily.forEach(function (d2) { if (d2.gross > max) max = d2.gross; });
-        if (max <= 0) max = 1;
-        var n = daily.length || 1;
-        var pts = daily.map(function (d2, i2) {
-          var x = PAD + (i2 * (W - PAD * 2)) / Math.max(1, n - 1);
-          var y = H - PAD - (d2.gross / max) * (H - PAD * 2);
-          return [Math.round(x * 10) / 10, Math.round(y * 10) / 10];
+        daily.forEach(function (day) {
+          if (day.gross > max) max = day.gross;
         });
-        var line = pts.map(function (p2, i2) { return (i2 ? "L" : "M") + p2[0] + " " + p2[1]; }).join(" ");
-        var area = line + " L" + pts[pts.length - 1][0] + " " + (H - 2) + " L" + pts[0][0] + " " + (H - 2) + " Z";
-        var todayStr = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-        var dots = pts.map(function (p2, i2) {
-          return '<circle cx="' + p2[0] + '" cy="' + p2[1] + '" r="3" fill="#fff" stroke="var(--pink)" stroke-width="1.5"><title>' + (daily[i2].gross > 0 ? money(daily[i2].gross) : "R$ 0") + "</title></circle>";
-        }).join("");
-        var labels = daily.map(function (d2) {
-          var dt = new Date(d2.date + "T12:00:00");
-          return '<span class="lc-lbl' + (d2.date === todayStr ? " today" : "") + '">' + WEEKDAYS[dt.getDay()] + " " + dt.getDate() + "</span>";
-        }).join("");
-        box.innerHTML =
-          '<svg class="lc-svg" viewBox="0 0 ' + W + " " + H + '" preserveAspectRatio="none">' +
-          '<defs><linearGradient id="lc-grad" x1="0" y1="0" x2="0" y2="1">' +
-          '<stop offset="0%" stop-color="var(--pink)" stop-opacity="0.35"/>' +
-          '<stop offset="100%" stop-color="var(--pink)" stop-opacity="0"/>' +
-          "</linearGradient></defs>" +
-          '<path class="lc-area" d="' + area + '" fill="url(#lc-grad)"/>' +
-          '<path class="lc-line" d="' + line + '"/>' +
-          dots +
-          "</svg>" +
-          '<div class="lc-labels">' + labels + "</div>";
+        /* mesmo fuso do servidor (Brasília) — toISOString() é UTC e marca "hoje" errado após 21h */
+        var todayStr = new Intl.DateTimeFormat("en-CA", {
+          timeZone: "America/Sao_Paulo",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        }).format(new Date());
+        document.getElementById("chart").innerHTML = daily
+          .map(function (day) {
+            var h = max > 0 ? Math.max(3, Math.round((day.gross / max) * 100)) : 3;
+            var dt = new Date(day.date + "T12:00:00");
+            var isToday = day.date === todayStr;
+            return (
+              '<div class="col' + (day.gross === 0 ? " zero" : "") + (isToday ? " today" : "") + '">' +
+              '<span class="val">' + (day.gross > 0 ? money(day.gross) : "") + "</span>" +
+              '<div class="bar" style="height:' + h + '%"></div>' +
+              '<span class="lbl">' + WEEKDAYS[dt.getDay()] + " " + dt.getDate() + "</span>" +
+              "</div>"
+            );
+          })
+          .join("");
       }
 
       /* ---------- som + aviso de pagamento confirmado ---------- */
@@ -3045,39 +2859,10 @@
         });
       });
 
-      /* ---------- overview: pills Hoje / 7 dias / 30 dias ---------- */
-      function ymdRange(offsetDays) {
-        return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(Date.now() + offsetDays * 86400000));
-      }
-      function applyRangePills(days) {
-        document.querySelectorAll(".date-pill").forEach(function (b) {
-          b.classList.toggle("active", String(b.getAttribute("data-days")) === String(days));
-        });
-      }
-      function setRangeDays(days) {
-        try { localStorage.setItem("admin_range", String(days)); } catch (e) {}
-        lastRange = { from: ymdRange(-(days - 1)), to: ymdRange(0) };
-        applyRangePills(days);
-        var lab0 = document.getElementById("custom-range-label");
-  if (lab0) lab0.textContent = "Personalizado";
-  loadStats();
-      }
-      document.querySelectorAll(".date-pill").forEach(function (b) {
-        b.addEventListener("click", function () {
-          setRangeDays(parseInt(b.getAttribute("data-days"), 10) || 7);
-        });
-      });
-      (function initRangePills() {
-        var saved = 7;
-        try { saved = parseInt(localStorage.getItem("admin_range"), 10) || 7; } catch (e) {}
-        applyRangePills(saved);
-        lastRange = { from: ymdRange(-(saved - 1)), to: ymdRange(0) };
-      })();
-
       bootSession();
 
       /* ---------- SSE: pessoas online em tempo real ---------- */
-      var onlineEl = (document.getElementById("c-online") || document.getElementById("online-split-counts"));
+      var onlineEl = document.getElementById("c-online");
       var onlinePagesStoreEl = document.getElementById("online-pages-store");
       var onlinePagesCloakerEl = document.getElementById("online-pages-cloaker");
       var onlineSplitCountsEl = document.getElementById("online-split-counts");
@@ -3156,161 +2941,5 @@
           setTimeout(connectOnlineSSE, 4000);
         };
       }
-    
-/* ---------- filtro personalizado (popover + calendario customizado) ---------- */
-function fmtBR(ymd) {
-  var pp = String(ymd || "").split("-");
-  return pp.length === 3 ? pp[2] + "/" + pp[1] : ymd;
-}
-function applyCustomRange(from, to, label) {
-  lastRange = { from: from, to: to };
-  applyRangePills(-1);
-  var lab = document.getElementById("custom-range-label");
-  if (lab) lab.textContent = label || (fmtBR(from) + " – " + fmtBR(to));
-  var pop = document.getElementById("range-pop");
-  if (pop) pop.hidden = true;
-  loadStats();
-}
-(function wireCustomRange() {
-  var btn = document.getElementById("btn-custom-range");
-  var pop = document.getElementById("range-pop");
-  if (!btn || !pop) return;
-  var calBox = document.getElementById("range-cal");
-  var selLabel = document.getElementById("range-sel-label");
-  var calBase = new Date();
-  calBase = new Date(calBase.getFullYear(), calBase.getMonth(), 1);
-  var selFrom = null, selTo = null;
-  var MONTHS = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
-  function ymd(d) {
-    return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo", year: "numeric", month: "2-digit", day: "2-digit" }).format(d);
-  }
-  function renderCal() {
-    if (!calBox) return;
-    var y = calBase.getFullYear(), m = calBase.getMonth();
-    var startDow = new Date(y, m, 1).getDay();
-    var daysIn = new Date(y, m + 1, 0).getDate();
-    var todayStr = ymd(new Date());
-    var cells = "";
-    for (var i = 0; i < 42; i++) {
-      var dayNum = i - startDow + 1;
-      var dObj = new Date(y, m, dayNum);
-      var ds = ymd(dObj);
-      var cls = "";
-      if (dayNum < 1 || dayNum > daysIn) cls += " out";
-      if (ds === todayStr) cls += " today";
-      if (selFrom === ds || selTo === ds) cls += " sel";
-      else if (selFrom && selTo && ds > selFrom && ds < selTo) cls += " inr";
-      cells += '<button type="button" data-d="' + ds + '" class="' + cls.trim() + '">' + dObj.getDate() + "</button>";
-    }
-    calBox.innerHTML =
-      '<div class="range-cal-head"><b>' + MONTHS[m] + " de " + y + '</b><div class="range-cal-nav">' +
-      '<button type="button" data-nav="-1" aria-label="Mês anterior">‹</button>' +
-      '<button type="button" data-nav="1" aria-label="Próximo mês">›</button></div></div>' +
-      '<div class="range-cal-week"><span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span></div>' +
-      '<div class="range-cal-grid">' + cells + "</div>";
-  }
-  function updLabel() {
-    if (!selLabel) return;
-    selLabel.textContent =
-      selFrom && selTo ? fmtBR(selFrom) + " – " + fmtBR(selTo)
-      : selFrom ? "De " + fmtBR(selFrom) + " — clique no dia final"
-      : "Selecione as datas";
-  }
-  function closePop() { pop.hidden = true; }
-  btn.addEventListener("click", function (e) {
-    e.stopPropagation();
-    if (pop.hidden) { pop.hidden = false; renderCal(); updLabel(); }
-    else closePop();
-  });
-  var closeBtn = document.getElementById("range-close");
-  if (closeBtn) closeBtn.addEventListener("click", closePop);
-  document.addEventListener("click", function (e) {
-    if (!pop.hidden && !pop.contains(e.target) && !btn.contains(e.target)) closePop();
-  });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePop(); });
-  pop.addEventListener("click", function (e) {
-    var t = e.target;
-    if (!t || !t.closest) return;
-    var nav = t.closest("[data-nav]");
-    if (nav) {
-      calBase = new Date(calBase.getFullYear(), calBase.getMonth() + parseInt(nav.getAttribute("data-nav"), 10), 1);
-      renderCal();
-      return;
-    }
-    var day = t.closest("[data-d]");
-    if (day) {
-      var ds = day.getAttribute("data-d");
-      if (!selFrom || (selFrom && selTo)) { selFrom = ds; selTo = null; }
-      else if (ds < selFrom) { selTo = selFrom; selFrom = ds; }
-      else { selTo = ds; }
-      renderCal(); updLabel();
-    }
-  });
-  pop.querySelectorAll(".range-preset").forEach(function (b) {
-    b.addEventListener("click", function () {
-      var k = b.getAttribute("data-preset");
-      var from, to, label;
-      if (k === "hoje") { from = ymdRange(0); to = from; label = "Hoje"; }
-      else if (k === "ontem") { from = ymdRange(-1); to = from; label = "Ontem"; }
-      else if (k === "semana") {
-        var offMon = (new Date().getDay() + 6) % 7;
-        from = ymdRange(-offMon); to = ymdRange(0); label = "Esta semana";
-      } else if (k === "mes") {
-        var d = new Date();
-        from = ymd(new Date(d.getFullYear(), d.getMonth(), 1));
-        to = ymdRange(0); label = "Este mês";
-      } else {
-        var n = parseInt(k, 10) || 7;
-        from = ymdRange(-(n - 1)); to = ymdRange(0); label = "Últimos " + n + " dias";
-      }
-      pop.querySelectorAll(".range-preset").forEach(function (x) { x.classList.toggle("active", x === b); });
-      applyCustomRange(from, to, label);
-    });
-  });
-  var applyBtn = document.getElementById("btn-ov-apply");
-  if (applyBtn) applyBtn.addEventListener("click", function () {
-    if (!selFrom) return;
-    applyCustomRange(selFrom, selTo || selFrom, null);
-  });
-})();
-
-/* ---------- ocultar / mostrar valores ---------- */
-(function wireHideValues() {
-  var btn = document.getElementById("btn-hide-values");
-  var lab = document.getElementById("hide-values-label");
-  if (!btn) return;
-  function set(h) {
-    document.body.classList.toggle("hide-values", h);
-    try { localStorage.setItem("admin_hide_values", h ? "1" : "0"); } catch (e) {}
-    if (lab) lab.textContent = h ? "Mostrar valores" : "Ocultar valores";
-  }
-  var saved = false;
-  try { saved = localStorage.getItem("admin_hide_values") === "1"; } catch (e) {}
-  set(saved);
-  btn.addEventListener("click", function () {
-    set(!document.body.classList.contains("hide-values"));
-  });
-})();
-
-      /* ---------- recuperar vendas perdidas direto dos gateways ---------- */
-      (function wireImportGatewaySales() {
-        var btn = document.getElementById("btn-rc-import");
-        if (!btn) return;
-        btn.addEventListener("click", function () {
-          var st = document.getElementById("rc-status");
-          if (st) { st.textContent = "Recuperando vendas dos gateways…"; st.className = "pixel-status"; }
-          fetch("/api/admin/import-gateway-sales", { method: "POST", headers: authHeaders() })
-            .then(function (r) { return r.json(); })
-            .then(function (j) {
-              if (st) {
-                st.textContent = j && j.ok
-                  ? "Recuperado: " + j.imported + " venda(s) nova(s), " + j.updated + " atualizada(s) · total " + j.total_tx + (j.notes && j.notes.length ? " · " + j.notes.join(" | ") : "")
-                  : "Falha ao recuperar: " + ((j && j.error) || "erro");
-              }
-              loadTransactions(true);
-            })
-            .catch(function () { if (st) st.textContent = "Erro ao recuperar vendas."; });
-        });
-      })();
-})();
+    })();
 

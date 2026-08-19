@@ -989,10 +989,10 @@
   }
 
   function scItemHtml(item, i) {
-    var title = item.extra ? "Cor surpresa — Jaqueta Puffer Premium" : "Jaqueta Feminina Puffer Forrada Impermeável Inverno";
+    var title = item.extra ? "Cor surpresa — Conjunto Alfaiataria" : "Conjunto Feminino Alfaiataria Blusa Blazer e Calça Pantalona";
     var oldRow = item.extra
       ? ""
-      : '<span class="sc-item-old">R$ 109,90</span> <span class="sc-item-off">-68%</span>';
+      : '<span class="sc-item-old">R$ 109,90</span> <span class="sc-item-off">-60%</span>';
     return (
       '<div class="sc-item">' +
       '<img class="sc-item-img" src="' + item.img + '" alt="Produto" />' +

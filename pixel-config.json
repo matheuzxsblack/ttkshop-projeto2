@@ -3,122 +3,235 @@
     "pixels": [],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-10T19:17:45.295Z"
+    "updatedAt": "2026-08-02T14:24:58.821Z"
   },
   "jaqueta": {
-    "pixels": [],
-    "testEventCode": "",
-    "testEventEnabled": false,
-    "updatedAt": "2026-08-06T17:10:00.000Z"
-  },
-  "toalha": {
     "pixels": [
       {
-        "id": "D9QG2SJC77U7MOU0SF40",
-        "label": "Principal",
-        "accessToken": "60643e919ca0ef9d4c5c9cdad58fb56ca0ca7a9e",
-        "enabled": true
-      },
-      {
-        "id": "D9RB5URC77UAISU2J0I0",
+        "id": "D9H8UP3C77U5O97QPF1G",
         "label": "Pixel 2",
-        "accessToken": "0cab8e60544eff601831267b7e14ebf671bcebe0",
+        "accessToken": "aa06ad85941a7b4c79958ab4223e552c8fa9cd99",
         "enabled": true
       },
       {
-        "id": "DA00FK3C77U31VPN47FG",
+        "id": "D9H9P0JC77U5O97QPFGG",
         "label": "Pixel 3",
-        "accessToken": "d633eeb1a72b045ad0a6774d50cb1ad4367d3a4d",
+        "accessToken": "0414cfcafe366b6e3c2de5f6fad1207728106793",
         "enabled": true
       },
       {
-        "id": "DA012ARC77UDGUKDUAT0",
+        "id": "D9HA8NRC77U9NNBAFQGG",
+        "label": "Pixel 3",
+        "accessToken": "683cc4b4be73c0d1c72211faf4fb89c7586da7f2",
+        "enabled": true
+      },
+      {
+        "id": "D9HAJ7BC77UD7F809IKG",
         "label": "Pixel 4",
-        "accessToken": "b876ac0df641136b920e48fe38f957a610b4afc2",
+        "accessToken": "8bc36aa883355ce0e013752083f37d6741605b8a",
         "enabled": true
       },
       {
-        "id": "DA01JTJC77UAAA42SL0G",
+        "id": "D9HB8JBC77U84G6G56LG",
         "label": "Pixel 5",
-        "accessToken": "10e289394279154d9fc53fab132990e8e8ce482d",
-        "enabled": true
-      },
-      {
-        "id": "DA0FNHBC77UAAA42SS1G",
-        "label": "Pixel 6",
-        "accessToken": "de78a165444e40562d4c1a2aa9aa914e884ae40b",
-        "enabled": true
-      },
-      {
-        "id": "DA0JK63C77U9FTEGG840",
-        "label": "Pixel 7",
-        "accessToken": "ddad96d9c69a882f571614901d54dbd5ae542a9a",
-        "enabled": true
-      },
-      {
-        "id": "DA0K6CRC77UDVMNGCBH0",
-        "label": "Pixel 8",
-        "accessToken": "8dbb186f75f6a8e6e1150a8ba02fdfc8452d15e0",
-        "enabled": true
-      },
-      {
-        "id": "DA1ARSBC77U7HHC74EGG",
-        "label": "Pixel 9",
-        "accessToken": "1e2188c6e9cd52f59181326f331f026d64ff7ede",
-        "enabled": true
-      },
-      {
-        "id": "DA1BCK3C77UAAA42T8GG",
-        "label": "Pixel 10",
-        "accessToken": "d3bc938840f0f4a87b0459650888f83a7c179ef9",
-        "enabled": true
-      },
-      {
-        "id": "DA1O65JC77UAAA42TIS0",
-        "label": "Pixel 11",
-        "accessToken": "76cd0dfc31cac48a012ee38391ef6365e2bb4a06",
-        "enabled": true
-      },
-      {
-        "id": "DA1ULF3C77UDBOEDO5N0",
-        "label": "Pixel 12",
-        "accessToken": "66194939ceb2ff8537d60f76d70da44a78edd022",
-        "enabled": true
-      },
-      {
-        "id": "DA1VDE3C77UFIU51A7K0",
-        "label": "Pixel 13",
-        "accessToken": "abf0c55c81074402bbc2f802c5ed489364c5a3d9",
-        "enabled": true
-      },
-      {
-        "id": "DA200UBC77UDKVSV3ALG",
-        "label": "Pixel 14",
-        "accessToken": "2935f759029bd44c03bd96254d97038d4ae5d71c",
+        "accessToken": "1f6ac5202440a2bde7e954b190a9068c116fa307",
         "enabled": true
       }
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-18T06:50:32.045Z"
+    "updatedAt": "2026-07-24T00:40:16.879Z"
+  },
+  "toalha": {
+    "pixels": [
+      {
+        "id": "D9HB8JBC77U84G6G56LG",
+        "label": "Principal",
+        "accessToken": "1f6ac5202440a2bde7e954b190a9068c116fa307",
+        "enabled": false
+      },
+      {
+        "id": "D9NP993C77U1C011O0KG",
+        "label": "Pixel 2",
+        "accessToken": "092260facbb572764d2e5f663be453a2f1f1e9b5",
+        "enabled": true
+      },
+      {
+        "id": "D9OC9SRC77U26FTDQOAG",
+        "label": "Pixel 3",
+        "accessToken": "0c60320dd337c19f1d3e168673b2d708979b8733",
+        "enabled": true
+      },
+      {
+        "id": "D9PUFPJC77UFAJG52B9G",
+        "label": "Pixel 4",
+        "accessToken": "de519fd558c932088f0b1cb9046616f7200c0e18",
+        "enabled": true
+      },
+      {
+        "id": "D9UE9V3C77UF5LEJ9G5G",
+        "label": "Pixel 5",
+        "accessToken": "b530b69b83ff77dc6423cd3e5116b532b3325470",
+        "enabled": true
+      },
+      {
+        "id": "D9UHLVJC77U9J4MANGO0",
+        "label": "Pixel 6",
+        "accessToken": "9e711950750eb6197d914f18e6edc5233a542621",
+        "enabled": true
+      },
+      {
+        "id": "D9UIFBRC77UDTFS1RF50",
+        "label": "Pixel 7",
+        "accessToken": "dfbcf9a5daae36981ec413452d3a981288d49e29",
+        "enabled": true
+      },
+      {
+        "id": "D9UJNFJC77U9J4MANJNG",
+        "label": "Pixel 8",
+        "accessToken": "99f8fb540443157539697f7cdd84be5f1b3f94a9",
+        "enabled": true
+      },
+      {
+        "id": "D9UJTNJC77UDTFS1RHG0",
+        "label": "Pixel 9",
+        "accessToken": "29ddd03f058b82aa7cad33f59e4df7f5de04901b",
+        "enabled": true
+      },
+      {
+        "id": "DA00E7RC77UDVMNGC2TG",
+        "label": "Pixel 10",
+        "accessToken": "5452259993d90671ee6e10f90acc6bd1936bedfb",
+        "enabled": true
+      },
+      {
+        "id": "DA011I3C77UDVMNGC390",
+        "label": "Pixel 11",
+        "accessToken": "3b3444561de7081548b5bbf52577b2e9d79e2dfe",
+        "enabled": true
+      },
+      {
+        "id": "DA0FLO3C77U990VDI4TG",
+        "label": "Pixel 12",
+        "accessToken": "aab63c58e23b5a7f8b3cf337697a3d6f1f147537",
+        "enabled": true
+      },
+      {
+        "id": "DA1AR33C77U9FTEGGJ1G",
+        "label": "Pixel 13",
+        "accessToken": "c09098521282a9ba1af2534d624cdcdca5222649",
+        "enabled": true
+      },
+      {
+        "id": "DA1O3MRC77UDBOEDO37G",
+        "label": "Pixel 14",
+        "accessToken": "3cb097e1aac8e4ae2a268d282bc5bbc514f9e655",
+        "enabled": true
+      },
+      {
+        "id": "DA1UKKRC77UDVMNGD350",
+        "label": "Pixel 15",
+        "accessToken": "8f80b2e1e9c3f6b2510fc5923b80be40cc2570af",
+        "enabled": true
+      },
+      {
+        "id": "DA1VB9RC77U9RA6QLQTG",
+        "label": "Pixel 16",
+        "accessToken": "a9fdfb69cba74e097e46bf791d3345ea5b05e0ca",
+        "enabled": true
+      },
+      {
+        "id": "DA1VVPRC77U9RA6QLRG0",
+        "label": "Pixel 17",
+        "accessToken": "c59e2a0f9597562ff8837d0fc729a9374a7c9e88",
+        "enabled": true
+      }
+    ],
+    "testEventCode": "",
+    "testEventEnabled": false,
+    "updatedAt": "2026-08-18T06:48:58.518Z"
   },
   "bobojaco": {
-    "pixels": [],
+    "pixels": [
+      {
+        "id": "D9MJJM3C77U97D5Q398G",
+        "label": "Principal",
+        "accessToken": "1bf4452d668061b0e892f85bee19a5c9b57df4b0",
+        "enabled": true
+      },
+      {
+        "id": "D9MK4IRC77U26FTDMBN0",
+        "label": "Pixel 2",
+        "accessToken": "cee098a95bf21ca9d260ec8a7b3afe936e02aec1",
+        "enabled": true
+      }
+    ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-06T17:10:00.000Z"
-  },
-  "teddy": {
-    "pixels": [],
-    "testEventCode": "",
-    "testEventEnabled": false,
-    "updatedAt": "2026-08-06T17:10:00.000Z"
+    "updatedAt": "2026-08-01T00:51:20.171Z"
   },
   "roupao": {
-    "pixels": [],
+    "pixels": [
+      {
+        "id": "D9MJMCRC77U97D5Q39EG",
+        "label": "Principal",
+        "accessToken": "1a63896820d54a717d9bbad61fe2853bcf7adffe",
+        "enabled": true
+      },
+      {
+        "id": "D9MK5FJC77U1C011L790",
+        "label": "Pixel 2",
+        "accessToken": "5a0e66e04ae93fdd9649ce591d38acb0cffb5d35",
+        "enabled": true
+      },
+      {
+        "id": "D9OC9U3C77U1C011PIFG",
+        "label": "Pixel 3",
+        "accessToken": "cc8918cc1485e9ca2f5814fa32ae0e14b9f68ce6",
+        "enabled": true
+      },
+      {
+        "id": "D9T2VABC77U5OHLI6JDG",
+        "label": "Pixel 4",
+        "accessToken": "bcc885f225bc91c3eb36ec1ba132892e863e05d6",
+        "enabled": true
+      }
+    ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-06T17:10:00.000Z"
+    "updatedAt": "2026-08-12T06:47:50.802Z"
+  },
+  "teddy": {
+    "pixels": [
+      {
+        "id": "D9MJL4RC77U97D5Q39BG",
+        "label": "Principal",
+        "accessToken": "89d1c70bd14bc370dcd6b135c9d1e0d67db18743",
+        "enabled": true
+      },
+      {
+        "id": "D9MK50RC77U26FTDMBO0",
+        "label": "Pixel 2",
+        "accessToken": "3add95af42d4aaec8cdf25e735539c46b98077ae",
+        "enabled": true
+      }
+    ],
+    "testEventCode": "",
+    "testEventEnabled": false,
+    "updatedAt": "2026-08-01T00:51:07.499Z"
+  },
+  "sabonete": {
+    "pixels": [
+      {
+        "id": "D9UKIB3C77U8CMCCG8T0",
+        "label": "Principal",
+        "accessToken": "3a4f83b972ebb4df7c41775bc0b18c60e03ecfb8",
+        "enabled": true
+      }
+    ],
+    "testEventCode": "",
+    "testEventEnabled": false,
+    "updatedAt": "2026-08-13T04:38:30.076Z"
   },
   "conjunto": {
     "pixels": [],
