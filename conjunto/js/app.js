@@ -351,8 +351,8 @@
   var OLD_PRICE = 109.9;
   var EXTRA_PRICE = 29.87;
   var EXTRA_IMGS = [
-    "images/01.png", "images/02.png", "images/03.png", "images/04.png", "images/05.png",
-    "images/06.png", "images/07.png", "images/08.png", "images/09.png", "images/10.png",
+    "images/01.png", "images/02.png", "images/03.png", "images/04.png",
+    "images/05.png", "images/06.png", "images/07.png", "images/08.png",
   ];
   /* limite do ticket na Pixzy: o pedido inteiro não pode passar de R$ 200 */
   var MAX_TICKET = 200;
@@ -508,7 +508,7 @@
       warnLimit();
     }
 
-    var label = "Off White, " + size.dataset.size;
+    var label = "Branco, " + size.dataset.size;
     var img = "images/01.png";
     if (sel) {
       label = variantLabel(sel, size);
