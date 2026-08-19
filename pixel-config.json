@@ -173,12 +173,6 @@
   "roupao": {
     "pixels": [
       {
-        "id": "D9MJMCRC77U97D5Q39EG",
-        "label": "Principal",
-        "accessToken": "1a63896820d54a717d9bbad61fe2853bcf7adffe",
-        "enabled": true
-      },
-      {
         "id": "D9MK5FJC77U1C011L790",
         "label": "Pixel 2",
         "accessToken": "5a0e66e04ae93fdd9649ce591d38acb0cffb5d35",
@@ -205,7 +199,7 @@
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T09:00:38.401Z"
+    "updatedAt": "2026-08-19T12:22:26.963Z"
   },
   "teddy": {
     "pixels": [
