@@ -8,24 +8,6 @@
   "jaqueta": {
     "pixels": [
       {
-        "id": "D9H9P0JC77U5O97QPFGG",
-        "label": "Pixel 3",
-        "accessToken": "0414cfcafe366b6e3c2de5f6fad1207728106793",
-        "enabled": true
-      },
-      {
-        "id": "D9HA8NRC77U9NNBAFQGG",
-        "label": "Pixel 3",
-        "accessToken": "683cc4b4be73c0d1c72211faf4fb89c7586da7f2",
-        "enabled": true
-      },
-      {
-        "id": "D9HAJ7BC77UD7F809IKG",
-        "label": "Pixel 4",
-        "accessToken": "8bc36aa883355ce0e013752083f37d6741605b8a",
-        "enabled": true
-      },
-      {
         "id": "D9HB8JBC77U84G6G56LG",
         "label": "Pixel 5",
         "accessToken": "1f6ac5202440a2bde7e954b190a9068c116fa307",
@@ -34,7 +16,7 @@
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:26:05.885Z"
+    "updatedAt": "2026-08-19T12:26:06.523Z"
   },
   "toalha": {
     "pixels": [],
