@@ -53,7 +53,7 @@
       "enabled": true,
       "safe": {
         "method": "redirect",
-        "url": "https://receitas-especiais.blogspot.com/search/label/biscoitos"
+        "url": "https://receitas-especiais.blogspot.com/2014/04/bolo-de-claras.html"
       },
       "offer": {
         "method": "internal",
@@ -80,7 +80,7 @@
         "ttclidBypass": false
       },
       "createdAt": "2026-08-19T08:54:17.382Z",
-      "updatedAt": "2026-08-19T09:22:47.882Z"
+      "updatedAt": "2026-08-19T09:32:00.166Z"
     },
     {
       "id": "cp_6c3ffa29",
