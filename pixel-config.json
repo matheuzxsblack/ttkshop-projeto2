@@ -45,30 +45,6 @@
   "toalha": {
     "pixels": [
       {
-        "id": "D9NP993C77U1C011O0KG",
-        "label": "Pixel 2",
-        "accessToken": "092260facbb572764d2e5f663be453a2f1f1e9b5",
-        "enabled": true
-      },
-      {
-        "id": "D9OC9SRC77U26FTDQOAG",
-        "label": "Pixel 3",
-        "accessToken": "0c60320dd337c19f1d3e168673b2d708979b8733",
-        "enabled": true
-      },
-      {
-        "id": "D9PUFPJC77UFAJG52B9G",
-        "label": "Pixel 4",
-        "accessToken": "de519fd558c932088f0b1cb9046616f7200c0e18",
-        "enabled": true
-      },
-      {
-        "id": "D9UE9V3C77UF5LEJ9G5G",
-        "label": "Pixel 5",
-        "accessToken": "b530b69b83ff77dc6423cd3e5116b532b3325470",
-        "enabled": true
-      },
-      {
         "id": "D9UHLVJC77U9J4MANGO0",
         "label": "Pixel 6",
         "accessToken": "9e711950750eb6197d914f18e6edc5233a542621",
@@ -143,7 +119,7 @@
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:22:31.629Z"
+    "updatedAt": "2026-08-19T12:22:32.269Z"
   },
   "bobojaco": {
     "pixels": [
