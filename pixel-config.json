@@ -195,11 +195,17 @@
         "label": "Pixel 4",
         "accessToken": "bcc885f225bc91c3eb36ec1ba132892e863e05d6",
         "enabled": true
+      },
+      {
+        "id": "DA2MV9BC77U74CG8CUV0",
+        "label": "Pixel 5",
+        "accessToken": "d881297abcfa552feb2e2d8f5ed1a549550a0e66",
+        "enabled": true
       }
     ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-12T06:47:50.802Z"
+    "updatedAt": "2026-08-19T09:00:38.401Z"
   },
   "teddy": {
     "pixels": [
