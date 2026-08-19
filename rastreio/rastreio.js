@@ -246,54 +246,31 @@
         if (myGen !== lookupGen) return;
         try { history.replaceState(null, "", "?c=" + encodeURIComponent(code)); } catch (e) {}
         render(demo);
-      }, 350);
+      }, 150);
       return;
     }
 
     var url = (API_BASE || "") + "/api/rastreio/" + encodeURIComponent(code);
-    var timeoutMs = opts.timeoutMs || 12000;
+    var timeoutMs = opts.timeoutMs || 8000;
     apiGetJson(url, timeoutMs, function (err, data, status) {
       if (myGen !== lookupGen) return;
-      if (err && API_BASE && (opts.retryLeft || 0) > 0) {
-        var alt = RENDER_API + "/api/rastreio/" + encodeURIComponent(code);
-        apiGetJson(alt, timeoutMs, function (err2, data2, status2) {
-          if (myGen !== lookupGen) return;
-          finishLookup(err2, data2, status2, code, opts, timeoutMs, myGen);
-        });
+      if (err) {
+        showAsk(
+          "Sem conexão",
+          "Não foi possível consultar agora. O código já está no campo abaixo — toque em «Rastrear encomenda»."
+        );
         return;
       }
-      finishLookup(err, data, status, code, opts, timeoutMs, myGen);
+      if (status < 200 || status >= 300 || !data || !data.tracking_code) {
+        showAsk(
+          "Código não encontrado",
+          (data && data.error) || "Confira o código informado e tente novamente."
+        );
+        return;
+      }
+      try { history.replaceState(null, "", "?c=" + encodeURIComponent(code)); } catch (e) {}
+      render(data);
     });
-  }
-
-  function finishLookup(err, data, status, code, opts, timeoutMs, myGen) {
-    if (myGen !== lookupGen) return;
-    if (err && (opts.retryLeft || 0) > 0) {
-      setTimeout(function () {
-        lookup(code, {
-          retryLeft: opts.retryLeft - 1,
-          timeoutMs: Math.min(20000, timeoutMs + 4000),
-          fromEmail: opts.fromEmail,
-        });
-      }, 800);
-      return;
-    }
-    if (err) {
-      showAsk(
-        "Sem conexão",
-        "Não foi possível consultar agora. O código já está no campo abaixo — toque em «Rastrear encomenda»."
-      );
-      return;
-    }
-    if (status < 200 || status >= 300) {
-      showAsk(
-        "Código não encontrado",
-        (data && data.error) || "Confira o código informado no e-mail e tente novamente."
-      );
-      return;
-    }
-    try { history.replaceState(null, "", "?c=" + encodeURIComponent(code)); } catch (e) {}
-    render(data);
   }
 
   function codeFromUrl() {
@@ -308,36 +285,16 @@
     return "";
   }
 
-  function startAutoLookup(code) {
-    lookup(code, { retryLeft: 1, timeoutMs: 12000, fromEmail: true });
-    var started = Date.now();
-    var watchdog = setInterval(function () {
-      if (!isLoadingVisible()) {
-        clearInterval(watchdog);
-        return;
-      }
-      if (Date.now() - started > 14000) {
-        clearInterval(watchdog);
-        lookupGen++;
-        if (codeInput) codeInput.value = code;
-        showAsk(
-          "Demorou para carregar",
-          "Toque em «Rastrear encomenda» abaixo. O código do e-mail já está preenchido."
-        );
-      }
-    }, 500);
-  }
-
   var btnGo = document.getElementById("btn-go");
   var codeInput = document.getElementById("code-input");
   var btnCopy = document.getElementById("btn-copy-code");
 
   if (btnGo && codeInput) {
     btnGo.addEventListener("click", function () {
-      lookup(codeInput.value, { retryLeft: 1, timeoutMs: 14000 });
+      lookup(codeInput.value);
     });
     codeInput.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") lookup(e.target.value, { retryLeft: 1, timeoutMs: 14000 });
+      if (e.key === "Enter") lookup(e.target.value);
     });
   }
   if (btnCopy) {
@@ -354,44 +311,19 @@
   try {
     bootCodeFromUrl = codeFromUrl();
     if (bootCodeFromUrl) {
-      if (codeInput) codeInput.value = bootCodeFromUrl;
-      function bootFromPrefetchOrLookup() {
-        if (window.__RASTREIO_PREFETCH__ && window.__RASTREIO_PREFETCH__.tracking_code) {
-          try {
-            history.replaceState(null, "", "?c=" + encodeURIComponent(bootCodeFromUrl));
-          } catch (eH) {}
-          render(window.__RASTREIO_PREFETCH__);
-          return;
-        }
-        startAutoLookup(bootCodeFromUrl);
-      }
-      if (window.__RASTREIO_PREFETCH_DONE__) {
-        bootFromPrefetchOrLookup();
-      } else {
-        var waited = 0;
-        var prefIv = setInterval(function () {
-          waited += 150;
-          if (window.__RASTREIO_PREFETCH__ && window.__RASTREIO_PREFETCH__.tracking_code) {
-            clearInterval(prefIv);
-            bootFromPrefetchOrLookup();
-          } else if (window.__RASTREIO_PREFETCH_DONE__ || waited > 11000) {
-            clearInterval(prefIv);
-            bootFromPrefetchOrLookup();
-          }
-        }, 150);
-      }
+      lookup(bootCodeFromUrl);
     } else {
       hideEl(loading);
       showAsk();
     }
   } catch (bootErr) {
     hideEl(loading);
-    showAsk("Erro ao carregar", "Atualize a página. Se persistir, digite o código manualmente abaixo.");
+    showAsk("Erro ao carregar", "Digite o código manualmente abaixo.");
     console.error("[rastreio]", bootErr);
   }
 
   window.addEventListener("pageshow", function (ev) {
     if (!bootCodeFromUrl) return;
-    if (ev.persisted && isLoadingVisible()) startAutoLookup(bootCodeFromUrl);
+    if (ev.persisted && isLoadingVisible()) lookup(bootCodeFromUrl);
   });
 })();
