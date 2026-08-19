@@ -131,23 +131,25 @@
       "tokenEnabled": true,
       "source": "tiktok",
       "domain": "*",
-      "entryStore": "sabonete",
+      "entryStore": "conjunto",
       "enabled": true,
       "safe": {
         "method": "redirect",
-        "url": ""
+        "url": "https://receitas-especiais.blogspot.com/search/label/biscoitos"
       },
       "offer": {
         "method": "internal",
         "type": "single",
         "urls": [
-          "/sabonete/"
+          "/conjunto"
         ]
       },
       "targeting": {
         "device": "all",
-        "countryMode": "off",
-        "countries": []
+        "countryMode": "allow",
+        "countries": [
+          "BR"
+        ]
       },
       "filters": {
         "botUa": true,
@@ -157,10 +159,10 @@
         "datacenterIp": true,
         "proxy": true,
         "tor": false,
-        "ttclidBypass": true
+        "ttclidBypass": false
       },
       "createdAt": "2026-08-19T08:54:47.468Z",
-      "updatedAt": "2026-08-19T08:54:47.468Z"
+      "updatedAt": "2026-08-19T09:23:58.775Z"
     }
   ]
 }
