@@ -145,7 +145,7 @@
         ]
       },
       "targeting": {
-        "device": "all",
+        "device": "none",
         "countryMode": "allow",
         "countries": [
           "BR"
@@ -162,7 +162,7 @@
         "ttclidBypass": false
       },
       "createdAt": "2026-08-19T08:54:47.468Z",
-      "updatedAt": "2026-08-19T09:32:29.517Z"
+      "updatedAt": "2026-08-19T10:41:06.589Z"
     }
   ]
 }
