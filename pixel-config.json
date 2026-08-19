@@ -246,9 +246,16 @@
     "updatedAt": "2026-08-19T09:17:16.282Z"
   },
   "conjunto": {
-    "pixels": [],
+    "pixels": [
+      {
+        "id": "DA2N4LBC77UDVMNGDKIG",
+        "label": "Principal",
+        "accessToken": "3e4a551f409ddbcd910dbc022282cc923c8d458d",
+        "enabled": true
+      }
+    ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T03:25:00.000Z"
+    "updatedAt": "2026-08-19T09:17:26.879Z"
   }
 }
