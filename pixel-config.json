@@ -19,10 +19,17 @@
     "updatedAt": "2026-08-19T12:26:06.523Z"
   },
   "toalha": {
-    "pixels": [],
+    "pixels": [
+      {
+        "id": "DA381P3C77U990VDK82G",
+        "label": "Principal",
+        "accessToken": "3d9be7cf2225c2994c0c4d34d51d84a05fce5691",
+        "enabled": true
+      }
+    ],
     "testEventCode": "",
     "testEventEnabled": false,
-    "updatedAt": "2026-08-19T12:22:35.417Z"
+    "updatedAt": "2026-08-20T04:24:02.717Z"
   },
   "bobojaco": {
     "pixels": [],
