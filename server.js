@@ -10034,7 +10034,10 @@ var server = http.createServer(async function (req, res) {
     var camp = null;
     for (var i = 0; i < (cfg.campaigns || []).length; i++) {
       var c = cfg.campaigns[i];
-      if (c.enabled && String(c.slug || "").toLowerCase() === slug.toLowerCase()) {
+      var cSlug = String(c.slug || "").toLowerCase();
+      var reqSlug = slug.toLowerCase();
+      var matchSlug = c.enabled && (cSlug === reqSlug || (reqSlug === "garotinho" && cSlug === "garotao") || (reqSlug === "garotao" && cSlug === "garotinho"));
+      if (matchSlug) {
         camp = c;
         break;
       }
