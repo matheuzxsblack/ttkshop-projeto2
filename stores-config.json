@@ -128,5 +128,11 @@
     "currency": "BRL",
     "language": "pt-BR",
     "timezone": "America/Sao_Paulo"
+  },
+  "coberdrom": {
+    "name": "Coberdrom Queen Sherpa",
+    "slug": "coberdrom",
+    "category": "coberdrom",
+    "theme": "default"
   }
 }
