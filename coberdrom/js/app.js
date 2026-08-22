@@ -185,14 +185,16 @@
   /* ---------- sheet de variantes (cor + tamanho) ---------- */
   var sizeHint = document.getElementById("size-hint");
   var extraRow = document.getElementById("extra-row");
-  /* só true se a pessoa clicar de propósito no upsell (nunca herda de abertura) */
   var extraOptIn = false;
+  var optionsLabel = document.getElementById("options-label");
 
   function selectedColorOpt() {
     return document.querySelector("#sku-grid .sku-opt.selected");
   }
   function selectedSizeOpt() {
-    return document.querySelector("#size-grid .size-opt.selected");
+    /* coberdrom não tem tamanho — retorna null sem erro */
+    var el = document.querySelector("#size-grid .size-opt.selected");
+    return el || null;
   }
 
   function setExtraChecked(on) {
@@ -257,16 +259,19 @@
     handleVariantPick();
   });
 
-  document.getElementById("size-grid").addEventListener("click", function (e) {
-    var opt = e.target.closest(".size-opt");
-    if (!opt) return;
-    this.querySelectorAll(".size-opt").forEach(function (o) {
-      o.classList.remove("selected");
+  var sizeGrid = document.getElementById("size-grid");
+  if (sizeGrid) {
+    sizeGrid.addEventListener("click", function (e) {
+      var opt = e.target.closest(".size-opt");
+      if (!opt) return;
+      this.querySelectorAll(".size-opt").forEach(function (o) {
+        o.classList.remove("selected");
+      });
+      opt.classList.add("selected");
+      if (sizeHint && opt.dataset.size) sizeHint.textContent = opt.dataset.size;
+      handleVariantPick();
     });
-    opt.classList.add("selected");
-    sizeHint.textContent = opt.dataset.size;
-    handleVariantPick();
-  });
+  }
 
   /* leve +1 cor aleatória (checkbox) — só troca com clique direto */
   extraRow.addEventListener("click", function (e) {
@@ -484,7 +489,10 @@
   document.getElementById("btn-start-shopping").addEventListener("click", closeCart);
 
   function variantLabel(colorOpt, sizeOpt) {
-    return colorOpt ? (colorOpt.dataset.color + (sizeOpt && sizeOpt.dataset.size ? ", " + sizeOpt.dataset.size : "")) : "Azul Marinho";
+    if (!colorOpt) return "Azul Marinho";
+    var lbl = colorOpt.dataset.color || "Azul Marinho";
+    if (sizeOpt && sizeOpt.dataset && sizeOpt.dataset.size) lbl += ", " + sizeOpt.dataset.size;
+    return lbl;
   }
 
   /* adicionar a partir do sheet de variantes */
@@ -535,7 +543,7 @@
 
     /* leve +1 cor aleatória */
     if (addExtra) {
-      var extraLabel = "Cor aleatória, " + size.dataset.size;
+      var extraLabel = "Cor aleatória" + (size && size.dataset && size.dataset.size ? ", " + size.dataset.size : "");
       var existingExtra = cartItems.find(function (it) {
         return it.extra && it.label === extraLabel;
       });
@@ -630,7 +638,7 @@
     document.querySelectorAll("#size-grid .size-opt").forEach(function (o) {
       o.classList.toggle("selected", o.dataset.size === size);
     });
-    if (size) sizeHint.textContent = size;
+    if (size && sizeHint) sizeHint.textContent = size;
 
     skuSheet.removeAttribute("hidden");
     skuOverlay.removeAttribute("hidden");
@@ -647,7 +655,7 @@
 
     var sel = selectedColorOpt();
     var size = selectedSizeOpt();
-    if (!sel || !size) return;
+    if (!sel) return;
 
     var label = variantLabel(sel, size);
     var img = sel.dataset.img || item.img;

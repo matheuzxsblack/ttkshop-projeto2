@@ -213,6 +213,7 @@ const STORE_PATHS = {
   roupao: { label: "Roupão Microfibra Plush", dir: "roupao", index: "index.html" },
   toalha: { label: "Toalhas Gigante", dir: "toalha", index: "index.html" },
   sabonete: { label: "Kit Sabonete", dir: "sabonete", index: "index.html" },
+  coberdrom: { label: "Coberdrom Queen Sherpa", dir: "coberdrom", index: "index.html" },
 };
 
 /* ---------- modo de checkout por loja (tiktok = original | simple = simplificado) ---------- */
@@ -220,7 +221,7 @@ const CHECKOUT_CONFIG_FILE = path.join(DATA_DIR, "checkout-config.json");
 const CHECKOUT_CONFIG_BOOTSTRAP = path.join(ROOT, "checkout-config.json");
 const CHECKOUT_MODES = ["tiktok", "simple"];
 /* lojas que já têm o checkout simples implementado no front */
-const SIMPLE_CHECKOUT_STORES = ["jaqueta", "conjunto", "bobojaco", "teddy", "roupao", "panelas", "toalha", "sabonete"];
+const SIMPLE_CHECKOUT_STORES = ["jaqueta", "conjunto", "bobojaco", "teddy", "roupao", "panelas", "toalha", "sabonete", "coberdrom"];
 
 /* ---------- cloaker por loja (URLs /n7*, + vitrine padrão) ---------- */
 const CLOAKER_CONFIG_FILE = path.join(DATA_DIR, "cloaker-config.json");
