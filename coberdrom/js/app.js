@@ -434,7 +434,7 @@
       '<span class="cart-check checked" aria-hidden="true"></span>' +
       '<img class="cart-item-img" src="' + item.img + '" alt="Produto" />' +
       '<div class="cart-item-info">' +
-      '<p class="cart-item-title">' + (item.extra ? "Cor surpresa — Jaqueta Puffer Prem..." : "Coberdrom Queen Sherpa Lã de Carneiro...") + "</p>" +
+      '<p class="cart-item-title">' + (item.extra ? "Cor surpresa — Coberdrom Queen..." : "Coberdrom Queen Sherpa Lã de Carneiro...") + "</p>" +
       variantBtn +
       '<div class="cart-price-row">' +
       '<span class="cart-price">' + moneyParts(item.price) + "</span>" + COUPON_SVG +
@@ -707,7 +707,7 @@
       '<div class="co-item">' +
       '<img class="co-item-img" src="' + item.img + '" alt="Produto" />' +
       '<div class="co-item-info">' +
-      '<p class="co-item-title">' + (item.extra ? "Cor surpresa — Jaqueta Puffer Prem..." : "Coberdrom Queen Sherpa Lã de Carneiro...") + "</p>" +
+      '<p class="co-item-title">' + (item.extra ? "Cor surpresa — Coberdrom Queen..." : "Coberdrom Queen Sherpa Lã de Carneiro...") + "</p>" +
       '<p class="co-item-variant">' + item.label + "</p>" +
       '<div class="co-item-price-row">' +
       '<span class="co-item-price">' + money(item.price) + "</span>" + COUPON_SVG +
@@ -1006,7 +1006,7 @@
   }
 
   function scItemHtml(item, i) {
-    var title = item.extra ? "Cor surpresa — Jaqueta Puffer Premium" : "Jaqueta Feminina Puffer Forrada Impermeável Inverno";
+    var title = item.extra ? "Cor surpresa — Coberdrom Queen" : "Coberdrom Queen Sherpa Lã de Carneiro";
     var oldRow = item.extra
       ? ""
       : '<span class="sc-item-old">R$ 109,90</span> <span class="sc-item-off">-68%</span>';
@@ -1375,7 +1375,7 @@
           complemento: address.compl || "",
         },
         items_detail: cartItems.map(function (it) {
-          return { variante: "Jaqueta " + it.label, qtd: it.qty };
+          return { variante: "Coberdrom " + it.label, qtd: it.qty };
         }),
       }, typeof window.ttkFunnelPixMeta === "function" ? window.ttkFunnelPixMeta() : {})),
     }).then(function (r) {
@@ -1482,7 +1482,7 @@
   }
 
   function sucItemHtml(item) {
-    var title = item.extra ? "Cor surpresa — Jaqueta Puffer Premium" : "Jaqueta Feminina Puffer Forrada Impermeável Inverno";
+    var title = item.extra ? "Cor surpresa — Coberdrom Queen" : "Coberdrom Queen Sherpa Lã de Carneiro";
     return (
       '<div class="suc-item">' +
       '<img src="' + item.img + '" alt="Produto" />' +
@@ -1580,7 +1580,7 @@
         return {
           content_id: "coberdrom-" + String(it.label || i).replace(/\s+/g, "-").toLowerCase(),
           content_type: "product",
-          content_name: it.extra ? "Cor surpresa — Jaqueta" : "Jaqueta " + (it.label || ""),
+          content_name: it.extra ? "Cor surpresa — Coberdrom" : "Coberdrom " + (it.label || ""),
           quantity: Number(it.qty) || 1,
           price: Number(it.price) || 0,
         };
@@ -1589,7 +1589,7 @@
       var payload = {
         contents: contents.length
           ? contents
-          : [{ content_id: "coberdrom", content_type: "product", content_name: "Jaqueta", quantity: 1, price: value }],
+          : [{ content_id: "coberdrom", content_type: "product", content_name: "Coberdrom", quantity: 1, price: value }],
         content_type: "product",
         currency: "BRL",
         value: value,
