@@ -96,5 +96,16 @@ window.TTK_CATALOG = {
       sold: "3,2 mil vendidos",
       rating: "4.6",
     },
+    {
+      id: "coberdrom",
+      title: "Coberdrom Queen Sherpa Lã de Carneiro Inverno",
+      url: "/coberdrom/",
+      image: "/coberdrom/imagens/01.png",
+      priceLabel: "A partir de R$ 89,90",
+      priceMain: "89,90",
+      badge: "-64%",
+      sold: "1.482 vendidos",
+      rating: "4.8",
+    },
   ],
 };

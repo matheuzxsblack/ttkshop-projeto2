@@ -231,6 +231,7 @@ const CLOAKER_STORES = {
   bobojaco: { label: "Bobojaco (casaco)", entryPath: "/n7bb" },
   roupao: { label: "Roupão plush", entryPath: "/n7rp" },
   teddy: { label: "Casaquinho Teddy", entryPath: "/n7td" },
+  coberdrom: { label: "Coberdrom Queen Sherpa", entryPath: "/n7cb" },
 };
 const CLOAK_ENTRY_TO_HTML = {
   "/n7jq": "/n7jq/index.html",
@@ -243,6 +244,10 @@ const CLOAK_ENTRY_TO_HTML = {
   "/n7rp/": "/n7rp/index.html",
   "/n7td": "/n7td/index.html",
   "/n7td/": "/n7td/index.html",
+  "/n7cb": "/coberdrom/index.html",
+  "/n7cb/": "/coberdrom/index.html",
+  "/cb": "/coberdrom/index.html",
+  "/cb/": "/coberdrom/index.html",
 };
 
 function loadCloakerConfig() {
@@ -10004,7 +10009,9 @@ var server = http.createServer(async function (req, res) {
       "/n7tl": "toalha", "/n7tl/": "toalha", "/tlh": "toalha", "/tlh/": "toalha",
       "/n7bb": "bobojaco", "/n7bb/": "bobojaco", "/bbj": "bobojaco", "/bbj/": "bobojaco",
       "/n7rp": "roupao", "/n7rp/": "roupao", "/rp": "roupao", "/rp/": "roupao",
-      "/n7td": "teddy", "/n7td/": "teddy", "/tdd": "teddy", "/tdd/": "teddy",
+      "/n7td": "teddy",
+    "/n7cb": "coberdrom",
+    "/cb": "coberdrom", "/n7td/": "teddy", "/tdd": "teddy", "/tdd/": "teddy",
     };
     var rawP = pathname.replace(/\/+$/, "") || "/";
     var stName = CLOAK_PATH_MAP[pathname] || CLOAK_PATH_MAP[rawP];

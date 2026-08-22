@@ -84,6 +84,16 @@
       "source": "/tdd/",
       "destination": "/compra?topic=casaquinho",
       "permanent": false
+    },
+    {
+      "source": "/cb",
+      "destination": "/compra?topic=coberdrom",
+      "permanent": false
+    },
+    {
+      "source": "/cb/",
+      "destination": "/compra?topic=coberdrom",
+      "permanent": false
     }
   ],
   "headers": [

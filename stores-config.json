@@ -107,6 +107,21 @@
         "taxRate": 0
       },
       "created_at": "2026-08-12T00:20:46.737Z"
+    },
+    {
+      "id": "coberdrom",
+      "name": "Coberdrom Queen Sherpa",
+      "slug": "coberdrom",
+      "enabled": true,
+      "theme": "default",
+      "categories": [
+        "coberdrom"
+      ],
+      "settings": {
+        "showPrices": true,
+        "currency": "BRL",
+        "taxRate": 0
+      }
     }
   ],
   "defaults": {

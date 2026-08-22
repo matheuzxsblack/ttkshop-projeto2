@@ -60,5 +60,11 @@
     "testEventCode": "",
     "testEventEnabled": false,
     "updatedAt": "2026-08-19T12:26:00.700Z"
+  },
+  "coberdrom": {
+    "pixels": [],
+    "testEventCode": "",
+    "testEventEnabled": false,
+    "updatedAt": "2026-08-22T21:06:00.776Z"
   }
 }

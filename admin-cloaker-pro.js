@@ -499,6 +499,7 @@
       { val: 'teddy', label: 'Casaquinho Teddy' },
       { val: 'sabonete', label: 'Kit Sabonete' },
       { val: 'panelas', label: 'Panelas' },
+      { val: 'coberdrom', label: 'Coberdrom Queen Sherpa' },
       { val: 'conjunto', label: 'Conjunto Alfaiataria' }
     ];
     stores.forEach(function (s) {
