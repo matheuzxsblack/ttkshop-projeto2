@@ -529,6 +529,11 @@ async function decideCampaign(campaign, req, url) {
     reason = "automation";
   }
 
+  /* Dispositivo "none" (Nenhum) = Força ida para a safe page em 100% dos acessos */
+  if (!botLike && campaign.targeting && campaign.targeting.device === "none") {
+    return { outcome: "safe", reason: "device-none", botLike: false };
+  }
+
 
   if (hasTtclid && campaign.filters.ttclidBypass && !botLike) {
     // skip remaining filters
