@@ -662,3 +662,7 @@
   .cp-card { padding: 12px !important; }
   .action-btn, .ttclid-btn { padding: 6px 8px !important; }
 }
+
+.captcha-btn { margin-left:6px; padding:4px 10px; border-radius:999px; font-size:10px; font-weight:800; letter-spacing:.05em; cursor:pointer; border:1px solid rgba(56,189,248,.5); background:rgba(56,189,248,.08); color:#38bdf8; transition:all .2s; }
+.captcha-btn.on { border-color:rgba(52,211,153,.55); background:rgba(52,211,153,.1); color:#34d399; }
+.captcha-btn:hover { filter:brightness(1.15); }

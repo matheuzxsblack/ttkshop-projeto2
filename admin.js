@@ -746,6 +746,7 @@
           .map(function (key) {
             var s = cloakStores[key];
             var on = !!s.enabled;
+            var capOn = !!s.captchaEnabled;
             return (
               '<div class="ck-row" data-cloak-store="' + key + '">' +
               "<strong>" + s.label + "</strong>" +
@@ -754,6 +755,12 @@
               (on ? "CLOAKER ATIVO" : "CLOAKER OFF") + "</span>" +
               '<button class="ck-btn' + (on ? " active" : "") + '" type="button" data-cloak="1">Ativar cloaker</button>' +
               '<button class="ck-btn' + (!on ? " active" : "") + '" type="button" data-cloak="0">Desativar</button>' +
+              '<span style="margin-left:12px;border-left:1px solid rgba(255,255,255,0.1);padding-left:12px;display:inline-flex;align-items:center;gap:6px;">' +
+              '<span class="ck-mode-tag ' + (capOn ? "cloak-on" : "cloak-off") + '">' +
+              (capOn ? "CAPTCHA ON" : "CAPTCHA OFF") + "</span>" +
+              '<button class="ck-btn' + (capOn ? " active" : "") + '" type="button" data-captcha="1">Ativar Captcha</button>' +
+              '<button class="ck-btn' + (!capOn ? " active" : "") + '" type="button" data-captcha="0">Desativar</button>' +
+              '</span>' +
               "</div>"
             );
           })
@@ -779,16 +786,23 @@
 
       (document.getElementById("cloak-list") || { addEventListener: function () {} }).addEventListener("click", function (e) {
         var btn = e.target.closest(".ck-btn");
-        if (!btn || btn.classList.contains("active")) return;
+        if (!btn || btn.classList.contains("active") || btn.disabled) return;
         var row = btn.closest(".ck-row");
         var store = row.getAttribute("data-cloak-store");
-        var enabled = btn.getAttribute("data-cloak") === "1";
+        var isCloakAction = btn.hasAttribute("data-cloak");
+        var isCaptchaAction = btn.hasAttribute("data-captcha");
+        if (!isCloakAction && !isCaptchaAction) return;
+
+        var payload = { store: store };
+        if (isCloakAction) payload.enabled = btn.getAttribute("data-cloak") === "1";
+        if (isCaptchaAction) payload.captcha = btn.getAttribute("data-captcha") === "1";
+
         btn.disabled = true;
         cloakStatus("Salvando cloaker…");
         fetch("/api/admin/cloaker-mode", {
           method: "POST",
           headers: authHeaders({ "Content-Type": "application/json" }),
-          body: JSON.stringify({ store: store, enabled: enabled }),
+          body: JSON.stringify(payload),
         })
           .then(function (r) {
             return r.json().then(function (j) { return { ok: r.ok, j: j }; });
@@ -799,17 +813,20 @@
               cloakStatus(res.j.error || "Falha ao salvar.", "err");
               return;
             }
-            if (cloakStores[store]) cloakStores[store].enabled = !!res.j.enabled;
+            if (cloakStores[store]) {
+              if ("enabled" in res.j) cloakStores[store].enabled = !!res.j.enabled;
+              if ("captchaEnabled" in res.j) cloakStores[store].captchaEnabled = !!res.j.captchaEnabled;
+            }
             renderCloakList();
             var ghNote =
               res.j.persisted && res.j.persisted.github === false && res.j.persisted.github_error
                 ? " Aviso: não gravou no GitHub (" + res.j.persisted.github_error + ")."
                 : "";
             cloakStatus(
-              (cloakStores[store] && cloakStores[store].label) + ": cloaker " + (res.j.enabled ? "ATIVO" : "desativado") + "." + ghNote,
+              (cloakStores[store] && cloakStores[store].label) + " atualizado." + ghNote,
               ghNote ? "err" : "ok"
             );
-            adminToast("Cloaker atualizado!");
+            adminToast("Configurações salvas!");
           })
           .catch(function () {
             btn.disabled = false;

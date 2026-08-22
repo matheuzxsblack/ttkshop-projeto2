@@ -701,6 +701,7 @@
           .map(function (key) {
             var s = cloakStores[key];
             var on = !!s.enabled;
+            var capOn = !!s.captchaEnabled;
             return (
               '<div class="ck-row" data-cloak-store="' + key + '">' +
               "<strong>" + s.label + "</strong>" +
@@ -709,6 +710,12 @@
               (on ? "CLOAKER ATIVO" : "CLOAKER OFF") + "</span>" +
               '<button class="ck-btn' + (on ? " active" : "") + '" type="button" data-cloak="1">Ativar cloaker</button>' +
               '<button class="ck-btn' + (!on ? " active" : "") + '" type="button" data-cloak="0">Desativar</button>' +
+              '<span style="margin-left:12px;border-left:1px solid rgba(255,255,255,0.1);padding-left:12px;display:inline-flex;align-items:center;gap:6px;">' +
+              '<span class="ck-mode-tag ' + (capOn ? "cloak-on" : "cloak-off") + '">' +
+              (capOn ? "CAPTCHA ON" : "CAPTCHA OFF") + "</span>" +
+              '<button class="ck-btn' + (capOn ? " active" : "") + '" type="button" data-captcha="1">Ativar Captcha</button>' +
+              '<button class="ck-btn' + (!capOn ? " active" : "") + '" type="button" data-captcha="0">Desativar</button>' +
+              '</span>' +
               "</div>"
             );
           })

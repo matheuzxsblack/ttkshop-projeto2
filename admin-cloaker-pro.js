@@ -219,6 +219,8 @@
           var ttOn = !!(c.filters && c.filters.ttclidBypass);
           html += '<button class="ttclid-btn' + (ttOn ? " on" : "") + '" type="button" data-ttclid-id="' + c.id + '" title="' + (ttOn ? "ttclid ATIVADO: cliques pagos do TikTok passam direto" : "ttclid DESATIVADO: cliques pagos tambem sao filtrados") + '">ttclid ' + (ttOn ? "ON" : "OFF") + "</button>";
         }
+        var capOn = !!(c.filters && (c.filters.captcha || c.filters.captchaEnabled));
+        html += '<button class="captcha-btn' + (capOn ? " on" : "") + '" type="button" data-captcha-id="' + c.id + '" title="' + (capOn ? "Captcha ATIVADO: desafio de imagens antes da Offer" : "Captcha DESATIVADO: entra direto na Offer") + '">Captcha ' + (capOn ? "ON" : "OFF") + "</button>";
         html += '<button class="action-btn btn-edit" data-id="' + c.id + '" title="Editar">' + editIcon() + '</button>';
         html += '<label class="toggle-switch"><input type="checkbox" class="toggle-enabled" data-id="' + c.id + '"' + (c.enabled ? ' checked' : '') + '><span class="toggle-slider"></span></label>';
         html += '<button class="action-btn btn-delete" data-id="' + c.id + '" title="Deletar">' + deleteIcon() + '</button>';
@@ -255,6 +257,25 @@
         nf.ttclidBypass = next;
         updateCampaign(id, { filters: nf }).then(function () {
           toast(next ? "ttclid ATIVADO — cliques pagos passam direto" : "ttclid DESATIVADO — cliques pagos também serão filtrados", "success");
+          loadList();
+        });
+      });
+    });
+
+    container.querySelectorAll(".captcha-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-captcha-id");
+        var camp = null;
+        for (var i2 = 0; i2 < campaigns.length; i2++) if (campaigns[i2].id === id) camp = campaigns[i2];
+        if (!camp) return;
+        var f = camp.filters || {};
+        var next = !(f.captcha || f.captchaEnabled);
+        var nf = {};
+        for (var k2 in f) if (f.hasOwnProperty(k2)) nf[k2] = f[k2];
+        nf.captcha = next;
+        nf.captchaEnabled = next;
+        updateCampaign(id, { filters: nf }).then(function () {
+          toast(next ? "Captcha Anti-Bot ATIVADO — desafio de imagens antes da Offer" : "Captcha Anti-Bot DESATIVADO — entra direto na Offer", "success");
           loadList();
         });
       });
@@ -637,7 +658,8 @@
       { key: 'datacenterIp', label: 'IP datacenter/hospedagem' },
       { key: 'proxy', label: 'Proxy' },
       { key: 'tor', label: 'Tor' },
-      { key: 'ttclidBypass', label: 'Liberar clique pago (ttclid)' }
+      { key: 'ttclidBypass', label: 'Liberar clique pago (ttclid)' },
+      { key: 'captcha', label: 'Captcha Anti-Bot (Desafio de Imagens)' }
     ];
     filters.forEach(function (f) {
       html += '<div class="toggle-item">';

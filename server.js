@@ -276,7 +276,15 @@ function persistCloakerConfigToGithub() {
 }
 function getCloakerEnabled(storeKey) {
   var cfgC = loadCloakerConfig();
-  return !!cfgC[storeKey];
+  var val = cfgC[storeKey];
+  if (val && typeof val === "object") return !!val.enabled;
+  return !!val;
+}
+function getCloakerCaptcha(storeKey) {
+  var cfgC = loadCloakerConfig();
+  var val = cfgC[storeKey];
+  if (val && typeof val === "object") return !!val.captcha;
+  return !!cfgC[storeKey + "_captcha"];
 }
 
 /* ---------- Cloaker Pro: campanhas (server-side) ---------- */
@@ -5715,6 +5723,131 @@ function pixzyRequest(method, apiPath, payload) {
   });
 }
 
+function renderCaptchaHtml(opts) {
+  opts = opts || {};
+  var returnUrl = String(opts.returnUrl || opts.return || "/").replace(/"/g, "&quot;");
+  var tokenKey = "ttk_captcha_ok_" + (opts.store || opts.slug || opts.id || "global");
+  return '<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n' +
+    '  <meta charset="UTF-8">\n' +
+    '  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">\n' +
+    '  <title>Verificação de Segurança — Anti-Bot</title>\n' +
+    '  <style>\n' +
+    '    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }\n' +
+    '    body { background: #0f172a; color: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }\n' +
+    '    .captcha-card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; width: 100%; max-width: 400px; padding: 24px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5); text-align: center; }\n' +
+    '    .brand-header { display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; font-size: 18px; margin-bottom: 6px; color: #38bdf8; }\n' +
+    '    .subtitle { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }\n' +
+    '    .robot-box { background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all 0.2s; user-select: none; }\n' +
+    '    .robot-box:hover { border-color: #38bdf8; }\n' +
+    '    .robot-left { display: flex; align-items: center; gap: 12px; }\n' +
+    '    .checkbox { width: 26px; height: 26px; border: 2px solid #64748b; border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; background: #1e293b; }\n' +
+    '    .checkbox.checked { background: #22c55e; border-color: #22c55e; }\n' +
+    '    .checkbox.checked::after { content: "✓"; color: #fff; font-weight: 900; font-size: 16px; }\n' +
+    '    .robot-text { font-size: 14px; font-weight: 600; color: #e2e8f0; }\n' +
+    '    .captcha-logo { font-size: 11px; color: #64748b; text-align: right; display: flex; flex-direction: column; align-items: flex-end; }\n' +
+    '    .captcha-logo svg { width: 26px; height: 26px; fill: #38bdf8; margin-bottom: 2px; }\n' +
+    '    .grid-modal { display: none; margin-top: 20px; border-top: 1px solid #334155; padding-top: 16px; text-align: left; animation: fadeIn 0.3s ease; }\n' +
+    '    .grid-modal.open { display: block; }\n' +
+    '    .prompt-box { background: #0284c7; padding: 12px 14px; border-radius: 8px 8px 0 0; color: #fff; }\n' +
+    '    .prompt-box strong { font-size: 15px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }\n' +
+    '    .prompt-box span { font-size: 12px; opacity: 0.9; }\n' +
+    '    .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: #0f172a; padding: 6px; border-radius: 0 0 8px 8px; border: 1px solid #0284c7; }\n' +
+    '    .tile { aspect-ratio: 1; background: #1e293b; border-radius: 6px; position: relative; cursor: pointer; overflow: hidden; display: flex; align-items: center; justify-content: center; transition: transform 0.1s; border: 1px solid #334155; }\n' +
+    '    .tile:active { transform: scale(0.96); }\n' +
+    '    .tile svg { width: 44px; height: 44px; opacity: 0.85; transition: all 0.2s; }\n' +
+    '    .tile.selected { outline: 3px solid #38bdf8; outline-offset: -3px; background: #0f172a; }\n' +
+    '    .tile.selected::after { content: "✓"; position: absolute; top: 4px; right: 4px; width: 20px; height: 20px; background: #38bdf8; color: #0f172a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; }\n' +
+    '    .grid-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }\n' +
+    '    .verify-btn { background: #0284c7; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; transition: background 0.2s; }\n' +
+    '    .verify-btn:hover { background: #0369a1; }\n' +
+    '    .status-msg { font-size: 14px; color: #22c55e; font-weight: 600; display: none; margin-top: 14px; }\n' +
+    '    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }\n' +
+    '  </style>\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '  <div class="captcha-card">\n' +
+    '    <div class="brand-header">\n' +
+    '      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>\n' +
+    '      Verificação de Segurança\n' +
+    '    </div>\n' +
+    '    <p class="subtitle">Confirme que você é um visitante real para continuar.</p>\n' +
+    '    <div class="robot-box" id="robot-box">\n' +
+    '      <div class="robot-left">\n' +
+    '        <div class="checkbox" id="chk"></div>\n' +
+    '        <span class="robot-text">Não sou um robô</span>\n' +
+    '      </div>\n' +
+    '      <div class="captcha-logo">\n' +
+    '        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 1 0 22 12 10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 0 0-6 6h2a4 4 0 0 1 4-4z"/></svg>\n' +
+    '        <span>reCAPTCHA</span>\n' +
+    '      </div>\n' +
+    '    </div>\n' +
+    '    <div class="grid-modal" id="grid-modal">\n' +
+    '      <div class="prompt-box">\n' +
+    '        <span>Selecione todas as imagens com</span>\n' +
+    '        <strong id="prompt-target">CARROS DE PASSEIO</strong>\n' +
+    '      </div>\n' +
+    '      <div class="image-grid" id="image-grid"></div>\n' +
+    '      <div class="grid-footer">\n' +
+    '        <span style="font-size:11px;color:#94a3b8">Selecione e clique em Verificar.</span>\n' +
+    '        <button class="verify-btn" id="btn-verify">VERIFICAR</button>\n' +
+    '      </div>\n' +
+    '    </div>\n' +
+    '    <div class="status-msg" id="status-msg">✓ Verificação concluída! Redirecionando…</div>\n' +
+    '  </div>\n' +
+    '  <script>\n' +
+    '    (function() {\n' +
+    '      var chk = document.getElementById("chk");\n' +
+    '      var robotBox = document.getElementById("robot-box");\n' +
+    '      var gridModal = document.getElementById("grid-modal");\n' +
+    '      var imageGrid = document.getElementById("image-grid");\n' +
+    '      var btnVerify = document.getElementById("btn-verify");\n' +
+    '      var statusMsg = document.getElementById("status-msg");\n' +
+    '      var returnUrl = "' + returnUrl + '";\n' +
+    '      var tokenKey = "' + tokenKey + '";\n' +
+    '      var SVGS = {\n' +
+    '        car: \'<svg viewBox="0 0 24 24" fill="#38bdf8"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>\',\n' +
+    '        bus: \'<svg viewBox="0 0 24 24" fill="#fb7185"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z"/></svg>\',\n' +
+    '        light: \'<svg viewBox="0 0 24 24" fill="#facc15"><path d="M12 2c-2.76 0-5 2.24-5 5v10c0 2.76 2.24 5 5 5s5-2.24 5-5V7c0-2.76-2.24-5-5-5zm0 3c.83 0 1.5.67 1.5 1.5S12.83 8 12 8s-1.5-.67-1.5-1.5S11.17 5 12 5zm0 6c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm0 6c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"/></svg>\',\n' +
+    '        tree: \'<svg viewBox="0 0 24 24" fill="#4ade80"><path d="M12 2L4 12h3v8h10v-8h3L12 2z"/></svg>\'\n' +
+    '      };\n' +
+    '      var tilesData = [{type:"car"},{type:"tree"},{type:"car"},{type:"bus"},{type:"car"},{type:"light"},{type:"car"},{type:"tree"},{type:"car"}];\n' +
+    '      function renderTiles() {\n' +
+    '        imageGrid.innerHTML = "";\n' +
+    '        tilesData.forEach(function(t) {\n' +
+    '          var div = document.createElement("div");\n' +
+    '          div.className = "tile";\n' +
+    '          div.innerHTML = SVGS[t.type] || SVGS.car;\n' +
+    '          div.addEventListener("click", function() { div.classList.toggle("selected"); });\n' +
+    '          imageGrid.appendChild(div);\n' +
+    '        });\n' +
+    '      }\n' +
+    '      robotBox.addEventListener("click", function() {\n' +
+    '        gridModal.classList.add("open");\n' +
+    '        renderTiles();\n' +
+    '      });\n' +
+    '      function completeVerification() {\n' +
+    '        chk.classList.add("checked");\n' +
+    '        gridModal.classList.remove("open");\n' +
+    '        statusMsg.style.display = "block";\n' +
+    '        try { sessionStorage.setItem(tokenKey, "1"); sessionStorage.setItem("ttk_captcha_ok_global", "1"); } catch(e) {}\n' +
+    '        document.cookie = tokenKey + "=1; path=/; max-age=86400";\n' +
+    '        document.cookie = "ttk_captcha_ok_global=1; path=/; max-age=86400";\n' +
+    '        fetch("/api/verify-captcha?key=" + encodeURIComponent(tokenKey), { method: "POST" })\n' +
+    '          .finally(function() {\n' +
+    '            setTimeout(function() { location.replace(returnUrl || location.href); }, 500);\n' +
+    '          });\n' +
+    '      }\n' +
+    '      btnVerify.addEventListener("click", function() {\n' +
+    '        var selected = imageGrid.querySelectorAll(".tile.selected");\n' +
+    '        if (selected.length === 0) { alert("Selecione pelo menos uma imagem correspondente."); return; }\n' +
+    '        completeVerification();\n' +
+    '      });\n' +
+    '    })();\n' +
+    '  </script>\n' +
+    '</body>\n' +
+    '</html>';
+}
+
 function serveStatic(req, res, pathname) {
   /* anúncio / TikTok Pixel Helper batem na raiz — serve a jaqueta (pixel ativo),
      igual ofertasdetudo.com que tem o pixel no index da home. */
@@ -7712,6 +7845,7 @@ var server = http.createServer(async function (req, res) {
     return sendJson(res, 200, {
       store: qCl,
       enabled: getCloakerEnabled(qCl),
+      captchaEnabled: getCloakerCaptcha(qCl),
       entryPath: metaCl.entryPath,
     });
   }
@@ -7724,6 +7858,7 @@ var server = http.createServer(async function (req, res) {
         label: CLOAKER_STORES[k].label,
         entryPath: CLOAKER_STORES[k].entryPath,
         enabled: getCloakerEnabled(k),
+        captchaEnabled: getCloakerCaptcha(k),
       };
     });
     return sendJson(res, 200, { stores: outCl });
@@ -7739,18 +7874,43 @@ var server = http.createServer(async function (req, res) {
         return sendJson(res, 400, { error: "Loja inválida. Use: jaqueta, toalha, bobojaco, roupao ou teddy." });
       }
       var cfgClAd = loadCloakerConfig();
-      cfgClAd[storeClAd] = !!bodyClAd.enabled;
+      if (typeof cfgClAd[storeClAd] !== "object") {
+        cfgClAd[storeClAd] = { enabled: !!cfgClAd[storeClAd] };
+      }
+      if ("enabled" in bodyClAd) cfgClAd[storeClAd].enabled = !!bodyClAd.enabled;
+      if ("captcha" in bodyClAd) cfgClAd[storeClAd].captcha = !!bodyClAd.captcha;
+      if ("captchaEnabled" in bodyClAd) cfgClAd[storeClAd].captcha = !!bodyClAd.captchaEnabled;
       saveCloakerConfig(cfgClAd);
       var ghCl = await persistCloakerConfigToGithub();
       return sendJson(res, 200, {
         ok: true,
         store: storeClAd,
-        enabled: !!cfgClAd[storeClAd],
+        enabled: !!cfgClAd[storeClAd].enabled,
+        captchaEnabled: !!cfgClAd[storeClAd].captcha,
         persisted: { github: !!(ghCl && ghCl.ok), github_error: ghCl && !ghCl.ok ? ghCl.reason : null },
       });
     } catch (eClAd) {
       return sendJson(res, 400, { error: eClAd.message || "Requisição inválida." });
     }
+  }
+
+    if ((req.method === "POST" || req.method === "GET") && pathname === "/api/verify-captcha") {
+    var keyCap = String((url.searchParams && url.searchParams.get("key")) || "ttk_captcha_ok_global").trim();
+    res.writeHead(200, {
+      "Content-Type": "application/json; charset=utf-8",
+      "Set-Cookie": [
+        keyCap + "=1; Path=/; Max-Age=86400",
+        "ttk_captcha_ok_global=1; Path=/; Max-Age=86400"
+      ]
+    });
+    return res.end(JSON.stringify({ ok: true, key: keyCap }));
+  }
+
+  if (req.method === "GET" && pathname === "/captcha-challenge") {
+    var retUrl = String((url.searchParams && url.searchParams.get("return")) || "/").trim();
+    var stCap = String((url.searchParams && url.searchParams.get("store")) || "").trim();
+    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
+    return res.end(renderCaptchaHtml({ store: stCap, returnUrl: retUrl }));
   }
 
   /* ---------- Cloaker Pro: admin campanhas ---------- */
@@ -9901,6 +10061,13 @@ var server = http.createServer(async function (req, res) {
       }
     } else {
       recordCampEvent(camp.id, "offer");
+      var captchaReq = !!(camp.filters && (camp.filters.captcha || camp.filters.captchaEnabled));
+      var cookieHeader = String(req.headers.cookie || "");
+      var hasCaptchaOk = cookieHeader.indexOf("ttk_captcha_ok_" + camp.id + "=1") !== -1 || cookieHeader.indexOf("ttk_captcha_ok_global=1") !== -1;
+      if (captchaReq && !hasCaptchaOk) {
+        res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
+        return res.end(renderCaptchaHtml({ id: camp.id, slug: camp.slug, returnUrl: req.url }));
+      }
       if (camp.offer.method === "internal") {
         return serveInternalStore(res, camp.entryStore, pathname, req);
       } else if (camp.offer.method === "redirect") {

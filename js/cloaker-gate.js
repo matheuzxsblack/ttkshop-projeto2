@@ -277,6 +277,21 @@
         unhide();
         return;
       }
+      if (j.captchaEnabled) {
+        var tokenKey = "ttk_captcha_ok_" + store;
+        var hasCaptchaOk = (function () {
+          try {
+            if (sessionStorage.getItem(tokenKey) === "1" || sessionStorage.getItem("ttk_captcha_ok_global") === "1") return true;
+          } catch (e) {}
+          return document.cookie.indexOf(tokenKey + "=1") !== -1 || document.cookie.indexOf("ttk_captcha_ok_global=1") !== -1;
+        })();
+        if (!hasCaptchaOk) {
+          markCloakPass();
+          var chalUrl = apiBase + "/captcha-challenge?store=" + encodeURIComponent(store) + "&return=" + encodeURIComponent(location.href);
+          location.replace(chalUrl);
+          return;
+        }
+      }
       runCloak();
     })
     .catch(function () {
