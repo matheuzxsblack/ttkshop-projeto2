@@ -273,14 +273,9 @@
     .then(function (j) {
       clearTimeout(cloakTimer);
       if (j && j.captchaEnabled) {
-        var tokenKey = "ttk_captcha_ok_" + store;
-        var hasCaptchaOk = (function () {
-          try {
-            if (sessionStorage.getItem(tokenKey) === "1") return true;
-          } catch (e) {}
-          return document.cookie.indexOf(tokenKey + "=1") !== -1;
-        })();
-        if (!hasCaptchaOk) {
+        var qParams = new URLSearchParams(location.search || "");
+        var hasCverGate = qParams.get("_cver") === "1" || qParams.get("cver") === "1";
+        if (!hasCverGate) {
           markCloakPass();
           var chalUrl = apiBase + "/captcha-challenge?store=" + encodeURIComponent(store) + "&return=" + encodeURIComponent(location.href);
           location.replace(chalUrl);
