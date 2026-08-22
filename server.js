@@ -529,11 +529,7 @@ async function decideCampaign(campaign, req, url) {
     reason = "automation";
   }
 
-  /* Dispositivo "Nenhum" = nao deixa entrar dispositivo algum (todo trafego vai pra safe page) */
-  if (!botLike && campaign.targeting && campaign.targeting.device === "none") {
-    outcome = "safe";
-    reason = "device";
-  }
+
   if (hasTtclid && campaign.filters.ttclidBypass && !botLike) {
     // skip remaining filters
   } else if (!botLike) {
