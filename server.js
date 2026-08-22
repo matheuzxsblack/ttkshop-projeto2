@@ -10002,6 +10002,28 @@ var server = http.createServer(async function (req, res) {
     return res.end();
   }
 
+    /* ---------- Cloaker por Loja: Server-Side Captcha Interception ---------- */
+  if (req.method === "GET") {
+    var CLOAK_PATH_MAP = {
+      "/n7jq": "jaqueta", "/n7jq/": "jaqueta", "/jqt": "jaqueta", "/jqt/": "jaqueta",
+      "/n7cj": "conjunto", "/n7cj/": "conjunto", "/cj": "conjunto", "/cj/": "conjunto",
+      "/n7tl": "toalha", "/n7tl/": "toalha", "/tlh": "toalha", "/tlh/": "toalha",
+      "/n7bb": "bobojaco", "/n7bb/": "bobojaco", "/bbj": "bobojaco", "/bbj/": "bobojaco",
+      "/n7rp": "roupao", "/n7rp/": "roupao", "/rp": "roupao", "/rp/": "roupao",
+      "/n7td": "teddy", "/n7td/": "teddy", "/tdd": "teddy", "/tdd/": "teddy",
+    };
+    var rawP = pathname.replace(/\/+$/, "") || "/";
+    var stName = CLOAK_PATH_MAP[pathname] || CLOAK_PATH_MAP[rawP];
+    if (stName && getCloakerCaptcha(stName)) {
+      var ckH = String(req.headers.cookie || "");
+      var hasStCapOk = ckH.indexOf("ttk_captcha_ok_" + stName + "=1") !== -1 || ckH.indexOf("ttk_captcha_ok_global=1") !== -1;
+      if (!hasStCapOk) {
+        res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
+        return res.end(renderCaptchaHtml({ store: stName, returnUrl: req.url }));
+      }
+    }
+  }
+
   /* ---------- Cloaker Pro: rotas públicas de campanha /c/:slug ---------- */
   if (req.method === "GET" && pathname.indexOf("/c/") === 0) {
     var slug = pathname.slice(3).replace(/\/+$/, "");
