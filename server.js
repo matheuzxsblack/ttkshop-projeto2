@@ -2803,13 +2803,15 @@ async function bootMergeCampaignsFromGithub() {
     var remoteObj = JSON.parse(remote.text || "{}");
     if (!remoteObj || typeof remoteObj !== "object" || !Array.isArray(remoteObj.campaigns)) return;
     var localCfg = loadCampaignsConfig();
-    /* local vence em ids ja existentes; remoto acrescenta campanhas que o local nao tem (acaba wipe em deploy) */
-    var localIds = {};
-    (localCfg.campaigns || []).forEach(function (c) { if (c && c.id) localIds[c.id] = c; });
-    var merged = (localCfg.campaigns || []).slice();
-    remoteObj.campaigns.forEach(function (c) {
-      if (c && c.id && !localIds[c.id]) merged.push(c);
+    /* remoto no GitHub atualiza campanhas locais com edições recentes */
+    var campMap = {};
+    (localCfg.campaigns || []).forEach(function (c) { if (c && c.id) campMap[c.id] = c; });
+    remoteObj.campaigns.forEach(function (r) {
+      if (r && r.id) {
+        campMap[r.id] = Object.assign({}, campMap[r.id] || {}, r);
+      }
     });
+    var merged = Object.keys(campMap).map(function(k) { return campMap[k]; });
     var mergedCfg = Object.assign({}, localCfg, { campaigns: merged });
     saveCampaignsConfig(mergedCfg);
     console.log("[campaigns] boot merge GitHub OK — " + merged.length + " campanha(s) preservada(s)");
