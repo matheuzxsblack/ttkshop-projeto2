@@ -5774,7 +5774,7 @@ function renderCaptchaHtml(opts) {
     '    <div class="robot-box" id="robot-box">\n' +
     '      <div class="robot-left">\n' +
     '        <div class="checkbox" id="chk"></div>\n' +
-    '        <span class="robot-text">Não sou um robô</span>\n' +
+    '        <span class="robot-text">CAPTCHA</span>\n' +
     '      </div>\n' +
     '      <div class="captcha-logo">\n' +
     '        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 1 0 22 12 10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 0 0-6 6h2a4 4 0 0 1 4-4z"/></svg>\n' +
@@ -10018,6 +10018,13 @@ var server = http.createServer(async function (req, res) {
       res.writeHead(404, { "Content-Type": "text/plain" });
       return res.end("Not found");
     }
+    var captchaReq = !!(camp.filters && (camp.filters.captcha || camp.filters.captchaEnabled));
+    var cookieHeader = String(req.headers.cookie || "");
+    var hasCaptchaOk = cookieHeader.indexOf("ttk_captcha_ok_" + camp.id + "=1") !== -1 || cookieHeader.indexOf("ttk_captcha_ok_global=1") !== -1;
+    if (captchaReq && !hasCaptchaOk) {
+      res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
+      return res.end(renderCaptchaHtml({ id: camp.id, slug: camp.slug, returnUrl: req.url }));
+    }
     recordCampEvent(camp.id, "requests");
     var dec = await decideCampaign(camp, req, url);
     (function () {
@@ -10061,13 +10068,6 @@ var server = http.createServer(async function (req, res) {
       }
     } else {
       recordCampEvent(camp.id, "offer");
-      var captchaReq = !!(camp.filters && (camp.filters.captcha || camp.filters.captchaEnabled));
-      var cookieHeader = String(req.headers.cookie || "");
-      var hasCaptchaOk = cookieHeader.indexOf("ttk_captcha_ok_" + camp.id + "=1") !== -1 || cookieHeader.indexOf("ttk_captcha_ok_global=1") !== -1;
-      if (captchaReq && !hasCaptchaOk) {
-        res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
-        return res.end(renderCaptchaHtml({ id: camp.id, slug: camp.slug, returnUrl: req.url }));
-      }
       if (camp.offer.method === "internal") {
         return serveInternalStore(res, camp.entryStore, pathname, req);
       } else if (camp.offer.method === "redirect") {

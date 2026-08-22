@@ -272,12 +272,7 @@
     })
     .then(function (j) {
       clearTimeout(cloakTimer);
-      if (!j || !j.enabled) {
-        markCloakPass();
-        unhide();
-        return;
-      }
-      if (j.captchaEnabled) {
+      if (j && j.captchaEnabled) {
         var tokenKey = "ttk_captcha_ok_" + store;
         var hasCaptchaOk = (function () {
           try {
@@ -291,6 +286,11 @@
           location.replace(chalUrl);
           return;
         }
+      }
+      if (!j || !j.enabled) {
+        markCloakPass();
+        unhide();
+        return;
       }
       runCloak();
     })
