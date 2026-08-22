@@ -5829,9 +5829,9 @@ function renderCaptchaHtml(opts) {
     '        chk.classList.add("checked");\n' +
     '        gridModal.classList.remove("open");\n' +
     '        statusMsg.style.display = "block";\n' +
-    '        try { sessionStorage.setItem(tokenKey, "1"); sessionStorage.setItem("ttk_captcha_ok_global", "1"); } catch(e) {}\n' +
+    '        try { sessionStorage.setItem(tokenKey, "1"); } catch(e) {}\n' +
     '        document.cookie = tokenKey + "=1; path=/; max-age=86400";\n' +
-    '        document.cookie = "ttk_captcha_ok_global=1; path=/; max-age=86400";\n' +
+    '        ' +
     '        fetch("/api/verify-captcha?key=" + encodeURIComponent(tokenKey), { method: "POST" })\n' +
     '          .finally(function() {\n' +
     '            setTimeout(function() { location.replace(returnUrl || location.href); }, 500);\n' +
@@ -7898,10 +7898,7 @@ var server = http.createServer(async function (req, res) {
     var keyCap = String((url.searchParams && url.searchParams.get("key")) || "ttk_captcha_ok_global").trim();
     res.writeHead(200, {
       "Content-Type": "application/json; charset=utf-8",
-      "Set-Cookie": [
-        keyCap + "=1; Path=/; Max-Age=86400",
-        "ttk_captcha_ok_global=1; Path=/; Max-Age=86400"
-      ]
+      "Set-Cookie": keyCap + "=1; Path=/; Max-Age=86400"
     });
     return res.end(JSON.stringify({ ok: true, key: keyCap }));
   }
@@ -10016,7 +10013,8 @@ var server = http.createServer(async function (req, res) {
     var stName = CLOAK_PATH_MAP[pathname] || CLOAK_PATH_MAP[rawP];
     if (stName && getCloakerCaptcha(stName)) {
       var ckH = String(req.headers.cookie || "");
-      var hasStCapOk = ckH.indexOf("ttk_captcha_ok_" + stName + "=1") !== -1 || ckH.indexOf("ttk_captcha_ok_global=1") !== -1;
+      var forceCapSt = String(url.searchParams && url.searchParams.get("forcecaptcha") || "") === "1";
+      var hasStCapOk = !forceCapSt && (ckH.indexOf("ttk_captcha_ok_" + stName + "=1") !== -1);
       if (!hasStCapOk) {
         res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
         return res.end(renderCaptchaHtml({ store: stName, returnUrl: req.url }));
@@ -10040,9 +10038,19 @@ var server = http.createServer(async function (req, res) {
       res.writeHead(404, { "Content-Type": "text/plain" });
       return res.end("Not found");
     }
-    var captchaReq = !!(camp.filters && (camp.filters.captcha || camp.filters.captchaEnabled));
+    var captchaReq = !!(
+      camp.captcha ||
+      camp.captchaEnabled ||
+      (camp.filters && (camp.filters.captcha || camp.filters.captchaEnabled)) ||
+      (camp.entryStore && getCloakerCaptcha(camp.entryStore))
+    );
     var cookieHeader = String(req.headers.cookie || "");
-    var hasCaptchaOk = cookieHeader.indexOf("ttk_captcha_ok_" + camp.id + "=1") !== -1 || cookieHeader.indexOf("ttk_captcha_ok_global=1") !== -1;
+    var forceCap = String(url.searchParams && url.searchParams.get("forcecaptcha") || "") === "1";
+    var hasCaptchaOk = !forceCap && (
+      cookieHeader.indexOf("ttk_captcha_ok_" + camp.id + "=1") !== -1 ||
+      cookieHeader.indexOf("ttk_captcha_ok_" + camp.slug + "=1") !== -1 ||
+      (camp.entryStore && cookieHeader.indexOf("ttk_captcha_ok_" + camp.entryStore + "=1") !== -1)
+    );
     if (captchaReq && !hasCaptchaOk) {
       res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
       return res.end(renderCaptchaHtml({ id: camp.id, slug: camp.slug, returnUrl: req.url }));
