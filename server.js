@@ -757,7 +757,7 @@ function githubCommitMessage(message) {
 function githubUpsertFile(repoPath, content, message) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/loja-online";
     if (!token) {
       return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
     }
@@ -2430,14 +2430,14 @@ function ghApi(method, apiPath, bodyObj) {
   });
 }
 function fetchGithubBlob(sha) {
-  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
+  var repo = process.env.GITHUB_REPO || "matheuzxsblack/loja-online";
   return ghApi("GET", "/repos/" + repo + "/git/blobs/" + sha).then(function (r) {
     if (r.status !== 200 || !r.json.content) return null;
     try { return Buffer.from(r.json.content.replace(/\n/g, ""), "base64").toString("utf8"); } catch (e) { return null; }
   });
 }
 function githubUpsertViaGitData(repoPath, content, message) {
-  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
+  var repo = process.env.GITHUB_REPO || "matheuzxsblack/loja-online";
   var branch = process.env.GITHUB_BRANCH || "main";
   var base = "/repos/" + repo;
   return ghApi("GET", base + "/git/ref/heads/" + branch).then(function (r1) {
@@ -2475,7 +2475,7 @@ function githubUpsertViaGitData(repoPath, content, message) {
 function githubGetFile(repoPath) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-panelas";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/loja-online";
     if (!token) return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
     var apiBase =
       "/repos/" + repo + "/contents/" + String(repoPath || "").replace(/^\//, "");
