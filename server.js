@@ -10006,6 +10006,21 @@ var server = http.createServer(async function (req, res) {
     if (stName && getCloakerCaptcha(stName)) {
       var hasStCver = url.searchParams && (url.searchParams.get("_cver") === "1" || url.searchParams.get("cver") === "1");
       if (!hasStCver) {
+        (function () {
+          try {
+            var ipL = clientIpOf(req);
+            var uaL = String(req.headers["user-agent"] || "");
+            var devL = serverDesktopUa(uaL.toLowerCase()) ? "desktop" : "mobile";
+            var entryL = {
+              t: new Date().toISOString(), camp: stName, slug: stName,
+              ip: ipL, cc: "", device: devL,
+              ua: uaL.slice(0, 80),
+              outcome: "captcha",
+              reason: "captcha", ttclid: false, ref: ""
+            };
+            recordCampAccess(entryL);
+          } catch (eL) {}
+        })();
         res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
         return res.end(renderCaptchaHtml({ store: stName, returnUrl: req.url }));
       }
@@ -10036,6 +10051,29 @@ var server = http.createServer(async function (req, res) {
     );
     var hasCver = url.searchParams && (url.searchParams.get("_cver") === "1" || url.searchParams.get("cver") === "1");
     if (captchaReq && !hasCver) {
+      recordCampEvent(camp.id, "requests");
+      (function () {
+        try {
+          var ipL = clientIpOf(req);
+          var uaL = String(req.headers["user-agent"] || "");
+          var refL = String(req.headers.referer || "");
+          var refHost = "";
+          try { if (refL) refHost = new URL(refL).hostname; } catch (eR) { }
+          var devL = serverDesktopUa(uaL.toLowerCase()) ? "desktop" : "mobile";
+          var ttL = !!(url.searchParams && String(url.searchParams.get("ttclid") || "") !== "");
+          var entryL = {
+            t: new Date().toISOString(), camp: camp.id, slug: camp.slug,
+            ip: ipL, cc: "", device: devL,
+            ua: uaL.slice(0, 80),
+            outcome: "captcha",
+            reason: "captcha", ttclid: ttL, ref: refHost
+          };
+          recordCampAccess(entryL);
+          fetchIpIntel(ipL).then(function (d) {
+            if (d && d.countryCode) { entryL.cc = String(d.countryCode).toUpperCase(); saveCampLog(); }
+          });
+        } catch (eLog) { }
+      })();
       res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
       return res.end(renderCaptchaHtml({ id: camp.id, slug: camp.slug, returnUrl: req.url }));
     }

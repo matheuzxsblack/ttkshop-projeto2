@@ -900,7 +900,11 @@
       return d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) + " " + d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" });
     } catch (e) { return ""; }
   }
-  var REASON_PT = { "bot-ua": "UA de bot", automation: "Automação", "desktop-like": "Parece desktop", device: "Dispositivo", proxy: "Proxy", tor: "Tor", datacenter: "Datacenter", country: "País" };
+  var REASON_PT = {
+    "device-none": "Dispositivo Nenhum (Safe Page)",
+    "device-mobile-only": "Apenas Mobile (Safe Page)",
+    "device-desktop-only": "Apenas Desktop (Safe Page)",
+    "captcha": "Captcha Exibido", "bot-ua": "UA de bot", automation: "Automação", "desktop-like": "Parece desktop", device: "Dispositivo", proxy: "Proxy", tor: "Tor", datacenter: "Datacenter", country: "País" };
   function load() {
     if (!pageActive() || !ensureBox()) return;
     fetch("/api/admin/campaigns/log?limit=100", { headers: vkHeaders() })
@@ -914,7 +918,7 @@
           return;
         }
         body.innerHTML = log.map(function (e) {
-          var badge = e.outcome === "offer" ? '<span class="vk-badge vk-offer">Offer</span>' : e.outcome === "bot" ? '<span class="vk-badge vk-bot">Bot</span>' : '<span class="vk-badge vk-safe">Safe</span>';
+          var badge = e.outcome === "offer" ? '<span class="vk-badge vk-offer">Offer</span>' : e.outcome === "bot" ? '<span class="vk-badge vk-bot">Bot</span>' : e.outcome === "captcha" ? '<span class="vk-badge" style="background:#0284c7;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;">Captcha</span>' : '<span class="vk-badge vk-safe">Safe</span>';
           return (
             '<tr><td class="vk-dim">' + vkEsc(fmtTime(e.t)) + "</td>" +
             "<td>" + vkEsc(e.slug || "") + "</td>" +
