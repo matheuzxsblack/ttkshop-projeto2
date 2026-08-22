@@ -222,7 +222,13 @@
 
   document.getElementById("btn-open-sku").addEventListener("click", openSku);
   document.getElementById("btn-add-cart").addEventListener("click", openSku);
-  document.getElementById("btn-buy-now").addEventListener("click", openSku);
+  document.getElementById("btn-buy-now").addEventListener("click", function () {
+      if (cartItems.length > 0) {
+        openCheckout();
+      } else {
+        openSku();
+      }
+    });
   document.querySelectorAll("[data-open-sku]").forEach(function (el) {
     el.addEventListener("click", openSku);
   });
@@ -716,14 +722,24 @@
 
   function openCheckout() {
     ttkFunnel("checkout");
-    if (totalQty() === 0) return;
-    if (checkoutMode === "simple") {
+    if (totalQty() === 0) {
+      var sel = selectedColorOpt();
+      var label = sel ? sel.dataset.color : "Azul Marinho";
+      var img = sel && sel.dataset.img ? sel.dataset.img : "imagens/01.png";
+      cartItems.push({ label: label, img: img, qty: 1, price: PRICE, extra: false });
+      renderCart();
+    }
+    var simpleEl = document.getElementById("simple-checkout-page");
+    var checkoutEl = document.getElementById("checkout-page");
+    if (checkoutMode === "simple" && simpleEl) {
       renderSimpleCheckout();
-      simplePage.hidden = false;
+      simpleEl.hidden = false;
       return;
     }
-    renderCheckout();
-    checkoutPage.hidden = false;
+    if (checkoutEl) {
+      renderCheckout();
+      checkoutEl.hidden = false;
+    }
   }
 
   document.getElementById("btn-checkout").addEventListener("click", openCheckout);

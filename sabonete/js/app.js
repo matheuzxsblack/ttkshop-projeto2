@@ -230,7 +230,7 @@
   function syncSkuPriceUi(opt) {
     opt = opt || selectedColorOpt();
     if (!opt) return;
-    var price = Number(opt.dataset.price) || 26.96;
+    var price = Number(opt.dataset.price) || 24.94;
     if (extraOptIn) price = round2(price + TOALHA_KIT_PRICE);
     var old = Number(opt.dataset.old) || 74.9;
     if (extraOptIn) old = round2(old + TOALHA_KIT_OLD);
@@ -489,9 +489,9 @@
   var cartItemsEl = document.getElementById("cart-items");
   var cartItems = []; /* { label, img, qty, price, extra } */
   var editingIndex = null; /* item do carrinho em troca de variante */
-  var BOX_PRICE = 26.96; /* kit com 8 unidades */
+  var BOX_PRICE = 24.94; /* kit com 8 unidades */
   var BOX_OLD = 74.9;
-  var COMBO_PRICE = 35.32; /* kit com 16 unidades */
+  var COMBO_PRICE = 33.19; /* kit com 16 unidades */
   var COMBO_OLD = 139.8;
   var PRICE = BOX_PRICE;
   var OLD_PRICE = BOX_OLD;
