@@ -223,12 +223,12 @@
   document.getElementById("btn-open-sku").addEventListener("click", openSku);
   document.getElementById("btn-add-cart").addEventListener("click", openSku);
   document.getElementById("btn-buy-now").addEventListener("click", function () {
-      if (cartItems.length > 0) {
-        openCheckout();
-      } else {
-        openSku();
-      }
-    });
+    if (cartItems.length > 0) {
+      openCheckout();
+    } else {
+      openSku();
+    }
+  });
   document.querySelectorAll("[data-open-sku]").forEach(function (el) {
     el.addEventListener("click", openSku);
   });
@@ -483,7 +483,9 @@
   document.getElementById("btn-close-cart").addEventListener("click", closeCart);
   document.getElementById("btn-start-shopping").addEventListener("click", closeCart);
 
-  function variantLabel(colorOpt) { return colorOpt ? colorOpt.dataset.color : "Azul Marinho"; }
+  function variantLabel(colorOpt, sizeOpt) {
+    return colorOpt ? (colorOpt.dataset.color + (sizeOpt && sizeOpt.dataset.size ? ", " + sizeOpt.dataset.size : "")) : "Azul Marinho";
+  }
 
   /* adicionar a partir do sheet de variantes */
   function addToCart(mode) {
@@ -495,7 +497,9 @@
         sel = firstColor;
       }
     }
+    var size = selectedSizeOpt();
 
+    /* ajusta quantidade/extra para o pedido não passar de R$ 200 */
     var budgetC = MAX_C - cartCents();
     var addExtra = !!extraOptIn && extraRow.classList.contains("checked");
     var addQty = qty;
@@ -515,6 +519,10 @@
 
     var label = sel ? sel.dataset.color : "Azul Marinho";
     var img = sel && sel.dataset.img ? sel.dataset.img : "imagens/01.png";
+    if (sel) {
+      label = variantLabel(sel, size);
+      if (sel.dataset.img) img = sel.dataset.img;
+    }
 
     var existing = cartItems.find(function (it) {
       return !it.extra && it.label === label;
@@ -525,8 +533,9 @@
       cartItems.push({ label: label, img: img, qty: addQty, price: PRICE, extra: false });
     }
 
+    /* leve +1 cor aleatória */
     if (addExtra) {
-      var extraLabel = "Cor aleatória";
+      var extraLabel = "Cor aleatória, " + size.dataset.size;
       var existingExtra = cartItems.find(function (it) {
         return it.extra && it.label === extraLabel;
       });
@@ -547,8 +556,10 @@
     renderCart();
 
     if (mode === "buy") {
+      /* comprar agora: vai direto para a compra */
       openCheckout();
     } else {
+      /* só adicionou: continua na página para escolher mais itens */
       showToast("Adicionado ao carrinho!");
     }
   }
@@ -598,16 +609,28 @@
     var item = cartItems[i];
     if (!item) return;
     editingIndex = i;
+    /* edição de variante não liga o upsell */
     setExtraChecked(false);
 
-    var color = item.label || "";
+    var parts = item.label.split(", ");
+    var color = parts[0] || "";
+    var size = parts[1] || "";
+
+    /* marca a cor atual do item na grade */
     document.querySelectorAll("#sku-grid .sku-opt").forEach(function (o) {
       o.classList.toggle("selected", o.dataset.color === color);
+      o.classList.remove("selected2");
     });
     var sel = selectedColorOpt();
     if (sel && sel.dataset.img) {
       document.getElementById("sku-thumb").src = sel.dataset.img;
     }
+
+    /* marca o tamanho atual */
+    document.querySelectorAll("#size-grid .size-opt").forEach(function (o) {
+      o.classList.toggle("selected", o.dataset.size === size);
+    });
+    if (size) sizeHint.textContent = size;
 
     skuSheet.removeAttribute("hidden");
     skuOverlay.removeAttribute("hidden");
@@ -623,11 +646,13 @@
     }
 
     var sel = selectedColorOpt();
-    if (!sel) return;
+    var size = selectedSizeOpt();
+    if (!sel || !size) return;
 
-    var label = sel.dataset.color;
+    var label = variantLabel(sel, size);
     var img = sel.dataset.img || item.img;
 
+    /* se já existe um item com essa variante, junta as quantidades */
     var editIdx = editingIndex;
     var otherIdx = -1;
     cartItems.forEach(function (it, idx) {
@@ -669,7 +694,7 @@
   function coItemHtml(item, i) {
     var oldRow = item.extra
       ? ""
-      : '<p class="co-item-old"><span class="price-old">R$ 118,00</span> <span class="cart-off">-68%</span></p>';
+      : '<p class="co-item-old"><span class="price-old">R$ 109,90</span> <span class="cart-off">-68%</span></p>';
     return (
       '<div class="co-item">' +
       '<img class="co-item-img" src="' + item.img + '" alt="Produto" />' +
@@ -722,24 +747,14 @@
 
   function openCheckout() {
     ttkFunnel("checkout");
-    if (totalQty() === 0) {
-      var sel = selectedColorOpt();
-      var label = sel ? sel.dataset.color : "Azul Marinho";
-      var img = sel && sel.dataset.img ? sel.dataset.img : "imagens/01.png";
-      cartItems.push({ label: label, img: img, qty: 1, price: PRICE, extra: false });
-      renderCart();
-    }
-    var simpleEl = document.getElementById("simple-checkout-page");
-    var checkoutEl = document.getElementById("checkout-page");
-    if (checkoutMode === "simple" && simpleEl) {
+    if (totalQty() === 0) return;
+    if (checkoutMode === "simple") {
       renderSimpleCheckout();
-      simpleEl.hidden = false;
+      simplePage.hidden = false;
       return;
     }
-    if (checkoutEl) {
-      renderCheckout();
-      checkoutEl.hidden = false;
-    }
+    renderCheckout();
+    checkoutPage.hidden = false;
   }
 
   document.getElementById("btn-checkout").addEventListener("click", openCheckout);
@@ -986,7 +1001,7 @@
     var title = item.extra ? "Cor surpresa — Jaqueta Puffer Premium" : "Jaqueta Feminina Puffer Forrada Impermeável Inverno";
     var oldRow = item.extra
       ? ""
-      : '<span class="sc-item-old">R$ 118,00</span> <span class="sc-item-off">-68%</span>';
+      : '<span class="sc-item-old">R$ 109,90</span> <span class="sc-item-off">-68%</span>';
     return (
       '<div class="sc-item">' +
       '<img class="sc-item-img" src="' + item.img + '" alt="Produto" />' +
