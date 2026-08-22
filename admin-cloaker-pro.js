@@ -513,12 +513,12 @@
     html += '<div class="cp-card-header">';
     html += '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>';
     html += '<h3>Segmentação de público</h3>';
-    html += '<p class="card-help"><b>Dispositivo</b>: Nenhum = ABSOLUTAMENTE NINGUEM entra na offer (todo tráfego — PC, mobile, com ou sem ttclid — vai pra safe page, sem exceção); Todos = PC e mobile passam normalmente (sem filtro de dispositivo); Mobile = só celular passa (PC vai pra safe); Desktop = só PC passa. <b>País</b>: Sem filtro = qualquer país; Permitir apenas = só os códigos listados veem a offer; Bloquear = os listados vão pra safe page. Códigos ISO separados por vírgula (BR, AR, US).</p>';
+    html += '<p class="card-help"><b>Dispositivo</b>: Nenhum / Todos = sem filtro de dispositivo (celular e PC entram normalmente na offer); Mobile = apenas celular passa (PC vai pra safe); Desktop = apenas PC passa. <b>País</b>: Sem filtro = qualquer país; Permitir apenas = só os códigos listados veem a offer; Bloquear = os listados vão pra safe page. Códigos ISO separados por vírgula (BR, AR, US).</p>';
     html += '</div>';
     html += '<div class="form-group">';
     html += '<label class="form-label">Dispositivo</label>';
     html += '<select class="form-select" id="cp-device">';
-    [['none', 'Nenhum'], ['all', 'Todos'], ['mobile', 'Mobile'], ['desktop', 'Desktop']].forEach(function (d) {
+    [['none', 'Nenhum (Todos os dispositivos)'], ['all', 'Todos'], ['mobile', 'Apenas Mobile (Celular)'], ['desktop', 'Apenas Desktop (Computador)']].forEach(function (d) {
       html += '<option value="' + d[0] + '"' + (c.targeting.device === d[0] ? ' selected' : '') + '>' + d[1] + '</option>';
     });
     html += '</select>';
