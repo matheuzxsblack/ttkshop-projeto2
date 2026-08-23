@@ -31,24 +31,13 @@ window.TTK_CATALOG = {
       rating: "4.9",
     },
     {
-      id: "conjunto",
-      title: "Conjunto Feminino Alfaiataria Blusa Blazer e Calça Pantalona",
-      url: "/conjunto/",
-      image: "/conjunto/images/01.png",
-      priceLabel: "A partir de R$ 44,12",
-      priceMain: "44,12",
-      badge: "-55%",
-      sold: "9,8 mil vendidos",
-      rating: "4.9",
-    },
-    {
       id: "roupao",
       title: "Roupão Microfibra Plush Adulto Unissex",
       url: "/roupao/",
       image: "/roupao/images/hero-01.png",
-      priceLabel: "A partir de R$ 34,91",
-      priceMain: "34,91",
-      badge: "-60%",
+      priceLabel: "A partir de R$ 29,68",
+      priceMain: "29,68",
+      badge: "-68%",
       sold: "4,1 mil vendidos",
       rating: "4.9",
     },
@@ -96,6 +85,7 @@ window.TTK_CATALOG = {
       sold: "3,2 mil vendidos",
       rating: "4.6",
     },
+    /*
     {
       id: "coberdrom",
       title: "Coberdrom Queen Sherpa Lã de Carneiro Inverno",
@@ -107,5 +97,6 @@ window.TTK_CATALOG = {
       sold: "1.482 vendidos",
       rating: "4.8",
     },
+    */
   ],
 };

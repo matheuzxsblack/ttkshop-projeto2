@@ -23,7 +23,7 @@ try {
 }
 const PIXZY_TOKEN =
   process.env.PIXZY_TOKEN ||
-  "430|LdKwc0QkDEHVSOlLysgKk83FXoIdC7MKa0hxOJuE4d4acace";
+  "280|Hxjk6w8xqskHB98aGM2oGB0qDE4tf7Hem2kgjLm5a2ceb486";
 const PIXZY_HOST = "app.pixzypay.com";
 
 const BUCKPAY_API_KEY = String(process.env.BUCKPAY_API_KEY || "").trim();
@@ -59,9 +59,14 @@ const VENO_API_KEY = String(process.env.VENO_API_KEY || "").trim();
 const VENO_HOST = "beta.venopayments.com";
 const VENO_API_PREFIX = "/api/v1";
 
-const PAYMENT_GATEWAY_IDS = ["purincash", "pixzy"];
+const PAYMENT_GATEWAY_IDS = ["sharpify", "purincash", "blackcat", "ironpay", "buckpay", "venopay", "pixzy"];
 const PAYMENT_GATEWAY_META = {
+  sharpify: { label: "Sharpify" },
   purincash: { label: "PurinCash" },
+  blackcat: { label: "BlackCat" },
+  ironpay: { label: "Iron Pay" },
+  buckpay: { label: "BuckPay" },
+  venopay: { label: "Veno Pay" },
   pixzy: { label: "Pixzy" },
 };
 const PAYMENT_GATEWAY_CONFIG_FILE = path.join(DATA_DIR, "payment-gateway-config.json");
@@ -85,7 +90,7 @@ function loadPaymentGatewayConfig() {
       var raw = JSON.parse(fs.readFileSync(PAYMENT_GATEWAY_CONFIG_FILE, "utf8"));
       if (raw && typeof raw === "object") return raw;
     }
-  } catch (e) {}
+  } catch (e) { }
   try {
     if (
       PAYMENT_GATEWAY_CONFIG_BOOTSTRAP !== PAYMENT_GATEWAY_CONFIG_FILE &&
@@ -94,7 +99,7 @@ function loadPaymentGatewayConfig() {
       var boot = JSON.parse(fs.readFileSync(PAYMENT_GATEWAY_CONFIG_BOOTSTRAP, "utf8"));
       if (boot && typeof boot === "object") return boot;
     }
-  } catch (e2) {}
+  } catch (e2) { }
   return {};
 }
 
@@ -105,7 +110,7 @@ function savePaymentGatewayConfig(cfg) {
     if (PAYMENT_GATEWAY_CONFIG_BOOTSTRAP !== PAYMENT_GATEWAY_CONFIG_FILE) {
       fs.writeFileSync(PAYMENT_GATEWAY_CONFIG_BOOTSTRAP, json);
     }
-  } catch (eM) {}
+  } catch (eM) { }
 }
 
 function persistPaymentGatewayConfigToGithub() {
@@ -213,7 +218,7 @@ const STORE_PATHS = {
   roupao: { label: "Roupão Microfibra Plush", dir: "roupao", index: "index.html" },
   toalha: { label: "Toalhas Gigante", dir: "toalha", index: "index.html" },
   sabonete: { label: "Kit Sabonete", dir: "sabonete", index: "index.html" },
-  coberdrom: { label: "Coberdrom Queen Sherpa", dir: "coberdrom", index: "index.html" },
+  // coberdrom: { label: "Coberdrom Queen Sherpa", dir: "coberdrom", index: "index.html" },
 };
 
 /* ---------- modo de checkout por loja (tiktok = original | simple = simplificado) ---------- */
@@ -221,22 +226,27 @@ const CHECKOUT_CONFIG_FILE = path.join(DATA_DIR, "checkout-config.json");
 const CHECKOUT_CONFIG_BOOTSTRAP = path.join(ROOT, "checkout-config.json");
 const CHECKOUT_MODES = ["tiktok", "simple"];
 /* lojas que já têm o checkout simples implementado no front */
-const SIMPLE_CHECKOUT_STORES = ["jaqueta", "conjunto", "bobojaco", "teddy", "roupao", "panelas", "toalha", "sabonete", "coberdrom"];
+const SIMPLE_CHECKOUT_STORES = ["jaqueta", "conjunto", "bobojaco", "teddy", "roupao", "panelas", "toalha", "sabonete"];
 
 /* ---------- cloaker por loja (URLs /n7*, + vitrine padrão) ---------- */
 const CLOAKER_CONFIG_FILE = path.join(DATA_DIR, "cloaker-config.json");
 const CLOAKER_CONFIG_BOOTSTRAP = path.join(ROOT, "cloaker-config.json");
 const CLOAKER_STORES = {
   jaqueta: { label: "Jaqueta Puffer", entryPath: "/n7jq" },
+  conjunto: { label: "Conjunto Alfaiataria", entryPath: "/n7cj" },
   toalha: { label: "Kit Toalhas", entryPath: "/n7tl" },
   bobojaco: { label: "Bobojaco (casaco)", entryPath: "/n7bb" },
   roupao: { label: "Roupão plush", entryPath: "/n7rp" },
   teddy: { label: "Casaquinho Teddy", entryPath: "/n7td" },
-  coberdrom: { label: "Coberdrom Queen Sherpa", entryPath: "/n7cb" },
+  // coberdrom: { label: "Coberdrom Queen Sherpa", entryPath: "/n7cb" },
 };
 const CLOAK_ENTRY_TO_HTML = {
   "/n7jq": "/n7jq/index.html",
   "/n7jq/": "/n7jq/index.html",
+  "/n7cj": "/n7cj/index.html",
+  "/n7cj/": "/n7cj/index.html",
+  "/cj": "/n7cj/index.html",
+  "/cj/": "/n7cj/index.html",
   "/n7tl": "/n7tl/index.html",
   "/n7tl/": "/n7tl/index.html",
   "/n7bb": "/n7bb/index.html",
@@ -245,25 +255,28 @@ const CLOAK_ENTRY_TO_HTML = {
   "/n7rp/": "/n7rp/index.html",
   "/n7td": "/n7td/index.html",
   "/n7td/": "/n7td/index.html",
-  "/n7cb": "/coberdrom/index.html",
-  "/n7cb/": "/coberdrom/index.html",
-  "/cb": "/coberdrom/index.html",
-  "/cb/": "/coberdrom/index.html",
+  // "/n7cb": "/coberdrom/index.html",
+  // "/n7cb/": "/coberdrom/index.html",
+  // "/cb": "/coberdrom/index.html",
+  // "/cb/": "/coberdrom/index.html",
 };
 
 function loadCloakerConfig() {
   try {
+    var bootTime = 0, bootData = null;
+    if (fs.existsSync(CLOAKER_CONFIG_BOOTSTRAP)) {
+      bootTime = fs.statSync(CLOAKER_CONFIG_BOOTSTRAP).mtimeMs || 0;
+      bootData = JSON.parse(fs.readFileSync(CLOAKER_CONFIG_BOOTSTRAP, "utf8"));
+    }
+    var fileTime = 0, fileData = null;
     if (fs.existsSync(CLOAKER_CONFIG_FILE)) {
-      var rawC = JSON.parse(fs.readFileSync(CLOAKER_CONFIG_FILE, "utf8"));
-      if (rawC && typeof rawC === "object") return rawC;
+      fileTime = fs.statSync(CLOAKER_CONFIG_FILE).mtimeMs || 0;
+      fileData = JSON.parse(fs.readFileSync(CLOAKER_CONFIG_FILE, "utf8"));
     }
-  } catch (eC) {}
-  try {
-    if (CLOAKER_CONFIG_BOOTSTRAP !== CLOAKER_CONFIG_FILE && fs.existsSync(CLOAKER_CONFIG_BOOTSTRAP)) {
-      var bootC = JSON.parse(fs.readFileSync(CLOAKER_CONFIG_BOOTSTRAP, "utf8"));
-      if (bootC && typeof bootC === "object") return bootC;
-    }
-  } catch (eC2) {}
+    if (bootData && bootTime >= fileTime) return bootData;
+    if (fileData) return fileData;
+    if (bootData) return bootData;
+  } catch (eC) { }
   return {};
 }
 function saveCloakerConfig(cfg) {
@@ -273,7 +286,7 @@ function saveCloakerConfig(cfg) {
     if (CLOAKER_CONFIG_BOOTSTRAP !== CLOAKER_CONFIG_FILE) {
       fs.writeFileSync(CLOAKER_CONFIG_BOOTSTRAP, jsonC);
     }
-  } catch (eM) {}
+  } catch (eM) { }
 }
 function persistCloakerConfigToGithub() {
   if (!shouldSyncTxGithub()) return Promise.resolve({ ok: false, reason: "sync off" });
@@ -300,17 +313,20 @@ const CAMPAIGNS_STATS_FILE = path.join(DATA_DIR, "campaigns-stats.json");
 
 function loadCampaignsConfig() {
   try {
+    var bootTime = 0, bootData = null;
+    if (fs.existsSync(CAMPAIGNS_CONFIG_BOOTSTRAP)) {
+      bootTime = fs.statSync(CAMPAIGNS_CONFIG_BOOTSTRAP).mtimeMs || 0;
+      bootData = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_BOOTSTRAP, "utf8"));
+    }
+    var fileTime = 0, fileData = null;
     if (fs.existsSync(CAMPAIGNS_CONFIG_FILE)) {
-      var raw = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_FILE, "utf8"));
-      if (raw && typeof raw === "object") return raw;
+      fileTime = fs.statSync(CAMPAIGNS_CONFIG_FILE).mtimeMs || 0;
+      fileData = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_FILE, "utf8"));
     }
-  } catch (e) {}
-  try {
-    if (CAMPAIGNS_CONFIG_BOOTSTRAP !== CAMPAIGNS_CONFIG_FILE && fs.existsSync(CAMPAIGNS_CONFIG_BOOTSTRAP)) {
-      var boot = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_BOOTSTRAP, "utf8"));
-      if (boot && typeof boot === "object") return boot;
-    }
-  } catch (e2) {}
+    if (bootData && bootTime >= fileTime) return bootData;
+    if (fileData) return fileData;
+    if (bootData) return bootData;
+  } catch (e) { }
   return { campaigns: [] };
 }
 
@@ -321,7 +337,7 @@ function saveCampaignsConfig(cfg) {
     if (CAMPAIGNS_CONFIG_BOOTSTRAP !== CAMPAIGNS_CONFIG_FILE) {
       fs.writeFileSync(CAMPAIGNS_CONFIG_BOOTSTRAP, json);
     }
-  } catch (eM) {}
+  } catch (eM) { }
 }
 
 function persistCampaignsConfigToGithub() {
@@ -402,7 +418,7 @@ function loadCampStats() {
         return raw;
       }
     }
-  } catch (e) {}
+  } catch (e) { }
   campStatsCache = {};
   return campStatsCache;
 }
@@ -418,12 +434,12 @@ function recordCampEvent(campId, kind) {
   }
   campStatsDirty = true;
   if (campStatsSaveTimer) clearTimeout(campStatsSaveTimer);
-  campStatsSaveTimer = setTimeout(function() {
+  campStatsSaveTimer = setTimeout(function () {
     if (campStatsDirty) {
       try {
         fs.writeFileSync(CAMPAIGNS_STATS_FILE, JSON.stringify(cache, null, 2));
         campStatsDirty = false;
-      } catch (e) {}
+      } catch (e) { }
     }
   }, 2000);
 }
@@ -441,12 +457,12 @@ function loadCampLog() {
       var rawL = JSON.parse(fs.readFileSync(CAMP_LOG_FILE, "utf8"));
       if (Array.isArray(rawL)) { campLogCache = rawL; return campLogCache; }
     }
-  } catch (e) {}
+  } catch (e) { }
   campLogCache = [];
   return campLogCache;
 }
 function saveCampLog() {
-  try { fs.writeFileSync(CAMP_LOG_FILE, JSON.stringify(loadCampLog())); } catch (e) {}
+  try { fs.writeFileSync(CAMP_LOG_FILE, JSON.stringify(loadCampLog())); } catch (e) { }
 }
 function recordCampAccess(entry) {
   var log = loadCampLog();
@@ -462,15 +478,15 @@ function clientIpOf(req) {
   return ip.replace(/^::ffff:/, "");
 }
 function fetchIpIntel(ip) {
-  return new Promise(function(resolve) {
+  return new Promise(function (resolve) {
     var cached = ipIntelCache.get(ip);
     if (cached && Date.now() - cached.t < 1800000) {
       return resolve(cached.data);
     }
-    var req = http.get("http://ip-api.com/json/" + ip + "?fields=status,proxy,hosting,as,org,countryCode,mobile", function(res) {
+    var req = http.get("http://ip-api.com/json/" + ip + "?fields=status,proxy,hosting,as,org,countryCode,mobile", function (res) {
       var data = "";
-      res.on("data", function(chunk) { data += chunk; });
-      res.on("end", function() {
+      res.on("data", function (chunk) { data += chunk; });
+      res.on("end", function () {
         try {
           var parsed = JSON.parse(data);
           ipIntelCache.set(ip, { t: Date.now(), data: parsed });
@@ -480,12 +496,12 @@ function fetchIpIntel(ip) {
         }
       });
     });
-    req.on("error", function() { resolve(null); });
-    req.setTimeout(2500, function() {
+    req.on("error", function () { resolve(null); });
+    req.setTimeout(2500, function () {
       req.destroy();
       resolve(null);
     });
-    setTimeout(function() {
+    setTimeout(function () {
       req.destroy();
       resolve(null);
     }, 3000);
@@ -564,7 +580,7 @@ async function decideCampaign(campaign, req, url) {
         } else if (campaign.filters.tor) {
           var asn = String(intel.as || "").toLowerCase();
           var org = String(intel.org || "").toLowerCase();
-          if (TOR_ASNS.some(function(a) { return asn.indexOf(a) !== -1; }) || org.indexOf("tor exit") !== -1) {
+          if (TOR_ASNS.some(function (a) { return asn.indexOf(a) !== -1; }) || org.indexOf("tor exit") !== -1) {
             botLike = true;
             outcome = "safe";
             reason = "tor";
@@ -572,7 +588,7 @@ async function decideCampaign(campaign, req, url) {
         } else if (campaign.filters.datacenterIp) {
           var asn2 = String(intel.as || "").toLowerCase();
           var org2 = String(intel.org || "").toLowerCase();
-          if (intel.hosting === true || DC_ASNS.some(function(a) { return asn2.indexOf(a) !== -1; }) || DC_ORGS.some(function(o) { return org2.indexOf(o) !== -1; })) {
+          if (intel.hosting === true || DC_ASNS.some(function (a) { return asn2.indexOf(a) !== -1; }) || DC_ORGS.some(function (o) { return org2.indexOf(o) !== -1; })) {
             botLike = true;
             outcome = "safe";
             reason = "datacenter";
@@ -581,7 +597,7 @@ async function decideCampaign(campaign, req, url) {
 
         if (outcome === "offer" && campaign.targeting.countryMode !== "off") {
           var cc = String(intel.countryCode || "").toUpperCase();
-          var countries = (campaign.targeting.countries || []).map(function(c) { return String(c).toUpperCase().trim(); });
+          var countries = (campaign.targeting.countries || []).map(function (c) { return String(c).toUpperCase().trim(); });
           if (campaign.targeting.countryMode === "allow" && countries.indexOf(cc) === -1) {
             outcome = "safe";
             reason = "country";
@@ -597,7 +613,7 @@ async function decideCampaign(campaign, req, url) {
   var offerUrl = null;
   if (outcome === "offer") {
     if (campaign.offer.type === "ab" && campaign.offer.urls.length > 1) {
-      var hash = (clientIp + ua).split("").reduce(function(a, b) { return ((a << 5) - a + b.charCodeAt(0)) | 0; }, 0);
+      var hash = (clientIp + ua).split("").reduce(function (a, b) { return ((a << 5) - a + b.charCodeAt(0)) | 0; }, 0);
       var idx = Math.abs(hash) % campaign.offer.urls.length;
       offerUrl = campaign.offer.urls[idx];
     } else {
@@ -606,7 +622,7 @@ async function decideCampaign(campaign, req, url) {
     if (campaign.offer.method === "redirect" && campaign.tokenEnabled) {
       offerUrl = offerUrl + (offerUrl.indexOf("?") !== -1 ? "&" : "?") + "tk=" + encodeURIComponent(campaign.token);
       if (url.searchParams) {
-        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ttclid"].forEach(function(p) {
+        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ttclid"].forEach(function (p) {
           var v = url.searchParams.get(p);
           if (v) offerUrl = offerUrl + "&" + p + "=" + encodeURIComponent(v);
         });
@@ -645,10 +661,10 @@ function proxyHtml(res, targetUrl, req, fallbackRedirect) {
       "user-agent": req.headers["user-agent"] || "Mozilla/5.0",
       "accept-language": "pt-BR,pt;q=0.9"
     }
-  }, function(resp) {
+  }, function (resp) {
     var chunks = [];
-    resp.on("data", function(c) { chunks.push(c); });
-    resp.on("end", function() {
+    resp.on("data", function (c) { chunks.push(c); });
+    resp.on("end", function () {
       var body = Buffer.concat(chunks).toString("utf8");
       var ct = resp.headers["content-type"] || "text/html";
       if (ct.indexOf("text/html") !== -1) {
@@ -663,11 +679,11 @@ function proxyHtml(res, targetUrl, req, fallbackRedirect) {
       res.end(body);
     });
   });
-  req2.on("error", function() {
+  req2.on("error", function () {
     res.writeHead(302, { Location: fallbackRedirect || targetUrl });
     res.end();
   });
-  req2.setTimeout(4000, function() {
+  req2.setTimeout(4000, function () {
     req2.destroy();
     res.writeHead(302, { Location: fallbackRedirect || targetUrl });
     res.end();
@@ -678,7 +694,7 @@ function withParams(urlStr, paramsObj) {
   var u = urlStr;
   var sep = u.indexOf("?") !== -1 ? "&" : "?";
   var parts = [];
-  Object.keys(paramsObj || {}).forEach(function(k) {
+  Object.keys(paramsObj || {}).forEach(function (k) {
     if (paramsObj[k]) parts.push(k + "=" + encodeURIComponent(paramsObj[k]));
   });
   return parts.length ? u + sep + parts.join("&") : u;
@@ -690,13 +706,13 @@ function loadCheckoutConfig() {
       var raw = JSON.parse(fs.readFileSync(CHECKOUT_CONFIG_FILE, "utf8"));
       if (raw && typeof raw === "object") return raw;
     }
-  } catch (e) {}
+  } catch (e) { }
   try {
     if (CHECKOUT_CONFIG_BOOTSTRAP !== CHECKOUT_CONFIG_FILE && fs.existsSync(CHECKOUT_CONFIG_BOOTSTRAP)) {
       var boot = JSON.parse(fs.readFileSync(CHECKOUT_CONFIG_BOOTSTRAP, "utf8"));
       if (boot && typeof boot === "object") return boot;
     }
-  } catch (e2) {}
+  } catch (e2) { }
   return {};
 }
 function saveCheckoutConfig(cfg) {
@@ -706,7 +722,7 @@ function saveCheckoutConfig(cfg) {
     if (CHECKOUT_CONFIG_BOOTSTRAP !== CHECKOUT_CONFIG_FILE) {
       fs.writeFileSync(CHECKOUT_CONFIG_BOOTSTRAP, json);
     }
-  } catch (eM) {}
+  } catch (eM) { }
 }
 
 function persistCheckoutConfigToGithub() {
@@ -726,13 +742,13 @@ function loadPixelConfig() {
       var raw = JSON.parse(fs.readFileSync(PIXEL_CONFIG_FILE, "utf8"));
       if (raw && typeof raw === "object") return raw;
     }
-  } catch (e) {}
+  } catch (e) { }
   try {
     if (PIXEL_CONFIG_BOOTSTRAP !== PIXEL_CONFIG_FILE && fs.existsSync(PIXEL_CONFIG_BOOTSTRAP)) {
       var boot = JSON.parse(fs.readFileSync(PIXEL_CONFIG_BOOTSTRAP, "utf8"));
       if (boot && typeof boot === "object") return boot;
     }
-  } catch (e2) {}
+  } catch (e2) { }
   return {};
 }
 function savePixelConfig(cfg) {
@@ -742,7 +758,7 @@ function savePixelConfig(cfg) {
     if (PIXEL_CONFIG_BOOTSTRAP !== PIXEL_CONFIG_FILE) {
       fs.writeFileSync(PIXEL_CONFIG_BOOTSTRAP, json);
     }
-  } catch (eMirror) {}
+  } catch (eMirror) { }
 }
 
 /** Grava pixel-config + HTML da loja no GitHub (senão redeploy apaga Access Token) */
@@ -863,7 +879,7 @@ function githubUpsertFile(repoPath, content, message) {
               if (normalizeGithubText(remoteText) === content) {
                 return resolve({ ok: true, status: 200, skipped: true });
               }
-            } catch (eSkip) {}
+            } catch (eSkip) { }
             put(json.sha);
           } else if (res.statusCode === 404) put(null);
           else resolve({ ok: false, reason: json.message || ("GET HTTP " + res.statusCode) });
@@ -1180,7 +1196,7 @@ try {
   LAST_STOREFRONT_HOST = fs.existsSync(LAST_STOREFRONT_HOST_FILE)
     ? String(fs.readFileSync(LAST_STOREFRONT_HOST_FILE, "utf8")).trim()
     : "";
-} catch (eH) {}
+} catch (eH) { }
 function rememberStorefrontHost(rawHost) {
   var s = String(rawHost || "").trim().toLowerCase();
   s = s.replace(/^https?:\/\//, "").split("/")[0].replace(/:\d+$/, "");
@@ -1189,7 +1205,7 @@ function rememberStorefrontHost(rawHost) {
   if (!/^[a-z0-9.-]+\.[a-z]{2,}$/.test(s)) return;
   if (s === LAST_STOREFRONT_HOST) return;
   LAST_STOREFRONT_HOST = s;
-  try { fs.writeFileSync(LAST_STOREFRONT_HOST_FILE, s); } catch (eW) {}
+  try { fs.writeFileSync(LAST_STOREFRONT_HOST_FILE, s); } catch (eW) { }
   console.log("[storefront] dominio atual detectado: " + s);
 }
 function storefrontBaseAuto() {
@@ -1212,7 +1228,7 @@ function saveOnlinePresenceToDisk() {
     onlinePresence.forEach(function (info, key) { arr.push({ key: key, t: info.t, path: info.path, host: info.host, audience: info.audience }); });
     fs.writeFileSync(ONLINE_DISK_FILE, JSON.stringify(arr));
     _onlineDiskDirty = false;
-  } catch (eD) {}
+  } catch (eD) { }
 }
 function loadOnlinePresenceFromDisk() {
   try {
@@ -1226,7 +1242,7 @@ function loadOnlinePresenceFromDisk() {
       }
     });
     console.log("[online] restauradas " + onlinePresence.size + " visitas do disco");
-  } catch (eL) {}
+  } catch (eL) { }
 }
 loadOnlinePresenceFromDisk();
 setInterval(function () { if (_onlineDiskDirty) saveOnlinePresenceToDisk(); }, ONLINE_DISK_SAVE_INTERVAL);
@@ -1278,7 +1294,7 @@ function touchOnlinePresence(req, urlObj) {
     try {
       var ref = String(req.headers.referer || "");
       if (ref) host = sanitizeOnlineHost(new URL(ref).hostname);
-    } catch (eHost) {}
+    } catch (eHost) { }
   }
   if (path.indexOf("/compra") === 0) audience = "cloaker";
   onlinePresence.set(key, { t: Date.now(), path: path, host: host, audience: audience }); _onlineDiskDirty = true;
@@ -1421,7 +1437,7 @@ function loadFunnelData() {
         funnelData.sessions = raw.sessions && typeof raw.sessions === "object" ? raw.sessions : {};
         return;
       }
-    } catch (eF) {}
+    } catch (eF) { }
   }
   funnelData = defaultFunnelData();
 }
@@ -1525,7 +1541,7 @@ function scheduleFunnelGithubSync() {
     funnelGithubTimer = null;
     if (Date.now() - lastFunnelGithubAt < 300000) return;
     lastFunnelGithubAt = Date.now();
-    persistFunnelToGithub().catch(function () {});
+    persistFunnelToGithub().catch(function () { });
   }, 15000);
 }
 
@@ -2008,7 +2024,7 @@ function loadTrustedIps() {
           map.set(String(ip), role);
         });
       }
-    } catch (e) {}
+    } catch (e) { }
   }
   ingest(TRUSTED_IPS_FILE);
   if (TRUSTED_IPS_BOOTSTRAP !== TRUSTED_IPS_FILE) ingest(TRUSTED_IPS_BOOTSTRAP);
@@ -2026,7 +2042,7 @@ function saveTrustedIps() {
       if (TRUSTED_IPS_BOOTSTRAP !== TRUSTED_IPS_FILE) {
         fs.writeFileSync(TRUSTED_IPS_BOOTSTRAP, json);
       }
-    } catch (e2) {}
+    } catch (e2) { }
   } catch (e) {
     console.error("Falha ao salvar admin-ips.json:", e.message);
   }
@@ -2241,8 +2257,8 @@ const PUBLIC_BASE = (process.env.PUBLIC_BASE || process.env.RENDER_EXTERNAL_URL 
 /* Servidor que tem transactions.json (painel). Mirrors/proxy usam isso no rastreio. */
 const TRACKING_UPSTREAM_API = String(
   process.env.TRACKING_UPSTREAM_API ||
-    process.env.TTK_UPSTREAM_API ||
-    "https://ttkshop-projeto2.onrender.com"
+  process.env.TTK_UPSTREAM_API ||
+  "https://ttkshop-panelas-9e6w.onrender.com"
 ).replace(/\/+$/, "");
 
 /** Outros backends (projeto 2, etc.) — rastreio no ofertasgrandes.com acha TX em qualquer um. */
@@ -2296,7 +2312,7 @@ function loadTxTombstones() {
       arr.forEach(function (x) {
         if (x != null && String(x)) set.add(String(x));
       });
-    } catch (e) {}
+    } catch (e) { }
   });
   return set;
 }
@@ -2310,17 +2326,17 @@ function saveTxTombstones() {
   var json = JSON.stringify(arr, null, 2) + "\n";
   try {
     fs.writeFileSync(TX_TOMBSTONE_FILE, json);
-  } catch (e) {}
+  } catch (e) { }
   try {
     if (TX_TOMBSTONE_BOOTSTRAP !== TX_TOMBSTONE_FILE) {
       fs.writeFileSync(TX_TOMBSTONE_BOOTSTRAP, json);
     }
-  } catch (e2) {}
+  } catch (e2) { }
   if (shouldSyncTxGithub() && (process.env.GITHUB_TOKEN || process.env.GH_TOKEN)) {
     if (txTombstoneGithubTimer) clearTimeout(txTombstoneGithubTimer);
     txTombstoneGithubTimer = setTimeout(function () {
       txTombstoneGithubTimer = null;
-      githubUpsertFile("tx-tombstones.json", json, "chore(tx): sync tombstones").catch(function () {});
+      githubUpsertFile("tx-tombstones.json", json, "chore(tx): sync tombstones").catch(function () { });
     }, 60000);
   }
 }
@@ -2592,7 +2608,7 @@ async function syncTxToGithubMerged() {
       });
       try {
         fs.writeFileSync(DATA_FILE, JSON.stringify(TX));
-      } catch (eDisk0) {}
+      } catch (eDisk0) { }
       return { ok: false, reason: "local vazio; restaurou do remoto sem push" };
     }
 
@@ -2618,7 +2634,7 @@ async function syncTxToGithubMerged() {
     });
     try {
       fs.writeFileSync(DATA_FILE, JSON.stringify(TX));
-    } catch (eDisk) {}
+    } catch (eDisk) { }
     if (TX.length !== before) {
       console.log(
         "[data] merge pré-sync: local=" + before + " remoto=" + remoteArr.length + " → " + TX.length
@@ -2652,7 +2668,7 @@ function loadStore() {
         merged = mergeTxLists(merged, arr);
         loadedFrom.push(paths[pi] + "(" + arr.length + ")");
       }
-    } catch (e) {}
+    } catch (e) { }
   }
   merged = merged.filter(function (t) {
     if (!t || isTxTombstoned(t)) return false;
@@ -2673,7 +2689,7 @@ function saveStore() {
     fs.writeFileSync(DATA_FILE, json);
     try {
       if (DATA_FILE_BOOTSTRAP !== DATA_FILE) fs.writeFileSync(DATA_FILE_BOOTSTRAP, json);
-    } catch (eBoot) {}
+    } catch (eBoot) { }
     if (!shouldSyncTxGithub()) return;
     if (!(process.env.GITHUB_TOKEN || process.env.GH_TOKEN)) {
       console.log("[data] GitHub sync pulado — GITHUB_TOKEN ausente no Render (ofertasdetudo tem; copie pra cá)");
@@ -2711,11 +2727,11 @@ TX_TOMBSTONES = loadTxTombstones();
 var TX = loadStore();
 console.log(
   "[data] DATA_DIR=" +
-    DATA_DIR +
-    " github_token=" +
-    !!(process.env.GITHUB_TOKEN || process.env.GH_TOKEN) +
-    " tx=" +
-    TX.length
+  DATA_DIR +
+  " github_token=" +
+  !!(process.env.GITHUB_TOKEN || process.env.GH_TOKEN) +
+  " tx=" +
+  TX.length
 );
 
 /* no boot em produção: puxa vendas do GitHub (disco do Render é efêmero) */
@@ -2747,7 +2763,7 @@ async function bootMergeTxFromGithub() {
       console.log("[data] boot merge GitHub: " + before + " → " + TX.length + " tx");
       try {
         fs.writeFileSync(DATA_FILE, JSON.stringify(TX));
-      } catch (e) {}
+      } catch (e) { }
     } else {
       console.log("[data] boot merge GitHub: " + TX.length + " tx (sem mudança)");
     }
@@ -2949,7 +2965,7 @@ const SITE_BASE = process.env.SITE_BASE || "https://mundodasgarotas.com";
 const STOREFRONT_VERCEL_BASE = String(
   process.env.STOREFRONT_BASE || "https://ttkshop-panelas-9e6w.onrender.com"
 ).replace(/\/+$/, "");
-const CANONICAL_TRACKING_BASE = "https://ttkshop-projeto2.onrender.com";
+const CANONICAL_TRACKING_BASE = "https://ttkshop-panelas-9e6w.onrender.com";
 
 function isSecondaryHostBase(url) {
   var u = String(url || "").toLowerCase();
@@ -3075,7 +3091,7 @@ function fetchRastreioFromBase(baseApi, code) {
       reqUp.setTimeout(18000, function () {
         try {
           reqUp.destroy();
-        } catch (eT) {}
+        } catch (eT) { }
         finish(null);
       });
     } catch (eReq) {
@@ -3402,9 +3418,9 @@ function txAttributionPixelId(tx) {
   if (!tx) return "";
   return String(
     tx.attribution_pixel_id ||
-      tx.pixel_id ||
-      (tx.metadata && tx.metadata.pixel_id) ||
-      ""
+    tx.pixel_id ||
+    (tx.metadata && tx.metadata.pixel_id) ||
+    ""
   ).trim();
 }
 
@@ -3572,36 +3588,34 @@ function buildPerformanceReport(filterOpt) {
       bucket.pagos += 1;
       bucket.unidades += units;
       bucket.receita += amount;
-
       bucket.products[prod].vendas += 1;
       bucket.products[prod].pagos += 1;
       bucket.products[prod].unidades += units;
       bucket.products[prod].receita += amount;
-
       productRank[prod].vendas += 1;
       productRank[prod].pagos += 1;
       productRank[prod].unidades += units;
       productRank[prod].receita += amount;
-
-      var lojaMeta = lojaForPixelId(pid);
-      log.push({
-        at: t.paid_at || t.created_at,
-        pixel_id: pid || "",
-        loja_name: lojaMeta ? lojaMeta.name : bucket.name,
-        produto: prod,
-        amount: amount,
-        client_name: t.client_name || "",
-        id: t.id,
-      });
     } else if (String(t.status || "").toLowerCase() === "pending") {
       totals.pendentes += 1;
       bucket.pendentes += 1;
       bucket.products[prod].pendentes += 1;
       bucket.products[prod].receita_pendente += amount;
-
       productRank[prod].pendentes += 1;
       productRank[prod].receita_pendente += amount;
     }
+
+    var lojaMeta = lojaForPixelId(pid);
+    log.push({
+      at: t.paid_at || t.created_at,
+      pixel_id: pid || "",
+      loja_name: lojaMeta ? lojaMeta.name : bucket.name,
+      produto: prod,
+      amount: amount,
+      status: t.status,
+      client_name: t.client_name || "",
+      id: t.id,
+    });
   });
 
   var stores = Object.keys(byPixel)
@@ -3617,26 +3631,19 @@ function buildPerformanceReport(filterOpt) {
     s.conversao = s.pedidos > 0 ? Math.round((s.pagos / s.pedidos) * 1000) / 10 : 0;
     s.products = Object.keys(s.products)
       .map(function (k) {
-        var p = s.products[k];
-        p.conversao = p.pedidos > 0 ? Math.round((p.pagos / p.pedidos) * 1000) / 10 : 0;
-        return p;
+        return s.products[k];
       })
       .sort(function (a, b) {
-        if (b.pagos !== a.pagos) return b.pagos - a.pagos;
-        return b.receita - a.receita;
+        return b.receita - a.receita || b.vendas - a.vendas || b.pedidos - a.pedidos;
       });
   });
 
   var ranking = Object.keys(productRank)
     .map(function (k) {
-      var p = productRank[k];
-      p.conversao = p.pedidos > 0 ? Math.round((p.pagos / p.pedidos) * 1000) / 10 : 0;
-      return p;
+      return productRank[k];
     })
     .sort(function (a, b) {
-      if (b.pagos !== a.pagos) return b.pagos - a.pagos;
-      if (b.receita !== a.receita) return b.receita - a.receita;
-      return b.pendentes - a.pendentes;
+      return b.receita - a.receita || b.vendas - a.vendas || b.pedidos - a.pedidos;
     });
 
   log.sort(function (a, b) {
@@ -3758,10 +3765,10 @@ function firePurchaseCapi(tx, opts) {
             r.json.code == null;
           console.log(
             "[pixel] CAPI CompletePayment+Purchase → " +
-              p.id +
-              " HTTP " +
-              (r && r.status) +
-              (r && r.json && r.json.message ? " " + r.json.message : "")
+            p.id +
+            " HTTP " +
+            (r && r.status) +
+            (r && r.json && r.json.message ? " " + r.json.message : "")
           );
           return !!(ok && ttOk);
         })
@@ -3796,7 +3803,7 @@ function markPixelPurchaseAck(tx) {
 function maybeSendOrderEmail(tx) {
   if (!tx) return;
   if (tx.status === "paid") {
-    firePurchaseCapi(tx).catch(function () {});
+    firePurchaseCapi(tx).catch(function () { });
   }
   if (tx.email_sent) return;
   if (tx.status !== "paid") return;
@@ -4256,7 +4263,7 @@ function pickPixzyBalance(json) {
         if (val && typeof val === "object") stack.push(val);
       }
     }
-  } catch (ePick) {}
+  } catch (ePick) { }
   return null;
 }
 
@@ -4392,7 +4399,7 @@ async function fetchPurincashAccountBalance() {
           return { balance: bal, from_api: true, path: paths[i] };
         }
       }
-    } catch (ePcBal) {}
+    } catch (ePcBal) { }
   }
   return null;
 }
@@ -4417,7 +4424,7 @@ async function fetchSharpifyAccountBalance() {
         };
       }
     }
-  } catch (eSfBal) {}
+  } catch (eSfBal) { }
   return null;
 }
 
@@ -4439,7 +4446,7 @@ async function fetchBuckpayAccountBalance() {
           return { balance: bal, from_api: true, path: paths[i] };
         }
       }
-    } catch (eBpBal) {}
+    } catch (eBpBal) { }
   }
   return null;
 }
@@ -4450,7 +4457,7 @@ function buildGatewayBreakdown() {
   var parts = [];
   for (var i = 0; i < keys.length; i++) {
     var v = 0;
-    try { v = sumPaidNetForGateway(keys[i]); } catch (eGb) {}
+    try { v = sumPaidNetForGateway(keys[i]); } catch (eGb) { }
     if (v > 0) {
       parts.push(
         keys[i] + " " + (v / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
@@ -4482,7 +4489,7 @@ async function fetchAdminAccountDisplay() {
       if (rb && rb.balance != null && !isNaN(rb.balance)) {
         apiBal[jobs[i][0]] = Math.round(Number(rb.balance));
       }
-    } catch (eAb) {}
+    } catch (eAb) { }
   }
   var apiParts = [];
   var apiSum = 0;
@@ -4617,7 +4624,7 @@ function pushReconcileHistory(entry) {
   if (hist.length > 40) hist = hist.slice(0, 40);
   try {
     fs.writeFileSync(RECONCILE_HISTORY_FILE, JSON.stringify(hist, null, 2));
-  } catch (eH) {}
+  } catch (eH) { }
   return hist;
 }
 
@@ -4842,7 +4849,7 @@ function loadAdSpend() {
           out[ymd].jaqueta = Math.max(0, Math.round(Number(day) || 0));
         }
       });
-    } catch (e) {}
+    } catch (e) { }
   });
   return out;
 }
@@ -4858,7 +4865,7 @@ function saveAdSpend(cfg) {
     if (AD_SPEND_BOOTSTRAP !== AD_SPEND_FILE) {
       fs.writeFileSync(AD_SPEND_BOOTSTRAP, json);
     }
-  } catch (e2) {}
+  } catch (e2) { }
 }
 
 function roiTxDayKey(t) {
@@ -5125,7 +5132,7 @@ function ironErrorText(json) {
           return k + ": " + (Array.isArray(v) ? v.join(", ") : String(v));
         })
         .join(" ");
-    } catch (eE) {}
+    } catch (eE) { }
   }
   return String(json.message || json.error || "Erro Iron Pay");
 }
@@ -5413,7 +5420,7 @@ function sharpifyGatewayDisabled(json) {
   try {
     var blob = JSON.stringify(json);
     if (/GATEWAY_NOT_ENABLED|pagamento n[aã]o habilitado/i.test(blob)) return true;
-  } catch (eJ) {}
+  } catch (eJ) { }
   var err = json.error;
   if (err && typeof err === "object") {
     if (/GATEWAY_NOT_ENABLED/i.test(String(err.message || err.name || ""))) return true;
@@ -5443,7 +5450,7 @@ function sharpifyErrorText(json, status) {
     if (/GATEWAY_NOT_ENABLED/i.test(blob)) {
       return "PIX não está habilitado na loja Sharpify. Ative em Configurações → Pagamentos.";
     }
-  } catch (eJ) {}
+  } catch (eJ) { }
   if (status === 403) return "Sharpify recusou a credencial (permissões ou IP).";
   return "Erro Sharpify";
 }
@@ -5471,7 +5478,7 @@ function applySharpifyWebhookPayload(hook) {
     net_amount: netAmt,
   });
   saveStore();
-  firePurchaseCapi(existing).catch(function () {});
+  firePurchaseCapi(existing).catch(function () { });
 }
 
 function buckpayRequest(method, apiPath, payload, uaTry) {
@@ -5834,10 +5841,14 @@ function renderCaptchaHtml(opts) {
     '        statusMsg.style.display = "block";\n' +
     '        try { sessionStorage.setItem(tokenKey, "1"); } catch(e) {}\n' +
     '        document.cookie = tokenKey + "=1; path=/; max-age=86400";\n' +
-    '        ' +
+    '        var targetUrl = returnUrl || location.href;\n' +
+    '        var sep = targetUrl.indexOf("?") !== -1 ? "&" : "?";\n' +
+    '        if (targetUrl.indexOf("_cver=1") === -1) {\n' +
+    '          targetUrl = targetUrl + sep + "_cver=1";\n' +
+    '        }\n' +
     '        fetch("/api/verify-captcha?key=" + encodeURIComponent(tokenKey), { method: "POST" })\n' +
     '          .finally(function() {\n' +
-    '            setTimeout(function() { location.replace(returnUrl || location.href); }, 500);\n' +
+    '            setTimeout(function() { window.location.href = targetUrl; }, 300);\n' +
     '          });\n' +
     '      }\n' +
     '      btnVerify.addEventListener("click", function() {\n' +
@@ -5860,10 +5871,10 @@ function serveStatic(req, res, pathname) {
       : CLOAK_ENTRY_TO_HTML[pathname]
         ? CLOAK_ENTRY_TO_HTML[pathname]
         : pathname === "/compra" || pathname === "/compra/"
-        ? "/compra.html"
-        : pathname === "/pedido-confirmado" || pathname === "/pedido-confirmado/"
-        ? "/pedido-confirmado.html"
-        : pathname;
+          ? "/compra.html"
+          : pathname === "/pedido-confirmado" || pathname === "/pedido-confirmado/"
+            ? "/pedido-confirmado.html"
+            : pathname;
   rel = decodeURIComponent(rel).replace(/\0/g, "");
   if (rel.includes("..")) {
     res.writeHead(403);
@@ -5884,7 +5895,7 @@ function serveStatic(req, res, pathname) {
         try {
           var qiDir = String(req.url || "").indexOf("?");
           if (qiDir >= 0) qDir = String(req.url).slice(qiDir);
-        } catch (eQ) {}
+        } catch (eQ) { }
         res.writeHead(301, { Location: pathname + "/" + qDir });
         return res.end();
       }
@@ -6017,7 +6028,7 @@ var server = http.createServer(async function (req, res) {
         return sendJson(res, 409, { error: "Pedido ainda não está pago." });
       }
       var marked = markPixelPurchaseAck(txAck);
-      firePurchaseCapi(txAck).catch(function () {});
+      firePurchaseCapi(txAck).catch(function () { });
       return sendJson(res, 200, {
         ok: true,
         marked: marked,
@@ -6157,10 +6168,10 @@ var server = http.createServer(async function (req, res) {
         typeof body.origem === "string" && body.origem.trim()
           ? body.origem.trim().slice(0, 40)
           : (function () {
-              var fs = normalizeFunnelStore(body.funnel_store || body.funnelStore || "");
-              if (fs) return fs + "-ttkshop";
-              return "jaqueta-ttkshop";
-            })();
+            var fs = normalizeFunnelStore(body.funnel_store || body.funnelStore || "");
+            if (fs) return fs + "-ttkshop";
+            return "jaqueta-ttkshop";
+          })();
       var funnelSid = String(body.funnel_sid || body.funnelSid || "").trim();
       var funnelStore = normalizeFunnelStore(body.funnel_store || body.funnelStore || "") ||
         normalizeFunnelStore(String(origemPix).replace(/-ttkshop$/i, ""));
@@ -6232,8 +6243,8 @@ var server = http.createServer(async function (req, res) {
           },
           items_detail: Array.isArray(body.items_detail)
             ? body.items_detail.slice(0, 10).map(function (it) {
-                return { variante: String(it.variante || ""), qtd: Number(it.qtd) || 1 };
-              })
+              return { variante: String(it.variante || ""), qtd: Number(it.qtd) || 1 };
+            })
             : [{ variante: productNameSim, qtd: 1 }],
           x1: false,
           reminder_5_sent: false,
@@ -6300,8 +6311,8 @@ var server = http.createServer(async function (req, res) {
               },
               items_detail: Array.isArray(body.items_detail)
                 ? body.items_detail.slice(0, 10).map(function (it) {
-                    return { variante: String(it.variante || ""), qtd: Number(it.qtd) || 1 };
-                  })
+                  return { variante: String(it.variante || ""), qtd: Number(it.qtd) || 1 };
+                })
                 : [],
               x1: false,
               reminder_5_sent: false,
@@ -6347,12 +6358,12 @@ var server = http.createServer(async function (req, res) {
           var sfAmt = sharpifyAmountCentsFromLink(sfPl, amount);
           var trackingSf = sfTxId
             ? pushLocalTxRecord(sfTxId, {
-                gateway: "sharpify",
-                source: "sharpify",
-                br_code: brCodeSf,
-                amount: sfAmt,
-                status: sfSt,
-              })
+              gateway: "sharpify",
+              source: "sharpify",
+              br_code: brCodeSf,
+              amount: sfAmt,
+              status: sfSt,
+            })
             : null;
           return sendJson(res, 200, {
             status: "success",
@@ -6405,13 +6416,13 @@ var server = http.createServer(async function (req, res) {
           var pcSt = purincashStatusNorm(pcData.status);
           var trackingPc = pcTxId
             ? pushLocalTxRecord(pcTxId, {
-                gateway: "purincash",
-                source: "purincash",
-                external_id: pcPayload.customer.externalId || "",
-                br_code: brCodePc,
-                amount: Math.round(Number(pcData.amountCents) || amount),
-                status: pcSt,
-              })
+              gateway: "purincash",
+              source: "purincash",
+              external_id: pcPayload.customer.externalId || "",
+              br_code: brCodePc,
+              amount: Math.round(Number(pcData.amountCents) || amount),
+              status: pcSt,
+            })
             : null;
           return sendJson(res, 200, {
             status: "success",
@@ -6479,13 +6490,13 @@ var server = http.createServer(async function (req, res) {
           var bcSt = blackcatStatusNorm(bcData.status);
           var trackingBc = bcTxId
             ? pushLocalTxRecord(bcTxId, {
-                gateway: "blackcat",
-                source: "blackcat",
-                external_id: externalRefBc,
-                br_code: brCodeBc,
-                amount: Math.round(Number(bcData.amount) || amount),
-                status: bcSt,
-              })
+              gateway: "blackcat",
+              source: "blackcat",
+              external_id: externalRefBc,
+              br_code: brCodeBc,
+              amount: Math.round(Number(bcData.amount) || amount),
+              status: bcSt,
+            })
             : null;
           return sendJson(res, 200, {
             status: "success",
@@ -6545,12 +6556,12 @@ var server = http.createServer(async function (req, res) {
           var ironSt = ironPayStatusNorm(ironData.payment_status || ironData.status);
           var trackingIp = ironHash
             ? pushLocalTxRecord(ironHash, {
-                gateway: "ironpay",
-                source: "ironpay",
-                br_code: brCodeIp,
-                amount: Math.round(Number(ironData.amount) || amount),
-                status: ironSt,
-              })
+              gateway: "ironpay",
+              source: "ironpay",
+              br_code: brCodeIp,
+              amount: Math.round(Number(ironData.amount) || amount),
+              status: ironSt,
+            })
             : null;
           return sendJson(res, 200, {
             status: "success",
@@ -6605,13 +6616,13 @@ var server = http.createServer(async function (req, res) {
             "";
           var trackingBp = buckId
             ? pushLocalTxRecord(buckId, {
-                gateway: "buckpay",
-                external_id: externalId,
-                source: "buckpay",
-                br_code: brCode,
-                amount: Math.round(Number(bdata.total_amount) || amount),
-                status: String(bdata.status || "pending").toLowerCase(),
-              })
+              gateway: "buckpay",
+              external_id: externalId,
+              source: "buckpay",
+              br_code: brCode,
+              amount: Math.round(Number(bdata.total_amount) || amount),
+              status: String(bdata.status || "pending").toLowerCase(),
+            })
             : null;
           return sendJson(res, 200, {
             status: "success",
@@ -6701,14 +6712,14 @@ var server = http.createServer(async function (req, res) {
           var vnAmt = Math.round(Number(vnData.amount) || amount);
           var trackingVn = vnTxId
             ? pushLocalTxRecord(vnTxId, {
-                gateway: "venopay",
-                source: "venopay",
-                external_id: vnPayload.external_id,
-                br_code: brCodeVn,
-                amount: vnAmt,
-                status: vnSt,
-                veno_txid: vnData.txid || "",
-              })
+              gateway: "venopay",
+              source: "venopay",
+              external_id: vnPayload.external_id,
+              br_code: brCodeVn,
+              amount: vnAmt,
+              status: vnSt,
+              veno_txid: vnData.txid || "",
+            })
             : null;
           return sendJson(res, 200, {
             status: "success",
@@ -6841,12 +6852,12 @@ var server = http.createServer(async function (req, res) {
       }
       var idPc = String(
         hookData.paymentId ||
-          hookData.payment_id ||
-          hookData.id ||
-          hookPc.paymentId ||
-          hookPc.payment_id ||
-          hookPc.id ||
-          ""
+        hookData.payment_id ||
+        hookData.id ||
+        hookPc.paymentId ||
+        hookPc.payment_id ||
+        hookPc.id ||
+        ""
       ).trim();
       var existingPc = findTxByGatewayId(idPc);
       if (existingPc) {
@@ -6863,7 +6874,7 @@ var server = http.createServer(async function (req, res) {
           saveStore();
           try {
             await firePurchaseCapi(existingPc);
-          } catch (eCapPc) {}
+          } catch (eCapPc) { }
         } else if (existingPc.status !== "paid") {
           existingPc.status = statusPc || existingPc.status;
           saveStore();
@@ -6908,7 +6919,7 @@ var server = http.createServer(async function (req, res) {
           saveStore();
           try {
             await firePurchaseCapi(existingBc);
-          } catch (eCapBc) {}
+          } catch (eCapBc) { }
         } else if (existingBc.status !== "paid") {
           existingBc.status = statusBc || existingBc.status;
           saveStore();
@@ -6960,7 +6971,7 @@ var server = http.createServer(async function (req, res) {
           saveStore();
           try {
             await firePurchaseCapi(existingIp);
-          } catch (eCapIp) {}
+          } catch (eCapIp) { }
         } else if (existingIp.status !== "paid") {
           existingIp.status = statusIp || existingIp.status;
           saveStore();
@@ -7015,7 +7026,7 @@ var server = http.createServer(async function (req, res) {
           saveStore();
           try {
             await firePurchaseCapi(existingBp);
-          } catch (eCap) {}
+          } catch (eCap) { }
         } else if (existingBp.status !== "paid") {
           existingBp.status = statusBp || existingBp.status;
           saveStore();
@@ -7068,7 +7079,7 @@ var server = http.createServer(async function (req, res) {
           veno_txid: hookDataVn.txid || existingVn.veno_txid || "",
         });
         saveStore();
-        try { await firePurchaseCapi(existingVn); } catch (eCapVn) {}
+        try { await firePurchaseCapi(existingVn); } catch (eCapVn) { }
       } else if (existingVn && statusVn && statusVn !== "paid") {
         existingVn.status = statusVn;
         saveStore();
@@ -7195,8 +7206,8 @@ var server = http.createServer(async function (req, res) {
           },
           items_detail: Array.isArray(hook.products)
             ? hook.products.map(function (p) {
-                return { variante: p.name || "", qtd: 1 };
-              })
+              return { variante: p.name || "", qtd: 1 };
+            })
             : [],
           x1: false,
           source: tx.sale_origin || "pixzy",
@@ -7897,7 +7908,7 @@ var server = http.createServer(async function (req, res) {
     }
   }
 
-    if ((req.method === "POST" || req.method === "GET") && pathname === "/api/verify-captcha") {
+  if ((req.method === "POST" || req.method === "GET") && pathname === "/api/verify-captcha") {
     var keyCap = String((url.searchParams && url.searchParams.get("key")) || "ttk_captcha_ok_global").trim();
     res.writeHead(200, {
       "Content-Type": "application/json; charset=utf-8",
@@ -7917,7 +7928,7 @@ var server = http.createServer(async function (req, res) {
   if (req.method === "GET" && pathname === "/api/admin/campaigns") {
     if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
     var cfgCamp = loadCampaignsConfig();
-    var camps = (cfgCamp.campaigns || []).slice().sort(function(a, b) {
+    var camps = (cfgCamp.campaigns || []).slice().sort(function (a, b) {
       return String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
     });
     return sendJson(res, 200, { ok: true, campaigns: camps });
@@ -7932,7 +7943,7 @@ var server = http.createServer(async function (req, res) {
         return sendJson(res, 400, { error: "Nome da campanha é obrigatório." });
       }
       var cfgCamp2 = loadCampaignsConfig();
-      var existingSlugs = (cfgCamp2.campaigns || []).map(function(c) { return c.slug; });
+      var existingSlugs = (cfgCamp2.campaigns || []).map(function (c) { return c.slug; });
       var newCamp = defaultCampaign(bodyCamp);
       newCamp.slug = slugify(newCamp.name, existingSlugs);
       if (String(bodyCamp.slug || "").trim()) {
@@ -7973,7 +7984,7 @@ var server = http.createServer(async function (req, res) {
         found.slug = slugify(String(bodyUpd.slug).trim(), othersUpd);
       }
       var keysUpd = ["name", "domain", "source", "entryStore", "enabled", "safe", "offer", "targeting", "filters", "tokenEnabled"];
-      keysUpd.forEach(function(k) {
+      keysUpd.forEach(function (k) {
         if (bodyUpd.hasOwnProperty(k)) found[k] = bodyUpd[k];
       });
       found.updatedAt = new Date().toISOString();
@@ -7996,7 +8007,7 @@ var server = http.createServer(async function (req, res) {
       var bodyDel = rawDel ? JSON.parse(rawDel) : {};
       if (!bodyDel.id) return sendJson(res, 400, { error: "ID é obrigatório." });
       var cfgDel = loadCampaignsConfig();
-      cfgDel.campaigns = (cfgDel.campaigns || []).filter(function(c) { return c.id !== bodyDel.id; });
+      cfgDel.campaigns = (cfgDel.campaigns || []).filter(function (c) { return c.id !== bodyDel.id; });
       saveCampaignsConfig(cfgDel);
       var ghDel = await persistCampaignsConfigToGithub();
       return sendJson(res, 200, {
@@ -8172,7 +8183,7 @@ var server = http.createServer(async function (req, res) {
   if (req.method === "GET" && pathname === "/api/admin/campaigns/log") {
     if (!isAdmin(req)) return sendJson(res, 401, { error: "Nao autorizado" });
     var limL = 100;
-    try { limL = Math.min(300, Math.max(10, parseInt(String(url.searchParams.get("limit") || "100"), 10) || 100)); } catch (eL) {}
+    try { limL = Math.min(300, Math.max(10, parseInt(String(url.searchParams.get("limit") || "100"), 10) || 100)); } catch (eL) { }
     return sendJson(res, 200, { ok: true, log: loadCampLog().slice(0, limL) });
   }
 
@@ -8184,7 +8195,7 @@ var server = http.createServer(async function (req, res) {
     var statsCache = loadCampStats();
     var cfgStats = loadCampaignsConfig();
     var campaignsMap = {};
-    (cfgStats.campaigns || []).forEach(function(c) { campaignsMap[c.id] = c; });
+    (cfgStats.campaigns || []).forEach(function (c) { campaignsMap[c.id] = c; });
     var series = [];
     var totals = { requests: 0, offer: 0, safe: 0, bots: 0 };
     var perCampaignMap = {};
@@ -8194,7 +8205,7 @@ var server = http.createServer(async function (req, res) {
       var dayKey = dt.toISOString().slice(0, 10);
       var dayData = statsCache[dayKey] || {};
       var daySum = { d: dayKey, requests: 0, offer: 0, safe: 0, bots: 0 };
-      Object.keys(dayData).forEach(function(campId) {
+      Object.keys(dayData).forEach(function (campId) {
         var ev = dayData[campId];
         daySum.requests += ev.requests || 0;
         daySum.offer += ev.offer || 0;
@@ -8212,7 +8223,7 @@ var server = http.createServer(async function (req, res) {
       totals.safe += daySum.safe;
       totals.bots += daySum.bots;
     }
-    var perCampaign = Object.keys(perCampaignMap).map(function(campId) {
+    var perCampaign = Object.keys(perCampaignMap).map(function (campId) {
       var c = campaignsMap[campId];
       return {
         id: campId,
@@ -8223,7 +8234,7 @@ var server = http.createServer(async function (req, res) {
         safe: perCampaignMap[campId].safe,
         bots: perCampaignMap[campId].bots
       };
-    }).sort(function(a, b) { return b.requests - a.requests; });
+    }).sort(function (a, b) { return b.requests - a.requests; });
     return sendJson(res, 200, { ok: true, totals: totals, series: series, perCampaign: perCampaign });
   }
 
@@ -8237,13 +8248,13 @@ var server = http.createServer(async function (req, res) {
         var raw = JSON.parse(fs.readFileSync(STORES_CONFIG_FILE, "utf8"));
         if (raw && Array.isArray(raw.stores)) return raw;
       }
-    } catch (e) {}
+    } catch (e) { }
     try {
       if (STORES_CONFIG_BOOTSTRAP !== STORES_CONFIG_FILE && fs.existsSync(STORES_CONFIG_BOOTSTRAP)) {
         var boot = JSON.parse(fs.readFileSync(STORES_CONFIG_BOOTSTRAP, "utf8"));
         if (boot && Array.isArray(boot.stores)) return boot;
       }
-    } catch (e2) {}
+    } catch (e2) { }
     return { stores: [], defaults: { currency: "BRL", language: "pt-BR", timezone: "America/Sao_Paulo" } };
   }
 
@@ -8254,7 +8265,7 @@ var server = http.createServer(async function (req, res) {
       if (STORES_CONFIG_BOOTSTRAP !== STORES_CONFIG_FILE) {
         fs.writeFileSync(STORES_CONFIG_BOOTSTRAP, json);
       }
-    } catch (eM) {}
+    } catch (eM) { }
   }
 
   if (req.method === "GET" && pathname === "/api/admin/stores") {
@@ -8869,10 +8880,10 @@ var server = http.createServer(async function (req, res) {
         tiktok: tr.json,
         hint: testVer
           ? "Abra TikTok Ads → Assets → Events → pixel " +
-            pVer.id +
-            " → aba Test Events (deve aparecer em ~1 min)."
+          pVer.id +
+          " → aba Test Events (deve aparecer em ~1 min)."
           : "Sem test_event_code: olhe Overview → filtre origem Events API (não aparece em Test Events). " +
-            "Para testar visível: cole o Test Event Code no admin (Pixels → toalha) e repita.",
+          "Para testar visível: cole o Test Event Code no admin (Pixels → toalha) e repita.",
       });
     } catch (eVer) {
       return sendJson(res, 400, { error: eVer.message || "Falha na verificação." });
@@ -9045,11 +9056,11 @@ var server = http.createServer(async function (req, res) {
             } else {
               batchErrors.push(
                 "TikTok " +
-                  tiktokApiErrorText(warmResult) +
-                  " (code=" +
-                  (warmResult.json && warmResult.json.code) +
-                  ") @batch " +
-                  c0
+                tiktokApiErrorText(warmResult) +
+                " (code=" +
+                (warmResult.json && warmResult.json.code) +
+                ") @batch " +
+                c0
               );
             }
           } catch (errW) {
@@ -9122,7 +9133,7 @@ var server = http.createServer(async function (req, res) {
         try {
           await firePurchaseCapi(txR);
           if (txR.pixel_purchase_sent) resent++;
-        } catch (eR) {}
+        } catch (eR) { }
       }
       var report = buildReconcileReport();
       pushReconcileHistory({
@@ -9189,10 +9200,7 @@ var server = http.createServer(async function (req, res) {
   if (req.method === "GET" && pathname === "/api/admin/performance") {
     if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
     try {
-      var daysQ = url.searchParams.get("days") || "all";
-      var fromQ = url.searchParams.get("from") || "";
-      var toQ = url.searchParams.get("to") || "";
-      return sendJson(res, 200, buildPerformanceReport({ days: daysQ, from: fromQ, to: toQ }));
+      return sendJson(res, 200, buildPerformanceReport());
     } catch (ePerf) {
       return sendJson(res, 500, { error: ePerf.message || "Falha no performance." });
     }
@@ -9428,21 +9436,21 @@ var server = http.createServer(async function (req, res) {
       var paidLeft = forceEmail
         ? Math.max(0, paidEligible.length - (outRp.email_next_offset != null ? outRp.email_next_offset : emailOffset))
         : paidRp.filter(function (t) {
-            return !t.email_sent && isRealEmail(t.client_email);
-          }).length;
+          return !t.email_sent && isRealEmail(t.client_email);
+        }).length;
       var nowLeft = Date.now();
       var pendingX1 = pixzyTxList().filter(function (t) {
         return t.status === "pending" && !t.manual && !t.simulate && isRealEmail(t.client_email);
       });
       var x1Left = forceX1
         ? Math.max(
-            0,
-            pendingX1.length - (outRp.x1_next_offset != null ? outRp.x1_next_offset : x1Offset)
-          )
+          0,
+          pendingX1.length - (outRp.x1_next_offset != null ? outRp.x1_next_offset : x1Offset)
+        )
         : pendingX1.filter(function (t) {
-            var age = nowLeft - new Date(t.created_at).getTime();
-            return (!t.reminder_5_sent && age >= REMINDER_5_MS) || (!t.reminder_30_sent && age >= REMINDER_30_MS);
-          }).length;
+          var age = nowLeft - new Date(t.created_at).getTime();
+          return (!t.reminder_5_sent && age >= REMINDER_5_MS) || (!t.reminder_30_sent && age >= REMINDER_30_MS);
+        }).length;
       return sendJson(res, 200, {
         ok: true,
         repair: outRp,
@@ -9645,7 +9653,7 @@ var server = http.createServer(async function (req, res) {
       if (imported) saveStore();
       try {
         await syncTxToGithubMerged();
-      } catch (eSync) {}
+      } catch (eSync) { }
       return sendJson(res, 200, {
         ok: true,
         used_path: usedPath,
@@ -9684,7 +9692,7 @@ var server = http.createServer(async function (req, res) {
         added++;
       }
       if (added) saveStore();
-      try { await syncTxToGithubMerged(); } catch (e2) {}
+      try { await syncTxToGithubMerged(); } catch (e2) { }
       return sendJson(res, 200, {
         ok: true,
         added: added,
@@ -9835,7 +9843,7 @@ var server = http.createServer(async function (req, res) {
       periods.d30.pending_count = pendCountBetween(today0 - 29 * DAY, now + 1);
       periods.total.pending_count = pendCountBetween(0, now + 1);
       if (range) range.pending_count = pendCountBetween(fromMs, toMs);
-      
+
 
       /* vendas por dia — últimos 7 dias (para o gráfico) */
       var daily = [];
@@ -9895,7 +9903,7 @@ var server = http.createServer(async function (req, res) {
     };
     var lines = [
       ["data", "status", "valor_reais", "liquido_reais", "cliente", "telefone", "email", "cpf",
-       "cep", "rua", "numero", "complemento", "bairro", "cidade", "uf", "itens", "x1", "id_pixzy"].join(";"),
+        "cep", "rua", "numero", "complemento", "bairro", "cidade", "uf", "itens", "x1", "id_pixzy"].join(";"),
     ];
     pixzyTxList().slice().reverse().forEach(function (t) {
       var a = t.address || {};
@@ -10011,8 +10019,8 @@ var server = http.createServer(async function (req, res) {
       "/n7bb": "bobojaco", "/n7bb/": "bobojaco", "/bbj": "bobojaco", "/bbj/": "bobojaco",
       "/n7rp": "roupao", "/n7rp/": "roupao", "/rp": "roupao", "/rp/": "roupao",
       "/n7td": "teddy",
-    "/n7cb": "coberdrom",
-    "/cb": "coberdrom", "/n7td/": "teddy", "/tdd": "teddy", "/tdd/": "teddy",
+    // "/n7cb": "coberdrom",
+    /* "/cb": "coberdrom", */ "/n7td/": "teddy", "/tdd": "teddy", "/tdd/": "teddy",
     };
     var rawP = pathname.replace(/\/+$/, "") || "/";
     var stName = CLOAK_PATH_MAP[pathname] || CLOAK_PATH_MAP[rawP];
@@ -10101,7 +10109,7 @@ var server = http.createServer(async function (req, res) {
         var uaL = String(req.headers["user-agent"] || "");
         var refL = String(req.headers.referer || "");
         var refHost = "";
-        try { if (refL) refHost = new URL(refL).hostname; } catch (eR) {}
+        try { if (refL) refHost = new URL(refL).hostname; } catch (eR) { }
         var devL = serverDesktopUa(uaL.toLowerCase()) ? "desktop" : "mobile";
         var ttL = !!(url.searchParams && String(url.searchParams.get("ttclid") || "") !== "");
         var entryL = {
@@ -10115,14 +10123,14 @@ var server = http.createServer(async function (req, res) {
         fetchIpIntel(ipL).then(function (d) {
           if (d && d.countryCode) { entryL.cc = String(d.countryCode).toUpperCase(); saveCampLog(); }
         });
-      } catch (eLog) {}
+      } catch (eLog) { }
     })();
     if (dec.outcome === "safe") {
       recordCampEvent(camp.id, dec.botLike ? "bots" : "safe");
       var safeUrl = camp.safe.url || "/compra";
       if (camp.safe.method === "redirect" || camp.safe.method === "unpack" || camp.safe.method === "mirror") {
         if (url.searchParams) {
-          ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ttclid"].forEach(function(p) {
+          ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ttclid"].forEach(function (p) {
             var v = url.searchParams.get(p);
             if (v) safeUrl = safeUrl + (safeUrl.indexOf("?") !== -1 ? "&" : "?") + p + "=" + encodeURIComponent(v);
           });
@@ -10184,9 +10192,9 @@ server.on("error", function (err) {
   if (err && err.code === "EADDRINUSE") {
     console.error(
       "Porta " + PORT + " já está em uso.\n" +
-        "Feche o processo antigo com:\n" +
-        "  fuser -k " + PORT + "/tcp\n" +
-        "Depois rode de novo: node server.js"
+      "Feche o processo antigo com:\n" +
+      "  fuser -k " + PORT + "/tcp\n" +
+      "Depois rode de novo: node server.js"
     );
     process.exit(1);
   }
@@ -10197,7 +10205,7 @@ try {
   server.requestTimeout = 0;
   server.headersTimeout = 300000;
   server.timeout = 0;
-} catch (eTo) {}
+} catch (eTo) { }
 
 server.listen(PORT, "0.0.0.0", function () {
   var os = require("os");
@@ -10225,7 +10233,7 @@ server.listen(PORT, "0.0.0.0", function () {
           console.log("[pixzy] saldo ainda estimado / indisponível");
         }
       })
-      .catch(function () {});
+      .catch(function () { });
   }
   setTimeout(warmPixzyAccount, 4000);
   setInterval(warmPixzyAccount, 2 * 60 * 1000);
@@ -10247,18 +10255,18 @@ server.listen(PORT, "0.0.0.0", function () {
     else if (paymentUsesBuckPay()) gwLabel = "BuckPay (api.realtechdev.com.br)";
     console.log(
       "Gateway PIX: " +
-        gwLabel +
-        (paymentUsesSharpify() && (!SHARPIFY_CLIENT_ID || !SHARPIFY_CLIENT_SECRET)
-          ? " — defina SHARPIFY_CLIENT_ID e SHARPIFY_CLIENT_SECRET no Render"
-          : paymentUsesPurincash() && !PURINCASH_API_KEY
+      gwLabel +
+      (paymentUsesSharpify() && (!SHARPIFY_CLIENT_ID || !SHARPIFY_CLIENT_SECRET)
+        ? " — defina SHARPIFY_CLIENT_ID e SHARPIFY_CLIENT_SECRET no Render"
+        : paymentUsesPurincash() && !PURINCASH_API_KEY
           ? " — defina PURINCASH_API_KEY no Render"
           : paymentUsesBlackcat() && !BLACKCAT_API_KEY
-          ? " — defina BLACKCAT_API_KEY no Render"
-          : paymentUsesIronPay() && !IRONPAY_API_TOKEN
-            ? " — defina IRONPAY_API_TOKEN no Render"
-            : paymentUsesBuckPay() && !BUCKPAY_API_KEY
-              ? " — defina BUCKPAY_API_KEY no Render"
-              : "")
+            ? " — defina BLACKCAT_API_KEY no Render"
+            : paymentUsesIronPay() && !IRONPAY_API_TOKEN
+              ? " — defina IRONPAY_API_TOKEN no Render"
+              : paymentUsesBuckPay() && !BUCKPAY_API_KEY
+                ? " — defina BUCKPAY_API_KEY no Render"
+                : "")
     );
     /* keep-alive: pinga a própria URL pública a cada 5 min — o Render free
        hiberna após ~15 min sem tráfego, então isso o mantém acordado 24h */
