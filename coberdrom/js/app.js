@@ -358,7 +358,7 @@
   var cartItemsEl = document.getElementById("cart-items");
   var cartItems = []; /* { label, img, qty, price, extra } */
   var editingIndex = null; /* item do carrinho em troca de variante */
-  var PRICE = 37.77;
+  var PRICE = 39.14;
   var OLD_PRICE = 118.0;
   var EXTRA_PRICE = 29.87;
   var EXTRA_IMGS = [
