@@ -1,47 +1,6 @@
 {
   "campaigns": [
     {
-      "id": "cp_92286fed",
-      "name": "roupao",
-      "slug": "roupao",
-      "token": "66901da59d",
-      "tokenEnabled": true,
-      "source": "tiktok",
-      "domain": "*",
-      "entryStore": "roupao",
-      "enabled": true,
-      "safe": {
-        "method": "redirect",
-        "url": "https://receitas-especiais.blogspot.com/2014/04/bolo-de-claras.html"
-      },
-      "offer": {
-        "method": "internal",
-        "type": "single",
-        "urls": [
-          "/roupao"
-        ]
-      },
-      "targeting": {
-        "device": "none",
-        "countryMode": "allow",
-        "countries": [
-          "BR"
-        ]
-      },
-      "filters": {
-        "botUa": true,
-        "automation": true,
-        "softwareGl": true,
-        "desktopLike": true,
-        "datacenterIp": true,
-        "proxy": true,
-        "tor": false,
-        "ttclidBypass": false
-      },
-      "createdAt": "2026-08-19T08:54:17.382Z",
-      "updatedAt": "2026-08-19T09:32:00.166Z"
-    },
-    {
       "id": "cp_6c3ffa29",
       "name": "sabonete",
       "slug": "sabonete",
