@@ -40,47 +40,6 @@
       },
       "createdAt": "2026-08-19T08:54:30.324Z",
       "updatedAt": "2026-08-19T09:32:16.014Z"
-    },
-    {
-      "id": "cp_4dae6c5b",
-      "name": "conjunto",
-      "slug": "conjunto",
-      "token": "190c7ae404",
-      "tokenEnabled": true,
-      "source": "tiktok",
-      "domain": "*",
-      "entryStore": "conjunto",
-      "enabled": true,
-      "safe": {
-        "method": "redirect",
-        "url": "https://receitas-especiais.blogspot.com/2010/08/takoyaki.html"
-      },
-      "offer": {
-        "method": "internal",
-        "type": "single",
-        "urls": [
-          "/conjunto"
-        ]
-      },
-      "targeting": {
-        "device": "none",
-        "countryMode": "allow",
-        "countries": [
-          "BR"
-        ]
-      },
-      "filters": {
-        "botUa": true,
-        "automation": true,
-        "softwareGl": true,
-        "desktopLike": true,
-        "datacenterIp": true,
-        "proxy": true,
-        "tor": false,
-        "ttclidBypass": false
-      },
-      "createdAt": "2026-08-19T08:54:47.468Z",
-      "updatedAt": "2026-08-19T10:41:06.589Z"
     }
   ]
 }
