@@ -8,23 +8,25 @@
       "tokenEnabled": true,
       "source": "tiktok",
       "domain": "*",
-      "entryStore": "sabonete",
+      "entryStore": "pantalona",
       "enabled": true,
       "safe": {
         "method": "redirect",
-        "url": ""
+        "url": "https://www.lecreuset.com.br/receitas/"
       },
       "offer": {
         "method": "internal",
         "type": "single",
         "urls": [
-          "/sabonete/"
+          "/pantalona"
         ]
       },
       "targeting": {
-        "device": "all",
-        "countryMode": "off",
-        "countries": []
+        "device": "none",
+        "countryMode": "allow",
+        "countries": [
+          "BR"
+        ]
       },
       "filters": {
         "botUa": true,
@@ -34,10 +36,11 @@
         "datacenterIp": true,
         "proxy": true,
         "tor": false,
-        "ttclidBypass": true
+        "ttclidBypass": false,
+        "captcha": false
       },
       "createdAt": "2026-09-09T05:02:09.776Z",
-      "updatedAt": "2026-09-09T05:02:09.776Z"
+      "updatedAt": "2026-09-09T05:05:47.110Z"
     }
   ]
 }
