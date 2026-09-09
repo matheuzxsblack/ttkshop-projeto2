@@ -66,5 +66,18 @@
     "testEventCode": "",
     "testEventEnabled": false,
     "updatedAt": "2026-08-22T21:06:00.776Z"
+  },
+  "pantalona": {
+    "pixels": [
+      {
+        "id": "DAFJQ9JC77U4TNIVJ5G0",
+        "label": "Principal",
+        "accessToken": "d63c50ec1974f1381e476c3f6d9a300cdefdb6a8",
+        "enabled": true
+      }
+    ],
+    "testEventCode": "",
+    "testEventEnabled": false,
+    "updatedAt": "2026-09-09T05:09:14.037Z"
   }
 }
