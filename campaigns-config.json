@@ -1,3 +1,43 @@
 {
-  "campaigns": []
+  "campaigns": [
+    {
+      "id": "cp_45eb565c",
+      "name": "Pantalona",
+      "slug": "pantalona",
+      "token": "deb5e2446a",
+      "tokenEnabled": true,
+      "source": "tiktok",
+      "domain": "*",
+      "entryStore": "sabonete",
+      "enabled": true,
+      "safe": {
+        "method": "redirect",
+        "url": ""
+      },
+      "offer": {
+        "method": "internal",
+        "type": "single",
+        "urls": [
+          "/sabonete/"
+        ]
+      },
+      "targeting": {
+        "device": "all",
+        "countryMode": "off",
+        "countries": []
+      },
+      "filters": {
+        "botUa": true,
+        "automation": true,
+        "softwareGl": true,
+        "desktopLike": true,
+        "datacenterIp": true,
+        "proxy": true,
+        "tor": false,
+        "ttclidBypass": true
+      },
+      "createdAt": "2026-09-09T05:02:09.776Z",
+      "updatedAt": "2026-09-09T05:02:09.776Z"
+    }
+  ]
 }
