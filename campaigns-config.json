@@ -1,47 +1,6 @@
 {
   "campaigns": [
     {
-      "id": "cp_222400bf",
-      "name": "toalha",
-      "slug": "dashmulher",
-      "token": "9906a70aac",
-      "tokenEnabled": true,
-      "source": "tiktok",
-      "domain": "*",
-      "entryStore": "toalha",
-      "enabled": true,
-      "safe": {
-        "method": "redirect",
-        "url": "https://receitas-especiais.blogspot.com/search/label/almondegas?m=1"
-      },
-      "offer": {
-        "method": "internal",
-        "type": "single",
-        "urls": [
-          "/toalha"
-        ]
-      },
-      "targeting": {
-        "device": "none",
-        "countryMode": "allow",
-        "countries": [
-          "BR"
-        ]
-      },
-      "filters": {
-        "botUa": true,
-        "automation": true,
-        "softwareGl": true,
-        "desktopLike": true,
-        "datacenterIp": true,
-        "proxy": true,
-        "tor": false,
-        "ttclidBypass": false
-      },
-      "createdAt": "2026-08-18T07:25:30.039Z",
-      "updatedAt": "2026-08-22T13:19:55.686Z"
-    },
-    {
       "id": "cp_92286fed",
       "name": "roupao",
       "slug": "roupao",
