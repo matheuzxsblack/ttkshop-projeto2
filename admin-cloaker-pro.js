@@ -75,6 +75,25 @@
   var stats = null;
 
   // API calls
+  function loadStoreOptions() {
+    return fetch("/api/admin/stores", { headers: authHeaders() })
+      .then(function (r) {
+        if (!r.ok) return null;
+        return r.json();
+      })
+      .then(function (j) {
+        if (j && Array.isArray(j.stores)) {
+          window.__TTK_ADMIN_STORES = j.stores.map(function (s) {
+            return { val: s.slug || s.id, label: s.name || s.slug };
+          });
+        }
+        return window.__TTK_ADMIN_STORES;
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+
   function fetchCampaigns() {
     return fetch("/api/admin/campaigns", { headers: authHeaders() })
       .then(function (r) {
@@ -502,6 +521,9 @@
       { val: 'coberdrom', label: 'Coberdrom Queen Sherpa' },
       { val: 'conjunto', label: 'Conjunto Alfaiataria' }
     ];
+    if (Array.isArray(window.__TTK_ADMIN_STORES) && window.__TTK_ADMIN_STORES.length) {
+      stores = window.__TTK_ADMIN_STORES;
+    }
     stores.forEach(function (s) {
       html += '<option value="' + s.val + '"' + (c.entryStore === s.val ? ' selected' : '') + '>' + s.label + '</option>';
     });
@@ -807,7 +829,7 @@
 
   function loadList() {
     editingId = null;
-    Promise.all([fetchCampaigns(), fetchStats()])
+    Promise.all([fetchCampaigns(), fetchStats(), loadStoreOptions()])
       .then(function () {
         renderList();
       })

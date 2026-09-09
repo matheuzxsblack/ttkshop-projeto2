@@ -96,6 +96,44 @@
       "permanent": false
     }
   ],
+  "rewrites": [
+    {
+      "source": "/sf/:path*",
+      "destination": "https://ttkshop-projeto2.onrender.com/sf/:path*"
+    },
+    {
+      "source": "/store-engine/:path*",
+      "destination": "https://ttkshop-projeto2.onrender.com/store-engine/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://ttkshop-projeto2.onrender.com/api/:path*"
+    },
+    {
+      "source": "/admin-store-builder.js",
+      "destination": "https://ttkshop-projeto2.onrender.com/admin-store-builder.js"
+    },
+    {
+      "source": "/admin.js",
+      "destination": "https://ttkshop-projeto2.onrender.com/admin.js"
+    },
+    {
+      "source": "/admin.css",
+      "destination": "https://ttkshop-projeto2.onrender.com/admin.css"
+    },
+    {
+      "source": "/admin-cloaker-pro.js",
+      "destination": "https://ttkshop-projeto2.onrender.com/admin-cloaker-pro.js"
+    },
+    {
+      "source": "/:slug",
+      "destination": "https://ttkshop-projeto2.onrender.com/:slug/"
+    },
+    {
+      "source": "/:slug/",
+      "destination": "https://ttkshop-projeto2.onrender.com/:slug/"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

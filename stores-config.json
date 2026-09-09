@@ -122,6 +122,56 @@
         "currency": "BRL",
         "taxRate": 0
       }
+    },
+    {
+      "id": "mixer",
+      "name": "Mixer Turbo Chef Elgin 3 Em 1",
+      "slug": "mixer",
+      "enabled": true,
+      "theme": "tiktok",
+      "categories": [],
+      "dynamic": true,
+      "created_at": "2026-09-09T04:50:00.000Z"
+    },
+    {
+      "id": "jeans",
+      "name": "Kit 2 Calças Jeans",
+      "slug": "jeans",
+      "enabled": true,
+      "theme": "tiktok",
+      "categories": [],
+      "dynamic": true,
+      "created_at": "2026-09-09T04:50:00.000Z"
+    },
+    {
+      "id": "pantalona",
+      "name": "Calça Pantalona",
+      "slug": "pantalona",
+      "enabled": true,
+      "theme": "tiktok",
+      "categories": [],
+      "dynamic": true,
+      "created_at": "2026-09-09T04:50:00.000Z"
+    },
+    {
+      "id": "fithair",
+      "name": "FitHair",
+      "slug": "fithair",
+      "enabled": true,
+      "theme": "tiktok",
+      "categories": [],
+      "dynamic": true,
+      "created_at": "2026-09-09T04:50:00.000Z"
+    },
+    {
+      "id": "tapete",
+      "name": "Tapete Sala Veludo",
+      "slug": "tapete",
+      "enabled": true,
+      "theme": "tiktok",
+      "categories": [],
+      "dynamic": true,
+      "created_at": "2026-09-09T04:50:00.000Z"
     }
   ],
   "defaults": {

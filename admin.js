@@ -115,6 +115,7 @@
           stopFunnelRefresh();
         }
         if (name === "sales") loadTransactions(true);
+        if (name === "stores" && window.TTK_STORE_BUILDER) window.TTK_STORE_BUILDER.load();
       }
 
       var currentPageName = "overview";

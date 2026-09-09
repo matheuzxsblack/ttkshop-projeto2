@@ -1058,3 +1058,71 @@ body.hide-values .stat-value.money {
 
 /* bold dos pagos independente da classe da tabela */
 #tx-body tr.tx-paid td { color:var(--white); font-weight:700; }
+
+/* ---------- CRIAR LOJA ---------- */
+.sb-overlay {
+  position: fixed; inset: 0; z-index: 80;
+  background: rgba(0,0,0,.72);
+  display: flex; align-items: stretch; justify-content: flex-end;
+}
+.sb-overlay[hidden] { display: none !important; }
+.sb-panel {
+  width: min(720px, 100%);
+  background: var(--card);
+  border-left: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  animation: modalIn .2s ease;
+}
+.sb-head, .sb-foot { padding: 18px 22px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.sb-foot { border-bottom: 0; border-top: 1px solid var(--border); justify-content: flex-end; }
+.sb-head h3 { margin: 0 0 4px; font-size: 18px; }
+.sb-head p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
+.sb-body { padding: 18px 22px 28px; overflow: auto; flex: 1; }
+.sb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sb-body label { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--muted); font-weight: 600; }
+.sb-body input[type="text"], .sb-body input[type="number"], .sb-body textarea {
+  background: var(--card-2); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--white); padding: 10px 12px; font: inherit;
+}
+.sb-body small, .sb-hint { color: var(--muted); font-size: 12px; font-weight: 400; margin: 0 0 8px; }
+.sb-block { margin: 14px 0; }
+.sb-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 14px 0; font-size: 13px; }
+.sb-flash { flex-direction: row !important; align-items: center; gap: 8px !important; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--border); color: var(--white) !important; }
+.sb-flash-rgb { background: linear-gradient(90deg, rgba(255,45,85,.25), rgba(255,149,0,.25)); }
+.sb-check { flex-direction: row !important; align-items: center; gap: 8px !important; margin: 8px 0 16px; color: var(--white) !important; }
+.sb-body h4 { margin: 18px 0 6px; font-size: 14px; }
+.sb-thumbs { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+.sb-thumbs img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); }
+.sb-opt, .sb-rev, .sb-upsell {
+  background: var(--card-2); border: 1px solid var(--border); border-radius: 12px;
+  padding: 12px; margin: 8px 0; display: grid; gap: 8px;
+}
+.sb-size-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.sb-size-chip { display: inline-flex; align-items: center; gap: 4px; }
+.sb-size-chip input { width: 88px; }
+.sb-size-chip button { border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 16px; }
+.sb-upsell-file { font-size: 12px; color: var(--muted); }
+.sb-status { margin-top: 12px; font-size: 13px; }
+.sb-status.err { color: #f87171; }
+.sb-status.ok { color: #34d399; }
+.store-card .store-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.store-card .store-links a, .store-card .store-tag, .store-card .store-edit {
+  font-size: 11px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 3px 8px; text-decoration: none;
+  background: transparent; cursor: pointer; font: inherit;
+}
+.store-card .store-edit { color: #fbbf24; border-color: rgba(251,191,36,.45); }
+.sb-exist-thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); }
+.sb-opt-row {
+  display: grid;
+  grid-template-columns: 1fr minmax(140px, auto) auto;
+  gap: 8px;
+  align-items: center;
+}
+.sb-opt-price-wrap { margin: 0; }
+.sb-opt-price { width: 100%; max-width: 220px; }
+.sb-opt-preview { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.store-card .store-tag.dyn { color: #34d399; border-color: rgba(52,211,153,.4); }
+@media (max-width: 640px) {
+  .sb-grid { grid-template-columns: 1fr; }
+  .sb-opt-row { grid-template-columns: 1fr; }
+}

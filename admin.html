@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow" />
   <title>Admin v2 — Ofertas De Mulher</title>
   <link rel="icon" href="/images/favicon.png?v=20260812ofertasdemulher" />
-  <link rel="stylesheet" href="admin.css?v=20260814pv1" />
+  <link rel="stylesheet" href="admin.css?v=20260909sf1" />
   <link rel="stylesheet" href="admin-cloaker-pro.css?v=20260814ck10" />
 </head>
 <body>
@@ -406,7 +406,7 @@
           <div class="page-header">
             <div>
               <h2>Lojas</h2>
-              <p class="page-desc">Gerencie suas lojas. Crie novas, edite configurações e gerencie produtos.</p>
+              <p class="page-desc">Crie uma vitrine no mesmo layout das lojas atuais. Cloaker, pixels, recomendações e /loja entram sozinhos.</p>
             </div>
             <button class="btn btn-primary" type="button" id="btn-create-store">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
@@ -788,8 +788,113 @@
     </div>
   </div>
 
+  <!-- STORE BUILDER -->
+  <div class="sb-overlay" id="store-builder" hidden>
+    <div class="sb-panel">
+      <header class="sb-head">
+        <div>
+          <h3 id="sb-head-title">Criar loja</h3>
+              <p id="sb-head-desc">Mesmo layout TikTok das lojas atuais. O link público fica em ofertasgrandes.vercel.app/sua-url. Pixels e /loja entram sozinhos.</p>
+        </div>
+        <button class="modal-close" type="button" id="sb-close">✕</button>
+      </header>
+      <div class="sb-body">
+        <div class="sb-grid">
+          <label>Título do produto
+            <input type="text" id="sb-title" placeholder="Ex.: Mixer Turbo Chef 3 em 1" />
+          </label>
+          <label>URL da loja (slug)
+            <input type="text" id="sb-slug" placeholder="ex.: mixer" />
+            <small>O anúncio usa ofertasgrandes.vercel.app/mixer — sem /c/</small>
+          </label>
+          <label>Preço atual (R$)
+            <input type="text" id="sb-price" inputmode="decimal" placeholder="89,90" />
+          </label>
+          <label>Preço antigo (R$)
+            <input type="text" id="sb-old" inputmode="decimal" placeholder="279,90" />
+            <small>O valor riscado na oferta relâmpago</small>
+          </label>
+          <label>Quantidade de avaliações
+            <input type="number" id="sb-reviews-n" min="0" placeholder="1284" />
+          </label>
+          <label>Nota (ex.: 4.8)
+            <input type="text" id="sb-rating" placeholder="4.8" value="4.8" />
+          </label>
+          <label>Vendidos (texto)
+            <input type="text" id="sb-sold" placeholder="2,1 mil vendidos" />
+          </label>
+          <label>Nome das opções (ao clicar em Comprar)
+            <input type="text" id="sb-opt-label" placeholder="Cor" value="Cor" />
+          </label>
+          <label>Quantas opções a pessoa escolhe
+            <input type="number" id="sb-opt-pick" min="1" max="8" value="1" />
+            <small>1 = uma só. 2 = kit com 2 (igual as toalhas: toca até completar)</small>
+          </label>
+        </div>
+
+        <label class="sb-block">Descrição
+          <textarea id="sb-desc" rows="5" placeholder="Texto da aba Descrição. Parágrafos separados por linha em branco."></textarea>
+        </label>
+        <p class="sb-hint">Fotos na descrição (opcional). Pode ter um conjunto no começo do texto e outro diferente no final.</p>
+        <label>Fotos no começo do texto
+          <input type="file" id="sb-desc-imgs-start" accept="image/*" multiple />
+        </label>
+        <div class="sb-thumbs" id="sb-desc-preview-start"></div>
+        <button class="btn btn-ghost" type="button" id="sb-desc-clear-start">Tirar fotos do começo</button>
+        <label>Fotos no final do texto
+          <input type="file" id="sb-desc-imgs-end" accept="image/*" multiple />
+        </label>
+        <div class="sb-thumbs" id="sb-desc-preview-end"></div>
+        <button class="btn btn-ghost" type="button" id="sb-desc-clear-end">Tirar fotos do final</button>
+
+        <div class="sb-row">
+          <span>Cor da oferta relâmpago</span>
+          <label class="sb-flash"><input type="radio" name="sb-flash" value="orange" checked /> Laranja</label>
+          <label class="sb-flash sb-flash-rgb"><input type="radio" name="sb-flash" value="rgb" /> RGB (rosa → laranja)</label>
+        </div>
+
+        <h4>Tamanhos (embaixo das opções, sem foto)</h4>
+        <p class="sb-hint">Botões de texto, como 34, 36, 38. Deixe vazio se o produto não tiver tamanho.</p>
+        <label>Nome da grade
+          <input type="text" id="sb-size-label" placeholder="Tamanho" value="Tamanho" />
+        </label>
+        <div id="sb-sizes-list" class="sb-size-list"></div>
+        <div class="sb-row">
+          <button class="btn btn-ghost" type="button" id="sb-add-size">+ Adicionar tamanho</button>
+          <button class="btn btn-ghost" type="button" id="sb-sizes-ppg6">Usar PP–G6</button>
+        </div>
+
+        <h4>Upsells (ofertas extras no Comprar)</h4>
+        <p class="sb-hint">Cada linha vira um item separado no checkout, com o título que você escrever — não como “unidade extra” do produto. A foto (opcional) aparece só na hora de pagar, nunca nas opções. Sem foto, fica sem foto.</p>
+        <div id="sb-upsells"></div>
+        <button class="btn btn-ghost" type="button" id="sb-add-upsell">+ Adicionar upsell</button>
+
+        <h4>Imagens principais</h4>
+        <p class="sb-hint" id="sb-gallery-hint">Galeria do topo da vitrine. A primeira vira capa no /loja e nas recomendações.</p>
+        <input type="file" id="sb-gallery" accept="image/*" multiple />
+        <div class="sb-thumbs" id="sb-gallery-preview"></div>
+
+        <h4>Opções (ao clicar em Comprar)</h4>
+        <p class="sb-hint">Cada opção pode ter o próprio preço. Em branco, usa o preço atual da loja.</p>
+        <div id="sb-options"></div>
+        <button class="btn btn-ghost" type="button" id="sb-add-opt">+ Adicionar opção</button>
+
+        <h4>Avaliações</h4>
+        <div id="sb-reviews"></div>
+        <button class="btn btn-ghost" type="button" id="sb-add-rev">+ Adicionar avaliação</button>
+
+        <p class="sb-status" id="sb-status" hidden></p>
+      </div>
+      <footer class="sb-foot">
+        <button class="btn btn-ghost" type="button" id="sb-cancel">Cancelar</button>
+        <button class="btn btn-primary" type="button" id="sb-save">Criar loja</button>
+      </footer>
+    </div>
+  </div>
+
   <script src="/js/ttk-api-config.js?v=20260731render1"></script>
-  <script src="admin.js?v=20260814pv1"></script>
-  <script src="admin-cloaker-pro.js?v=20260814ck10" defer></script>
+  <script src="admin.js?v=20260909sf1"></script>
+  <script src="admin-store-builder.js?v=20260909sf1"></script>
+  <script src="admin-cloaker-pro.js?v=20260909sf1" defer></script>
 </body>
 </html>

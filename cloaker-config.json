@@ -4,5 +4,25 @@
   "bobojaco": true,
   "roupao": false,
   "teddy": true,
-  "conjunto": "desativado"
+  "conjunto": "desativado",
+  "mixer": {
+    "enabled": true,
+    "captcha": false
+  },
+  "jeans": {
+    "enabled": true,
+    "captcha": false
+  },
+  "pantalona": {
+    "enabled": true,
+    "captcha": false
+  },
+  "fithair": {
+    "enabled": true,
+    "captcha": false
+  },
+  "tapete": {
+    "enabled": true,
+    "captcha": false
+  }
 }

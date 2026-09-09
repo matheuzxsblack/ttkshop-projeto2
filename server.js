@@ -261,6 +261,44 @@ const CLOAK_ENTRY_TO_HTML = {
   "/cb/": "/coberdrom/index.html",
 };
 
+const storefrontRt = require("./storefront-runtime")({
+  fs: fs,
+  path: path,
+  crypto: crypto,
+  ROOT: ROOT,
+  DATA_DIR: DATA_DIR,
+  STORE_PATHS: STORE_PATHS,
+  SIMPLE_CHECKOUT_STORES: SIMPLE_CHECKOUT_STORES,
+  CLOAKER_STORES: CLOAKER_STORES,
+});
+function loadStorefrontsList() {
+  return storefrontRt.loadStorefrontsList();
+}
+function findStorefront(slug) {
+  return storefrontRt.findStorefront(slug);
+}
+function isDynamicStore(k) {
+  return storefrontRt.isDynamicStore(k);
+}
+function getStoreMeta(k) {
+  return storefrontRt.getStoreMeta(k);
+}
+function isKnownStore(k) {
+  return storefrontRt.isKnownStore(k);
+}
+function storeLabel(k) {
+  return storefrontRt.storeLabel(k);
+}
+function allStoreKeys() {
+  return storefrontRt.allStoreKeys();
+}
+function supportsSimpleCheckout(k) {
+  return storefrontRt.supportsSimpleCheckout(k);
+}
+function getCloakerStoreMeta(k) {
+  return storefrontRt.getCloakerStoreMeta(k);
+}
+
 function loadCloakerConfig() {
   try {
     var bootTime = 0, bootData = null;
@@ -635,8 +673,14 @@ async function decideCampaign(campaign, req, url) {
 
 /* ---------- Delivery helpers ---------- */
 function serveInternalStore(res, storeKey, pathname, req) {
-  var dir = STORE_PATHS[storeKey] ? STORE_PATHS[storeKey].dir : storeKey;
-  var file = path.join(ROOT, dir, "index.html");
+  var meta = getStoreMeta(storeKey);
+  var file;
+  if (meta && meta.dynamic) {
+    file = path.join(ROOT, "store-engine", "index.html");
+  } else {
+    var dir = meta && meta.dir ? meta.dir : storeKey;
+    file = path.join(ROOT, dir, "index.html");
+  }
   try {
     var html = fs.readFileSync(file, "utf8");
     res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
@@ -730,10 +774,120 @@ function persistCheckoutConfigToGithub() {
   var json = JSON.stringify(loadCheckoutConfig(), null, 2);
   return githubUpsertFile("checkout-config.json", json, "chore(checkout): sync modes");
 }
+function persistStorefrontsToGithub() {
+  if (!shouldSyncTxGithub()) return Promise.resolve({ ok: false, reason: "sync off" });
+  var json = JSON.stringify(storefrontRt.loadStorefrontsDoc(), null, 2);
+  return githubUpsertFile("storefronts.json", json, "chore(storefronts): sync");
+}
+
+var sfAssetSyncQueue = Promise.resolve();
+function enqueueStorefrontAssetSync(files) {
+  if (!shouldSyncTxGithub() || !files || !files.length) return;
+  sfAssetSyncQueue = sfAssetSyncQueue
+    .then(async function () {
+      for (var i = 0; i < files.length; i++) {
+        var f = files[i];
+        if (!f || !f.rel || !f.buf) continue;
+        var last = { ok: false, reason: "não tentou" };
+        for (var t = 0; t < 4; t++) {
+          last = await githubUpsertBuffer(f.rel, f.buf, "chore(storefronts): img");
+          if (last && last.ok) break;
+          await new Promise(function (okWait) {
+            setTimeout(okWait, 700 * (t + 1));
+          });
+        }
+        if (!last || !last.ok) {
+          console.error("[storefronts] sync img falhou", f.rel, last && (last.reason || last.status));
+        }
+      }
+    })
+    .catch(function (eQ) {
+      console.error("[storefronts] sync queue", eQ && eQ.message);
+    });
+}
+
+var sfGithubInflight = {};
+function ensureStorefrontAssetOnDisk(slug, file) {
+  var locals = storefrontRt.assetLocalPaths(slug, file);
+  if (locals.some(function (p) { return fs.existsSync(p); })) {
+    return Promise.resolve(locals.find(function (p) { return fs.existsSync(p); }));
+  }
+  if (!shouldSyncTxGithub()) return Promise.resolve("");
+  var key = slug + "/" + file;
+  if (sfGithubInflight[key]) return sfGithubInflight[key];
+  sfGithubInflight[key] = githubGetBuffer("storefronts-assets/" + slug + "/" + file)
+    .then(function (gh) {
+      delete sfGithubInflight[key];
+      if (gh && gh.ok && gh.buf && gh.buf.length) {
+        storefrontRt.writeStorefrontFile(slug, file, gh.buf);
+        return storefrontRt.assetLocalPaths(slug, file).find(function (p) {
+          return fs.existsSync(p);
+        }) || "";
+      }
+      return "";
+    })
+    .catch(function () {
+      delete sfGithubInflight[key];
+      return "";
+    });
+  return sfGithubInflight[key];
+}
+
+function collectStorefrontAssetUrls(list) {
+  var urls = [];
+  function add(u) {
+    var x = String(u || "");
+    var i = x.indexOf("/sf/");
+    if (i !== -1) urls.push(x.slice(i).split("?")[0]);
+  }
+  (list || []).forEach(function (s) {
+    if (!s) return;
+    (s.gallery || []).forEach(add);
+    (s.options || []).forEach(function (o) { add(o && (o.image || o.img)); });
+    (s.reviews || []).forEach(function (r) {
+      (r && r.photos ? r.photos : []).forEach(add);
+    });
+    (s.descImagesStart || []).forEach(add);
+    (s.descImagesEnd || []).forEach(add);
+    (s.descImages || []).forEach(add);
+    (s.upsells || []).forEach(function (u) { add(u && u.image); });
+    add(s.extraImage);
+  });
+  return urls;
+}
+
+async function bootPullStorefrontAssetsFromGithub() {
+  if (!shouldSyncTxGithub()) return;
+  try {
+    var urls = collectStorefrontAssetUrls(loadStorefrontsList());
+    var seen = {};
+    var nOk = 0;
+    var nMiss = 0;
+    for (var i = 0; i < urls.length; i++) {
+      var p = urls[i];
+      if (seen[p]) continue;
+      seen[p] = 1;
+      var parts = p.replace(/^\/sf\//, "").split("/").filter(Boolean);
+      if (parts.length < 2) continue;
+      var slug = String(parts[0] || "").replace(/[^a-z0-9-]/gi, "");
+      var file = parts.slice(1).join("/").replace(/\.\./g, "");
+      if (!slug || !file || file.indexOf("/") !== -1) continue;
+      var locals = storefrontRt.assetLocalPaths(slug, file);
+      if (locals.some(function (x) { return fs.existsSync(x); })) continue;
+      var hit = await ensureStorefrontAssetOnDisk(slug, file);
+      if (hit) nOk++;
+      else nMiss++;
+      await new Promise(function (okWait) { setTimeout(okWait, 180); });
+    }
+    console.log("[storefronts] assets pull GitHub — baixou " + nOk + ", faltando " + nMiss);
+  } catch (ePull) {
+    console.log("[storefronts] assets pull falhou:", ePull.message || ePull);
+  }
+}
 function getCheckoutMode(storeKey) {
   var cfg = loadCheckoutConfig();
   var m = String(cfg[storeKey] || "").toLowerCase();
-  return CHECKOUT_MODES.indexOf(m) !== -1 ? m : "tiktok";
+  return CHECKOUT_MODES.indexOf(m) !== -1 ? m : isDynamicStore(storeKey) ? "simple" : "tiktok";
 }
 
 function loadPixelConfig() {
@@ -784,7 +938,7 @@ function githubCommitMessage(message) {
 function githubUpsertFile(repoPath, content, message) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    var repo = process.env.GITHUB_REPO || "matheuzxsblack/loja-online";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
     if (!token) {
       return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
     }
@@ -889,6 +1043,85 @@ function githubUpsertFile(repoPath, content, message) {
     getReq.on("error", function (e) {
       resolve({ ok: false, reason: e.message });
     });
+    getReq.end();
+  });
+}
+
+function githubUpsertBuffer(repoPath, buf, message) {
+  return new Promise(function (resolve) {
+    var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
+    if (!token) return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
+    if (!Buffer.isBuffer(buf)) buf = Buffer.from(buf || []);
+    if (buf.length > 1000000) return resolve({ ok: false, reason: "arquivo grande demais" });
+    var apiBase = "/repos/" + repo + "/contents/" + String(repoPath || "").replace(/^\//, "");
+    var b64 = buf.toString("base64");
+    function put(sha) {
+      var bodyObj = {
+        message: githubCommitMessage(message || "chore(storefronts): asset"),
+        content: b64,
+        branch: process.env.GITHUB_BRANCH || "main",
+      };
+      if (sha) bodyObj.sha = sha;
+      var body = JSON.stringify(bodyObj);
+      var req = https.request(
+        {
+          hostname: "api.github.com",
+          path: apiBase,
+          method: "PUT",
+          headers: {
+            Authorization: "Bearer " + token,
+            Accept: "application/vnd.github+json",
+            "User-Agent": "ttkshop-projeto2",
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(body),
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
+        },
+        function (res) {
+          var chunks = [];
+          res.on("data", function (c) { chunks.push(c); });
+          res.on("end", function () {
+            var ok = res.statusCode >= 200 && res.statusCode < 300;
+            var reason = "";
+            if (!ok) {
+              try {
+                reason = (JSON.parse(Buffer.concat(chunks).toString("utf8")) || {}).message || "";
+              } catch (eR) {}
+            }
+            resolve({ ok: ok, status: res.statusCode, reason: reason || (ok ? "" : "PUT HTTP " + res.statusCode) });
+          });
+        }
+      );
+      req.on("error", function (e) { resolve({ ok: false, reason: e.message }); });
+      req.write(body);
+      req.end();
+    }
+    var getReq = https.request(
+      {
+        hostname: "api.github.com",
+        path: apiBase + "?ref=" + encodeURIComponent(process.env.GITHUB_BRANCH || "main"),
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+          Accept: "application/vnd.github+json",
+          "User-Agent": "ttkshop-projeto2",
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      },
+      function (res) {
+        var chunks = [];
+        res.on("data", function (c) { chunks.push(c); });
+        res.on("end", function () {
+          var json = {};
+          try { json = JSON.parse(Buffer.concat(chunks).toString("utf8")); } catch (e) {}
+          if (res.statusCode === 200 && json.sha) put(json.sha);
+          else if (res.statusCode === 404) put(null);
+          else resolve({ ok: false, reason: json.message || ("GET HTTP " + res.statusCode) });
+        });
+      }
+    );
+    getReq.on("error", function (e) { resolve({ ok: false, reason: e.message }); });
     getReq.end();
   });
 }
@@ -1145,6 +1378,9 @@ function clearPixelsFromStoreHtml(storeKey) {
 }
 
 function applyPixelsToStoreHtml(storeKey, pixelIds) {
+  if (isDynamicStore(storeKey)) {
+    return { ok: true, skipped: true, count: (pixelIds || []).length };
+  }
   var files = pixelHtmlTargets(storeKey);
   if (!files.length) return { ok: false, error: "index.html não encontrado" };
   var ids = (pixelIds || []).map(function (id) {
@@ -1208,6 +1444,7 @@ function rememberStorefrontHost(rawHost) {
   try { fs.writeFileSync(LAST_STOREFRONT_HOST_FILE, s); } catch (eW) { }
   console.log("[storefront] dominio atual detectado: " + s);
 }
+var PUBLIC_VITRINE_DEFAULT = "https://ofertasgrandes.vercel.app";
 function storefrontBaseAuto() {
   if (LAST_STOREFRONT_HOST) {
     var h = String(LAST_STOREFRONT_HOST).trim().toLowerCase().replace(/^https?:\/\//, "").split("/")[0].replace(/:\d+$/, "");
@@ -1215,9 +1452,27 @@ function storefrontBaseAuto() {
       return "https://" + h;
     }
   }
-  var base = STOREFRONT_VERCEL_BASE || "https://ofertasgrandes.vercel.app";
+  var base = STOREFRONT_VERCEL_BASE || PUBLIC_VITRINE_DEFAULT;
+  if (String(base).indexOf("onrender.com") !== -1) base = PUBLIC_VITRINE_DEFAULT;
   if (!/^https?:\/\//i.test(base)) base = "https://" + base;
   return base.replace(/\/+$/, "");
+}
+function publicVitrineBase() {
+  var forced = String(process.env.STOREFRONT_PUBLIC_BASE || "").trim();
+  if (forced) {
+    if (!/^https?:\/\//i.test(forced)) forced = "https://" + forced;
+    return forced.replace(/\/+$/, "");
+  }
+  var auto = storefrontBaseAuto();
+  var host = String(auto || "").toLowerCase().replace(/^https?:\/\//, "").split("/")[0];
+  if (host.indexOf("vercel.app") !== -1 || host.indexOf("ofertasgrandes") !== -1 || host.indexOf("ofertasdemulher") !== -1 || host.indexOf("mundodas") !== -1) {
+    return auto.replace(/\/+$/, "");
+  }
+  return PUBLIC_VITRINE_DEFAULT;
+}
+function publicVitrineUrl(slug) {
+  var s = String(slug || "").replace(/^\/+|\/+$/g, "");
+  return publicVitrineBase() + "/" + s;
 }
 var ONLINE_DISK_FILE = path.join(DATA_DIR, "online-presence.json");
 var ONLINE_DISK_SAVE_INTERVAL = 30000; /* salva a cada 30s */
@@ -1372,7 +1627,7 @@ function normalizeFunnelStore(raw) {
   var k = String(raw || "")
     .trim()
     .toLowerCase();
-  if (k && Object.prototype.hasOwnProperty.call(STORE_PATHS, k)) return k;
+  if (k && isKnownStore(k)) return k;
   return "";
 }
 
@@ -1813,7 +2068,7 @@ function funnelTxFloorAgg(cutoff, storeFilter) {
     var ts = new Date(t.created_at).getTime();
     if (isNaN(ts) || ts < cutoff) return;
     var sk = storeKeyFromTx(t);
-    if (!sk || !STORE_PATHS[sk]) return;
+    if (!sk || !isKnownStore(sk)) return;
     if (storeKey && sk !== storeKey) return;
     floor.sessions += 1;
     floor.product += 1;
@@ -1848,7 +2103,7 @@ function funnelProductVisitorsFromTx(cutoff, storeFilter, existingRows) {
     var ts = new Date(t.paid_at || t.created_at).getTime();
     if (isNaN(ts) || ts < cutoff) return;
     var sk = storeKeyFromTx(t);
-    if (!sk || !STORE_PATHS[sk]) return;
+    if (!sk || !isKnownStore(sk)) return;
     if (storeKey && sk !== storeKey) return;
     var sidRaw = String(t.funnel_sid || "").trim();
     var sid = sidRaw && isValidOnlineSid(sidRaw) ? sidRaw.slice(0, 10) : "tx-" + String(t.id || "").slice(0, 8);
@@ -1859,7 +2114,7 @@ function funnelProductVisitorsFromTx(cutoff, storeFilter, existingRows) {
     extra.push({
       sid: sid,
       store: sk,
-      store_label: STORE_PATHS[sk].label,
+      store_label: storeLabel(sk),
       first: ts,
       last: ts,
       host: "(pedido)",
@@ -1890,14 +2145,14 @@ function buildFunnelReport(daysBack, storeFilter) {
   );
   var byStore = [];
   if (!storeKey) {
-    Object.keys(STORE_PATHS).forEach(function (sk) {
+    allStoreKeys().forEach(function (sk) {
       var sub = mergeFunnelAggMax(
         funnelAggFromSessions(sessions, cutoff, sk),
         funnelTxFloorAgg(cutoff, sk)
       );
       byStore.push({
         key: sk,
-        label: STORE_PATHS[sk].label,
+        label: storeLabel(sk),
         sessions: sub.sessions,
         product: sub.product,
         checkout: sub.checkout,
@@ -1920,7 +2175,7 @@ function buildFunnelReport(daysBack, storeFilter) {
     productVisitors.push({
       sid: String(s.sid || k).slice(0, 10),
       store: sk,
-      store_label: (STORE_PATHS[sk] && STORE_PATHS[sk].label) || sk,
+      store_label: storeLabel(sk) || sk,
       first: s.first,
       last: s.last,
       host: s.host || "",
@@ -1941,8 +2196,8 @@ function buildFunnelReport(daysBack, storeFilter) {
   return {
     days: days,
     store: storeKey || "all",
-    stores: Object.keys(STORE_PATHS).map(function (k) {
-      return { key: k, label: STORE_PATHS[k].label };
+    stores: allStoreKeys().map(function (k) {
+      return { key: k, label: storeLabel(k) };
     }),
     stats: agg,
     by_store: byStore,
@@ -2457,14 +2712,14 @@ function ghApi(method, apiPath, bodyObj) {
   });
 }
 function fetchGithubBlob(sha) {
-  var repo = process.env.GITHUB_REPO || "matheuzxsblack/loja-online";
+  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
   return ghApi("GET", "/repos/" + repo + "/git/blobs/" + sha).then(function (r) {
     if (r.status !== 200 || !r.json.content) return null;
     try { return Buffer.from(r.json.content.replace(/\n/g, ""), "base64").toString("utf8"); } catch (e) { return null; }
   });
 }
 function githubUpsertViaGitData(repoPath, content, message) {
-  var repo = process.env.GITHUB_REPO || "matheuzxsblack/loja-online";
+  var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
   var branch = process.env.GITHUB_BRANCH || "main";
   var base = "/repos/" + repo;
   return ghApi("GET", base + "/git/ref/heads/" + branch).then(function (r1) {
@@ -2502,7 +2757,7 @@ function githubUpsertViaGitData(repoPath, content, message) {
 function githubGetFile(repoPath) {
   return new Promise(function (resolve) {
     var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-    var repo = process.env.GITHUB_REPO || "matheuzxsblack/loja-online";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
     if (!token) return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
     var apiBase =
       "/repos/" + repo + "/contents/" + String(repoPath || "").replace(/^\//, "");
@@ -2547,6 +2802,67 @@ function githubGetFile(repoPath) {
           try {
             var text = Buffer.from(json.content.replace(/\n/g, ""), "base64").toString("utf8");
             resolve({ ok: true, text: text, sha: json.sha || null });
+          } catch (e2) {
+            resolve({ ok: false, reason: e2.message || "decode" });
+          }
+        });
+      }
+    );
+    req.on("timeout", function () { req.destroy(new Error("GitHub API timeout")); });
+    req.on("error", function (e) {
+      resolve({ ok: false, reason: e.message });
+    });
+    req.end();
+  });
+}
+
+function githubGetBuffer(repoPath) {
+  return new Promise(function (resolve) {
+    var token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
+    var repo = process.env.GITHUB_REPO || "matheuzxsblack/ttkshop-projeto2";
+    if (!token) return resolve({ ok: false, reason: "GITHUB_TOKEN ausente" });
+    var apiBase =
+      "/repos/" + repo + "/contents/" + String(repoPath || "").replace(/^\//, "");
+    var req = https.request(
+      {
+        hostname: "api.github.com",
+        path: apiBase + "?ref=" + encodeURIComponent(process.env.GITHUB_BRANCH || "main"),
+        method: "GET",
+        timeout: 20000,
+        headers: {
+          Authorization: "Bearer " + token,
+          Accept: "application/vnd.github+json",
+          "User-Agent": "ttkshop-projeto2",
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      },
+      function (res) {
+        var chunks = [];
+        res.on("data", function (c) {
+          chunks.push(c);
+        });
+        res.on("end", function () {
+          var raw = Buffer.concat(chunks).toString("utf8");
+          var json = null;
+          try {
+            json = JSON.parse(raw);
+          } catch (e) {
+            json = {};
+          }
+          if (res.statusCode === 404) return resolve({ ok: true, missing: true, buf: null });
+          if (res.statusCode !== 200) {
+            return resolve({ ok: false, reason: json.message || "GET HTTP " + res.statusCode });
+          }
+          if (!json.content) {
+            if (!json.sha) return resolve({ ok: false, reason: "sem content/sha" });
+            return fetchGithubBlob(json.sha).then(function (txt) {
+              if (txt != null) resolve({ ok: true, buf: Buffer.from(txt, "utf8"), sha: json.sha });
+              else resolve({ ok: false, reason: "blob falhou" });
+            });
+          }
+          try {
+            var buf = Buffer.from(String(json.content).replace(/\n/g, ""), "base64");
+            resolve({ ok: true, buf: buf, sha: json.sha || null });
           } catch (e2) {
             resolve({ ok: false, reason: e2.message || "decode" });
           }
@@ -2911,6 +3227,37 @@ async function bootMergePixelConfigFromGithub() {
   }
 }
 
+async function bootMergeStorefrontsFromGithub() {
+  if (!shouldSyncTxGithub()) return;
+  try {
+    var remoteSf = await githubGetFile("storefronts.json");
+    if (!remoteSf.ok) {
+      console.log("[storefronts] boot merge falhou get:", remoteSf.reason || "erro");
+      return;
+    }
+    if (remoteSf.missing) return;
+    var remoteObjSf = JSON.parse(remoteSf.text || "{}");
+    var remoteList = Array.isArray(remoteObjSf.stores) ? remoteObjSf.stores : [];
+    var localList = loadStorefrontsList();
+    var mapSf = {};
+    localList.forEach(function (s) {
+      if (s && s.slug) mapSf[s.slug] = s;
+    });
+    remoteList.forEach(function (s) {
+      if (!s || !s.slug) return;
+      if (!mapSf[s.slug]) mapSf[s.slug] = s;
+    });
+    storefrontRt.saveStorefrontsList(
+      Object.keys(mapSf).map(function (k) {
+        return mapSf[k];
+      })
+    );
+    console.log("[storefronts] boot merge GitHub OK — " + Object.keys(mapSf).length + " loja(s)");
+  } catch (eSf) {
+    console.log("[storefronts] boot merge falhou:", eSf.message || eSf);
+  }
+}
+
 /* Executa boot merges de forma escalonada para liberar a thread e o health check imediatamente */
 setTimeout(bootMergeTxFromGithub, 1000);
 setTimeout(bootMergeCheckoutFromGithub, 2500);
@@ -2919,6 +3266,15 @@ setTimeout(bootMergeCampaignsFromGithub, 5500);
 setTimeout(bootMergeFunnelFromGithub, 7000);
 setTimeout(bootMergeCloakerFromGithub, 8500);
 setTimeout(bootMergePixelConfigFromGithub, 10000);
+setTimeout(function () {
+  bootMergeStorefrontsFromGithub()
+    .then(function () {
+      return bootPullStorefrontAssetsFromGithub();
+    })
+    .catch(function (eBootSf) {
+      console.log("[storefronts] boot", eBootSf && eBootSf.message);
+    });
+}, 11500);
 
 /* remove lixo / testes que não devem aparecer no painel */
 (function purgeJunkTx() {
@@ -3347,7 +3703,9 @@ function storeKeyFromTx(tx) {
   if (o.indexOf("jaqueta") !== -1) return "jaqueta";
   if (o.indexOf("chuteira") !== -1) return "jaqueta";
   if (o.indexOf("panela") !== -1 || o.indexOf("panelas") !== -1) return "panelas";
-  if (tx.funnel_store && STORE_PATHS[tx.funnel_store]) return String(tx.funnel_store);
+  var oMatch = String(tx.origem || "").toLowerCase().match(/^([a-z0-9-]+)-ttkshop/);
+  if (oMatch && isKnownStore(oMatch[1])) return oMatch[1];
+  if (tx.funnel_store && isKnownStore(tx.funnel_store)) return String(tx.funnel_store);
   var attrPix = txAttributionPixelId(tx);
   if (attrPix) {
     var lojaPx = lojaForPixelId(attrPix);
@@ -3373,7 +3731,7 @@ function storeKeyFromTx(tx) {
 function listPixelLojas() {
   var out = [];
   var n = 0;
-  Object.keys(STORE_PATHS).forEach(function (storeKey) {
+  allStoreKeys().forEach(function (storeKey) {
     var cfg = getStorePixels(storeKey);
     (cfg.pixels || []).forEach(function (p) {
       if (!p || !p.id) return;
@@ -3382,7 +3740,7 @@ function listPixelLojas() {
       out.push({
         loja: n,
         store: storeKey,
-        store_label: STORE_PATHS[storeKey].label,
+        store_label: storeLabel(storeKey),
         pixel_id: String(p.id),
         label: String(p.label || "Principal"),
         name: "Loja " + n + " — " + String(p.label || "Principal") + " (" + p.id + ")",
@@ -3433,7 +3791,7 @@ function productLabelFromTx(tx) {
       })
       .join(" + ");
   }
-  return STORE_PATHS[storeKeyFromTx(tx)] ? STORE_PATHS[storeKeyFromTx(tx)].label : "Produto";
+  return storeLabel(storeKeyFromTx(tx)) || "Produto";
 }
 
 function canonicalProductInfo(tx) {
@@ -4882,7 +5240,7 @@ function buildRoiReport(daysN) {
   var today0 = startOfDayInTz(todayYmd, ADMIN_TZ);
   var DAY = 24 * 3600 * 1000;
   var spendMap = loadAdSpend();
-  var storeKeys = Object.keys(STORE_PATHS);
+  var storeKeys = allStoreKeys();
 
   /* receita líquida paga por dia+loja */
   var rev = {}; /* ymd|store -> cents */
@@ -4892,7 +5250,7 @@ function buildRoiReport(daysN) {
     var ymd = roiTxDayKey(t);
     if (!ymd) return;
     var sk = storeKeyFromTx(t);
-    if (!sk || !STORE_PATHS[sk]) return;
+    if (!sk || !isKnownStore(sk)) return;
     var key = ymd + "|" + sk;
     rev[key] = (rev[key] || 0) + txNet(t);
     paid[key] = (paid[key] || 0) + 1;
@@ -4923,7 +5281,7 @@ function buildRoiReport(daysN) {
       rows.push({
         date: ymd,
         store: sk,
-        label: STORE_PATHS[sk].label,
+        label: storeLabel(sk),
         revenue: revenue,
         spend: spend,
         profit: profit,
@@ -4958,7 +5316,7 @@ function buildRoiReport(daysN) {
     days: days,
     today: todayYmd,
     stores: storeKeys.map(function (k) {
-      return { key: k, label: STORE_PATHS[k].label };
+      return { key: k, label: storeLabel(k) };
     }),
     multi_store: true,
     summary: {
@@ -5008,21 +5366,46 @@ function sendJson(res, status, body) {
   res.end(raw);
 }
 
-function readBody(req) {
+function readBody(req, maxBytes) {
+  var limit = Number(maxBytes) > 0 ? Number(maxBytes) : 1e6;
   return new Promise(function (resolve, reject) {
     var chunks = [];
-    req.on("data", function (c) {
-      chunks.push(c);
-      if (Buffer.concat(chunks).length > 1e6) {
-        reject(new Error("Body too large"));
+    var total = 0;
+    var settled = false;
+    function fail(err) {
+      if (settled) return;
+      settled = true;
+      reject(err);
+      try {
         req.destroy();
-      }
+      } catch (eD) {}
+    }
+    req.on("data", function (c) {
+      total += c.length;
+      if (total > limit) return fail(new Error("Body too large"));
+      chunks.push(c);
     });
     req.on("end", function () {
-      resolve(Buffer.concat(chunks).toString("utf8"));
+      if (settled) return;
+      settled = true;
+      resolve(Buffer.concat(chunks, total).toString("utf8"));
     });
-    req.on("error", reject);
+    req.on("error", fail);
   });
+}
+
+function storefrontSaveError(err) {
+  var msg = err && err.message ? String(err.message) : "";
+  if (/Body too large/i.test(msg)) {
+    return {
+      status: 413,
+      error: "As fotos ficaram pesadas demais. Manda JPG/PNG menores, ou menos fotos de uma vez.",
+    };
+  }
+  if (err instanceof SyntaxError || /Unexpected end of JSON|Unexpected token/i.test(msg)) {
+    return { status: 400, error: "Não deu pra ler o envio. Tenta de novo com fotos menores (JPG)." };
+  }
+  return { status: 400, error: msg || "Requisição inválida." };
 }
 
 function ironPayRequest(method, apiPath, payload) {
@@ -7636,10 +8019,10 @@ var server = http.createServer(async function (req, res) {
   if (req.method === "GET" && pathname === "/api/admin/pixel/config") {
     if (!isPixelAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
     var outStores = {};
-    Object.keys(STORE_PATHS).forEach(function (k) {
+    allStoreKeys().forEach(function (k) {
       var c = getStorePixels(k);
       outStores[k] = {
-        label: STORE_PATHS[k].label,
+        label: storeLabel(k),
         updatedAt: c.updatedAt,
         source: c.fromHtml ? "html" : "config",
         testEventCode: c.testEventCode || "",
@@ -7664,8 +8047,8 @@ var server = http.createServer(async function (req, res) {
       var rawPix = await readBody(req);
       var bodyPix = rawPix ? JSON.parse(rawPix) : {};
       var storeKey = String(bodyPix.store || "").trim();
-      if (!STORE_PATHS[storeKey]) {
-        return sendJson(res, 400, { error: "Loja inválida. Use: panelas, jaqueta, toalha." });
+      if (!isKnownStore(storeKey)) {
+        return sendJson(res, 400, { error: "Loja inválida." });
       }
       var cfgSave = loadPixelConfig();
       var prevNorm = normalizeStoreCfg(cfgSave[storeKey]);
@@ -7754,7 +8137,7 @@ var server = http.createServer(async function (req, res) {
   /* ---------- modo de checkout: leitura pública (usada pelo front da loja) ---------- */
   if (req.method === "GET" && pathname === "/api/checkout-mode") {
     var qCk = String((url.searchParams && url.searchParams.get("store")) || "").trim();
-    if (!STORE_PATHS[qCk]) return sendJson(res, 400, { error: "store inválida" });
+    if (!isKnownStore(qCk)) return sendJson(res, 400, { error: "store inválida" });
     return sendJson(res, 200, { store: qCk, mode: getCheckoutMode(qCk) });
   }
 
@@ -7762,11 +8145,11 @@ var server = http.createServer(async function (req, res) {
   if (req.method === "GET" && pathname === "/api/admin/checkout-mode") {
     if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
     var outCk = {};
-    Object.keys(STORE_PATHS).forEach(function (k) {
+    allStoreKeys().forEach(function (k) {
       outCk[k] = {
-        label: STORE_PATHS[k].label,
+        label: storeLabel(k),
         mode: getCheckoutMode(k),
-        supportsSimple: SIMPLE_CHECKOUT_STORES.indexOf(k) !== -1,
+        supportsSimple: supportsSimpleCheckout(k),
       };
     });
     return sendJson(res, 200, { stores: outCk });
@@ -7779,13 +8162,13 @@ var server = http.createServer(async function (req, res) {
       var bodyCk = rawCk ? JSON.parse(rawCk) : {};
       var storeCk = String(bodyCk.store || "").trim();
       var modeCk = String(bodyCk.mode || "").toLowerCase().trim();
-      if (!STORE_PATHS[storeCk]) {
-        return sendJson(res, 400, { error: "Loja inválida. Use: panelas, jaqueta, toalha." });
+      if (!isKnownStore(storeCk)) {
+        return sendJson(res, 400, { error: "Loja inválida." });
       }
       if (CHECKOUT_MODES.indexOf(modeCk) === -1) {
         return sendJson(res, 400, { error: "Modo inválido. Use: tiktok ou simple." });
       }
-      if (modeCk === "simple" && SIMPLE_CHECKOUT_STORES.indexOf(storeCk) === -1) {
+      if (modeCk === "simple" && !supportsSimpleCheckout(storeCk)) {
         return sendJson(res, 400, { error: "O checkout simples ainda não existe nesta loja." });
       }
       var cfgCk = loadCheckoutConfig();
@@ -8238,6 +8621,59 @@ var server = http.createServer(async function (req, res) {
     return sendJson(res, 200, { ok: true, totals: totals, series: series, perCampaign: perCampaign });
   }
 
+  /* ---------- vitrine pública (lojas criadas no admin) ---------- */
+  if (req.method === "GET" && pathname === "/api/catalog") {
+    var extraCat = loadStorefrontsList()
+      .filter(function (s) { return s && s.enabled !== false; })
+      .map(function (s) { return storefrontRt.storefrontToCatalogProduct(s); })
+      .filter(Boolean);
+    return sendJson(res, 200, { products: extraCat });
+  }
+
+  if (req.method === "GET" && pathname.indexOf("/api/storefront/") === 0) {
+    var sfSlug = decodeURIComponent(pathname.slice("/api/storefront/".length).split("/")[0] || "").toLowerCase();
+    var sfPub = findStorefront(sfSlug);
+    if (!sfPub) return sendJson(res, 404, { error: "Loja não encontrada" });
+    return sendJson(res, 200, storefrontRt.publicStorefront(sfPub));
+  }
+
+  if ((req.method === "GET" || req.method === "HEAD") && pathname.indexOf("/sf/") === 0) {
+    var restSf = pathname.slice(4).replace(/^\//, "");
+    var partsSf = restSf.split("/").filter(Boolean);
+    if (partsSf.length < 2) {
+      res.writeHead(404);
+      return res.end("Not found");
+    }
+    var slugSf = String(partsSf[0] || "").replace(/[^a-z0-9-]/gi, "");
+    var fileSf = partsSf.slice(1).join("/").replace(/\.\./g, "").replace(/\\/g, "");
+    if (!slugSf || !fileSf || fileSf.indexOf("/") !== -1) {
+      res.writeHead(403);
+      return res.end("Forbidden");
+    }
+    var localsSf = storefrontRt.assetLocalPaths(slugSf, fileSf);
+    var hitSf = localsSf.find(function (p) { return fs.existsSync(p); });
+    if (!hitSf) {
+      hitSf = await ensureStorefrontAssetOnDisk(slugSf, fileSf);
+    }
+    if (!hitSf) {
+      res.writeHead(404);
+      return res.end("Not found");
+    }
+    var extSf = path.extname(hitSf).toLowerCase();
+    fs.readFile(hitSf, function (errSf, dataSf) {
+      if (errSf) {
+        res.writeHead(404);
+        return res.end("Not found");
+      }
+      res.writeHead(200, {
+        "Content-Type": MIME[extSf] || "application/octet-stream",
+        "Cache-Control": "public, max-age=86400",
+      });
+      res.end(dataSf);
+    });
+    return;
+  }
+
   /* ---------- admin: lojas (stores) ---------- */
   const STORES_CONFIG_FILE = path.join(DATA_DIR, "stores-config.json");
   const STORES_CONFIG_BOOTSTRAP = path.join(ROOT, "stores-config.json");
@@ -8268,47 +8704,435 @@ var server = http.createServer(async function (req, res) {
     } catch (eM) { }
   }
 
+  function ingestStorefrontMedia(slug, body) {
+    var filesToSync = [];
+    var seq = 0;
+    function keepOrSave(prefix, raw) {
+      if (!raw) return "";
+      if (typeof raw === "string") {
+        var s = raw.trim();
+        var iSf = s.indexOf("/sf/");
+        if (iSf !== -1) return s.slice(iSf).split("?")[0];
+        var iAs = s.indexOf("/storefronts-assets/");
+        if (iAs !== -1) return s.slice(iAs).split("?")[0];
+      }
+      var decoded = storefrontRt.decodeDataImage(raw);
+      if (!decoded) return "";
+      seq += 1;
+      var name = prefix + "-" + Date.now().toString(36) + "-" + String(seq).padStart(2, "0") + decoded.ext;
+      var url = storefrontRt.writeStorefrontFile(slug, name, decoded.buf);
+      filesToSync.push({ rel: "storefronts-assets/" + slug + "/" + name, buf: decoded.buf });
+      return url;
+    }
+    var gallery = [];
+    (Array.isArray(body.gallery) ? body.gallery : []).slice(0, 12).forEach(function (g) {
+      var u = keepOrSave("gallery", g);
+      if (u) gallery.push(u);
+    });
+    var options = [];
+    (Array.isArray(body.options) ? body.options : []).slice(0, 15).forEach(function (op) {
+      if (!op) return;
+      var name = String(op.name || op.label || "").trim().slice(0, 40);
+      if (!name) return;
+      var img = keepOrSave("opt", op.image || op.img || "");
+      var opPrice = Number(String(op.price == null ? "" : op.price).replace(",", "."));
+      options.push({
+        name: name,
+        image: img || "",
+        price: opPrice > 0 ? opPrice : 0,
+      });
+    });
+    var reviews = [];
+    (Array.isArray(body.reviews) ? body.reviews : []).slice(0, 12).forEach(function (rv) {
+      if (!rv) return;
+      var text = String(rv.text || rv.message || "").trim();
+      if (!text) return;
+      var photos = [];
+      (Array.isArray(rv.photos) ? rv.photos : rv.image ? [rv.image] : []).slice(0, 4).forEach(function (ph) {
+        var pu = keepOrSave("rev", ph);
+        if (pu) photos.push(pu);
+      });
+      reviews.push({
+        name: String(rv.name || "Cliente").trim().slice(0, 40) || "Cliente",
+        text: text.slice(0, 600),
+        variant: String(rv.variant || "").trim().slice(0, 60),
+        photos: photos,
+      });
+    });
+    var upsells = [];
+    var rawUpsells = Array.isArray(body.upsells) ? body.upsells.slice(0, 8) : null;
+    if (
+      !rawUpsells &&
+      (body.extraEnabled === true || body.extraEnabled === "true")
+    ) {
+      rawUpsells = [
+        {
+          title: body.extraTitle,
+          sub: body.extraSub,
+          price: body.extraPrice,
+          image: body.extraImage || "",
+        },
+      ];
+    }
+    (rawUpsells || []).forEach(function (u) {
+      if (!u) return;
+      var title = String(u.title || "").trim().slice(0, 80);
+      var price = Number(String(u.price == null ? "" : u.price).replace(",", "."));
+      if (!title || !(price > 0)) return;
+      upsells.push({
+        title: title,
+        sub: String(u.sub || "").trim().slice(0, 120),
+        price: price,
+        image: keepOrSave("upsell", u.image || "") || "",
+      });
+    });
+    var descImagesStart = [];
+    var descImagesEnd = [];
+    function ingestDescList(prefix, raw) {
+      var out = [];
+      (Array.isArray(raw) ? raw : []).slice(0, 8).forEach(function (g) {
+        var u = keepOrSave(prefix, g);
+        if (u) out.push(u);
+      });
+      return out;
+    }
+    if (Array.isArray(body.descImagesStart) || Array.isArray(body.descImagesEnd)) {
+      descImagesStart = ingestDescList("desc-start", body.descImagesStart);
+      descImagesEnd = ingestDescList("desc-end", body.descImagesEnd);
+    } else {
+      var legacyDesc = ingestDescList("desc", body.descImages);
+      if (String(body.descImagesPos || "").toLowerCase() === "start") descImagesStart = legacyDesc;
+      else descImagesEnd = legacyDesc;
+    }
+    return {
+      gallery: gallery,
+      options: options,
+      reviews: reviews,
+      upsells: upsells,
+      descImagesStart: descImagesStart,
+      descImagesEnd: descImagesEnd,
+      filesToSync: filesToSync,
+    };
+  }
+
+  function applyStorefrontPayload(slugSt, bodySt, existing) {
+    existing = existing || null;
+    var titleSt = String(bodySt.title || bodySt.name || "").trim();
+    if (!titleSt) throw new Error("Título da loja é obrigatório.");
+    var priceSt = Number(String(bodySt.price == null ? "" : bodySt.price).replace(",", "."));
+    if (!(priceSt > 0)) throw new Error("Informe um preço válido.");
+    var oldSt = Number(String(bodySt.oldPrice == null ? "" : bodySt.oldPrice).replace(",", "."));
+    if (!(oldSt > priceSt)) throw new Error("O preço antigo precisa ser maior que o preço atual.");
+    var media = ingestStorefrontMedia(slugSt, bodySt);
+    if (!media.gallery.length && existing && Array.isArray(existing.gallery) && existing.gallery.length) {
+      media.gallery = existing.gallery.slice();
+    }
+    if (!media.options.length && existing && Array.isArray(existing.options) && existing.options.length) {
+      media.options = existing.options.slice();
+    }
+    if (!Array.isArray(bodySt.reviews) && existing && Array.isArray(existing.reviews)) {
+      media.reviews = existing.reviews.slice();
+    }
+    if (Array.isArray(bodySt.descImagesStart) || Array.isArray(bodySt.descImagesEnd)) {
+      /* listas enviadas pelo painel, inclusive vazias */
+    } else if (existing) {
+      if (Array.isArray(existing.descImagesStart) || Array.isArray(existing.descImagesEnd)) {
+        media.descImagesStart = (existing.descImagesStart || []).slice();
+        media.descImagesEnd = (existing.descImagesEnd || []).slice();
+      } else if (Array.isArray(existing.descImages) && existing.descImages.length) {
+        if (existing.descImagesPos === "start") media.descImagesStart = existing.descImages.slice();
+        else media.descImagesEnd = existing.descImages.slice();
+      }
+    }
+    if (Array.isArray(bodySt.upsells)) {
+      /* lista enviada pelo painel, inclusive vazia = sem upsell */
+    } else if (bodySt.extraEnabled === false || bodySt.extraEnabled === "false") {
+      media.upsells = [];
+    } else if (!media.upsells.length && existing) {
+      if (Array.isArray(existing.upsells) && existing.upsells.length) {
+        media.upsells = existing.upsells.slice();
+      } else if (existing.extraEnabled && Number(existing.extraPrice) > 0) {
+        media.upsells = [
+          {
+            title: String(existing.extraTitle || "Leve +1 unidade").trim().slice(0, 80),
+            sub: String(existing.extraSub || "").trim().slice(0, 120),
+            price: Number(existing.extraPrice),
+            image: String(existing.extraImage || "").trim(),
+          },
+        ];
+      }
+    }
+    if (!media.gallery.length) throw new Error("Envie pelo menos 1 imagem principal.");
+    if (!media.options.length) {
+      media.options.push({ name: String(bodySt.optionLabel || "Padrão"), image: "" });
+    }
+    var ratingSt = String(bodySt.rating == null ? "" : bodySt.rating).trim();
+    if (!ratingSt && existing && existing.rating) ratingSt = String(existing.rating);
+    if (!ratingSt) ratingSt = "4.8";
+    var rcRaw = String(bodySt.reviewCount == null ? "" : bodySt.reviewCount).trim().replace(/\./g, "").replace(/,/g, "");
+    var reviewCountSt = rcRaw ? parseInt(rcRaw, 10) : NaN;
+    if (!isFinite(reviewCountSt)) {
+      reviewCountSt = existing && isFinite(Number(existing.reviewCount)) ? Number(existing.reviewCount) : media.reviews.length || 0;
+    }
+    var soldSt = String(bodySt.soldLabel || "").trim();
+    if (!soldSt && existing && existing.soldLabel) soldSt = String(existing.soldLabel);
+    if (!soldSt) soldSt = "1,2 mil vendidos";
+    var nowSt = new Date().toISOString();
+    var pickSt = parseInt(bodySt.optionPickCount, 10);
+    if (!isFinite(pickSt) || pickSt < 1) {
+      pickSt = existing && isFinite(Number(existing.optionPickCount)) ? Number(existing.optionPickCount) : 1;
+    }
+    pickSt = Math.max(1, Math.min(8, pickSt));
+    var sizeLabelSt = String(bodySt.sizeLabel || "").trim().slice(0, 24);
+    if (!sizeLabelSt && existing && existing.sizeLabel) sizeLabelSt = String(existing.sizeLabel);
+    if (!sizeLabelSt) sizeLabelSt = "Tamanho";
+    var sizesSt = [];
+    if (Array.isArray(bodySt.sizes)) {
+      bodySt.sizes.forEach(function (sz) {
+        var t = String(sz || "").trim().slice(0, 16);
+        if (t && sizesSt.indexOf(t) === -1) sizesSt.push(t);
+      });
+    } else if (existing && Array.isArray(existing.sizes)) {
+      sizesSt = existing.sizes.slice();
+    }
+    sizesSt = sizesSt.slice(0, 20);
+    var descStartSt = Array.isArray(media.descImagesStart) ? media.descImagesStart : [];
+    var descEndSt = Array.isArray(media.descImagesEnd) ? media.descImagesEnd : [];
+    return {
+      record: {
+        slug: slugSt,
+        name: titleSt,
+        title: titleSt,
+        price: priceSt,
+        oldPrice: oldSt,
+        flashTheme: bodySt.flashTheme === "rgb" ? "rgb" : "orange",
+        rating: ratingSt,
+        reviewCount: Math.max(0, reviewCountSt),
+        soldLabel: soldSt,
+        description: String(bodySt.description || "").trim().slice(0, 8000),
+        optionLabel: String(bodySt.optionLabel || "Cor").trim().slice(0, 24) || "Cor",
+        optionPickCount: pickSt,
+        sizeLabel: sizeLabelSt,
+        sizes: sizesSt,
+        showSizes: sizesSt.length > 0,
+        descImagesStart: descStartSt,
+        descImagesEnd: descEndSt,
+        descImages: descStartSt.concat(descEndSt),
+        descImagesPos: descStartSt.length && descEndSt.length ? "both" : descStartSt.length ? "start" : "end",
+        extraEnabled: media.upsells.length > 0,
+        extraTitle: media.upsells[0] ? media.upsells[0].title : "",
+        extraSub: media.upsells[0] ? media.upsells[0].sub : "",
+        extraPrice: media.upsells[0] ? media.upsells[0].price : 0,
+        extraImage: media.upsells[0] ? media.upsells[0].image : "",
+        upsells: media.upsells,
+        gallery: media.gallery,
+        options: media.options,
+        reviews: media.reviews,
+        createdAt: (existing && existing.createdAt) || nowSt,
+        updatedAt: nowSt,
+        enabled: existing && existing.enabled === false ? false : true,
+      },
+      filesToSync: media.filesToSync,
+    };
+  }
+
+  function registerCreatedStorefront(sf) {
+    var slug = sf.slug;
+    var now = new Date().toISOString();
+    var ck = loadCheckoutConfig();
+    ck[slug] = "simple";
+    saveCheckoutConfig(ck);
+    var cl = loadCloakerConfig();
+    cl[slug] = { enabled: true, captcha: false };
+    saveCloakerConfig(cl);
+    var px = loadPixelConfig();
+    if (!Object.prototype.hasOwnProperty.call(px, slug)) {
+      px[slug] = { pixels: [], testEventCode: "", testEventEnabled: false, updatedAt: now };
+      savePixelConfig(px);
+    }
+    var camps = loadCampaignsConfig();
+    var hasCamp = (camps.campaigns || []).some(function (c) {
+      return String(c.slug || "").toLowerCase() === slug;
+    });
+    if (!hasCamp) {
+      camps.campaigns = camps.campaigns || [];
+      camps.campaigns.push({
+        id: "cp_" + crypto.randomBytes(4).toString("hex"),
+        name: slug,
+        slug: slug,
+        token: genToken(),
+        tokenEnabled: true,
+        source: "tiktok",
+        domain: "*",
+        entryStore: slug,
+        enabled: true,
+        safe: { method: "redirect", url: "https://receitas.globo.com/" },
+        offer: { method: "internal", type: "single", urls: ["/" + slug] },
+        targeting: { device: "none", countryMode: "allow", countries: ["BR"] },
+        filters: {
+          botUa: true,
+          automation: true,
+          softwareGl: true,
+          desktopLike: true,
+          datacenterIp: true,
+          proxy: true,
+          tor: false,
+          ttclidBypass: false,
+          requireTtclid: false,
+          captcha: false,
+        },
+        createdAt: now,
+        updatedAt: now,
+      });
+      saveCampaignsConfig(camps);
+    }
+    var cfgStReg = loadStoresConfig();
+    var already = (cfgStReg.stores || []).some(function (s) {
+      return s && (s.id === slug || s.slug === slug);
+    });
+    if (!already) {
+      cfgStReg.stores.push({
+        id: slug,
+        name: sf.title || sf.name || slug,
+        slug: slug,
+        enabled: true,
+        theme: "tiktok",
+        categories: [],
+        dynamic: true,
+        created_at: now,
+      });
+      saveStoresConfig(cfgStReg);
+    }
+  }
+
   if (req.method === "GET" && pathname === "/api/admin/stores") {
     if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
-    var cfgStores = loadStoresConfig();
-    return sendJson(res, 200, { stores: cfgStores.stores || [], defaults: cfgStores.defaults || {} });
+    var builtin = Object.keys(STORE_PATHS).map(function (k) {
+      var pathSlug = STORE_PATHS[k].dir || k;
+      var pub = publicVitrineUrl(pathSlug);
+      return {
+        id: k,
+        slug: k,
+        name: STORE_PATHS[k].label,
+        builtin: true,
+        dynamic: false,
+        url: pub,
+        publicUrl: pub,
+      };
+    });
+    var created = loadStorefrontsList().map(function (s) {
+      var pubC = publicVitrineUrl(s.slug);
+      var full = storefrontRt.publicStorefront(s) || {};
+      return Object.assign({}, full, {
+        id: s.slug,
+        slug: s.slug,
+        name: s.title || s.name || s.slug,
+        builtin: false,
+        dynamic: true,
+        url: pubC,
+        publicUrl: pubC,
+      });
+    });
+    return sendJson(res, 200, { stores: builtin.concat(created), defaults: loadStoresConfig().defaults || {} });
+  }
+
+  if (req.method === "GET" && pathname.indexOf("/api/admin/stores/") === 0) {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    var slugGetSt = decodeURIComponent(pathname.slice("/api/admin/stores/".length).split("/")[0] || "").toLowerCase();
+    var sfGet = findStorefront(slugGetSt);
+    if (!sfGet) return sendJson(res, 404, { error: "Loja não encontrada." });
+    var pubGet = publicVitrineUrl(sfGet.slug);
+    return sendJson(res, 200, {
+      store: Object.assign({}, storefrontRt.publicStorefront(sfGet), {
+        id: sfGet.slug,
+        builtin: false,
+        dynamic: true,
+        url: pubGet,
+        publicUrl: pubGet,
+      }),
+    });
   }
 
   if (req.method === "POST" && pathname === "/api/admin/stores") {
     if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
     try {
-      var rawSt = await readBody(req);
+      var rawSt = await readBody(req, 25e6);
       var bodySt = rawSt ? JSON.parse(rawSt) : {};
-      var nameSt = String(bodySt.name || "").trim();
-      var slugSt = String(bodySt.slug || "").trim().toLowerCase().replace(/[^a-z0-9-]/g, "-");
-      var categorySt = String(bodySt.category || "").trim();
-      var themeSt = String(bodySt.theme || "default").trim();
-      if (!nameSt) return sendJson(res, 400, { error: "Nome da loja é obrigatório." });
-      if (!slugSt) slugSt = nameSt.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-
-      var cfgSt = loadStoresConfig();
-      var exists = cfgSt.stores.some(function (s) { return s.id === slugSt || s.slug === slugSt; });
-      if (exists) return sendJson(res, 409, { error: "Já existe uma loja com este slug." });
-
-      var newStore = {
-        id: slugSt,
-        name: nameSt,
-        slug: slugSt,
-        enabled: bodySt.enabled !== false,
-        theme: themeSt,
-        categories: categorySt ? [categorySt] : [],
-        settings: {
-          showPrices: true,
-          currency: (cfgSt.defaults && cfgSt.defaults.currency) || "BRL",
-          taxRate: 0.0
+      var slugSt = storefrontRt.normalizeSlug(bodySt.slug || bodySt.title || bodySt.name);
+      if (!slugSt || slugSt.length < 2) return sendJson(res, 400, { error: "URL/slug inválido." });
+      if (storefrontRt.isReservedSlug(slugSt) || STORE_PATHS[slugSt] || findStorefront(slugSt)) {
+        return sendJson(res, 409, { error: "Essa URL já está em uso. Escolha outro slug." });
+      }
+      var builtSt = applyStorefrontPayload(slugSt, bodySt, null);
+      var newSf = builtSt.record;
+      var listSf = loadStorefrontsList();
+      listSf.push(newSf);
+      storefrontRt.saveStorefrontsList(listSf);
+      registerCreatedStorefront(newSf);
+      persistStorefrontsToGithub().catch(function () {});
+      persistCheckoutConfigToGithub().catch(function () {});
+      persistCloakerConfigToGithub().catch(function () {});
+      persistCampaignsConfigToGithub().catch(function () {});
+      if (shouldSyncTxGithub()) {
+        persistPixelsDurable(slugSt).catch(function () {});
+        enqueueStorefrontAssetSync(builtSt.filesToSync);
+      }
+      return sendJson(res, 200, {
+        ok: true,
+        store: storefrontRt.publicStorefront(newSf),
+        links: {
+          vitrine: publicVitrineUrl(slugSt),
+          loja: "/loja/",
+          pixels: "pixels",
         },
-        created_at: new Date().toISOString()
-      };
-      cfgSt.stores.push(newStore);
-      saveStoresConfig(cfgSt);
-      return sendJson(res, 200, { ok: true, store: newStore });
+      });
     } catch (eSt) {
-      return sendJson(res, 400, { error: eSt.message || "Requisição inválida." });
+      console.error("[stores POST]", eSt && eSt.message);
+      var failSt = storefrontSaveError(eSt);
+      return sendJson(res, failSt.status, { error: failSt.error });
+    }
+  }
+
+  if ((req.method === "PUT" || req.method === "PATCH") && pathname.indexOf("/api/admin/stores/") === 0) {
+    if (!isAdmin(req)) return sendJson(res, 401, { error: "Não autorizado" });
+    try {
+      var slugPut = decodeURIComponent(pathname.slice("/api/admin/stores/".length).split("/")[0] || "").toLowerCase();
+      var existingSf = findStorefront(slugPut);
+      if (!existingSf) return sendJson(res, 404, { error: "Loja não encontrada. Só dá para editar loja criada no painel." });
+      var rawPut = await readBody(req, 25e6);
+      var bodyPut = rawPut ? JSON.parse(rawPut) : {};
+      bodyPut.slug = slugPut;
+      var builtPut = applyStorefrontPayload(slugPut, bodyPut, existingSf);
+      var listPut = loadStorefrontsList();
+      var idxPut = listPut.findIndex(function (s) {
+        return s && String(s.slug || "").toLowerCase() === slugPut;
+      });
+      if (idxPut === -1) return sendJson(res, 404, { error: "Loja não encontrada." });
+      listPut[idxPut] = builtPut.record;
+      storefrontRt.saveStorefrontsList(listPut);
+      var cfgName = loadStoresConfig();
+      (cfgName.stores || []).forEach(function (row) {
+        if (row && (row.id === slugPut || row.slug === slugPut)) {
+          row.name = builtPut.record.title;
+          row.updated_at = builtPut.record.updatedAt;
+        }
+      });
+      saveStoresConfig(cfgName);
+      persistStorefrontsToGithub().catch(function () {});
+      enqueueStorefrontAssetSync(builtPut.filesToSync);
+      return sendJson(res, 200, {
+        ok: true,
+        store: storefrontRt.publicStorefront(builtPut.record),
+        links: {
+          vitrine: publicVitrineUrl(slugPut),
+          loja: "/loja/",
+          pixels: "pixels",
+        },
+      });
+    } catch (ePut) {
+      console.error("[stores PUT]", ePut && ePut.message);
+      var failPut = storefrontSaveError(ePut);
+      return sendJson(res, failPut.status, { error: failPut.error });
     }
   }
 
@@ -8609,7 +9433,7 @@ var server = http.createServer(async function (req, res) {
   /* lista pública de pixel IDs (sem token) — usada por /pago */
   if (req.method === "GET" && pathname === "/api/pixel/public") {
     var qStore = String((url.searchParams && url.searchParams.get("store")) || "").trim();
-    if (!STORE_PATHS[qStore]) {
+    if (!isKnownStore(qStore)) {
       return sendJson(res, 400, { error: "store inválida" });
     }
     var pub = getStorePixels(qStore);
@@ -8634,7 +9458,7 @@ var server = http.createServer(async function (req, res) {
     }
     return sendJson(res, 200, {
       store: qStore,
-      label: STORE_PATHS[qStore].label,
+      label: storeLabel(qStore),
       pixels: pubList,
       source: pub.fromHtml ? "html" : "config",
     });
@@ -8647,7 +9471,7 @@ var server = http.createServer(async function (req, res) {
       var rawFire = await readBody(req);
       var bodyFire = rawFire ? JSON.parse(rawFire) : {};
       var storeFire = String(bodyFire.store || "").trim();
-      if (!STORE_PATHS[storeFire]) {
+      if (!isKnownStore(storeFire)) {
         return sendJson(res, 400, { error: "Loja inválida." });
       }
       var cfgFire = getStorePixels(storeFire);
@@ -8703,7 +9527,7 @@ var server = http.createServer(async function (req, res) {
         {
           content_id: contentId,
           content_type: "product",
-          content_name: STORE_PATHS[storeFire].label + " — teste pixel",
+          content_name: storeLabel(storeFire) + " — teste pixel",
           quantity: 1,
           price: 97.7,
         },
@@ -8721,7 +9545,7 @@ var server = http.createServer(async function (req, res) {
               {
                 content_id: contentId,
                 content_type: "product",
-                content_name: STORE_PATHS[storeFire].label,
+                content_name: storeLabel(storeFire),
               },
             ],
             content_type: "product",
@@ -8818,7 +9642,7 @@ var server = http.createServer(async function (req, res) {
       var bodyVer = rawVer ? JSON.parse(rawVer) : {};
       var storeVer = String(bodyVer.store || "toalha").trim();
       var pixVer = String(bodyVer.pixelId || bodyVer.targetPixelId || "").trim();
-      if (!STORE_PATHS[storeVer]) return sendJson(res, 400, { error: "Loja inválida." });
+      if (!isKnownStore(storeVer)) return sendJson(res, 400, { error: "Loja inválida." });
       var cfgVer = getStorePixels(storeVer);
       var listVer = (cfgVer.pixels || []).filter(function (p) {
         return p.enabled !== false && p.id;
@@ -8897,7 +9721,7 @@ var server = http.createServer(async function (req, res) {
       var rawWarm = await readBody(req);
       var bodyWarm = rawWarm ? JSON.parse(rawWarm) : {};
       var storeWarm = String(bodyWarm.store || "jaqueta").trim();
-      if (!STORE_PATHS[storeWarm]) {
+      if (!isKnownStore(storeWarm)) {
         return sendJson(res, 400, { error: "Loja inválida." });
       }
       var countWarm = Math.max(1, Math.min(5000, parseInt(bodyWarm.count, 10) || 100));
@@ -9017,7 +9841,7 @@ var server = http.createServer(async function (req, res) {
                 {
                   content_id: storeWarm + "-warm-" + (idx % 500),
                   content_type: "product",
-                  content_name: STORE_PATHS[storeWarm].label + " — aquecimento #" + (idx + 1),
+                  content_name: storeLabel(storeWarm) + " — aquecimento #" + (idx + 1),
                   quantity: 1,
                   price: valW,
                 },
@@ -9227,9 +10051,9 @@ var server = http.createServer(async function (req, res) {
         return sendJson(res, 400, { error: "Data inválida. Use YYYY-MM-DD." });
       }
       var storeSpend = String(bodySpend.store || "").trim().toLowerCase();
-      if (!STORE_PATHS[storeSpend]) {
+      if (!isKnownStore(storeSpend)) {
         return sendJson(res, 400, {
-          error: "Loja inválida. Use: " + Object.keys(STORE_PATHS).join(", "),
+          error: "Loja inválida. Use: " + allStoreKeys().join(", "),
         });
       }
       var amountCents = bodySpend.amount;
@@ -10181,6 +11005,10 @@ var server = http.createServer(async function (req, res) {
   }
 
   if (req.method === "GET" || req.method === "HEAD") {
+    var segsDyn = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+    if (segsDyn.length === 1 && findStorefront(segsDyn[0])) {
+      return serveInternalStore(res, segsDyn[0], pathname, req);
+    }
     return serveStatic(req, res, pathname);
   }
 
