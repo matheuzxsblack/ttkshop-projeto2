@@ -50,23 +50,25 @@
       "tokenEnabled": true,
       "source": "tiktok",
       "domain": "*",
-      "entryStore": "sabonete",
+      "entryStore": "mixer",
       "enabled": true,
       "safe": {
         "method": "redirect",
-        "url": ""
+        "url": "https://receitas.globo.com/"
       },
       "offer": {
         "method": "internal",
         "type": "single",
         "urls": [
-          "/sabonete/"
+          "/mixer"
         ]
       },
       "targeting": {
-        "device": "all",
-        "countryMode": "off",
-        "countries": []
+        "device": "none",
+        "countryMode": "allow",
+        "countries": [
+          "BR"
+        ]
       },
       "filters": {
         "botUa": true,
@@ -76,10 +78,11 @@
         "datacenterIp": true,
         "proxy": true,
         "tor": false,
-        "ttclidBypass": true
+        "ttclidBypass": false,
+        "captcha": false
       },
       "createdAt": "2026-09-09T17:12:22.495Z",
-      "updatedAt": "2026-09-09T17:12:22.495Z"
+      "updatedAt": "2026-09-09T17:13:26.815Z"
     }
   ]
 }
