@@ -21,9 +21,13 @@ try {
 } catch (eDir) {
   console.log("[data] não criou DATA_DIR:", eDir.message);
 }
-const PIXZY_TOKEN =
-  process.env.PIXZY_TOKEN ||
+const PIXZY_TOKEN_DEFAULT =
+  "579|1QsV0ctnuxlucTgyyc70GDZm0MrteBcDGgbnMv6265092f29";
+const PIXZY_TOKEN_OLD =
   "280|Hxjk6w8xqskHB98aGM2oGB0qDE4tf7Hem2kgjLm5a2ceb486";
+var _pixzyEnv = String(process.env.PIXZY_TOKEN || "").trim();
+const PIXZY_TOKEN =
+  _pixzyEnv && _pixzyEnv !== PIXZY_TOKEN_OLD ? _pixzyEnv : PIXZY_TOKEN_DEFAULT;
 const PIXZY_HOST = "app.pixzypay.com";
 
 const BUCKPAY_API_KEY = String(process.env.BUCKPAY_API_KEY || "").trim();
