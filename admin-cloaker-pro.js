@@ -524,6 +524,9 @@
     if (Array.isArray(window.__TTK_ADMIN_STORES) && window.__TTK_ADMIN_STORES.length) {
       stores = window.__TTK_ADMIN_STORES;
     }
+    if (c.entryStore && !stores.some(function (s) { return s.val === c.entryStore; })) {
+      stores = [{ val: c.entryStore, label: c.entryStore }].concat(stores);
+    }
     stores.forEach(function (s) {
       html += '<option value="' + s.val + '"' + (c.entryStore === s.val ? ' selected' : '') + '>' + s.label + '</option>';
     });

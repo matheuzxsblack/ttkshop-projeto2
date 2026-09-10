@@ -27,6 +27,10 @@
 
   function slugFromPath() {
     try {
+      var forced = String(window.TTK_STORE || window.TTK_CLOAK_STORE || "")
+        .trim()
+        .toLowerCase();
+      if (forced && forced !== "c" && forced !== "store-engine") return forced;
       var segs = String(location.pathname || "")
         .split("/")
         .filter(Boolean);

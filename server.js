@@ -353,6 +353,10 @@ const CAMPAIGNS_CONFIG_FILE = path.join(DATA_DIR, "campaigns-config.json");
 const CAMPAIGNS_CONFIG_BOOTSTRAP = path.join(ROOT, "campaigns-config.json");
 const CAMPAIGNS_STATS_FILE = path.join(DATA_DIR, "campaigns-stats.json");
 
+function campaignListCount(cfg) {
+  return cfg && Array.isArray(cfg.campaigns) ? cfg.campaigns.length : 0;
+}
+
 function loadCampaignsConfig() {
   try {
     var bootTime = 0, bootData = null;
@@ -365,6 +369,8 @@ function loadCampaignsConfig() {
       fileTime = fs.statSync(CAMPAIGNS_CONFIG_FILE).mtimeMs || 0;
       fileData = JSON.parse(fs.readFileSync(CAMPAIGNS_CONFIG_FILE, "utf8"));
     }
+    /* Disco efêmero/vazio no Render não pode apagar campanhas do git — senão /c/loja 404 e a offer some. */
+    if (campaignListCount(fileData) === 0 && campaignListCount(bootData) > 0) return bootData;
     if (bootData && bootTime >= fileTime) return bootData;
     if (fileData) return fileData;
     if (bootData) return bootData;
@@ -675,18 +681,56 @@ async function decideCampaign(campaign, req, url) {
   return { outcome: outcome, reason: reason, botLike: botLike, offerUrl: offerUrl };
 }
 
+function campaignOfferStoreKey(camp) {
+  var entry = String((camp && camp.entryStore) || "").trim().toLowerCase();
+  if (entry && getStoreMeta(entry)) return entry;
+  var urls = (camp && camp.offer && camp.offer.urls) || [];
+  for (var i = 0; i < urls.length; i++) {
+    var raw = String(urls[i] || "").trim();
+    if (!raw) continue;
+    var pathPart = raw;
+    try {
+      if (/^https?:\/\//i.test(raw)) pathPart = new URL(raw).pathname;
+    } catch (eU) {}
+    var seg = String(pathPart || "")
+      .split("/")
+      .filter(Boolean)[0] || "";
+    seg = String(seg).toLowerCase();
+    if (seg && getStoreMeta(seg)) return seg;
+  }
+  return entry;
+}
+
 /* ---------- Delivery helpers ---------- */
 function serveInternalStore(res, storeKey, pathname, req) {
-  var meta = getStoreMeta(storeKey);
+  var key = String(storeKey || "").trim().toLowerCase();
+  var meta = getStoreMeta(key);
   var file;
   if (meta && meta.dynamic) {
     file = path.join(ROOT, "store-engine", "index.html");
   } else {
-    var dir = meta && meta.dir ? meta.dir : storeKey;
+    var dir = meta && meta.dir ? meta.dir : key;
     file = path.join(ROOT, dir, "index.html");
   }
   try {
     var html = fs.readFileSync(file, "utf8");
+    /* /c/slug da campanha ≠ slug da loja. Sem isso o store-engine hidrata "c" ou o nome
+       da campanha, falha o JSON e a página fica no HTML-base da jaqueta puffer. */
+    if (key) {
+      var boot =
+        '<script>window.TTK_STORE=' +
+        JSON.stringify(key) +
+        ";window.TTK_CLOAK_STORE=" +
+        JSON.stringify(key) +
+        ";</script>";
+      if (/<head[^>]*>/i.test(html)) {
+        html = html.replace(/<head[^>]*>/i, function (m) {
+          return m + "\n  " + boot;
+        });
+      } else {
+        html = boot + html;
+      }
+    }
     res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" });
     res.end(html);
   } catch (e) {
@@ -10973,7 +11017,7 @@ var server = http.createServer(async function (req, res) {
     } else {
       recordCampEvent(camp.id, "offer");
       if (camp.offer.method === "internal") {
-        return serveInternalStore(res, camp.entryStore, pathname, req);
+        return serveInternalStore(res, campaignOfferStoreKey(camp) || camp.entryStore, pathname, req);
       } else if (camp.offer.method === "redirect") {
         res.writeHead(302, { Location: dec.offerUrl, "Cache-Control": "no-store" });
         return res.end();
