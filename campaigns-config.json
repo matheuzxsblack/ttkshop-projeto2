@@ -50,17 +50,17 @@
       "tokenEnabled": true,
       "source": "tiktok",
       "domain": "*",
-      "entryStore": "sabonete",
+      "entryStore": "mixer",
       "enabled": true,
       "safe": {
         "method": "redirect",
-        "url": ""
+        "url": "pornhub.com"
       },
       "offer": {
         "method": "internal",
         "type": "single",
         "urls": [
-          "/sabonete/"
+          "/mixer"
         ]
       },
       "targeting": {
@@ -76,10 +76,11 @@
         "datacenterIp": true,
         "proxy": true,
         "tor": false,
-        "ttclidBypass": true
+        "ttclidBypass": true,
+        "captcha": false
       },
       "createdAt": "2026-09-10T11:18:53.168Z",
-      "updatedAt": "2026-09-10T11:18:53.168Z"
+      "updatedAt": "2026-09-10T11:19:32.845Z"
     }
   ]
 }
