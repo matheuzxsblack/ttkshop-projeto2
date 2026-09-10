@@ -1,48 +1,6 @@
 {
   "campaigns": [
     {
-      "id": "cp_45eb565c",
-      "name": "Pantalona",
-      "slug": "pantalona",
-      "token": "deb5e2446a",
-      "tokenEnabled": true,
-      "source": "tiktok",
-      "domain": "*",
-      "entryStore": "pantalona",
-      "enabled": true,
-      "safe": {
-        "method": "redirect",
-        "url": "https://www.lecreuset.com.br/receitas/"
-      },
-      "offer": {
-        "method": "internal",
-        "type": "single",
-        "urls": [
-          "/pantalona"
-        ]
-      },
-      "targeting": {
-        "device": "mobile",
-        "countryMode": "allow",
-        "countries": [
-          "BR"
-        ]
-      },
-      "filters": {
-        "botUa": true,
-        "automation": true,
-        "softwareGl": true,
-        "desktopLike": true,
-        "datacenterIp": true,
-        "proxy": true,
-        "tor": false,
-        "ttclidBypass": true,
-        "captcha": false
-      },
-      "createdAt": "2026-09-09T05:02:09.776Z",
-      "updatedAt": "2026-09-09T07:38:27.957Z"
-    },
-    {
       "id": "cp_bcc4766f",
       "name": "mixer",
       "slug": "mixer",
