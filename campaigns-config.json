@@ -8,7 +8,7 @@
       "tokenEnabled": true,
       "source": "tiktok",
       "domain": "*",
-      "entryStore": "pantalona",
+      "entryStore": "mixer",
       "enabled": true,
       "safe": {
         "method": "redirect",
@@ -18,7 +18,7 @@
         "method": "internal",
         "type": "single",
         "urls": [
-          "/pantalona"
+          "/mixer"
         ]
       },
       "targeting": {
@@ -40,7 +40,7 @@
         "captcha": false
       },
       "createdAt": "2026-09-09T17:12:22.495Z",
-      "updatedAt": "2026-09-10T11:17:47.414Z"
+      "updatedAt": "2026-09-10T11:18:22.412Z"
     }
   ]
 }
