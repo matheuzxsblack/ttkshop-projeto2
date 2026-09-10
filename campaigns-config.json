@@ -3,7 +3,7 @@
     {
       "id": "cp_bcc4766f",
       "name": "mixer",
-      "slug": "mixer",
+      "slug": "mixer1",
       "token": "8fa8882534",
       "tokenEnabled": true,
       "source": "tiktok",
@@ -40,7 +40,7 @@
         "captcha": false
       },
       "createdAt": "2026-09-09T17:12:22.495Z",
-      "updatedAt": "2026-09-10T05:55:19.256Z"
+      "updatedAt": "2026-09-10T05:55:42.112Z"
     }
   ]
 }
