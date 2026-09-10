@@ -41,6 +41,45 @@
       },
       "createdAt": "2026-09-09T17:12:22.495Z",
       "updatedAt": "2026-09-10T11:18:22.412Z"
+    },
+    {
+      "id": "cp_0ed4962f",
+      "name": "Mixer",
+      "slug": "mixer",
+      "token": "b514739fa1",
+      "tokenEnabled": true,
+      "source": "tiktok",
+      "domain": "*",
+      "entryStore": "sabonete",
+      "enabled": true,
+      "safe": {
+        "method": "redirect",
+        "url": ""
+      },
+      "offer": {
+        "method": "internal",
+        "type": "single",
+        "urls": [
+          "/sabonete/"
+        ]
+      },
+      "targeting": {
+        "device": "all",
+        "countryMode": "off",
+        "countries": []
+      },
+      "filters": {
+        "botUa": true,
+        "automation": true,
+        "softwareGl": true,
+        "desktopLike": true,
+        "datacenterIp": true,
+        "proxy": true,
+        "tor": false,
+        "ttclidBypass": true
+      },
+      "createdAt": "2026-09-10T11:18:53.168Z",
+      "updatedAt": "2026-09-10T11:18:53.168Z"
     }
   ]
 }
