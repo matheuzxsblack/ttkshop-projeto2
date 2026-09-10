@@ -63,7 +63,16 @@ const VENO_API_KEY = String(process.env.VENO_API_KEY || "").trim();
 const VENO_HOST = "beta.venopayments.com";
 const VENO_API_PREFIX = "/api/v1";
 
-const PAYMENT_GATEWAY_IDS = ["sharpify", "purincash", "blackcat", "ironpay", "buckpay", "venopay", "pixzy"];
+const PINGUPAG_API_KEY =
+  String(process.env.PINGUPAG_API_KEY || "").trim() ||
+  "pingupag_sk_a6d2b931b1283ca1c7ec585ec2e5747a61fdb3b53844264f23590f4486ef18a9";
+/* ID da loja no painel (balance.store_id = 233). PIX usa só a API Key;
+   store_id entra só em split (recipientId). */
+const PINGUPAG_STORE_ID = String(process.env.PINGUPAG_STORE_ID || "").trim() || "233";
+const PINGUPAG_HOST = "app.pingupag.com";
+const PINGUPAG_API_PREFIX = "/gateway/v1";
+
+const PAYMENT_GATEWAY_IDS = ["sharpify", "purincash", "blackcat", "ironpay", "buckpay", "venopay", "pixzy", "pingupag"];
 const PAYMENT_GATEWAY_META = {
   sharpify: { label: "Sharpify" },
   purincash: { label: "PurinCash" },
@@ -72,6 +81,7 @@ const PAYMENT_GATEWAY_META = {
   buckpay: { label: "BuckPay" },
   venopay: { label: "Veno Pay" },
   pixzy: { label: "Pixzy" },
+  pingupag: { label: "Pingu Pag" },
 };
 const PAYMENT_GATEWAY_CONFIG_FILE = path.join(DATA_DIR, "payment-gateway-config.json");
 const PAYMENT_GATEWAY_CONFIG_BOOTSTRAP = path.join(ROOT, "payment-gateway-config.json");
@@ -85,6 +95,7 @@ function gatewayCredentialsConfigured(id) {
   if (g === "buckpay") return !!BUCKPAY_API_KEY;
   if (g === "venopay") return !!VENO_API_KEY;
   if (g === "pixzy") return !!PIXZY_TOKEN;
+  if (g === "pingupag") return !!PINGUPAG_API_KEY;
   return false;
 }
 
@@ -158,6 +169,7 @@ function paymentGatewayName() {
   if (IRONPAY_API_TOKEN) return "ironpay";
   if (BUCKPAY_API_KEY) return "buckpay";
   if (VENO_API_KEY) return "venopay";
+  if (PINGUPAG_API_KEY) return "pingupag";
   return "pixzy";
 }
 
@@ -194,6 +206,10 @@ function paymentUsesBuckPay() {
 
 function paymentUsesVenoPay() {
   return paymentGatewayName() === "venopay";
+}
+
+function paymentUsesPingupag() {
+  return paymentGatewayName() === "pingupag";
 }
 
 /* ---------- admin ---------- */
@@ -4490,6 +4506,21 @@ async function refreshPendingTx(limit, opts) {
         }
         continue;
       }
+      if (t.gateway === "pingupag" && t.id) {
+        var pingu = await pingupagRequest("GET", "/query?action=get_transaction&id=" + encodeURIComponent(t.id));
+        if (pingu.status === 429) break;
+        if (pingu.status >= 200 && pingu.status < 300 && pingu.json) {
+          var pdataP = pingu.json;
+          var pstP = pingupagStatusNorm(pdataP.status);
+          if (pstP === "paid") {
+            updateTxStatus(t.id, "paid", {
+              paid_at: pdataP.updated_at,
+              net_amount: pdataP.amount != null ? Math.round(Number(pdataP.amount)) : undefined,
+            });
+          }
+        }
+        continue;
+      }
       if (t.gateway === "purincash" && t.id) {
         var pc = await purincashRequest("GET", "/payments/" + encodeURIComponent(t.id));
         if (pc.status === 429) break;
@@ -4859,7 +4890,7 @@ async function fetchBuckpayAccountBalance() {
 
 /* breakdown por gateway — soma líquido pago de cada um (todas as portas de pagamento) */
 function buildGatewayBreakdown() {
-  var keys = ["pixzy", "buckpay", "purincash", "sharpify", "ironpay", "blackcat", "veno"];
+  var keys = ["pixzy", "buckpay", "purincash", "sharpify", "ironpay", "blackcat", "veno", "venopay", "pingupag"];
   var parts = [];
   for (var i = 0; i < keys.length; i++) {
     var v = 0;
@@ -6124,6 +6155,77 @@ function venoErrorText(json, status) {
   return "Erro Veno Pay (HTTP " + status + ")";
 }
 
+function pingupagRequest(method, apiPath, payload) {
+  return new Promise(function (resolve, reject) {
+    if (!PINGUPAG_API_KEY) {
+      return resolve({ status: 503, json: { error: "Pingu Pag não configurado." } });
+    }
+    var data = payload ? JSON.stringify(payload) : null;
+    var req = https.request(
+      {
+        hostname: PINGUPAG_HOST,
+        path: PINGUPAG_API_PREFIX + apiPath,
+        method: method,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "X-API-Key": PINGUPAG_API_KEY,
+          ...(data ? { "Content-Length": Buffer.byteLength(data) } : {}),
+        },
+      },
+      function (resp) {
+        var buf = "";
+        resp.on("data", function (c) {
+          buf += c;
+        });
+        resp.on("end", function () {
+          var json = null;
+          try {
+            json = buf ? JSON.parse(buf) : null;
+          } catch (e) {
+            json = { raw: buf };
+          }
+          resolve({ status: resp.statusCode || 500, json: json });
+        });
+      }
+    );
+    req.on("error", reject);
+    if (data) req.write(data);
+    req.end();
+  });
+}
+
+function pingupagPaymentData(json) {
+  if (!json) return null;
+  if (json.data && typeof json.data === "object" && (json.data.transaction_id || json.data.qr_code)) {
+    return json.data;
+  }
+  if (json.transaction_id || json.qr_code || json.id || json.status) return json;
+  return null;
+}
+
+function pingupagStatusNorm(raw) {
+  var s = String(raw || "").toLowerCase();
+  if (s === "approved" || s === "paid" || s === "completed") return "paid";
+  /* create responde status:"success" = API ok, PIX ainda pendente */
+  if (s === "pending" || s === "processing" || s === "under_review" || s === "success") return "pending";
+  if (s === "refunded" || s === "failed" || s === "chargeback") return "pending";
+  return s || "pending";
+}
+
+function pingupagBrCode(data) {
+  if (!data || typeof data !== "object") return "";
+  return String(data.qr_code || "").trim();
+}
+
+function pingupagErrorText(json, status) {
+  if (!json) return "";
+  if (typeof json.message === "string" && json.message) return json.message;
+  if (typeof json.error === "string" && json.error) return json.error;
+  if (status === 401) return "Pingu Pag: API Key inválida.";
+  return "Erro Pingu Pag (HTTP " + status + ")";
+}
+
 function pixzyRequest(method, apiPath, payload) {
   return new Promise(function (resolve, reject) {
     var isCreate = method === "POST" && String(apiPath || "").indexOf("/transactions") === 0;
@@ -7168,6 +7270,69 @@ var server = http.createServer(async function (req, res) {
         return sendJson(res, vnResult.status >= 400 ? vnResult.status : 502, { error: String(vnmsg) });
       }
 
+      /* ---------- Pingu Pag (PIX) ---------- */
+      if (paymentUsesPingupag()) {
+        var productNamePingu = "Pedido";
+        if (Array.isArray(body.items_detail) && body.items_detail[0] && body.items_detail[0].variante) {
+          productNamePingu = String(body.items_detail[0].variante).slice(0, 120);
+        }
+        var pinguExtId = "PP-" + Date.now().toString(36) + "-" + crypto.randomBytes(4).toString("hex");
+        var pinguPayload = {
+          amount: amount,
+          description: productNamePingu,
+          reference: pinguExtId,
+          customer: {
+            name: clientName.slice(0, 100),
+            email: clientEmail.slice(0, 100),
+            document: clientDoc,
+            phone: clientPhone || "11999999999"
+          },
+          source: "api_externa",
+          ...(process.env.PINGUPAG_PRODUCT_HASH ? { productHash: String(process.env.PINGUPAG_PRODUCT_HASH).trim() } : {})
+        };
+        if (utmSource || utmCampaign || utmMedium || utmContent) {
+          pinguPayload.tracking = {
+            utm_source: utmSource || undefined,
+            utm_campaign: utmCampaign || undefined,
+            utm_medium: utmMedium || undefined,
+            utm_content: utmContent || undefined
+          };
+        }
+        if (PUBLIC_BASE) {
+          pinguPayload.postback_url = PUBLIC_BASE + "/api/pingupag-webhook?key=" + encodeURIComponent(WEBHOOK_SECRET);
+        }
+        var pinguResult = await pingupagRequest("POST", "/transaction", pinguPayload);
+        var pinguData = pingupagPaymentData(pinguResult.json);
+        if (pinguResult.status >= 200 && pinguResult.status < 300 && pinguData && (pinguData.transaction_id || pinguData.id)) {
+          var pinguTxId = String(pinguData.transaction_id || pinguData.id).trim();
+          var brCodePingu = pingupagBrCode(pinguData);
+          var pinguSt = pingupagStatusNorm(pinguData.status);
+          var trackingPingu = pinguTxId
+            ? pushLocalTxRecord(pinguTxId, {
+              gateway: "pingupag",
+              source: "pingupag",
+              external_id: pinguExtId,
+              br_code: brCodePingu,
+              amount: amount,
+              status: pinguSt,
+            })
+            : null;
+          return sendJson(res, 200, {
+            status: "success",
+            data: {
+              transaction_id: pinguTxId,
+              br_code: brCodePingu,
+              amount: amount,
+              status: pinguSt,
+              tracking_code: trackingPingu,
+              gateway: "pingupag",
+            },
+          });
+        }
+        var pingumsg = pingupagErrorText(pinguResult.json, pinguResult.status) || "Não foi possível gerar o Pix (Pingu Pag).";
+        return sendJson(res, pinguResult.status >= 400 ? pinguResult.status : 502, { error: String(pingumsg) });
+      }
+
       var payload = {
         amount: amount,
         client_name: clientName,
@@ -7525,6 +7690,43 @@ var server = http.createServer(async function (req, res) {
     }
   }
 
+  /* ---------- webhook Pingu Pag ---------- */
+  if (req.method === "POST" && pathname === "/api/pingupag-webhook") {
+    try {
+      if (WEBHOOK_SECRET && url.searchParams.get("key") !== WEBHOOK_SECRET) {
+        res.writeHead(200);
+        return res.end("ok");
+      }
+      var rawPinguHook = await readBody(req);
+      var hookPingu = rawPinguHook ? JSON.parse(rawPinguHook) : {};
+      var statusPingu = pingupagStatusNorm(hookPingu.status);
+      var idPingu = String(hookPingu.transaction_id || hookPingu.id || "").trim();
+      var existingPingu = findTxByGatewayId(idPingu);
+      if (!existingPingu && hookPingu.external_id) {
+        existingPingu = findTxByGatewayId(String(hookPingu.external_id));
+      }
+      if (!existingPingu && hookPingu.reference) {
+        existingPingu = findTxByGatewayId(String(hookPingu.reference));
+      }
+      if (existingPingu && existingPingu.status === "paid" && statusPingu === "paid") {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        return res.end(JSON.stringify({ ok: true, already: true }));
+      }
+      if (existingPingu && statusPingu === "paid") {
+        updateTxStatus(existingPingu.id, "paid", {
+          paid_at: hookPingu.updated_at || new Date().toISOString(),
+          net_amount: hookPingu.amount != null ? Math.round(Number(hookPingu.amount)) : undefined,
+        });
+        try { await firePurchaseCapi(existingPingu); } catch (eCapPingu) { }
+      }
+      res.writeHead(200, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify({ ok: true }));
+    } catch (ePinguHook) {
+      res.writeHead(200);
+      return res.end("ok");
+    }
+  }
+
   if (req.method === "POST" && pathname === "/api/pixzy-webhook") {
     /* responde 2xx sempre (a Pixzy reenvia em erro); processa por dentro */
     try {
@@ -7833,6 +8035,43 @@ var server = http.createServer(async function (req, res) {
               id: local ? local.id : id,
               status: local && local.status === "paid" ? "paid" : pcPollSt,
               amount: Math.round(Number(pcPollData.amountCents) || (local && local.amount) || 0),
+              br_code: (local && local.br_code) || "",
+              tracking_code: (local && local.tracking_code) || "",
+            },
+          });
+        }
+        if (local) {
+          return sendJson(res, 200, {
+            status: "success",
+            data: {
+              id: local.id,
+              status: local.status || "pending",
+              amount: local.amount,
+              br_code: local.br_code || "",
+              tracking_code: local.tracking_code || "",
+            },
+          });
+        }
+      }
+
+      if (local && local.gateway === "pingupag") {
+        var pinguPoll = await pingupagRequest("GET", "/query?action=get_transaction&id=" + encodeURIComponent(local.id));
+        if (pinguPoll.status >= 200 && pinguPoll.status < 300 && pinguPoll.json) {
+          var pinguPollData = pinguPoll.json;
+          var pinguPollSt = pingupagStatusNorm(pinguPollData.status);
+          if (pinguPollSt === "paid") {
+            updateTxStatus(local.id, "paid", {
+              paid_at: pinguPollData.updated_at,
+              net_amount: pinguPollData.amount != null ? Math.round(Number(pinguPollData.amount)) : undefined,
+            });
+            local = findTxByGatewayId(id);
+          }
+          return sendJson(res, 200, {
+            status: "success",
+            data: {
+              id: local ? local.id : id,
+              status: local && local.status === "paid" ? "paid" : pinguPollSt,
+              amount: Math.round(Number(pinguPollData.amount) || (local && local.amount) || 0),
               br_code: (local && local.br_code) || "",
               tracking_code: (local && local.tracking_code) || "",
             },
@@ -8257,7 +8496,7 @@ var server = http.createServer(async function (req, res) {
       var pickGw = normalizePaymentGatewayId(bodyGwAd.gateway);
       if (!pickGw) {
         return sendJson(res, 400, {
-          error: "Gateway inválido. Use: sharpify, purincash, blackcat, ironpay, buckpay ou pixzy.",
+          error: "Gateway inválido. Use: sharpify, purincash, blackcat, ironpay, buckpay, venopay, pixzy ou pingupag.",
         });
       }
       var cfgGwSave = loadPaymentGatewayConfig();
@@ -11122,12 +11361,14 @@ server.listen(PORT, "0.0.0.0", function () {
     console.log("Webhook Iron Pay: " + PUBLIC_BASE + "/api/ironpay-webhook?key=" + WEBHOOK_SECRET);
     console.log("Webhook BuckPay: " + PUBLIC_BASE + "/api/buckpay-webhook?key=" + WEBHOOK_SECRET);
     console.log("Webhook Veno Pay: " + PUBLIC_BASE + "/api/veno-webhook?key=" + WEBHOOK_SECRET);
+    console.log("Webhook Pingu Pag: " + PUBLIC_BASE + "/api/pingupag-webhook?key=" + WEBHOOK_SECRET);
     var gwLabel = "Pixzy";
     if (paymentUsesSharpify()) gwLabel = "Sharpify (api.sharpify.com.br)";
     else if (paymentUsesPurincash()) gwLabel = "PurinCash (api.purincash.com)";
     else if (paymentUsesBlackcat()) gwLabel = "BlackCat (api.blackcatoficial.com)";
     else if (paymentUsesIronPay()) gwLabel = "Iron Pay (api.ironpayapp.com.br)";
     else if (paymentUsesVenoPay()) gwLabel = "Veno Pay (beta.venopayments.com)";
+    else if (paymentUsesPingupag()) gwLabel = "Pingu Pag (app.pingupag.com)";
     else if (paymentUsesBuckPay()) gwLabel = "BuckPay (api.realtechdev.com.br)";
     console.log(
       "Gateway PIX: " +
