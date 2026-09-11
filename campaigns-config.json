@@ -22,7 +22,7 @@
         ]
       },
       "targeting": {
-        "device": "mobile",
+        "device": "none",
         "countryMode": "allow",
         "countries": [
           "BR"
@@ -36,11 +36,11 @@
         "datacenterIp": true,
         "proxy": true,
         "tor": false,
-        "ttclidBypass": true,
+        "ttclidBypass": false,
         "captcha": false
       },
       "createdAt": "2026-09-09T17:12:22.495Z",
-      "updatedAt": "2026-09-10T11:18:22.412Z"
+      "updatedAt": "2026-09-11T02:59:54.529Z"
     },
     {
       "id": "cp_0ed4962f",
