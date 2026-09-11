@@ -41,46 +41,6 @@
       },
       "createdAt": "2026-09-09T17:12:22.495Z",
       "updatedAt": "2026-09-11T02:59:54.529Z"
-    },
-    {
-      "id": "cp_0ed4962f",
-      "name": "Mixer",
-      "slug": "mixer",
-      "token": "b514739fa1",
-      "tokenEnabled": true,
-      "source": "tiktok",
-      "domain": "*",
-      "entryStore": "mixer",
-      "enabled": true,
-      "safe": {
-        "method": "redirect",
-        "url": "pornhub.com"
-      },
-      "offer": {
-        "method": "internal",
-        "type": "single",
-        "urls": [
-          "/mixer"
-        ]
-      },
-      "targeting": {
-        "device": "none",
-        "countryMode": "off",
-        "countries": []
-      },
-      "filters": {
-        "botUa": true,
-        "automation": true,
-        "softwareGl": true,
-        "desktopLike": true,
-        "datacenterIp": true,
-        "proxy": true,
-        "tor": false,
-        "ttclidBypass": false,
-        "captcha": false
-      },
-      "createdAt": "2026-09-10T11:18:53.168Z",
-      "updatedAt": "2026-09-11T03:00:14.645Z"
     }
   ]
 }
